@@ -1,0 +1,9 @@
+source: ./
+dest: ./docs
+posts: blog
+drafts: _drafts
+ignore: ["README.md", "docs/*", ".git/*"]
+rss: rss.xml
+name: booyaa's boggy bloggy
+description: left intentionally blank
+link: http://booyaa.github.io
