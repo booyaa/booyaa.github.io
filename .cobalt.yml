@@ -1,8 +1,8 @@
 source: ./
-dest: ./docs
+dest: ./build
 posts: blog
 drafts: _drafts
-ignore: ["README.md", "docs/*", ".git/*"]
+ignore: ["README.md", "build/*", ".git/*"]
 rss: rss.xml
 name: booyaa's boggy bloggy
 description: left intentionally blank
