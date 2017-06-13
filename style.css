@@ -79,7 +79,7 @@ body[data-route=about] p {
 
 .blog-list li {
   list-style: none;
-  text-align: center;
+  text-align: left;
   margin: 20px;
 }
 
