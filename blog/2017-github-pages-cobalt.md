@@ -46,7 +46,7 @@ to `.gitignore` in the `master` branch.
 # Thanks to...
 
 - [Johann Hofmann](http://johannh.me) for allowing me to copy his 
-blog's style.
+blog's style (and his travis-ci auto deploy setup).
 - [Cobalt](https://github.com/cobalt-org/cobalt.rs) for creating this easy to 
 use static site generator.
 
