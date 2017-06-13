@@ -1,1 +1,3 @@
-# booyaa.github.io
+# my the source for blog booyaa.wtf...
+
+only useful for people trying to troubleshoot their own cobalt sites.
