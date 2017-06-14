@@ -6,7 +6,8 @@ date: 4 Jun 2017 16:49:09 +0100
 path: 2017/mba-setup
 ---
 
-Here's my current setup
+Here's my current setup for my MacBook Air Setup. I use a range of tools like 
+homebrew, Visual Studio Code and vim.
 
 # homebrew
 
@@ -17,13 +18,22 @@ brew install \
         watch vim yarn youtube-dl doctl
 ```
 
-# profile
+# vscode extensions
 
-# editors
+- gitlens
+- hipsum
+- Insert Date String
+- Liquid Language
+- Prettyify JSON
+- Python (Don's)
+- vscode-rust
 
-## vscode
+# vim plugins 
 
-## neo/vim
-
+```shell
+$ ls ~/.vim/bundle/
+go-explorer	rust.vim	tagbar		vim-fugitive	vim-go		webapi-vim
+nerdtree	syntastic	tcomment_vim	vim-gitgutter	vim-racer
+```
 
 
