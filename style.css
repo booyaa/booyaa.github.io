@@ -1,6 +1,6 @@
 html,
 body {
-  /*font-size: 15px;*/
+  font-size: 17px;
   margin: 0;
   padding: 0;
 }
@@ -77,21 +77,35 @@ body[data-route=about] p {
   margin-right: 20px;
 }
 
-.blog-list li {
-  list-style: none;
+article.blog-list {
   text-align: left;
-  margin: 20px;
+  margin: 20px;  
 }
 
-.blog-list li a {
-  font-weight: 200;
+article.blog-list a {
+  font-weight: 100;
   color: black;
-  font-size: 30px;
   text-decoration: none;
 }
 
-.blog-list li a:hover {
+article.blog-list a:hover {
   text-decoration: underline;
+
+}
+
+.avi-image {
+    vertical-align:middle;
+    width: 90px;
+}
+.corner {
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.left {
+  float: left;
+  margin: 5px;
 }
 
 article {
