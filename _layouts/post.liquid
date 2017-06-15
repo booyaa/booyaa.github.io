@@ -8,16 +8,19 @@
   <main>
     <article>
       <h1>{{ title }}</h1>
-      
-      {% assign word_count = content | size %}
-      {% if word_count == 0 or word_count < 1 %}
-        {% assign reading_time = "less than a " %}
-      {% else %}
-        {% assign reading_time = word_count | divided_by: 200 %}
-        {% assign pluralize = "s"%}
-      {% endif %} 
+      {% assign reading_wpm = 200 %} 
+      {% assign word_count = content | split: " " | size %}
+      {% assign reading_time = word_count | divided_by: 200 %}
+      {% case reading_time %}
+        {% when 0 %}
+          {% assign phrase = "less than a minute." %}
+        {% when 1 %}
+          {% assign phrase = "about a minute." %}
+				{% else %}								
+          {% assign phrase = " minutes." | prepend: reading_time %}
+    	{% endcase %} 
 
-      <time pubdate="pubdate">{{ date | date: "%b %d, %Y" }} - Reading time: {{ reading_time }} minute{{ pluralize }}.</time><br />
+			<time pubdate="pubdate">{{ date | date: "%b %d, %Y" }} - Reading time: {{ phrase }}</time><br />
       
       {{ content }}
     </article>
