@@ -1,4 +1,4 @@
-extends: default.liquid
+extends: post.liquid
 
 title: Using Cobalt with GitHub pages
 date: 11 Jun 2017 18:29:09 +0100

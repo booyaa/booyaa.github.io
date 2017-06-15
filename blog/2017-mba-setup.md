@@ -1,4 +1,4 @@
-extends: default.liquid
+extends: post.liquid
 
 title: MacBook Air Setup
 date: 4 Jun 2017 16:49:09 +0100

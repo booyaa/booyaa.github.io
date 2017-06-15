@@ -1,4 +1,4 @@
-extends: default.liquid
+extends: post.liquid
 
 title: Using a custom domain with GitHub Pages
 date: 13 Jun 2017 08:02:54 +0100
