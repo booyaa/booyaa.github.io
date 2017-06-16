@@ -93,6 +93,11 @@ article.blog-list a:hover {
 
 }
 
+div.right p {
+  margin: 0px;
+  padding: 0px;
+}
+
 .avi-image {
     vertical-align:middle;
     width: 90px;
