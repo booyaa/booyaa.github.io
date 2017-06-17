@@ -79,7 +79,8 @@ body[data-route=about] p {
 
 article.blog-list {
   text-align: left;
-  margin: 20px;  
+  margin: 20px;
+  padding: 25px;  
 }
 
 article.blog-list a {
@@ -90,32 +91,33 @@ article.blog-list a {
 
 article.blog-list a:hover {
   text-decoration: underline;
-
 }
 
-div.right p {
-  margin: 0px;
-  padding: 0px;
-}
-
-.avi-image {
-    vertical-align:middle;
-    width: 90px;
-}
-.corner {
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    border-radius: 25px;
-}
-
+/* begin article banner */
 .left {
   float: left;
   margin: 5px;
 }
 
-article {
-  margin-top: 50px;
+.avi-image {
+    vertical-align: middle;
+    width: 90px;
+    padding-right: 10px;
 }
+.corner {
+    border-radius: 50%;
+}
+
+.right h3 {
+  margin: 5px;
+}
+
+.right p {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* end article banner */
 
 footer {
   font-family: "Muli", sans-serif;
