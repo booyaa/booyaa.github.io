@@ -27,7 +27,6 @@
         $.getJSON("/js/lunr_index.json")
             .done(function(index) {
                 pagesIndex = index;
-                console.log("index:", pagesIndex);
 
                 // Set up lunrjs by declaring the fields we use
                 // Also provide their boost level for the ranking
@@ -43,7 +42,6 @@
                     
                     // Feed lunr with each file and let lunr actually index them
                     pagesIndex.forEach(function(page) {
-                        console.log('indexing - ', page);
                         this.add(page)
                     }, this);
                 });
