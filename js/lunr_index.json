@@ -1,13 +1,21 @@
 [{
     "title": "Useful commit messages",
     "href": "/2017/useful-commit-messages/",
-    "content": " Keeping a copy of this excellent bit of advice until I've committed (no pun) it to memory. "
+    "content": " Keeping a copy of this excellent bit of advice until I've committed (no pun) it to memory.\nfeat: add hat wobble\n^--^  ^------------^\n|     |\n|     +-> Summary in present tense.\n|\n+-------> Type: chore, docs, feat, fix, refactor, style, or test.\nSource: https://seesparkbox.com/foundry/semantic_commit_messages "
 }, {
     "title": "Add reading time in Cobalt",
-    "href": "booyaa.wtf/2017/add-reading-time/",
-    "content": " I wanted to add an approximate reading time to each of my blog posts, like those seen in medium posts. "
+    "href": "/2017/add-reading-time/",
+    "content": " I wanted to add an approximate reading time to each of my blog posts, like those seen in medium posts.\nThere's a lot of really nice javascript libraries out that, but I kinda figured this defeat the whole purpose of using a static site generator.\nI was also looking for an excuse to use liquid (the template rendering engine for Cobalt).\nIt's a fairly simplistic approach, perform a word count and divide by 200 which is the average of words read per min.\nIt would appear I may have found a bug with the raw tag implementation in liquid-rs. I had to reverse the order of my code to get it to appear as you see in this blog post!\nBug report time! "
 }, {
     "title": "Using a custom domain with GitHub Pages",
-    "href": "http://booyaa.wtf/2017/gh-pages-custom-domain/",
-    "content": " It took far too long to work out how to do this on the GitHub help pages..."
+    "href": "/2017/gh-pages-custom-domain/",
+    "content": " It took far too long to work out how to do this on the GitHub help pages...Assumptions:\nI've only tested for personal/user domain i.e. the doc root for http://USERNAME.github.io/.\nYou've already have an A (APEX) record for your existing site.\nYou've already got a CNAME record that points to the A record.\nInstructions\nEnable custom domain in your repository (settings).\nUpdate your A record to point to IP addresses: 192.30.252.153 and 192.30.252.154. Pro-tip: Switch your DNS management to cloudflare if you want super fast switch from your old hosting to GitHub.\necho your-domain-name > CNAME in the default branch repo. This will be source if you're doing this for a Cobalt site. "
+}, {
+    "title": "Using Cobalt with GitHub pages",
+    "href": "/2017/cobalt-github/",
+    "content": " It turns out using Cobalt and your personal GitHub page is a bit trickier to setup. Your personal GitHub page as oppose to your repo GitHub page, must have the content in the master branch. Repository/Project GitHub pages can live in a subdir of default branch i.e. docs\nThis is not a criticism of Cobalt, but rather myself demonstrating my lack of git prowess.\nThe general gist of this how to, is that you place your Cobalt project in the source branch and then use cobalt import --branch master to transfer the rendered content to master.Instructions\nCreate your user/personal page repo (USERNAME.github.io)\nFollow instructions for initialising a repo\ngit -b checkout source\ncobalt init\n# do cobalty stuff..\ncobalt build\n# commit, maybe even push to source\ncobalt import --branch master\ngit checkout master\n# commit, definitely push\nIf you want to check out my setup you can find it here.\nThings I've not worked out yet\nThe build folder gets copied to the master branch during cobalt import. The folder doesn't contain any files. My work around at the moment is to add it to .gitignore in the master branch.\nThanks to...\nJohann Hofmann for allowing me to copy his blog''s style (and his travis-ci auto deploy setup).\nCobalt for creating this easy to use static site generator. "
+}, {
+    "title": "MacBook Air Setup",
+    "href": "/2017/mba-setup/",
+    "content": " Here's my current setup for my MacBook Air Setup. I use a range of tools like homebrew, Visual Studio Code and vim.\nhomebrew\nbrew install \\\npython python3 bash-git-prompt elixir figlet ffmpeg go httpie \\\nimagemagick jq nmap zeromq reattach-to-user-namespace tmux sqlite \\nwatch vim yarn youtube-dl doctl\nvscode extensions\ngitlens\nhipsum\nInsert Date String\nLiquid Language\nPrettyify JSON\nPython (Don's)\nvscode-rust\nvim plugins\n$ ls ~/.vim/bundle/\ngo-explorer rust.vim    tagbar      vim-fugitive    vim-go      webapi-vim\nnerdtree    syntastic   tcomment_vim    vim-gitgutter   vim-racer "
 }]
