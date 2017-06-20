@@ -1,4 +1,6 @@
-# my the source for blog booyaa.wtf...
+# The source of all my power!
+
+## Otherwise known as the Cobalt source files for booyaa.wtf
 
 [![Build Status](https://travis-ci.org/booyaa/booyaa.github.io.svg?branch=source)](https://travis-ci.org/booyaa/booyaa.github.io)
 
