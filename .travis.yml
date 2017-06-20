@@ -2,7 +2,7 @@ sudo: false
 language: rust
 
 before_script:
-  - cargo install --git cobalt-org/cobalt.rs --features="syntax-highlight"
+  - cargo install --git https://github.com/cobalt-org/cobalt.rs --features="syntax-highlight"
   - export PATH="$PATH:~/.cargo/bin"
 
 script:
