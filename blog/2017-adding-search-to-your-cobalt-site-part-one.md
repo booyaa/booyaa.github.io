@@ -8,15 +8,45 @@ path: 2017/adding-search-to-your-cobalt-site-part-one
 This will be a two part post, where I detail the steps it took to enable
 search on my Cobalt site.
 
-In this first post I will detail how to integrate lunr using a manually created 
-index file. If you already know how to do this you can skip to [second post](http://booyaa.wtf/2017/adding-search-to-your-cobalt-site-part-two), where I 
-create the index file using a liquid template.
+In this first post I will detail how to integrate [lunr](http://lunrjs.com/) 
+using a manually created index file. If you already know how to wire up lunr, 
+you can skip to [second post](http://booyaa.wtf/2017/adding-search-to-your-cobalt-site-part-two), 
+where I create the index file using a liquid template.
 
-This is more of a note to myself, I will explain the details at a later date.
+I love blogs. However, once the initial excitement of discovering an interesting 
+blog post has worn off and you want to look for more relevant posts by the same
+author you start to look for local search or some form of taxonomy.
+
+This is often the short coming of using a static site generator to power your 
+blog. It's great at produce pre-rendered static pages, but search or tag views
+are the domain of a dynamic content management system.
+
+The subject of this post is see if I can solve content discovery via local 
+search, I would like to at a later date visit taxonomies.
+
+It turns out that we can approximate a fairly good search experience using [lunr](http://lunrjs.com/)
+which is a light weight implementation of [Solr](https://lucene.apache.org/solr/) the enterprise search platform. With a little bit of 
+jQuery and the lunr library we can cobble together a basic search page in 
+Cobalt.
+
+## My Cobalt source directory structure
+
+This is a point of reference for file locations.
+
+```
+.
+├── _drafts
+├── _layouts
+├── blog
+├── img
+└── js
+```
+
+There should be no surprises here.
 
 ## search.liquid
 
-The search template looks like this.
+I placed my search template in the root of my Cobalt source and it looks like this.
 
 ### frontmatter
 
@@ -29,6 +59,12 @@ path:  search/
 ```
 
 ### liquid template
+
+The general gist (pun intended) of the template is to create an text input box and a hook for the results to appear in.
+
+The template is a copy of this [gist](https://gist.github.com/sebz/efddfc8fdcb6b480f567) which is a recipe for getting lunr to work with [hugo](http://gohugo.io/) (an excellent static site generator written in Go).
+
+It has some tweaks to get it working with lunr v2.1.0.
 
 ```html
 <input id="search" type="text" size="25" placeholder="search for stuff here..." 
@@ -145,5 +181,60 @@ $(document).ready(function() {
     initUI();
 });
 </script>
-
 ```
+
+### An artisanal lunr index
+
+To get my proof of concept going, I needed to feed lunr a distilled form of my
+blog posts, which I called `lunr_index.json` and stored it in `/js`.
+
+```json
+[{
+    "title": "Useful commit messages",
+    "href": "/2017/useful-commit-messages/",
+    "content": " Keeping a copy of this excellent bit of advice until I've committed (no pun) it to memory. "
+}, {
+    "title": "Add reading time in Cobalt",
+    "href": "/2017/add-reading-time/",
+    "content": " I wanted to add an approximate reading time to each of my blog posts, like those seen in medium posts. "
+}, {
+    "title": "Using a custom domain with GitHub Pages",
+    "href": "/2017/gh-pages-custom-domain/",
+    "content": " It took far too long to work out how to do this on the GitHub help pages... "
+}, {
+    "title": "Using Cobalt with GitHub pages",
+    "href": "/2017/cobalt-github/",
+    "content": " It turns out using Cobalt and your personal GitHub page is a bit trickier to setup. Your personal GitHub page as oppose to your repo GitHub page, must have the content in the master branch. Repository/Project GitHub pages can live in a subdir of default branch i.e. docs "
+}, {
+    "title": "MacBook Air Setup",
+    "href": "/2017/mba-setup/",
+    "content": " Here's my current setup for my MacBook Air Setup. I use a range of tools like homebrew, Visual Studio Code and vim. "
+}]
+```
+
+The format is fairly trivial and only has a very small fragment of the blog 
+post, which will affect searching.
+
+Incidentally the `boost` property for the `title` field in the search template 
+is probably superflorous as it's the only item being searched again. The 
+original source for the code also utilised a `tag` field, and `boost` allows 
+you to give weightings for which field should be favoured when searching the 
+index.
+
+Also I've misleadingly called this the index file, but readers with a keen eye 
+will notice that the file gets read by the jQuery script and is then 
+added to lunr's own object using the `add` function.
+
+### Putting it all together
+
+Once you've created the search template and the lunr index, all you need to do
+is perform your usual `cobalt build` workflow.
+
+If you've followed my structure, your search page can be found in `/search`. 
+Search results should appear immediately.
+
+### But is a webscale?
+
+I have no idea, I don't have enough blog posts, but I do plan on doing 
+experiments using lunr v2.x's `lunr.Index.load`, more details can be found 
+[here](https://lunrjs.com/guides/index_prebuilding.html).
