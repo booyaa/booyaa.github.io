@@ -5,8 +5,8 @@ date: 20 Jun 2017 08:35:51 +0100
 
 path: 2017/adding-search-to-your-cobalt-site-part-two
 ---
-_This will be a two part post, where I detail the steps it took to enable
-search on my Cobalt site._
+This will be a two part post, where I detail the steps it took to enable
+search on my Cobalt site.
 
 As you may have gathered in [part one](http://booyaa.wtf/2017/adding-search-to-your-cobalt-site-part-two), 
 creating manual indexes is a bit of a chore. With a minor caveat, you can do 

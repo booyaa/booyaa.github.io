@@ -5,8 +5,8 @@ date: 20 Jun 2017 08:06:11 +0100
 
 path: 2017/adding-search-to-your-cobalt-site-part-one
 ---
-_This will be a two part post, where I detail the steps it took to enable
-search on my Cobalt site._
+This will be a two part post, where I detail the steps it took to enable
+search on my Cobalt site.
 
 In this first post I will detail how to integrate lunr using a manually created 
 index file. If you already know how to do this you can skip to [second post](http://booyaa.wtf/2017/adding-search-to-your-cobalt-site-part-two), where I 
