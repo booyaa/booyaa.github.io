@@ -1,6 +1,6 @@
 # my the source for blog booyaa.wtf...
 
-[![Build Status](https://travis-ci.org/booyaa/booyaa.github.io.svg?branch=master)](https://travis-ci.org/booyaa/booyaa.github.io)
+[![Build Status](https://travis-ci.org/booyaa/booyaa.github.io.svg?branch=source)](https://travis-ci.org/booyaa/booyaa.github.io)
 
 Only useful for people trying to troubleshoot their own cobalt sites.
 
