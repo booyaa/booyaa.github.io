@@ -1,0 +1,15 @@
+title: lunr index
+path: /js/lunr_index.json
+---
+{% assign idx = 0 %}
+{% assign post_count = posts | size %}
+[
+{% for post in posts %}
+{% assign idx = idx | plus: 1 %}
+    { 
+        "title" : "{{ post.title }}",
+        "href" : "{{ post.path }}",
+        "content" : "{{ post.content | strip_html | strip_newlines | replace: "\", "\\" }}"
+    }{% if idx < post_count %},{% endif %}
+{% endfor %}
+]
