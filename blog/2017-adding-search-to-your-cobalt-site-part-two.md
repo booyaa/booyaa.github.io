@@ -8,7 +8,7 @@ path: 2017/adding-search-to-your-cobalt-site-part-two
 This will be a two part post, where I detail the steps it took to enable
 search on my Cobalt site.
 
-As you may have gathered in [part one](http://booyaa.wtf/2017/adding-search-to-your-cobalt-site-part-two), 
+As you may have gathered in [part one](http://booyaa.wtf/2017/adding-search-to-your-cobalt-site-part-one), 
 creating manual indexes is a bit of a chore. With a minor caveat, you can do 
 this automatically using the liquid templating engine.
 
