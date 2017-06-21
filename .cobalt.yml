@@ -2,7 +2,7 @@ source: ./
 dest: ./build
 posts: blog
 drafts: _drafts
-ignore: ["README.md", "build/*", ".git/*"]
+ignore: ["README.md", "build/*", ".git/*", "TODO.md"]
 rss: rss.xml
 name: booyaa's boggy bloggy
 description: left intentionally blank
