@@ -11,7 +11,7 @@ route: blog
   </div>
   <div class="right">
   <h3><a href="{{ post.path }}">{{ post.title }}</a></h3>
-  {{ post.content | truncatewords: 15, '...' }}
+  {{ post.content | strip_html | truncatewords: 25, '...' }}
   </div>
 </article>
 {% endfor %}
