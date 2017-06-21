@@ -6,32 +6,34 @@ date: 20 Jun 2017 08:06:11 +0100
 path: 2017/adding-search-to-your-cobalt-site-part-one
 ---
 This will be a two part post, where I detail the steps it took to enable
-search on my Cobalt site.
+search on my [Cobalt](https://github.com/cobalt-org/cobalt.rs) site.
 
 In this first post I will detail how to integrate [lunr](http://lunrjs.com/) 
 using a manually created index file. If you already know how to wire up lunr, 
-you can skip to [second post](http://booyaa.wtf/2017/adding-search-to-your-cobalt-site-part-two), 
+you can skip to [second post](/adding-search-to-your-cobalt-site-part-two), 
 where I create the index file using a liquid template.
 
-I love blogs. However, once the initial excitement of discovering an interesting 
-blog post has worn off and you want to look for more relevant posts by the same
-author you start to look for local search or some form of taxonomy.
+I love blogs, but after the initial excitement of discovery you become curious 
+about the blog author and if they have other posts of a similar topic. At this 
+point you expect to have either a local search or some form of taxonomy.
 
-This is often the short coming of using a static site generator to power your 
-blog. It's great at produce pre-rendered static pages, but search or tag views
-are the domain of a dynamic content management system.
+This is often a shortcoming of using a static site generator to power your 
+blog. It's great at producing pre-rendered static pages, but search or tag 
+views are the domain of a dynamic content management system.
 
-The subject of this post is see if I can solve content discovery via local 
-search, I would like to at a later date visit taxonomies.
+As the title of this blog post suggests, I will be looking to solve the problem 
+of local search. I'll leave the subject of taxonomies for a future blog post.
 
-It turns out that we can approximate a fairly good search experience using [lunr](http://lunrjs.com/)
-which is a light weight implementation of [Solr](https://lucene.apache.org/solr/) the enterprise search platform. With a little bit of 
-jQuery and the lunr library we can cobble together a basic search page in 
-Cobalt.
+It turns out that we can approximate a resonable search experience using 
+lunr. lunr is a light weight implementation of 
+[Solr](https://lucene.apache.org/solr/) the enterprise search platform (off the 
+shelf search engine). With a little bit of jQuery and the lunr library we can 
+cobble together a search page in Cobalt.
 
-## My Cobalt source directory structure
+# My Cobalt source directory structure
 
-This is a point of reference for file locations.
+I've shared my own blog's structure as an way to refer to locations within a 
+Cobalt source directory.
 
 ```
 .
@@ -42,13 +44,17 @@ This is a point of reference for file locations.
 └── js
 ```
 
-There should be no surprises here.
+There should be no surprises here, our primary areas of interest will be the 
+`js` directory where javascript related assets live. And the root of the 
+directory where my index, about and licenses pages live (all extending the 
+default liquid template).
 
-## search.liquid
+# search.liquid
 
-I placed my search template in the root of my Cobalt source and it looks like this.
+I placed my search template in the root of my Cobalt source and it looks like 
+this.
 
-### frontmatter
+## frontmatter
 
 ```
 extends: default.liquid
@@ -58,11 +64,14 @@ path:  search/
 ---
 ```
 
-### liquid template
+## content
 
-The general gist (pun intended) of the template is to create an text input box and a hook for the results to appear in.
+The general gist (pun intended) of the template is to create an text input box 
+and a hook for the results to appear in.
 
-The template is a copy of this [gist](https://gist.github.com/sebz/efddfc8fdcb6b480f567) which is a recipe for getting lunr to work with [hugo](http://gohugo.io/) (an excellent static site generator written in Go).
+The template is a copy of this [gist](https://gist.github.com/sebz/efddfc8fdcb6b480f567) 
+for getting lunr to work with [hugo](http://gohugo.io/) (an 
+excellent static site generator written in Go).
 
 It has some tweaks to get it working with lunr v2.1.0.
 
@@ -183,7 +192,7 @@ $(document).ready(function() {
 </script>
 ```
 
-### An artisanal lunr index
+## An artisanal lunr index
 
 To get my proof of concept going, I needed to feed lunr a distilled form of my
 blog posts, which I called `lunr_index.json` and stored it in `/js`.
@@ -218,23 +227,37 @@ post, which will affect searching.
 Incidentally the `boost` property for the `title` field in the search template 
 is probably superflorous as it's the only item being searched again. The 
 original source for the code also utilised a `tag` field, and `boost` allows 
-you to give weightings for which field should be favoured when searching the 
+you to give a weighting for which field should be favoured when searching the 
 index.
 
-Also I've misleadingly called this the index file, but readers with a keen eye 
-will notice that the file gets read by the jQuery script and is then 
-added to lunr's own object using the `add` function.
+As you can imagine hand crafting an index file is a bit lo-fi, so if you want
+to see what I used in the end (another liquid template), check out [part two](/2017/adding-search-to-your-cobalt-site-part-two)
+of this blog post.
 
-### Putting it all together
+## Putting it all together
 
 Once you've created the search template and the lunr index, all you need to do
 is perform your usual `cobalt build` workflow.
 
 If you've followed my structure, your search page can be found in `/search`. 
-Search results should appear immediately.
+Search results should appear immediately as you start to type in the input box.
 
-### But is a webscale?
+## But is it webscale?
 
-I have no idea, I don't have enough blog posts, but I do plan on doing 
-experiments using lunr v2.x's `lunr.Index.load`, more details can be found 
+I have no idea, I don't have a large enough volume of data to test against. 
+However, a bit of research i.e. duckduckgo indicates that you can use lunr 
+v2.x's `lunr.Index.load` to load a pre-built index, more details can be found 
 [here](https://lunrjs.com/guides/index_prebuilding.html).
+
+## Anything else?
+
+I'd love to remove the dependency on jQuery, but to be fair I can't be arsed
+to rewrite in vanilla js as it just works &trade;. Saying that, it has got me 
+thinking perhaps, I should create a liquid-rust extension (not sure if it'll be 
+a tag, filter or other) to generate vanilla js for things that causes people to 
+reach for [jQuery](http://youmightnotneedjquery.com).
+
+Also I have no idea why the damn input box is so small.
+
+Any guidence or help with either of these two issues would be greatly 
+appreciated.
