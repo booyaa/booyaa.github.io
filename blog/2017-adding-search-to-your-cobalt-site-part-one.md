@@ -11,9 +11,9 @@ This will be a two part post, where I detail the steps it took to enable
 search on my [Cobalt](https://github.com/cobalt-org/cobalt.rs) site.
 
 In this first post I will detail how to integrate [lunr](http://lunrjs.com/) 
-using a manually created index file. If you already know how to wire up lunr, 
-you can skip to [second post](/adding-search-to-your-cobalt-site-part-two), 
-where I create the index file using a liquid template.
+using a manually created document collection. If you already know how to wire 
+up lunr, you can skip to [second post](/adding-search-to-your-cobalt-site-part-two), 
+where I create the document collection using a liquid template.
 
 I love blogs, but after the initial excitement of discovery you become curious 
 about the blog author and if they have other posts of a similar topic. At this 
@@ -97,7 +97,7 @@ var lunrIndex,
 // Initialize lunrjs using our generated index file
 function initLunr() {
     // First retrieve the index file
-    $.getJSON("/js/lunr_index.json")
+    $.getJSON("/js/lunr_docs.json")
         .done(function(index) {
             pagesIndex = index;
 
@@ -194,10 +194,14 @@ $(document).ready(function() {
 </script>
 ```
 
-## An artisanal lunr index
+# An artisanal lunr document collection
 
 To get my proof of concept going, I needed to feed lunr a distilled form of my
-blog posts, which I called `lunr_index.json` and stored it in `/js`.
+blog posts, which I called `lunr_docs.json` and stored it in `/js`. In an
+earlier version of this post, I mistakenly referred to this as the lunr index.
+
+It's the data that will be used to generate lunr's index. The index has 
+different structure that we'll learn about in [part two](/adding-search-to-your-cobalt-site-part-two).
 
 ```json
 [{
@@ -223,8 +227,8 @@ blog posts, which I called `lunr_index.json` and stored it in `/js`.
 }]
 ```
 
-The format is fairly trivial and only has a very small fragment of the blog 
-post, which will affect searching.
+The format of the document collection is fairly trivial and only has a very 
+small fragment of the blog post, which will affect searching.
 
 Incidentally the `boost` property for the `title` field in the search template 
 is probably superflorous as it's the only item being searched again. The 
@@ -232,11 +236,11 @@ original source for the code also utilised a `tag` field, and `boost` allows
 you to give a weighting for which field should be favoured when searching the 
 index.
 
-As you can imagine hand crafting an index file is a bit lo-fi, so if you want
-to see what I used in the end (another liquid template), check out [part two](/2017/adding-search-to-your-cobalt-site-part-two)
-of this blog post.
+As you can imagine hand crafting an document collection is a bit lo-fi, so if 
+you want to see what I used in the end (another liquid template), check out 
+[part two](/2017/adding-search-to-your-cobalt-site-part-two) of this blog post.
 
-## Putting it all together
+# Putting it all together
 
 Once you've created the search template and the lunr index, all you need to do
 is perform your usual `cobalt build` workflow.
@@ -244,14 +248,17 @@ is perform your usual `cobalt build` workflow.
 If you've followed my structure, your search page can be found in `/search`. 
 Search results should appear immediately as you start to type in the input box.
 
-## But is it webscale?
+# But is it webscale?
 
 I have no idea, I don't have a large enough volume of data to test against. 
-However, a bit of research i.e. duckduckgo indicates that you can use lunr 
-v2.x's `lunr.Index.load` to load a pre-built index, more details can be found 
-[here](https://lunrjs.com/guides/index_prebuilding.html).
+However lunr v2.x's `lunr.Index.load` function allows you to load a pre-built 
+index, but this does add an extra of complexity. And at time of writing will 
+require either node.js or some form of v8 context to generate it. The idea is 
+that you index the document collection and serialise the index generated.
 
-## Anything else?
+More details can be found [here](https://lunrjs.com/guides/index_prebuilding.html).
+
+# Anything else?
 
 I'd love to remove the dependency on jQuery, but to be fair I can't be arsed
 to rewrite in vanilla js as it just works &trade;. Saying that, it has got me 
@@ -263,3 +270,8 @@ Also I have no idea why the damn input box is so small.
 
 Any guidence or help with either of these two issues would be greatly 
 appreciated.
+
+# Updates
+
+2017-06-21 - Change references to the lunr index to the lunr document 
+collection.
