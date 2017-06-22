@@ -20,32 +20,11 @@ var lunrIndex,
 // Initialize lunrjs using our generated index file
 function initLunr() {
     // First retrieve the index file
-    $.getJSON("/js/lunr_index.json")
+    $.getJSON("/js/lunr_prebuilt.json")
         .done(function(index) {
             pagesIndex = index;
-
-            // Set up lunrjs by declaring the fields we use
-            // Also provide their boost level for the ranking
-            lunrIndex = lunr(function() {
-                this.field("title", {
-                    boost: 10
-                });
-
-                this.field("tags", {
-                    boost: 5
-                })
-
-                this.field("content");
-
-                // ref is the result item identifier (I chose the page URL)
-                this.ref("href");
-                
-                // Feed lunr with each file and let lunr actually index them
-                pagesIndex.forEach(function(page) {
-                    this.add(page)
-                }, this);
-            });
-            
+            console.log(pagesIndex);
+            lunrIndex = lunr.Index.load(pagesIndex);
         })
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
