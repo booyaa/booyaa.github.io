@@ -30,6 +30,10 @@ function initLunr() {
                     boost: 10
                 });
 
+                this.field("tags", {
+                    boost: 5
+                })
+
                 this.field("content");
 
                 // ref is the result item identifier (I chose the page URL)

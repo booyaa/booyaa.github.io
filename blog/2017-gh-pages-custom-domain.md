@@ -4,6 +4,8 @@ title: Using a custom domain with GitHub Pages
 date: 13 Jun 2017 08:02:54 +0100
 
 path: 2017/gh-pages-custom-domain
+
+tags: cobalt,github,dns
 ---
 
 It took far too long to work out how to do this on the GitHub help pages...

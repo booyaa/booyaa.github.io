@@ -4,6 +4,7 @@ title: MacBook Air Setup
 date: 4 Jun 2017 16:49:09 +0100
 
 path: 2017/mba-setup
+tags: mac, homebrew, vscode, vim, setup
 ---
 
 Here's my current setup for my MacBook Air Setup. I use a range of tools like 
