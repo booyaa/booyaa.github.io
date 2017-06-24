@@ -19,33 +19,20 @@ var lunrIndex,
 // This is pretty much a copy of https://gist.github.com/sebz/efddfc8fdcb6b480f567
 // Initialize lunrjs using our generated index file
 function initLunr() {
-    // First retrieve the index file
+    // First retrieve the pre-built index file
+    $.getJSON("/js/lunr_prebuilt.json")
+        .done(function(index) {
+            lunrIndex = lunr.Index.load(index);
+        })
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ", " + error;
+            console.error("Error getting cobalt index file:", err);
+        });
+        
+    // Now fetch the document collection (to enrich the search results)
     $.getJSON("/js/lunr_docs.json")
         .done(function(index) {
             pagesIndex = index;
-
-            // Set up lunrjs by declaring the fields we use
-            // Also provide their boost level for the ranking
-            lunrIndex = lunr(function() {
-                this.field("title", {
-                    boost: 10
-                });
-
-                this.field("tags", {
-                    boost: 5
-                })
-
-                this.field("content");
-
-                // ref is the result item identifier (I chose the page URL)
-                this.ref("href");
-                
-                // Feed lunr with each file and let lunr actually index them
-                pagesIndex.forEach(function(page) {
-                    this.add(page)
-                }, this);
-            });
-            
         })
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
@@ -104,7 +91,7 @@ function renderResults(results) {
     results.slice(0, 10).forEach(function(result) {
         var $result = $("<li style=\"list-style:none;\">"); // FUUUUUU!
         $result.append($("<a>", {
-            href: result.href,
+            href: "/"+result.href,
             text: "» " + result.title
         }));
         $results.append($result);
