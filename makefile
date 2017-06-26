@@ -7,3 +7,6 @@ build:
 	
 serve:
 	cobalt serve
+
+upgrade:
+	cargo install --force cobalt-bin --features="syntax-highlight"
