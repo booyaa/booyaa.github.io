@@ -1,7 +1,7 @@
 extends: post.liquid
 title: When XML attacks!
 date: 1 Jul 2017 18:11:10 +0100
-path: 2017/when-xml-attacks.md
+path: 2017/when-xml-attacks
 tags: oracle, xmltype, xml, extractvalue
 ---
 
