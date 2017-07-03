@@ -1,12 +1,9 @@
 extends: post.liquid
-
 title: Useful commit messages
 date: 16 Jun 2017 09:09:18 +0100
-
 path: 2017/useful-commit-messages
 tags: git
 ---
-
 Keeping a copy of this excellent bit of advice until I've committed (no pun) it
 to memory.
 

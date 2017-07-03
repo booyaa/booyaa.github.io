@@ -4,12 +4,11 @@ date: 1 Jul 2017 18:19:52 +0100
 path: 2017-dirty-dynamic-sql
 tags: dynamic, sql, danger, oneliners, codegen
 ---
+Not all dynamic sql is strictly for immediate execution, nor is it dirty (I
+needed aninteresting title). I learnt this tricks from my friend at work, he's
+a big believer of using sql to code generate more sql.
 
-Not strictly all dynamic sql for immediate execution let alone dirty (I need an
-interesting title). I learnt this tricks from my friend at work, he's a big
-believer of using sql to code generate more sql.
-
-# Altering column length
+## Altering column length
 
 You'll still get an error when running the generated sql if you try to shrink a column.
 
@@ -21,7 +20,7 @@ SELECT 'ALTER TABLE ' || table_name || ' MODIFY ' || column_name || ' VARCHAR2('
    AND NOT regexp_like(table_name, '_(NEW|BAK)$') -- exclude backups
 ```
 
-# Inserting (hurr) output from dynamic sql
+## Inserting (hurr) output from dynamic sql
 
 Normally you'd expect to get away with using something like `SELECT blah INTO
 v_foo`, but with dynamic sql you need place the `INTO` in the `EXECUTE
@@ -49,7 +48,7 @@ END;
 ```
 tags: rowcount , row , count
 
-# Using substution variables
+## Using substution variables
 
 ```sql
 clear screen
@@ -78,22 +77,24 @@ begin
 end;
 /
 ```
-# One liners
+## One liners
 
-## Grants
+### Grants
 
 ```sql
-SELECT 'GRANT ' || privilege || ' ON "' || GRANTOR ||'"."' || TABLE_NAME || '" TO "' || GRANTEE || '";' 
+SELECT 'GRANT ' || privilege || ' ON "' || GRANTOR ||'"."' || TABLE_NAME || 
+       '" TO "' || GRANTEE || '";' 
 FROM dba_tab_privs 
 WHERE grantor = 'FOO'
 AND grantee = 'BAR'
 ;
 ```
 
-## Recreating synonyms as sys
+### Recreating synonyms as sys
 
 ```sql
-select 'CREATE OR REPLACE SYNONYM "' || OWNER || '"."' || SYNONYM_NAME || '" FOR "' || TABLE_OWNER || '"."' || TABLE_NAME || '";' 
+select 'CREATE OR REPLACE SYNONYM "' || OWNER || '"."' || SYNONYM_NAME || 
+       '" FOR "' || TABLE_OWNER || '"."' || TABLE_NAME || '";' 
 from dba_synonyms 
 where table_owner = 'FOO';
 ```

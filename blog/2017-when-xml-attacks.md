@@ -4,7 +4,6 @@ date: 1 Jul 2017 18:11:10 +0100
 path: 2017/when-xml-attacks
 tags: oracle, xmltype, xml, extractvalue
 ---
-
 At some point in your xml wrangling career you will hit an node whose data is
 too big for Oracle's `EXTRACTVALUE` (I think the upper limit is 4000
 characters) and get this lovely message.
@@ -37,7 +36,8 @@ node.
 
 `XML ( '/*'` - how to specify the root of an xml document
 
-`biggie VARCHAR2(4000) PATH 'substring(/path/to/offending/item/text(),1,3999)'` - how to get the text from an xpath and truncate it to 4000 chars.
+`biggie VARCHAR2(4000) PATH 'substring(/path/to/offending/item/text(),1,3999)'` 
+- how to get the text from an xpath and truncate it to 4000 chars.
 
 sources:
 - [XMLTABLE : Convert XML Data into Rows and Columns using SQL](https://oracle-base.com/articles/misc/xmltable-convert-xml-data-into-rows-and-columns-using-sql)

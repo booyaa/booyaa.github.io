@@ -10,7 +10,7 @@ the difference is become more apparent.
 
 Also substitution variables are really a binding to a user variable.
 
-# Bind variables
+## Bind variables
 
 ```plsql
 PROMPT bind variables are...
@@ -41,7 +41,7 @@ FOO
 in PL/SQL blocks
 ```
 
-# Substitution variables
+## Substitution variables
 
 ```PLSQL
 PROMPT Where as substitution variable are...
@@ -60,11 +60,13 @@ BAR
 useful in SQL scripts
 ```
 
-To be explict, use bind vars to interact with PL/SQL blocks and substituion variables could be used anywhere. The only downside to substituion variables is that you can't DEFINE a variable with another user variable.
+To be explict, use bind vars to interact with PL/SQL blocks and substituion
+variables could be used anywhere. The only downside to substituion variables is
+that you can't DEFINE a variable with another user variable.
 
-Also you can break substitution variables, if there's an errant `SET DEFINE OFF`,
-still not sure how you could test for this? Perhaps using default values and 
-testing for it i.e. like SQLCMD variables.
+Also you can break substitution variables, if there's an errant `SET DEFINE OFF`, 
+still not sure how you could test for this? Perhaps using default values
+and testing for it i.e. like SQLCMD variables.
 
 Further reading:
 

@@ -1,10 +1,7 @@
 extends: post.liquid
-
 title: Using Cobalt with GitHub pages
 date: 11 Jun 2017 18:29:09 +0100
-
 path: 2017/cobalt-github
-
 tags: cobalt,github
 ---
 
@@ -21,7 +18,7 @@ The general gist of this how to, is that you place your Cobalt project in the
 `source` branch and then use `cobalt import --branch master` to transfer the
 rendered content to master.
 
-# Instructions
+## Instructions
 
 - Create your user/personal page repo (USERNAME.github.io)
 - Follow instructions for initialising a repo
@@ -39,13 +36,13 @@ git checkout master
 
 If you want to check out my setup you can find it [here](https://github.com/booyaa/booyaa.github.io).
 
-# Things I've not worked out yet
+## Things I've not worked out yet
 
 - The `build` folder gets copied to the `master` branch during `cobalt import`.
 The folder doesn't contain any files. My work around at the moment is to add it
 to `.gitignore` in the `master` branch.
 
-# Thanks to...
+## Thanks to...
 
 - [Johann Hofmann](http://johannh.me) for allowing me to copy his 
 blog's style (and his travis-ci auto deploy setup).

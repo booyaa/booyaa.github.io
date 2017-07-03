@@ -1,16 +1,13 @@
 extends: post.liquid
-
 title: MacBook Air Setup
 date: 4 Jun 2017 16:49:09 +0100
-
 path: 2017/mba-setup
 tags: mac, homebrew, vscode, vim, setup
 ---
-
 Here's my current setup for my MacBook Air Setup. I use a range of tools like 
 homebrew, Visual Studio Code and vim.
 
-# homebrew
+## homebrew
 
 ```shell
 brew install \
@@ -19,7 +16,7 @@ brew install \
         watch vim yarn youtube-dl doctl
 ```
 
-# vscode extensions
+## vscode extensions
 
 - gitlens
 - hipsum
@@ -29,7 +26,7 @@ brew install \
 - Python (Don's)
 - vscode-rust
 
-# vim plugins 
+## vim plugins 
 
 ```shell
 $ ls ~/.vim/bundle/

@@ -1,10 +1,7 @@
 extends: post.liquid
-
 title: Adding search to your cobalt site - Part One
 date: 20 Jun 2017 08:06:11 +0100
-
 path: 2017/adding-search-to-your-cobalt-site-part-one
-
 tags: cobalt,github,search,lunr,liquid
 ---
 This will be a two part post, where I detail the steps it took to enable
@@ -32,7 +29,7 @@ lunr. lunr is a light weight implementation of
 shelf search engine). With a little bit of jQuery and the lunr library we can 
 cobble together a search page in Cobalt.
 
-# My Cobalt source directory structure
+## My Cobalt source directory structure
 
 I've shared my own blog's structure as an way to refer to locations within a 
 Cobalt source directory.
@@ -51,12 +48,12 @@ There should be no surprises here, our primary areas of interest will be the
 directory where my index, about and licenses pages live (all extending the 
 default liquid template).
 
-# search.liquid
+## search.liquid
 
 I placed my search template in the root of my Cobalt source and it looks like 
 this.
 
-## frontmatter
+### frontmatter
 
 ```
 extends: default.liquid
@@ -66,7 +63,7 @@ path:  search/
 ---
 ```
 
-## content
+### content
 
 The general gist (pun intended) of the template is to create an text input box 
 and a hook for the results to appear in.
@@ -194,7 +191,7 @@ $(document).ready(function() {
 </script>
 ```
 
-# An artisanal lunr document collection
+## An artisanal lunr document collection
 
 To get my proof of concept going, I needed to feed lunr a distilled form of my
 blog posts, which I called `lunr_docs.json` and stored it in `/js`. In an
@@ -240,7 +237,7 @@ As you can imagine hand crafting an document collection is a bit lo-fi, so if
 you want to see what I used in the end (another liquid template), check out 
 [part two](/2017/adding-search-to-your-cobalt-site-part-two) of this blog post.
 
-# Putting it all together
+## Putting it all together
 
 Once you've created the search template and the lunr index, all you need to do
 is perform your usual `cobalt build` workflow.
@@ -248,7 +245,7 @@ is perform your usual `cobalt build` workflow.
 If you've followed my structure, your search page can be found in `/search`. 
 Search results should appear immediately as you start to type in the input box.
 
-# But is it webscale?
+## But is it webscale?
 
 I have no idea, I don't have a large enough volume of data to test against. 
 However lunr v2.x's `lunr.Index.load` function allows you to load a pre-built 
@@ -258,7 +255,7 @@ that you index the document collection and serialise the index generated.
 
 More details can be found [here](https://lunrjs.com/guides/index_prebuilding.html).
 
-# Anything else?
+## Anything else?
 
 I'd love to remove the dependency on jQuery, but to be fair I can't be arsed
 to rewrite in vanilla js as it just works &trade;. Saying that, it has got me 
@@ -271,7 +268,7 @@ Also I have no idea why the damn input box is so small.
 Any guidence or help with either of these two issues would be greatly 
 appreciated.
 
-# Updates
+## Updates
 
 2017-06-21 - Change references to the lunr index to the lunr document 
 collection.

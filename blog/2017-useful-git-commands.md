@@ -4,8 +4,7 @@ date: 22 Jun 2017 18:51:43 +0100
 path: 2017/useful-git-commands
 tags: git
 ---
-
-# Started working on a feature/fix, but forgot you we're in master?
+## Started working on a feature/fix, but forgot you we're in master?
 
 This assumes you haven't committed your changes...
 
@@ -16,7 +15,7 @@ git checkout master
 # clean up any files you don't want to commit...
 ```
 
-# Sync your repo with the upstream
+## Sync your repo with the upstream
 
 Setup a remote to the upstream.
 
@@ -36,7 +35,7 @@ git push -u origin master # update remote repo of your fork
 This can also be used to push your GitHub repos to other hosted SCM providers 
 i.e. GitLab and BitBucket
 
-# Commit logs
+## Commit logs
 
 Now that I've started adding [useful commit messages](/2017/useful-commit-messages.md)
 it's really use to make sense of my commits, more so when you use single line 

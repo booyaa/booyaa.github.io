@@ -1,10 +1,7 @@
 extends: post.liquid
-
 title: Adding search to your cobalt site - Part Two
 date: 20 Jun 2017 08:35:51 +0100
-
 path: 2017/adding-search-to-your-cobalt-site-part-two
-
 tags: cobalt,github,search,lunr,liquid
 ---
 This will be a two part post, where I detail the steps it took to enable
@@ -14,9 +11,9 @@ As you may have gathered in [part one](/adding-search-to-your-cobalt-site-part-o
 creating manual document collections is a bit of a chore, and can be easily done 
 using the liquid templating engine.
 
-# lunr.liquid
+## lunr.liquid
 
-## front matter
+### front matter
 
 ```
 title: lunr index
@@ -27,7 +24,7 @@ path: /js/lunr_docs.json
 The item of note here, is the path which Cobalt will use to create the lunr 
 document collection.
 
-## content
+### content
 
 ```liquid
 {% raw %}
@@ -55,7 +52,7 @@ Don't forget to remove the manually generated document collection
 (`lunr_docs.json`) from the assets directory for javascript files (`js/`) , as 
 this caught me out and made me wonder why the index wasn't being updated.
 
-# Updates
+## Updates
 
 2017-06-21 - Change references to the lunr index to the lunr document 
 collection.

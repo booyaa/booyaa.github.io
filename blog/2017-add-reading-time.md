@@ -1,10 +1,7 @@
 extends: post.liquid
-
 title: Add reading time in Cobalt
 date: 15 Jun 2017 09:05:37 +0100
-
 path: 2017/add-reading-time
-
 tags: cobalt,github,liquid
 ---
 

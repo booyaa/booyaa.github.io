@@ -1,8 +1,6 @@
 extends: post.liquid
-
 title: Using pre-built lunr indexes
 date: 22 Jun 2017 19:21:00 +0100
-
 path: 2017/prebuilt-lunr-indexes
 tags: cobalt,search,lunr
 ---

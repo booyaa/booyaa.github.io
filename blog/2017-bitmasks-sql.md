@@ -27,7 +27,7 @@ select 'beta', 2 as wanted from dual
 ...
 ```
 
-### Get "need me too" and "alpha" together
+## Get "need me too" and "alpha" together
 
 ```sql
 ...
@@ -36,7 +36,7 @@ from data
 where bitand(wanted, 5) <> 0; -- (4 + 1)
 ```
 
-### Get "need me too" and "beta" together
+## Get "need me too" and "beta" together
 
 ```sql
 ...

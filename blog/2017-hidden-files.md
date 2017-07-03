@@ -1,7 +1,6 @@
 extends: post.liquid
 title: See hidden files in Finder
 date: 1 Jul 2017 14:21:50 +0100
-
 path: 2017/hidden-files
 tags: mac, finder
 ---

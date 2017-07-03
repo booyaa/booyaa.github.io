@@ -1,10 +1,7 @@
 extends: post.liquid
-
 title: Using a custom domain with GitHub Pages
 date: 13 Jun 2017 08:02:54 +0100
-
 path: 2017/gh-pages-custom-domain
-
 tags: cobalt,github,dns
 ---
 
@@ -17,7 +14,7 @@ Assumptions:
 - You've already have an `A` (APEX) record for your existing site.
 - You've already got a `CNAME` record that points to the `A` record.
 
-# Instructions 
+## Instructions 
 
 1. Enable custom domain in your repository (settings).
 2. Update your `A` record to point to IP addresses: `192.30.252.153` and 
