@@ -1,0 +1,90 @@
+extends: post.liquid
+title: python tips
+date: 4 Jul 2017 16:54:51 +0100
+path: 2017/python
+tags: python, homebrew, raspbian
+---
+A random collection of Python tips, I also write Python code in MacOS and
+raspbian so you'll see tips for those platforms.
+
+## Docker images (python related)
+
+- httpbin - `docker run -it --rm -p 8000:8000 citizenstig/httpbin`
+- jupyter notebook - `docker run -it --rm -p 8888:8888 jupyter/all-spark-notebook`
+
+## pylint messages
+
+to suppress `# pylint: disable=invalid-name`
+
+to see a list `pylint --list-msgs | grep -i W05`
+
+## Returning something useful from a class
+
+`str` method
+
+```python
+class foo:
+	def __str__(self):
+		return “something rendered nicely”
+```
+## SimpleHTTPServer for python 3
+
+```python3 -m http.server 8080```
+
+## Tabulating
+
+Panda’s probably a better fit because it can generate all kinds of tables (markdown, ascii, html etc)
+
+If you need something quick use [tabulate](https://bitbucket.org/astanin/python-tabulate).
+
+```python
+>>> list(zip(*table2))
+[(1, 'A', '@'), (2, 'B', '$'), (3, 'C', '!')]
+>>> print(tabulate([list(x) for x in zip(*table2)], headers=["i1","i2","i3"]))
+  i1  i2    i3
+----  ----  ----
+   1  A     @
+   2  B     $
+   3  C     !
+>>> table2
+[[1, 2, 3], ['A', 'B', 'C'], ['@', '$', '!']]
+```
+
+## versioning
+
+### downgrading to python 3.5.2 in homebrew
+
+```
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/f377ed1a1b568d5624164146ec7d6855fe175826/Formula/python3.rb
+python3 -V
+brew pin python3
+```
+
+### switching back to 3.6.0
+
+```
+brew unpin python3
+brew switch python3 3.6.0
+```
+
+### updating python3 pypi
+
+```
+easy_install3 -U pip
+python -m pip install —upgrade pip # better
+```
+
+### upgrading pip (python2) 
+
+```
+pip install —upgrade pip
+pip install —upgrade setuptools
+```
+
+if it fails (pip’s a module, avoid using this unless you’re using debian)
+```
+apt-get remove pip
+easy_install pip
+pip install —upgrade pip
+```
+
