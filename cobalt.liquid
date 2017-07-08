@@ -1,0 +1,21 @@
+extends: default.liquid
+
+title: booyaa's boggy bloggy
+path: tags/cobalt/
+comment: collection of cobalt related posts
+---
+{% assign filter_tag = "cobalt" %}
+
+<h1>Posts tagged as {{ filter_tag }}</h1>
+
+<ul>
+{% for post in posts reversed %}
+    {% assign tags = post.tags | replace: " ", "" |  split: "," %}
+    {% for tag in tags %}
+        {% if tag == filter_tag %}
+            <li><a href="/{{post.path}}">{{ post.title }}</a></li>
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+</ul>
