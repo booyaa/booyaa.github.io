@@ -9,3 +9,4 @@
     - oracle db
         - ords
     - iib
+- git2go test
