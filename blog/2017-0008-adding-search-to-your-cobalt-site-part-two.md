@@ -7,7 +7,7 @@ tags: cobalt,github,search,lunr,liquid
 This will be a two part post, where I detail the steps it took to enable
 search on my [Cobalt](https://github.com/cobalt-org/cobalt.rs) site.
 
-As you may have gathered in [part one](/adding-search-to-your-cobalt-site-part-one), 
+As you may have gathered in [part one](/2017/adding-search-to-your-cobalt-site-part-one/), 
 creating manual document collections is a bit of a chore, and can be easily done 
 using the liquid templating engine.
 

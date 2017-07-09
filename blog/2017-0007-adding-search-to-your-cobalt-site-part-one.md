@@ -9,7 +9,7 @@ search on my [Cobalt](https://github.com/cobalt-org/cobalt.rs) site.
 
 In this first post I will detail how to integrate [lunr](http://lunrjs.com/) 
 using a manually created document collection. If you already know how to wire 
-up lunr, you can skip to [second post](/adding-search-to-your-cobalt-site-part-two), 
+up lunr, you can skip to [second post](/2017/adding-search-to-your-cobalt-site-part-two/), 
 where I create the document collection using a liquid template.
 
 I love blogs, but after the initial excitement of discovery you become curious 
