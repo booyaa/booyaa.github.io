@@ -80,5 +80,7 @@ for now.
 The tag page content literally define the tag filter that will be used by the
 `tags` template and then includes the `tags` template.
 
-The end result can be found [here](/tags/cobalt/). The source code can be found
+The end result can be found [here](/tags/cobalt/). I should add that, I'm still
+thinking about a way to add this link within related posts, but I think that's
+another problem altogether! The source code can be found
 [here](https://github.com/booyaa/booyaa.github.io).
