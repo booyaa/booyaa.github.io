@@ -6,4 +6,4 @@ ignore: ["README.md", "build/*", ".git/*", "TODO.md", "_lunr", "*.md.noparse" ]
 rss: rss.xml
 name: booyaa's boggy bloggy
 description: left intentionally blank
-link: http://booyaa.wtf
+link: https://booyaa.wtf
