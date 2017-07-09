@@ -1,5 +1,5 @@
 extends: post.liquid
-title: How to add tags to Cobalt
+title: Add support for tags to Cobalt
 date: 9 Jul 2017 10:07:03 +0100
 path: 2017/cobalt-tags
 tags: cobalt, tags, taxonomies, categories
