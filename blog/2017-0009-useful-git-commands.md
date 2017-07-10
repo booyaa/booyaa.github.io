@@ -4,6 +4,24 @@ date: 22 Jun 2017 18:51:43 +0100
 path: 2017/useful-git-commands
 tags: git
 ---
+
+## Commit logs
+
+Now that I've started adding [useful commit messages](/2017/useful-commit-messages.md)
+it's really use to make sense of my commits, more so when you use single line 
+mode.
+
+
+```shell
+$ git log --oneline
+3b04513 doc: add 'comment' tag to explain purpose of new templates
+86cc454 feat: add tags to search
+7286f90 feat: add twitter share button
+24cfc85 feat: add todo
+20d28d7 chore: remove manually generated lunr index
+...
+```
+
 ## Started working on a feature/fix, but forgot you we're in master?
 
 This assumes you haven't committed your changes...
@@ -35,19 +53,23 @@ git push -u origin master # update remote repo of your fork
 This can also be used to push your GitHub repos to other hosted SCM providers 
 i.e. GitLab and BitBucket
 
-## Commit logs
+## Submodules
 
-Now that I've started adding [useful commit messages](/2017/useful-commit-messages.md)
-it's really use to make sense of my commits, more so when you use single line 
-mode.
+You want to add repo `Bar` to your own repo `Foo`
 
+`git submodule add https://path/to/bar`
 
-```shell
-$ git log --oneline
-3b04513 doc: add 'comment' tag to explain purpose of new templates
-86cc454 feat: add tags to search
-7286f90 feat: add twitter share button
-24cfc85 feat: add todo
-20d28d7 chore: remove manually generated lunr index
-...
-```
+To pull the changes in
+
+`git submodule init`
+
+To do this at clone time
+
+`git clone --recursive https://repo/contain/submodules`
+
+To refresh the submodule (assuming the dir name is the same as the submodule)
+
+ `git submodule update --remote submodule_name`
+
+Possible gotcha if you refresh your submodule, you will need to commit new
+version into your own repo.
