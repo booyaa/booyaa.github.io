@@ -9,4 +9,6 @@
     - oracle db
         - ords
     - iib
-- git2go test
+- cobalt
+    - lunr indexing as a service (to avoid install node as part of cobalt build process)
+    - get v8 working in rust
