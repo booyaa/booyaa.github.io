@@ -73,3 +73,23 @@ To refresh the submodule (assuming the dir name is the same as the submodule)
 
 Possible gotcha if you refresh your submodule, you will need to commit new
 version into your own repo.
+
+## Tags
+
+N.B. Tags when push to GitHub become releases!
+
+to tag
+
+`git tag v1.0.0`
+
+to see what tag we're on
+
+`git tag`
+
+to push
+
+`git push --tags`
+
+to pull
+
+`git fetch --tags`
