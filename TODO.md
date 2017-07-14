@@ -4,6 +4,7 @@
 - add meta data
     - enable twitter cards https://dev.twitter.com/cards/types/summary
     - opengraph (fb)
+    - reference: https://api.slack.com/robots
 
 ## blog post ideas
 
