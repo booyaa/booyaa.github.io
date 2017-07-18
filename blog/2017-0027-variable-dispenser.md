@@ -1,6 +1,6 @@
 extends: post.liquid
 title: SSIS Variable Dispenser Template
-date: 13 Jul 2017 15:36:58 +0100
+date: 17 Jul 2017 16:00:00 +0100
 path: 2017/variable-dispenser
 tags: ssis, bids, template
 ---
