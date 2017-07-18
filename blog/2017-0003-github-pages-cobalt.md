@@ -24,7 +24,7 @@ rendered content to master.
 - Follow instructions for initialising a repo
 
 ```shell
-git -b checkout source
+git checkout -b source
 cobalt init
 # do cobalty stuff..
 cobalt build
