@@ -6,5 +6,9 @@ tags: rust,meetup,usergroup
 ---
 Trying an experiment to keep a copy of the...
 
-- [Request for Explanation Episode #2 - Stealing Chickens on the Internet](https://request-for-explanation.github.io/podcast/ep2-stealing-chickens-on-the-internet/index.html)
+- [Request for Explanation Episode No: 2 - Stealing Chickens on the Internet](https://request-for-explanation.github.io/podcast/ep2-stealing-chickens-on-the-internet/index.html). No: 4 landed on Monday!
 - [RustFest Zurich CFP: closes July 23rd 10PM UTC](https://cfp.rustfest.eu/events/rustfest-ch)
+- Talk Spots
+  - [August 16th](https://github.com/rust-community/talks/issues/45) - 2 lightning talks (5-15m) available
+  - [September 20th](https://github.com/rust-community/talks/issues/46) - 2 lightning talks (5-15m) available
+  - [More dates](https://github.com/rust-community/talks/labels/LDN) - We're pre-booked with Skillsmatter up to the end of the year!
