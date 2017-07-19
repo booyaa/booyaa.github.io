@@ -1,5 +1,5 @@
 extends: post.liquid
-title: Cargo cult - the problem copying existing code
+title: Cargo cult - the problem with copying existing code
 date: 19 Jul 2017 11:52:00 +0100
 path: 2017-cargo-cult-visual-studio
 tags: cargocult,visualstudio,msbuild
