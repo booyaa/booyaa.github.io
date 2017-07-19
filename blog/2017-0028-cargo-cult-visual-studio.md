@@ -6,10 +6,14 @@ tags: cargocult,visualstudio,msbuild
 ---
 A quick note to myself on how to identify build errors. This is also a timely 
 reminder that you should create code from scratch once in a while, rather than 
-copying an existing project. The pain to get it working will be worthwhile, as 
-you will have learnt something new. In my case how to run MSBuild (Microsoft 
-build toolchain) and identify what version of SSIS (Microsoft flavoured ETL) my 
-project was based on.
+copying an existing project. This is a form of cargo cult (I've linked to the
+Wikipedia page in my references below, if you've never heard of the term 
+before)
+
+The pain to get it working will be worthwhile, as you will have learnt 
+something new. In my case how to run MSBuild (Microsoft build toolchain) and 
+identify what version of SSIS (Microsoft flavoured ETL) my project was based 
+on.
 
 I started to wire up my brand new SSIS project to TeamCity (JetBrains flavoured 
 CI). Immediately the build failed. Asking the team and no one else had seen the 
@@ -102,3 +106,4 @@ Time Elapsed 00:00:01.43
 
 - [Cargo cult](https://en.wikipedia.org/wiki/Cargo_cult)
 - [MSBuild walkthrough](https://docs.microsoft.com/en-gb/visualstudio/msbuild/walkthrough-using-msbuild)
+- [Building MSBuild Project From Scratch](https://docs.microsoft.com/en-gb/visualstudio/msbuild/walkthrough-creating-an-msbuild-project-file-from-scratch)
