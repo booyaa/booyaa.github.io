@@ -11,12 +11,23 @@ First off if you can, you should be using the Rust Language Server (RLS)
 [extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust).
 Yes it's alpha, but the user experience has been the best I've had, outside of
 in-house language support by giants like Microsoft and JetBrains! The extension
-does everything for you if you have [rustup](http://rustup.rs/) installed!
+will even install dependencies for you if you have [rustup](http://rustup.rs/)
+installed!
 
-If you didn't want to use RLS, then the alternative is to install various rust
-related tools (racers, rustfmt and rustsym) manually. There's a
-[guide](https://github.com/editor-rs/vscode-rust/blob/master/doc/legacy_mode/main.md)
-which was part of Kalita Alexey's rust extension that provides the details.
+If you didn't want to use RLS, then the alternative is to install various Rust
+related tools (racers, rustfmt and rustsym) manually. The only Rust extension that support non-RLS is [Kalita Alexey's](https://github.com/editor-rs/vscode-rust/blob/master/doc/legacy_mode/main.md).
+
+Whilst we're on the subject of Kalita's extension, this was a fork of the RLS
+team's reference extension. The biggest draw this extension at the time was
+that it was available on the [Visual Studio
+Marketplace](https://marketplace.visualstudio.com/), where as the RLS team extension had to be manually installed via git.
+
+I think one of reasons why Kalita released his fork into the Visual Studio
+Marketplace, was that the first Rust extension
+[RustyCode](https://marketplace.visualstudio.com/items?itemName=saviorisdead.RustyCode)
+was no longer being actively maintained.
+
+It will be interesting two see how the two active extensions progress.
 
 ## Debugging
 
@@ -25,7 +36,9 @@ black art if you're not using gdb. However thanks to the [LLDB
 Debugger](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
 extension it's become a little bit easier.
 
-The only bit that caught me out was the `launch.json` boiler plate code (see below for a sample), specifically what would be the correct value for `program` key. This is the path to your debug binary.
+The only bit that caught me out was the `launch.json` boiler plate code (see
+below for a sample), specifically what would be the correct value for `program`
+key. This is the path to your debug binary.
 
 ```json
 {
@@ -43,7 +56,8 @@ The only bit that caught me out was the `launch.json` boiler plate code (see bel
 }
 ```
 
-So the binary you wish to debug is called `foo`, your valuye for the `program` key would look like this: 
+So if the binary you wish to debug is called `foo`, your value for the
+`program` key would look like this:
 
 ```json
 {
@@ -54,7 +68,9 @@ So the binary you wish to debug is called `foo`, your valuye for the `program` k
 note: I've omitted the rest of the json keys that don't change for the sake of
 brevity.
 
-If you wanted to keep things generic and only compile a binary that matches the cargo folder name, you could use `${workspaceRootFolderName}` variable substitution.
+If you wanted to keep things generic and only compile a binary that matches the
+cargo folder name, you could use `${workspaceRootFolderName}` variable
+substitution.
 
 ```json
 {
@@ -63,12 +79,12 @@ If you wanted to keep things generic and only compile a binary that matches the 
 ```
 
 If you're interested in what other variables substitutions are available the
-[Debugger
+[Visual Studio Code Debugger
 guide](https://code.visualstudio.com/Docs/editor/debugging#_variable-substitution)
 has a handy list.
 
 One last option to enable is `sourceLanguages` with the value of `"rust"`, this
-option enables visualisation of built-in types and standard library types. So
+option enables visualisation of built-in types and standard library types i.e.
 you can peek into the contents of a `Vec` etc.
 
 
