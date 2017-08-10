@@ -1,6 +1,6 @@
 extends: post.liquid
 title: Regular Expressions Miscellany
-date: 11 August 2017 13:37:00 +0100
+date: 13 August 2017 12:34:56 +0100
 path: 2017/message-queue-miscellany
 tags: regularexpression,regex,oracle,notepad++
 ---
