@@ -7,7 +7,7 @@ tags: rust,vscode,tips
 
 ## Which extension?
 
-First off if you can, you should be using the Rust Language Server (RLS) [extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust). Yes it's alpha, but the user experience has been the best I've had, outside of in-house language support by giants like Microsoft and JetBrains! The extension will even install dependencies for you if you have [rustup](http://rustup.rs/) installed!
+First off if you can, you should be using the Rust Language Server (RLS) [extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust). Yes it's beta, but the user experience has been the best I've had, outside of in-house language support by giants like Microsoft and JetBrains! The extension will even install dependencies for you if you have [rustup](http://rustup.rs/) installed!
 
 If you didn't want to use RLS, then the alternative is to install various Rust related tools (racers, rustfmt and rustsym) manually. The only Rust extension that support non-RLS is [Kalita Alexey's](https://github.com/editor-rs/vscode-rust/blob/master/doc/legacy_mode/main.md).
 
