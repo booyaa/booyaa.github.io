@@ -17,6 +17,8 @@ The biggest draw this extension at the time was that it was available on the [Vi
 
 It will be interesting two see how the two active extensions progress.
 
+If you want a proper whistle stop tour of RLS I recommend you pop over to [@nrc](https://users.rust-lang.org/u/nrc) blog as he's done a thorough job of it in this [post](http://www.ncameron.org/blog/what-the-rls-can-do/). 
+
 ## Debugging
 
 I'm ashamed to admit that I still find setting up debugging Rust a bit of a black art if you're not using gdb. However thanks to the [LLDB
