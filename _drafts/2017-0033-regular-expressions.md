@@ -9,13 +9,12 @@ tags: regularexpression,regex,oracle,notepad++
 
 ## regexp_count and regexp_replace functions
 
-Let say you have a column that contains `source` for an Oracle object. We want to extract a documentation hidden in sql multiline comment block `/* .... */`, it's been wrapped in a pair of `@@` for easy identification.
+Let say you have a column that contains `source` for an Oracle object. We want to extract  documentation hidden in sql multiline comment block `/* .... */`, it's been wrapped in a pair of `@@` for easy identification.
 
 | ID | source                                | documentation |
 |----|---------------------------------------|---------------|
 | 1  | /*@@treasure@@*/                      | treasure      |
 |    | select foo from bar                   |               |
-|----|---------------------------------------|---------------|
 | 2  | select fizz from buzz                 |               |
 
 The little gotcha is that there's a linebreak between the documentation and the actual code.
@@ -26,7 +25,7 @@ Whilst not regular expression as per se you want to use `translate` to remove an
 
 This will allow you to supply `regexp_replace` with the following regular expression `'^..@@(.*)@@(.*)'` and extract the documentation.
 
-Here's the entire solution with a cte to provide some test data.
+Here's the entire solution with a common table expression to provide some test data.
 
 ```sql
 COL source FORMAT a30
