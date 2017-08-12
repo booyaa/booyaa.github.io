@@ -1,6 +1,6 @@
 extends: post.liquid
 title: Message Queue Miscellany
-date: 11 August 2017 13:37:00 +0100
+date: 12 Aug 2017 14:13:12 +0100
 path: 2017/message-queue-miscellany
 tags: mq,messagequeue
 ---
