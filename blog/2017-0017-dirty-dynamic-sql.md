@@ -1,7 +1,7 @@
 extends: post.liquid
 title: Dirty Dynamic SQL
 date: 1 Jul 2017 18:19:52 +0100
-path: 2017-dirty-dynamic-sql
+path: 2017/dirty-dynamic-sql
 tags: dynamic, sql, danger, oneliners, codegen
 ---
 Not all dynamic sql is strictly for immediate execution, nor is it dirty (I
