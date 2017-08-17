@@ -14,6 +14,8 @@ Imagine if BatMan was an Oracle DBA, his utility belt would be the [Alexandria P
 
 - This has been tested on 12c r1, I imagine it should still work for 11G.
 - `SCHEMA_ALEX_INSTALL` - This is the schema you have created that will host the Alexandria library.
+- Using SQLPlus or [Oracle SQL Developer](http://www.oracle.com/technetwork/developer-tools/sql-developer/overview/index.html) (in SQLPlus mode)
+- Script have installed to a path that SQLPlus can find
 
 
 ### Installation instructions
@@ -66,3 +68,29 @@ prompt Done!
 ```
 
 ### Verifying the installation
+
+As `SCHEMA_ALEX_INSTALL` 
+
+```sql
+HOST md d:\temp\devtest -- Un*x users: mkdir /path/to/devtest
+CREATE DIRECTORY devtest_temp_dir AS 'd:\temp\devtest'; -- Un*x 
+SET SERVEROUTPUT ON
+
+DECLARE
+    l_blob    BLOB;
+    l_props   ooxml_util_pkg.t_xlsx_properties;
+BEGIN
+    debug_pkg.debug_on;
+    l_blob := file_util_pkg.get_blob_from_file('DEVTEST_TEMP_DIR','hello_excel.xlsx');
+    l_props := ooxml_util_pkg.get_xlsx_properties(l_blob);
+    debug_pkg.printf(
+        'title = %1,modified = %2,creator = %3,application = %4',
+        l_props.core.title,
+        l_props.core.modified_date,
+        l_props.core.creator,
+        l_props.app.application
+    );
+
+END;
+/
+```
