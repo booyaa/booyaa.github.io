@@ -5,8 +5,10 @@ path: 2017/troubleshooting-rls
 tags: rls,vscode,help
 ---
 
-This post is tailored towards the official Visual Studio Code extension, but
-where possible I'll let you know when you can run this against your own setup.
+This post is tailored towards the official Visual Studio Code [RLS
+extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust),
+but where possible I'll let you know when you can run this against your own
+setup.
 
 ### Up to date mantra
 
@@ -21,10 +23,11 @@ To turn on the fire hose:
 To reduce the noise you can drop down to informational:
 `RUST_LOG=rls=info code .`
 
-This assumes you have the Visual Studio Code command line tools to allow you to 
-launch the editor in your terminal.
+This assumes you have the Visual Studio Code command line tools installed to
+allow you to launch the editor in your terminal.
 
-Diagnostics will appear in the Output panel in the Rust Language Server.
+Diagnostics will appear in the `Output panel` for the Rust Language Server (the
+drop down to the right of the panel).
 
 This can also be used for other editors, just replace `code` with your own
 editor.
@@ -52,5 +55,5 @@ implements the
 [`workspace/didChanceConfiguration`](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#workspace_didChangeConfiguration)
 method, then add the same keys to your client's configuration file.
 
-Alternative send the abovementioned method and that example json fragment to
+Alternatively send the abovementioned method and that example json fragment to
 RLS.
