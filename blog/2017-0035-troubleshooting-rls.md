@@ -1,7 +1,7 @@
 extends: post.liquid
 title: Troubleshooting RLS
 date: 18 Aug 2017 08:36:53 +0100
-path: 2016/troubleshooting-rls
+path: 2017/troubleshooting-rls
 tags: rls,vscode,help
 ---
 
