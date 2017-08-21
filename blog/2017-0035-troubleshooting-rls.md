@@ -39,7 +39,7 @@ To turn on the fire hose:
 To reduce the noise you can drop down to informational:
 `RUST_LOG=rls=info code .`
 
-This tip åassumes you have Visual Studio Code in your path so it can be launched
+This tip assumes you have Visual Studio Code in your path so it can be launched
 from the command line.
 
 Diagnostics will appear in the `Output panel` for the Rust Language Server (the
