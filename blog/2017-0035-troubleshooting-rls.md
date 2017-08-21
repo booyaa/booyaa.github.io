@@ -5,30 +5,23 @@ path: 2017/troubleshooting-rls
 tags: rls,vscode,help
 ---
 
-To understand how to troubleshoot the Rust Language Server (RLS), it helps to know how the various components work.
+To understand how to troubleshoot the Rust Language Server (RLS), it helps to
+know what RLS is and how the components interact.
 
-RLS is the [Rust](https://www.rust-lang.org/) programming language
-implementation of the [Language Server
-Protocol](https://github.com/Microsoft/language-server-protocol) (LSP). In turn
-LSP is an open standard specification to homogenize language support (linting,
-formatting, refactoring, etc) across all editors. The alternative and existing
-method is to create language support separately for each code editor or ide.
+RLS is a Rust implementation of the [Language Server
+Protocol](https://github.com/Microsoft/language-server-protocol) (LSP). LSP
+is based on the client server architecture, and simplifies the way code
+editors and IDEs interact with a programming language.
 
-LSP is based on the client/server architecture, so this means there are two
-parts to the RLS.
-
-The client is in this instance the official Visual Studio Code [RLS
+The client in this instance is the official [RLS
 extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust).
-We'll refer it it as the "extension" for brevity. The LSP client is wholly
-language agnostic, however in the case of the extension there are few
-enhancements to improve the overall Rust experience. 
+The server is `rls` which is another Rust command line tool like `rustfmt`,
+`racer` and `rustsym`. The extension is responsible for setting up and starting
+`rls`.
 
-The server to be referred to herein as RLS is where all the language support
-smarts take place. Editor actions (text editing, opening of documents,
-referring to an identifier) are sent via the client to the server for
-interpretation and feedback. The outcome of the interactions between the
-extension and RLS are: errors (syntax), warnings (unused references), links to
-definitions and references to functions etc.
+If you want to find out more I recommend checking out
+[@nrc](https://www.ncameron.org/blog/) introductory blog post: [What the RLS
+can do](https://www.ncameron.org/blog/what-the-rls-can-do/).
 
 Whilst this post is tailored towards the VS Code extension, where possible I'll
 let you know when you can run this against your own setup.
@@ -46,7 +39,8 @@ To turn on the fire hose:
 To reduce the noise you can drop down to informational:
 `RUST_LOG=rls=info code .`
 
-This assumes you have Visual Studio Code in your path so it can be launched from the command line. 
+This tip åassumes you have Visual Studio Code in your path so it can be launched
+from the command line.
 
 Diagnostics will appear in the `Output panel` for the Rust Language Server (the
 drop down to the right of the panel).
