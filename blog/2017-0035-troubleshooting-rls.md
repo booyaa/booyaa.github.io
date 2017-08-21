@@ -1,21 +1,44 @@
 extends: post.liquid
-title: Troubleshooting RLS
+title: Troubleshooting the Rust Language Server
 date: 18 Aug 2017 08:36:53 +0100
 path: 2017/troubleshooting-rls
 tags: rls,vscode,help
 ---
 
-This post is tailored towards the official Visual Studio Code [RLS
-extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust),
-but where possible I'll let you know when you can run this against your own
-setup.
+To understand how to troubleshoot the Rust Language Server (RLS), it helps to know how the various components work.
 
-### Up to date mantra
+RLS is the [Rust](https://www.rust-lang.org/) programming language
+implementation of the [Language Server
+Protocol](https://github.com/Microsoft/language-server-protocol) (LSP). In turn
+LSP is an open standard specification to homogenize language support (linting,
+formatting, refactoring, etc) across all editors. The alternative and existing
+method is to create language support separately for each code editor or ide.
+
+LSP is based on the client/server architecture, so this means there are two
+parts to the RLS.
+
+The client is in this instance the official Visual Studio Code [RLS
+extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust).
+We'll refer it it as the "extension" for brevity. The LSP client is wholly
+language agnostic, however in the case of the extension there are few
+enhancements to improve the overall Rust experience. 
+
+The server to be referred to herein as RLS is where all the language support
+smarts take place. Editor actions (text editing, opening of documents,
+referring to an identifier) are sent via the client to the server for
+interpretation and feedback. The outcome of the interactions between the
+extension and RLS are: errors (syntax), warnings (unused references), links to
+definitions and references to functions etc.
+
+Whilst this post is tailored towards the VS Code extension, where possible I'll
+let you know when you can run this against your own setup.
+
+## The up to date mantra
 
 - Always have the latest version of Rust nightly and RLS. `rustup update`
 - Keep Visual Studio Code and the Rust RLS extension up to date.
 
-### Increase logging level
+## Increase logging level
 
 To turn on the fire hose:
 `RUST_LOG=rls=debug code .`
@@ -23,8 +46,7 @@ To turn on the fire hose:
 To reduce the noise you can drop down to informational:
 `RUST_LOG=rls=info code .`
 
-This assumes you have the Visual Studio Code command line tools installed to
-allow you to launch the editor in your terminal.
+This assumes you have Visual Studio Code in your path so it can be launched from the command line. 
 
 Diagnostics will appear in the `Output panel` for the Rust Language Server (the
 drop down to the right of the panel).
@@ -32,11 +54,10 @@ drop down to the right of the panel).
 This can also be used for other editors, just replace `code` with your own
 editor.
 
-### Additional configuration settings
+## Additional configuration settings
 
 In your user or workspace settings (`settings.json`) add the following 
 configuration parameters:
-
 
 ```json
 {
@@ -52,8 +73,20 @@ configuration parameters:
 
 Both of these will require a restart of the editor. If your LSP client
 implements the
-[`workspace/didChanceConfiguration`](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#workspace_didChangeConfiguration)
+[`workspace/didChangeConfiguration`](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#workspace_didChangeConfiguration)
 method, then add the same keys to your client's configuration file.
 
 Alternatively send the abovementioned method and that example json fragment to
 RLS.
+
+## Where to go if you need more help?
+
+[@nrc](https://www.ncameron.org/blog/) has just written the definitive guide to
+[debugging and troubleshooting
+RLS](https://github.com/rust-lang-nursery/rls/blob/master/debugging.md). I
+would recommend you also visit this article.
+
+As always with any good open source project, help is always available via a new
+github [issue](https://github.com/rust-lang-nursery/rls/issues/new).
+Alternative if you use irc, you can ask in `#rust-dev-tools` on the Mozilla
+network.
