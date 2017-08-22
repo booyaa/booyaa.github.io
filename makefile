@@ -18,11 +18,12 @@ publish:
 	cp keybase.txt build/
 	cobalt import --branch master
 	git checkout master
+	cp build/keybase.txt .
+	git add keybase.txt
 	echo "build/" > .gitignore
 	echo "_lunr/" >> .gitignore
 	git add .gitignore
 	touch .nojekyll
-	cp build/keybase.txt .
 	git add .nojekyll
 	git commit -m "Github Pages integration"
 	git push -u -f origin master
