@@ -15,6 +15,7 @@ publish:
 	-git branch -D master
 	rm -rf build/
 	cobalt build
+	cp keybase.txt build/
 	cobalt import --branch master
 	git checkout master
 	echo "build/" > .gitignore
