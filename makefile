@@ -17,6 +17,9 @@ publish:
 	cobalt build
 	cobalt import --branch master
 	git checkout master
+	echo "build/" > .gitignore
+	echo "_lunr/" >> .gitignore
+	git add .gitignore
 	touch .nojekyll
 	git add .nojekyll
 	git commit -m "Github Pages integration"
