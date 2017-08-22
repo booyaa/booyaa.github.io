@@ -22,6 +22,7 @@ publish:
 	echo "_lunr/" >> .gitignore
 	git add .gitignore
 	touch .nojekyll
+	cp build/keybase.txt .
 	git add .nojekyll
 	git commit -m "Github Pages integration"
 	git push -u -f origin master
