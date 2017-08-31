@@ -10,3 +10,7 @@ tags: learning,rust
 ### A placeholder, will be updated throughout the pan-European Hack and Learning event!
 
 - [irc](https://kiwiirc.com/client/irc.mozilla.org:+6667/#rustaceans.uk)
+
+### Setting up your IDE/Code editor for Rust
+- [emacs-racer](https://github.com/racer-rust/emacs-racer)
+- [The RLS Website (WIP)](https://rls.booyaa.wtf/)
