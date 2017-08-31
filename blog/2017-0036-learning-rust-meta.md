@@ -6,3 +6,4 @@ tags: learning,rust
 ---
 
 ## A placeholder, will be updated throughout the pan-European Hack and Learning event!
+
