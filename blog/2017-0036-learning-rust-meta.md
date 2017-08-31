@@ -5,15 +5,17 @@ path: 2017/learning-rust-meta
 tags: learning,rust
 ---
 
-## https://booyaa.wtf/2017/learning-rust-meta/index.html
+Apologies for the formatting and style. I need a quick page for our study group [event](https://www.meetup.com/Rust-London-User-Group/events/242378000/)!
 
 ### Hack and Learn Group Info
+- [Our site](http://rustaceans.uk/)
 - [Chatroom](https://kiwiirc.com/client/irc.mozilla.org:+6667/#rustaceans.uk) - Looks like we've reached max connections at London! We'll try to find a better solution for next time!
 
 ### Setting up your IDE/Code editor for Rust
 - [emacs-racer](https://github.com/racer-rust/emacs-racer)
-- [neovim plugin that support RLS](https://github.com/autozimu/LanguageClient-neovim)
+- [Neovim plugin that support RLS](https://github.com/autozimu/LanguageClient-neovim)
 - [The RLS Website (WIP)](https://rls.booyaa.wtf/)
+- [booyaa's RLS talk](https://skillsmatter.com/skillscasts/10664-rust-language-server-and-you) - if you want to see the past London group's talks you can see them [here](https://skillsmatter.com/groups/10633-rust-london-user-group#past_events).
 
 ### How to contribute to Rust
 - [Request for Comments: Make it easier to contribute to tools](https://github.com/nrc/dev-tools-team/issues/5)
