@@ -5,5 +5,8 @@ path: 2017/learning-rust-meta
 tags: learning,rust
 ---
 
-## A placeholder, will be updated throughout the pan-European Hack and Learning event!
+## URL: https://booyaa.wtf/2017/learning-rust-meta/index.html
 
+### A placeholder, will be updated throughout the pan-European Hack and Learning event!
+
+- [irc](https://kiwiirc.com/client/irc.mozilla.org:+6667/#rustaceans.uk)
