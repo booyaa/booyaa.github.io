@@ -1,8 +1,8 @@
 extends: post.liquid
 title: C Sharp and .NET tips
-date: 31 Aug 2017 18:18:18 +0100
+date: 1 Sep 2017 07:33:15 +0100
 path: 2017/csharp-dotnet
-tags: c#,csharp,dotnet,.net
+tags: c#,csharp,dotnet,.net,dotnetcore
 ---
 
 ## NUnit TestCases with instances of a type
@@ -45,3 +45,23 @@ Note to self:
 - Turn this into a useful example
   - https://codereview.stackexchange.com/a/6962/2500
   - https://stackoverflow.com/a/10417114/105282
+
+# A gitignore for dotnet core
+
+source: https://gist.github.com/booyaa/db187f5555afdba82d371b76119920c5
+
+```.gitgnore
+# miscellany and obsolete artifact
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+
+# Visual Studio Code
+.vscode
+
+# Build results
+[Bb]in/
+[Oo]bj/
+```
