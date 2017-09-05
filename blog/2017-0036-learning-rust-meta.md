@@ -5,21 +5,19 @@ path: 2017/learning-rust-meta
 tags: learning,rust
 ---
 
-Background: We need a meta reference for our study group [event](https://www.meetup.com/Rust-London-User-Group/events/242378000/)!
+Background: We needed a meta reference for our study group [event](https://www.meetup.com/Rust-London-User-Group/events/242378000/)!
 
 ### Setting up your IDE/Code editor for Rust
-- [emacs-racer](https://github.com/racer-rust/emacs-racer)
-- [Neovim plugin that support RLS](https://github.com/autozimu/LanguageClient-neovim)
+- [Nick's RLS showcase blog post](https://www.ncameron.org/blog/what-the-rls-can-do/)
 - [booyaa's RLS talk](https://skillsmatter.com/skillscasts/10664-rust-language-server-and-you) - if you want to see the past London group's talks you can see them [here](https://skillsmatter.com/groups/10633-rust-london-user-group#past_events).
-
-### How to contribute to Rust
-- [Request for Comments: Make it easier to contribute to tools](https://github.com/nrc/dev-tools-team/issues/5)
-- clippy lints (TODO)
+- [Neovim plugin that support RLS](https://github.com/autozimu/LanguageClient-neovim)
+- Code completion in emacs using [emacs-racer](https://github.com/racer-rust/emacs-racer)
 
 ### Useful resources
 - [The Rust forum aka URLO](https://users.rust-lang.org/)
 - [The Rust Community Team Website](https://community.rs/)
 - [The Request for Explanation Podcast(https://request-for-explanation.github.io/podcast/) - A weekly discussion of Rust RFCs.
+- [The official Rust youtube channel](https://www.youtube.com/rustvideos)
 
 ### Hack and Learn Group Info
 - [Our site](http://rustaceans.uk/)
