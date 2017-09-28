@@ -1,6 +1,6 @@
 extends: post.liquid
 title: Oracle tips
-date: 4 Jun 2017 16:49:09 +0100
+date: 28 Sep 2017 17:12:37 +0100
 path: 2017/oracle-tips
 tags: oracle,plsql,tips
 ---
