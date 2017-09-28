@@ -93,3 +93,19 @@ to push
 to pull
 
 `git fetch --tags`
+
+## Fixing "fatal: refusing to merge unrelated histories"
+
+Warning: this is destructive, if you've got local uncommitted changes do not 
+proceed!
+
+```
+$ git pull origin master
+From github.com:booyaa/broken_repo
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+$ git fetch # may be superflurous
+$ git reset --hard origin/master
+$ git branch --set-upstream-to=origin/master master
+Branch master set up to track remote branch master from origin.
+```
