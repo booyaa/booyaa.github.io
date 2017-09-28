@@ -22,6 +22,7 @@ publish:
 	git add keybase.txt
 	echo "build/" > .gitignore
 	echo "_lunr/" >> .gitignore
+	echo ".DS_Store" >> .gitignore
 	git add .gitignore
 	touch .nojekyll
 	git add .nojekyll
