@@ -10,6 +10,7 @@ ignore:
   - "_lunr"
   - "*.md.noparse"
   - LICENSE-*
+  - makefile
 rss: rss.xml
 name: booyaa's boggy bloggy
 description: left intentionally blank
