@@ -8,8 +8,16 @@ tags: talks,publicspeaking,hangout,remote,livecoding,demo
 
 This Monday I did my first remote talk (for the Rust Edinburgh user group). I thought I'd share the experience so it might help others.
 
-Deck Design
+tl;dr here's a check list:
 
+- Get a good quality headset.
+- More slides, to repeat reenforcement of ideas and concepts.
+- Don't ramble (this applies to in person talks too)
+- Do a test video conference call beforehand
+- Pre bake your demos unless you're a live coding veteran
+
+Deck Design
+- 
 
 tools
 
