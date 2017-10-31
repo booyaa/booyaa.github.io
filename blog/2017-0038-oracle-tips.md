@@ -25,3 +25,48 @@ END;
 If you ran the script correctly, the input dialogue will echo stars `*` instead of your "secret".
 
 If you can see the data you're entering, you ran Oracle SQL Developer statement mode (CTRL-ENTER).
+
+## Sessions
+
+### Finding
+
+```sql
+SET LINESIZE 140
+SET PAGESIZE 50
+COL sid FORMAT a5
+COL serial FORMAT a5
+COL username FORMAT a30
+COL osuser FORMAT a30
+COL machine FORMAT a30
+COL client_ip FORMAT a20
+SELECT
+    sid,
+    serial# AS serial,
+    osuser,
+    username,
+    machine,
+    logon_time,
+    utl_inaddr.get_host_address(regexp_replace(machine,'^.+\\') ) AS client_ip
+FROM
+    v$session
+WHERE
+        username IS NOT NULL
+    AND
+        status <> 'KILLED';
+```
+
+### Killing
+
+`alter system kill session 'sid,serial#';`
+
+Code generated example
+
+```sql
+SELECT 
+    'alter system kill session ''' ||sid||','||serial#|| ''';' as sql
+FROM
+    v$session
+WHERE
+    username = 'VICTIM';
+```
+
