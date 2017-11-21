@@ -5,6 +5,9 @@ path: 2017/oracle-messaging-gateway-tips
 tags: oracle,omg,mq,aq,messaging,queue
 ---
 
+## reference
+- http://nadvi.blogspot.co.uk/2011/10/cleanup-message-queue-mq-gateway-agent.html
+
 ## Assumptions
 
 - I've used the Messaging Gateway (MG) to link Oracle's Advanced Queueing to IBM's (nee WebSphere) Message Queue. 
