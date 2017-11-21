@@ -99,4 +99,5 @@ Should you now find any pending deletions in `mgw_jobs` have been excuted, also 
 
 I've not needed to use these web pages (yet), but they could useful for future issues.
 
-- [MG objects left in an invalid state](http://nadvi.blogspot.co.uk/2011/10/cleanup-message-queue-mq-gateway-agent.html)
+- [Monitoring Oracle Messaging Gateway](https://docs.oracle.com/database/121/ADQUE/mg_trble.htm#ADQUE3389)
+- [Cleaning up Messaging Gateway objects left in an invalid state](http://nadvi.blogspot.co.uk/2011/10/cleanup-message-queue-mq-gateway-agent.html)
