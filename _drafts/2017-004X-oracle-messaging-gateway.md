@@ -10,6 +10,11 @@ tags: oracle,omg,mq,aq,messaging,queue
 - SQL commands issued as the MG admin schema unless otherwise stated.
 - MG is installed on Linux, so all command line examples will be in default shell (usually BASH).
 
+## Removing jobs
+
+
+Always use force parameter (`dbms_mgwadm.remove_job(job_name => 'job_foo_in', force => dbms_mgwadm.force)`), if there's anything wrong with foreign queue i.e. MQ doesn't exist or the user account doesn't exist the call to `dbms_mgwadm.remove_job` will fail. 
+
 ## Troubleshooting
 
 ### Gateway status
