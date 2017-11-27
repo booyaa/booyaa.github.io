@@ -10,8 +10,17 @@ tags: oracle,omg,mq,aq,messaging,queue
 - SQL commands issued as the MG admin schema unless otherwise stated.
 - MG is installed on Linux, so all command line examples will be in default shell (usually BASH).
 
-## Removing jobs
+## Creating an auto dequeuing queue (MQ > AQ > Table)
 
+1. Create Queue Table (multiple consumers is true)
+2. Create Queue
+3. Enable Queue
+4. Create MGW Link (skip if you've already done this)
+5. Create Foreign queue
+6. Create Propagation Job
+
+
+## Removing jobs
 
 Always use force parameter (`dbms_mgwadm.remove_job(job_name => 'job_foo_in', force => dbms_mgwadm.force)`), if there's anything wrong with foreign queue i.e. MQ doesn't exist or the user account doesn't exist the call to `dbms_mgwadm.remove_job` will fail. 
 
