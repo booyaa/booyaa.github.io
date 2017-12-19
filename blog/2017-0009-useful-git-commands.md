@@ -3,6 +3,7 @@ title: Useful git commmands
 date: 22 Jun 2017 18:51:43 +0100
 path: 2017/useful-git-commands
 tags: git
+route: blog
 ---
 
 ## Commit logs

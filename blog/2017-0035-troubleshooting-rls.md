@@ -3,6 +3,7 @@ title: Troubleshooting the Rust Language Server
 date: 18 Aug 2017 08:36:53 +0100
 path: 2017/troubleshooting-rls
 tags: rls,vscode,help
+route: blog
 ---
 
 To understand how to troubleshoot the Rust Language Server (RLS), it helps to know what RLS is and how the components interact.

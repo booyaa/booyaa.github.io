@@ -3,6 +3,7 @@ title: Alexandria PL/SQL Utility Library
 date: 11 Oct 2017 07:39:34 +0100
 path: 2017/alexandria-plsql-utility-library
 tags: oracle,plsql,ooxml,microsoft
+route: blog
 ---
 
 Imagine if BatMan was an Oracle DBA, his utility belt would be the [Alexandria PL/SQL Utility Library](https://github.com/mortenbra/alexandria-plsql-utils).

@@ -3,6 +3,7 @@ title: Add reading time in Cobalt
 date: 15 Jun 2017 09:05:37 +0100
 path: 2017/add-reading-time
 tags: cobalt,github,liquid
+route: blog
 ---
 
 I wanted to add an approximate reading time to each of my blog posts, like 

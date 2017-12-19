@@ -3,6 +3,7 @@ title: Add support for tags to Cobalt
 date: 9 Jul 2017 10:07:03 +0100
 path: 2017/cobalt-tags
 tags: cobalt, tags, taxonomies, categories
+route: blog
 ---
 A while back I started adding a new front matter attribute to all my posts
 called `tags`. I initially did this to improve my site search indexing (you can

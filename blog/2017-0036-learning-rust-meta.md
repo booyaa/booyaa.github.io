@@ -3,6 +3,7 @@ title: A developer on-boarding guide for Rust
 date: 31 Aug 2017 18:49:38 +0100
 path: 2017/learning-rust-meta
 tags: learning,rust
+route: blog
 ---
 
 Background: We needed a meta reference for our study group [event](https://www.meetup.com/Rust-London-User-Group/events/242378000/)!

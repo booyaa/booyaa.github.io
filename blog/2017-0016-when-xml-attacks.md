@@ -3,6 +3,7 @@ title: When XML attacks!
 date: 1 Jul 2017 18:11:10 +0100
 path: 2017/when-xml-attacks
 tags: oracle, xmltype, xml, extractvalue
+route: blog
 ---
 At some point in your xml wrangling career you will hit an node whose data is
 too big for Oracle's `EXTRACTVALUE` (I think the upper limit is 4000

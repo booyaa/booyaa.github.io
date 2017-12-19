@@ -3,6 +3,7 @@ title: Code generation scripts in PL/SQL
 date: 10 May 2017 16:49:09 +0100
 path: 2017/flattening-xml
 tags: codegen, plsql, oracle, xml
+route: blog
 ---
 ## Flattening XML paths
 

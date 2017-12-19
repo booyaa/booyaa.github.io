@@ -3,6 +3,7 @@ title: Oracle tips
 date: 28 Sep 2017 17:12:37 +0100
 path: 2017/oracle-tips
 tags: oracle,plsql,tips
+route: blog
 ---
 
 ## Hiding user input

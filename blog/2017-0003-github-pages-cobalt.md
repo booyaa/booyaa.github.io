@@ -3,6 +3,7 @@ title: Using Cobalt with GitHub pages
 date: 11 Jun 2017 18:29:09 +0100
 path: 2017/cobalt-github
 tags: cobalt,github
+route: blog
 ---
 
 It turns out using [Cobalt](https://github.com/cobalt-org/cobalt.rs) and your 

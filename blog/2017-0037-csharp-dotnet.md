@@ -3,6 +3,7 @@ title: C Sharp and .NET tips
 date: 1 Sep 2017 07:33:15 +0100
 path: 2017/csharp-dotnet
 tags: c#,csharp,dotnet,.net,dotnetcore
+route: blog
 ---
 
 ## NUnit TestCases with instances of a type

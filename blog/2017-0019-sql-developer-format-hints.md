@@ -3,6 +3,7 @@ title: SQL Developer's new format hints
 date: 1 Jul 2017 18:40:24 +0100
 path: 2017/sql-developer-format-hints
 tags: sqldeveloper,csv,format
+route: blog
 ---
 One of my favourite cool features in SQL Developer is the ability to turn a sql
 query output into an entirely different format. It doesn't even require 

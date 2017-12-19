@@ -4,6 +4,7 @@ title: Remote speaking tips
 date: 20 Oct 2017 20:05:52 +0100
 path: 2017/remote-speaking-tips
 tags: talks,publicspeaking,hangout,remote,livecoding,demo
+route: blog
 ---
 
 On Monday I did my first remote talk (for the [Rust
