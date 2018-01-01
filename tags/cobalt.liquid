@@ -1,10 +1,10 @@
-extends: default.liquid
-
-title: booyaa's boggy bloggy
-path: tags/cobalt/
-comment: collection of cobalt related posts
-route: blog
+permalink: /tags/cobalt/
+title: "booyaa's boggy bloggy"
+layout: default.liquid
+data:
+  comment: collection of cobalt related posts
+  route: blog
 ---
 {% assign filter_tag = "cobalt" %}
 
-{% include "_layouts/_tag.liquid" %}
+{% include "_tag.liquid" %}

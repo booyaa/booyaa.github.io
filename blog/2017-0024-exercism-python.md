@@ -1,9 +1,10 @@
-extends: post.liquid
+permalink: "/2017/exercism-python"
 title: Setting up exercism python track with Visual Studio Code
-date: 4 Jul 2017 17:08:41 +0100
-path: 2017/exercism-python
-tags: python, exercism, pylint, pytest, pep8, vscode
-route: blog
+published_date: "2017-07-04 17:08:41 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "python, exercism, pylint, pytest, pep8, vscode"
 ---
 Here's a fairly good setup for getting the python track of exercism working
 with virtual env and Visual Studio Code.

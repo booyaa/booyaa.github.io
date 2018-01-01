@@ -1,10 +1,10 @@
-extends: post.liquid
+permalink: "/2017/irc-ssl"
 title: SSL on IRC
-date: 27 Jul 2017 19:07:00 +0100
-path: 2017/irc-ssl
-tags: irc,ssl
+published_date: "2017-07-27 19:07:00 +0100"
+layout: post.liquid
+data:
+  tags: "irc,ssl"
 ---
-
 references:
 - https://wiki.archlinux.org/index.php/Irssi#Client_certificates
 - https://freenode.net/kb/answer/certfp

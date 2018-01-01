@@ -1,11 +1,11 @@
-extends: post.liquid
-title: Using Rust with Visual Studio Code 
-date: 8 Aug 2017 07:39:42 +0100
-path: 2017/rust-vscode
-tags: rust,vscode,tips
-route: blog
+permalink: "/2017/rust-vscode"
+title: Using Rust with Visual Studio Code
+published_date: "2017-08-08 07:39:42 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "rust,vscode,tips"
 ---
-
 ## Which extension?
 
 First off if you can, you should be using the Rust Language Server (RLS) [extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust). Yes it's beta, but the user experience has been the best I've had, outside of in-house language support by giants like Microsoft and JetBrains! The extension will even install dependencies for you if you have [rustup](http://rustup.rs/) installed!

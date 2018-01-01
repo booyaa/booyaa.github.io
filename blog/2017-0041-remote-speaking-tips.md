@@ -1,12 +1,11 @@
-
-extends: post.liquid
+permalink: "/2017/remote-speaking-tips"
 title: Remote speaking tips
-date: 20 Oct 2017 20:05:52 +0100
-path: 2017/remote-speaking-tips
-tags: talks,publicspeaking,hangout,remote,livecoding,demo
-route: blog
+published_date: "2017-10-20 20:05:52 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "talks,publicspeaking,hangout,remote,livecoding,demo"
 ---
-
 On Monday I did my first remote talk (for the [Rust
 Edinburgh](https://www.meetup.com/rust-edi/) user group). I thought I'd share
 my experience to help others who want to do the same.

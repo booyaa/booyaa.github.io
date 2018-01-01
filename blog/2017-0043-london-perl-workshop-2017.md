@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/london-perl-workshop"
 title: London Perl Workshop 2017
-date: 28 Nov 2017 07:33:26 +0000
-path: 2017/london-perl-workshop
-tags: perl,lpw,rust
-route: blog
+published_date: "2017-11-28 07:33:26 +0000"
+layout: post.liquid
+data:
+  tags: "perl,lpw,rust"
+  route: blog
 ---
-
 Almost a month a go, around the same time as [Mozilla
 Fest](https://mozillafestival.org/), [Neil
 Bowers](https://twitter.com/neilbowers) put out a request for a Rust talk via

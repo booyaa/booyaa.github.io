@@ -1,9 +1,10 @@
-extends: post.liquid
-title: youtube-dl gems
-date: 4 Jul 2017 16:42:14 +0100
-path: 2017/youtube-dl
-tags: youtube-dl
-route: blog
+permalink: "/2017/youtube-dl"
+title: "youtube-dl gems"
+published_date: "2017-07-04 16:42:14 +0100"
+layout: post.liquid
+data:
+  tags: "youtube-dl"
+  route: blog
 ---
 A handy collection of youtube-dl incantations, remember it's not just for 
 youtube-dl! There's plenty more, but these are the one use I use on a daily 

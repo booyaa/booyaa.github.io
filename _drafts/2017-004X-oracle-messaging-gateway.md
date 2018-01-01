@@ -1,8 +1,9 @@
-extends: post.liquid
+permalink: "/2017/oracle-messaging-gateway-tips"
 title: Oracle Messaging Gateway Tips
-date: 4 Jun 2017 16:49:09 +0100
-path: 2017/oracle-messaging-gateway-tips
-tags: oracle,omg,mq,aq,messaging,queue
+published_date: "2017-06-04 16:49:09 +0100"
+layout: post.liquid
+data:
+  tags: "oracle,omg,mq,aq,messaging,queue"
 ---
 ## Assumptions
 

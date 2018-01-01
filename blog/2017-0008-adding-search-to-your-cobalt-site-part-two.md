@@ -1,9 +1,10 @@
-extends: post.liquid
-title: Adding search to your cobalt site - Part Two
-date: 20 Jun 2017 08:35:51 +0100
-path: 2017/adding-search-to-your-cobalt-site-part-two
-tags: cobalt,github,search,lunr,liquid
-route: blog
+permalink: "/2017/adding-search-to-your-cobalt-site-part-two"
+title: "Adding search to your cobalt site - Part Two"
+published_date: "2017-06-20 08:35:51 +0100"
+layout: post.liquid
+data:
+  tags: "cobalt,github,search,lunr,liquid"
+  route: blog
 ---
 This will be a two part post, where I detail the steps it took to enable
 search on my [Cobalt](https://github.com/cobalt-org/cobalt.rs) site.
@@ -34,11 +35,11 @@ document collection.
     }{% if idx < post_count %},{% endif %}
         "content" : "{{ post.content | strip_html | strip_newlines 
                                      | replace: "\", "\\" }}"
-        "href" : "{{ post.path }}",
+        "href" : "{{ post.permalink }}",
         "title" : "{{ post.title }}",
     { 
 {% assign idx = idx | plus: 1 %}
-{% for post in posts %}
+{% for post in collections.posts.pages %}
 [
 {% assign post_count = posts | size %}
 {% assign idx = 0 %}

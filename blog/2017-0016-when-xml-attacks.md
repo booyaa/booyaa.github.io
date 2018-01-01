@@ -1,9 +1,10 @@
-extends: post.liquid
-title: When XML attacks!
-date: 1 Jul 2017 18:11:10 +0100
-path: 2017/when-xml-attacks
-tags: oracle, xmltype, xml, extractvalue
-route: blog
+permalink: "/2017/when-xml-attacks"
+title: "When XML attacks!"
+published_date: "2017-07-01 18:11:10 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "oracle, xmltype, xml, extractvalue"
 ---
 At some point in your xml wrangling career you will hit an node whose data is
 too big for Oracle's `EXTRACTVALUE` (I think the upper limit is 4000

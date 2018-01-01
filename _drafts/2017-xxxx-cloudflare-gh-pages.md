@@ -1,8 +1,9 @@
-extends: post.liquid
+permalink: /YYYY/pretty/name
 title: Make this meaningful
-date: 16 Jul 2017 13:08:27 +0100
-path: YYYY/pretty/name
-tags: abc, cde
+published_date: "2017-07-16 13:08:27 +0100"
+layout: post.liquid
+data:
+  tags: "abc, cde"
 ---
 last week (on the 9 Jul 2017 13:08:27 +0100)
 

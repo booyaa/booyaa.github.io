@@ -1,11 +1,11 @@
-extends: post.liquid
-title: A developer on-boarding guide for Rust 
-date: 31 Aug 2017 18:49:38 +0100
-path: 2017/learning-rust-meta
-tags: learning,rust
-route: blog
+permalink: "/2017/learning-rust-meta"
+title: "A developer on-boarding guide for Rust"
+published_date: "2017-08-31 18:49:38 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "learning,rust"
 ---
-
 Background: We needed a meta reference for our study group [event](https://www.meetup.com/Rust-London-User-Group/events/242378000/)!
 
 ### Setting up your IDE/Code editor for Rust

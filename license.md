@@ -1,10 +1,9 @@
-extends: default.liquid
-
-title: booyaa.github.io - License
-path:  license/
-route: about
+permalink: /license/
+title: "booyaa.github.io - License"
+layout: default.liquid
+data:
+  route: about
 ---
-
 # License Information
 
 Copyright 2017 Mark Sta Ana.

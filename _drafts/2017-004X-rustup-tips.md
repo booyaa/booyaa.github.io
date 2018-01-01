@@ -1,8 +1,9 @@
-extends: post.liquid
+permalink: "/2017/rustup-tips"
 title: Rustup Tips
-date: 4 Jun 2017 16:49:09 +0100
-path: 2017/rustup-tips
-tags: rustup,toolchain,tips
+published_date: "2017-06-04 16:49:09 +0100"
+layout: post.liquid
+data:
+  tags: "rustup,toolchain,tips"
 ---
 How to pin a version.
 Don't forget components.

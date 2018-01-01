@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/alexandria-plsql-utility-library"
 title: Alexandria PL/SQL Utility Library
-date: 11 Oct 2017 07:39:34 +0100
-path: 2017/alexandria-plsql-utility-library
-tags: oracle,plsql,ooxml,microsoft
-route: blog
+published_date: "2017-10-11 07:39:34 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "oracle,plsql,ooxml,microsoft"
 ---
-
 Imagine if BatMan was an Oracle DBA, his utility belt would be the [Alexandria PL/SQL Utility Library](https://github.com/mortenbra/alexandria-plsql-utils).
 
 ## How to install Microsoft Office document parsers (OOXML)
