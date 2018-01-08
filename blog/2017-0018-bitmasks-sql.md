@@ -3,6 +3,7 @@ title: Bitmasks in SQL
 date: 1 Jul 2017 18:27:29 +0100
 path: 2017/bitmasks-sql
 tags: oracle, sql, bitmasks
+route: blog
 ---
 
 bitmasks are really handy way to express predicates without becoming overly

@@ -3,6 +3,7 @@ title: Using Rust with Visual Studio Code
 date: 8 Aug 2017 07:39:42 +0100
 path: 2017/rust-vscode
 tags: rust,vscode,tips
+route: blog
 ---
 
 ## Which extension?

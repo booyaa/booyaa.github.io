@@ -3,6 +3,7 @@ title: Using pre-built lunr indexes
 date: 22 Jun 2017 19:21:00 +0100
 path: 2017/prebuilt-lunr-indexes
 tags: cobalt,search,lunr
+route: blog
 ---
 I've implemented pre-built indexes vs. on demand i.e. generating them when the 
 search page is being loaded. I'm not entirely happy with the solution yet for 

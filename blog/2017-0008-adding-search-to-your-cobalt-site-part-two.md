@@ -3,6 +3,7 @@ title: Adding search to your cobalt site - Part Two
 date: 20 Jun 2017 08:35:51 +0100
 path: 2017/adding-search-to-your-cobalt-site-part-two
 tags: cobalt,github,search,lunr,liquid
+route: blog
 ---
 This will be a two part post, where I detail the steps it took to enable
 search on my [Cobalt](https://github.com/cobalt-org/cobalt.rs) site.

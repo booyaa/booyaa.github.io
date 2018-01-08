@@ -3,6 +3,7 @@ title: PL/SQL script to query a refcursor
 date: 1 Jul 2017 16:49:01 +0100
 path: 2017/plsql-script-cursors
 tags: cursors, oracle, plsql
+route: blog
 ---
 This will probably work in pipelined functions or packages too. Note the use of
 the bind variable to link the PL/SQL script variables to the out refcursor.

@@ -3,6 +3,7 @@ title: Rust Language Server and Visual Studio Code
 date: 24 Jul 2017 08:08:41 +0100
 path: 2017/vscode-rls
 tags: rls,rust,vscode,languageserverprotocol
+route: blog
 ---
 
 Click [here](#tips) to skip the history lesson and go straight to the tips.

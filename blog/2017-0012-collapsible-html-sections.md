@@ -3,6 +3,7 @@ title: Collapsible Sections in HTML
 date: 1 Jul 2017 15:55:44 +0100
 path: 2017/collapsible-sections
 tags: html, github
+route: blog
 ---
 ## But first a demo...
 

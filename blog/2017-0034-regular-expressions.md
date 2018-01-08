@@ -3,6 +3,7 @@ title: Regular Expressions Miscellany
 date: 17 Aug 2017 08:42:25 +0100
 path: 2017/message-queue-miscellany
 tags: regularexpression,regex,oracle,notepad++
+route: blog
 ---
 
 ## Oracle related regular expressions

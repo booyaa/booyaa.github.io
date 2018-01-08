@@ -3,6 +3,7 @@ title: Adding an archive page to your Cobalt blog
 date: 4 Jul 2017 16:13:01 +0100
 path: 2017/adding-an-archive
 tags: cobalt,liquid
+route: blog
 ---
 
 To avoid slowing down the index page, there's a point where you need to limit

@@ -2,6 +2,7 @@ extends: default.liquid
 
 title: booyaa.github.io - License
 path:  license/
+route: about
 ---
 
 # License Information

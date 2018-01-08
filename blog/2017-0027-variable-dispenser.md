@@ -3,6 +3,7 @@ title: SSIS Variable Dispenser Template
 date: 17 Jul 2017 16:00:00 +0100
 path: 2017/variable-dispenser
 tags: ssis, bids, template
+route: blog
 ---
 
 I don't write enough SSIS script blob tasks to commit this to memory. This is the safest way to access variables without inadvertantly locking them after a crash.

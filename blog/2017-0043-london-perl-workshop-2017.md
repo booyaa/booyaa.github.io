@@ -3,6 +3,7 @@ title: London Perl Workshop 2017
 date: 28 Nov 2017 07:33:26 +0000
 path: 2017/london-perl-workshop
 tags: perl,lpw,rust
+route: blog
 ---
 
 Almost a month a go, around the same time as [Mozilla
