@@ -1,20 +1,20 @@
 sudo: false
-language: rust
 
 before_script:
-  #  - cargo install cobalt-bin --features="syntax-highlight"
-  - cargo install cobalt-bin
+  - curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git cobalt-org/cobalt.rs --crate cobalt --force --target x86_64-unknown-linux-gnu
   - export PATH="$PATH:~/.cargo/bin"
-
 script:
-  - cobalt -V && cobalt build
-after_success: |-
-  [ $TRAVIS_BRANCH = source ] &&
-  [ $TRAVIS_PULL_REQUEST = false ] &&
-  cobalt import --branch master &&
-  git config user.name "Cobalt Site Deployer" &&
-  git config user.email "booyaabooyaabooyaa@gmail.com" &&
-  git push -fq https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master
+  - cobalt build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  local_dir: build
+  target_branch: master
+  on:
+    branch: source
+    
 env:
   global:
     secure: PKtOMwjcWlu1dretFIT0EaNSww0MM4/9illDXL9vgNL2tsQ2SR2AK7XQsr7zHv1mYQ4Sf0P7+4k+SP87Jv7luglWB1FdPzTFm0CQWLbaUex1Q4PPNKMO5aPRxgMAHzeTHV53Cs+bDungVBHMfLz0+kCVv+AWOeUtpkiJ5E8dxOeC77K6xATXXmj1XC1+j40T4HC/qJAOsJ0NeqbLJv6sNfX3EhWLN9XrtTt3gEJsMw3DXlUMHcUcvYpz28cv/D3XFPSfaYtgLE7q2f6ELOnK19aNUSchK3XBuRXHHeACc1gxFQ8wMNCaDMVSoY+jYRmpSMRV3petjvVqqIpdZPsvALy3PJl5tmqoNSCHr1AM6BJKv+zD2jC2f6yucJLmG1wpAL83HEmJYnyMvGsxuXnLnyGSJOyNbDDI4ydrxpfrQCyr/i5ccALmcIfO1kfrDe+9NmQ24EofUlVReyr7CDR1LT7Tv9heEOq6ss8sCeBuriWejZnMW4QdOObYBDPG0Qrt30Oc+YrqzDb7Hlu81HAHphVbmJRbQ/Ez9CkdY2hoKkgVq5xujw9VKyRBxfuEPHVRoQqI1BOjDNhyAgS2cNVhxk1sh0oQ5I147u8IzCpu3+YYDex+d3F1i+RJ/a6XGLJ8sUm77q4Hg6aRqbsIRCMmBp5bBJ/dxpiVJMjUnwUDe74=
