@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/oracle-tips"
 title: Oracle tips
-date: 28 Sep 2017 17:12:37 +0100
-path: 2017/oracle-tips
-tags: oracle,plsql,tips
-route: blog
+published_date: "2017-09-28 17:12:37 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "oracle,plsql,tips"
 ---
-
 ## Hiding user input
 
 Sometimes you need to keep something secret (shoulder surfing), this will only work in SQL/Plus or Oracle SQL Developer (F5/Run script mode aka broken SQL/Plus mode).

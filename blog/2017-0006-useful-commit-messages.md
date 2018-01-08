@@ -1,9 +1,10 @@
-extends: post.liquid
+permalink: "/2017/useful-commit-messages"
 title: Useful commit messages
-date: 16 Jun 2017 09:09:18 +0100
-path: 2017/useful-commit-messages
-tags: git
-route: blog
+published_date: "2017-06-16 09:09:18 +0100"
+layout: post.liquid
+data:
+  tags: git
+  route: blog
 ---
 Keeping a copy of this excellent bit of advice until I've committed (no pun) it
 to memory.

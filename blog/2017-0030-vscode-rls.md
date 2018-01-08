@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/vscode-rls"
 title: Rust Language Server and Visual Studio Code
-date: 24 Jul 2017 08:08:41 +0100
-path: 2017/vscode-rls
-tags: rls,rust,vscode,languageserverprotocol
-route: blog
+published_date: "2017-07-24 08:08:41 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "rls,rust,vscode,languageserverprotocol"
 ---
-
 Click [here](#tips) to skip the history lesson and go straight to the tips.
 
 I first heard about the Rust Language Server (RLS), via Phil Dawes' Racer talk

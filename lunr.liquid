@@ -1,16 +1,17 @@
+permalink: /js/lunr_docs.json
 title: lunr index
-path: /js/lunr_docs.json
-comment: creates a document collection for lunr to index (site search)
+data:
+  comment: creates a document collection for lunr to index (site search)
 ---
 {% assign idx = 0 %}
-{% assign post_count = posts | size %}
+{% assign post_count = collections.posts | size %}
 [
-{% for post in posts %}
+{% for post in collections.posts.pages %}
 {% assign idx = idx | plus: 1 %}
     { 
         "title" : "{{ post.title }}",
 
-        {% assign tags_list = post.tags | replace: " ", "" | split: ","  %}
+        {% assign tags_list = post.data.tags | replace: " ", "" | split: ","  %}
         {% assign tags_size = tags_list | size | minus: 1 %}
         {% assign idx2 = 0 %}
         "tags": [
@@ -19,7 +20,7 @@ comment: creates a document collection for lunr to index (site search)
             {% assign idx2 = idx2 | plus: 1 %}
         {% endfor %}
         ],
-        "href" : "{{ post.path }}",
+        "href" : "{{ post.permalink }}",
         "content" : "{{ post.content | strip_html | strip_newlines | replace: "\", "\\" }}"
     }{% if idx < post_count %},{% endif %}
 {% endfor %}

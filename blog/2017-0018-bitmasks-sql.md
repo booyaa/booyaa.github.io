@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/bitmasks-sql"
 title: Bitmasks in SQL
-date: 1 Jul 2017 18:27:29 +0100
-path: 2017/bitmasks-sql
-tags: oracle, sql, bitmasks
-route: blog
+published_date: "2017-07-01 18:27:29 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "oracle, sql, bitmasks"
 ---
-
 bitmasks are really handy way to express predicates without becoming overly
 verbose with parens and logical operators (`AND` and `OR`). Assume we have the 
 following table.

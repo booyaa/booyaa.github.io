@@ -1,7 +1,7 @@
 <nav class="menu">
-  <a class="menu-item {%if route == "about"%}current{%endif%}" href="/about/">booyaa</a>
-  <a class="menu-item {%if route == "blog"%}current{%endif%}" href="/">blog</a>
-  <a class="menu-item {%if route == "talks"%}current{%endif%}" href="/talks">talks</a>
+  <a class="menu-item {% if page.data.route == "about"%}current{%endif%}" href="/about/">booyaa</a>
+  <a class="menu-item {% if page.data.route == "blog"%}current{%endif%}" href="/">blog</a>
+  <a class="menu-item {% if page.data.route == "talks"%}current{%endif%}" href="/talks">talks</a>
   <a class="menu-item" href="/search/">search</a>
   <a class="menu-item" href="/archive/">archive</a>
   <a class="menu-item icon" href="http://github.com/booyaa"><i class="fa fa-github"></i></a>

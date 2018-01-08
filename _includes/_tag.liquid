@@ -1,0 +1,13 @@
+<h1>Posts tagged as {{ filter_tag }}</h1>
+
+<ul>
+{% for post in collections.posts.pages reversed %}
+    {% assign tags = post.data.tags | replace: " ", "" |  split: "," %}
+    {% for tag in tags %}
+        {% if tag == filter_tag %}
+            <li><a href="/{{ post.permalink }}">{{ post.title }}</a></li>
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+</ul>

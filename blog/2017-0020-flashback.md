@@ -1,9 +1,10 @@
-extends: post.liquid
-title: Flashback, what did this data look like previously?
-date: 1 Jul 2017 18:44:06 +0100
-path: 2017/flashback
-tags: oracle, flashback, lsd
-route: blog
+permalink: /2017/flashback
+title: "Flashback, what did this data look like previously?"
+published_date: "2017-07-01 18:44:06 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "oracle, flashback, lsd"
 ---
 I'm only scratching the surface of what you can do with flashbacks in Oracle. 
 Our DBAs are absolute ninjas when it comes to using this witchcraft from Oracle.

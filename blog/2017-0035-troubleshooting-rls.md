@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/troubleshooting-rls"
 title: Troubleshooting the Rust Language Server
-date: 18 Aug 2017 08:36:53 +0100
-path: 2017/troubleshooting-rls
-tags: rls,vscode,help
-route: blog
+published_date: "2017-08-18 08:36:53 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "rls,vscode,help"
 ---
-
 To understand how to troubleshoot the Rust Language Server (RLS), it helps to know what RLS is and how the components interact.
 
 RLS is a Rust implementation of the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol) (LSP). LSP is based on the client server architecture, and simplifies the way code editors and IDEs interact with a programming language.

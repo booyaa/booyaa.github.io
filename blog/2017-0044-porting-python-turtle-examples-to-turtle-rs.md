@@ -1,9 +1,10 @@
-extends: post.liquid
+permalink: "/2017/porting-python-turtle-examples-to-turtle-rs"
 title: Porting python turtle examples to turtle.rs
-date: 15 Dec 2017 08:11:04 +0000
-path: 2017/porting-python-turtle-examples-to-turtle-rs
-tags: turtle,rust,python
-route: blog
+published_date: "2017-12-15 08:11:04 +0000"
+layout: post.liquid
+data:
+  route: blog
+  tags: "turtle,rust,python"
 ---
 I've been tinkering around with the [Rust version](http://turtle.rs/) of [Turtle graphics](https://en.wikipedia.org/wiki/Turtle_graphics). Turtle graphics, was a key feature of the programming language [Logo](https://en.wikipedia.org/wiki/Logo_(programming_language)), and has frequently been ported to other programming languages as a visual way to teach programming.
 

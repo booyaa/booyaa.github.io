@@ -1,9 +1,10 @@
-extends: post.liquid
+permalink: "/2017/message-queue-miscellany"
 title: Message Queue Miscellany
-date: 12 Aug 2017 14:13:12 +0100
-path: 2017/message-queue-miscellany
-tags: mq,messagequeue
-route: blog
+published_date: "2017-08-12 14:13:12 +0100"
+layout: post.liquid
+data:
+  tags: "mq,messagequeue"
+  route: blog
 ---
 This is a bit of a hodge podge of message queue notes. Very IBM centric at the moment.
 

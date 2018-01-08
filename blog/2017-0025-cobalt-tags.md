@@ -1,9 +1,10 @@
-extends: post.liquid
+permalink: "/2017/cobalt-tags"
 title: Add support for tags to Cobalt
-date: 9 Jul 2017 10:07:03 +0100
-path: 2017/cobalt-tags
-tags: cobalt, tags, taxonomies, categories
-route: blog
+published_date: "2017-07-09 10:07:03 +0100"
+layout: post.liquid
+data:
+  tags: "cobalt, tags, taxonomies, categories"
+  route: blog
 ---
 A while back I started adding a new front matter attribute to all my posts
 called `tags`. I initially did this to improve my site search indexing (you can
@@ -26,11 +27,11 @@ The code for the tag template looks like this.
 {% endfor %}
     {% endif %}
         {% break %}</a></li>
-            {{ post.title }}">{{post.path}}
+            {{ post.title }}">{{post.permalink }}
             <li><a href="/{% if tag == filter_tag %}
         {% for tag in tags %}
-    {% assign tags = post.tags | replace: " ", "" |  split: "," %}
-    {% for post in posts reversed %}</h1>
+    {% assign tags = post.data.tags | replace: " ", "" |  split: "," %}
+    {% for post in collections.posts.pages reversed %}</h1>
 <ul>
 {{ filter_tag }}
 <h1>Posts tagged as {% endraw %}
@@ -72,7 +73,7 @@ for now.
 
 ```liquid
 {% raw %}
-{% include "_layouts/_tag.liquid" %}
+{% include "_tag.liquid" %}
 
 {% assign filter_tag = "cobalt" %}
 {% endraw %}

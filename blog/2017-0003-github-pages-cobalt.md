@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/cobalt-github"
 title: Using Cobalt with GitHub pages
-date: 11 Jun 2017 18:29:09 +0100
-path: 2017/cobalt-github
-tags: cobalt,github
-route: blog
+published_date: "2017-06-11 18:29:09 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "cobalt,github"
 ---
-
 It turns out using [Cobalt](https://github.com/cobalt-org/cobalt.rs) and your 
 personal GitHub page is a bit trickier to setup. Your personal GitHub page as 
 oppose to your repo GitHub page, must have the content in the `master` branch. 

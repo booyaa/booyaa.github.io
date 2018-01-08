@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/useful-git-commands"
 title: Useful git commmands
-date: 22 Jun 2017 18:51:43 +0100
-path: 2017/useful-git-commands
-tags: git
-route: blog
+published_date: "2017-06-22 18:51:43 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: git
 ---
-
 ## Commit logs
 
 Now that I've started adding [useful commit messages](/2017/useful-commit-messages.md)

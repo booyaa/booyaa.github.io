@@ -1,9 +1,10 @@
-extends: post.liquid
+permalink: "/2017/collapsible-sections"
 title: Collapsible Sections in HTML
-date: 1 Jul 2017 15:55:44 +0100
-path: 2017/collapsible-sections
-tags: html, github
-route: blog
+published_date: "2017-07-01 15:55:44 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "html, github"
 ---
 ## But first a demo...
 

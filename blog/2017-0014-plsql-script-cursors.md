@@ -1,9 +1,10 @@
-extends: post.liquid
+permalink: "/2017/plsql-script-cursors"
 title: PL/SQL script to query a refcursor
-date: 1 Jul 2017 16:49:01 +0100
-path: 2017/plsql-script-cursors
-tags: cursors, oracle, plsql
-route: blog
+published_date: "2017-07-01 16:49:01 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "cursors, oracle, plsql"
 ---
 This will probably work in pipelined functions or packages too. Note the use of
 the bind variable to link the PL/SQL script variables to the out refcursor.

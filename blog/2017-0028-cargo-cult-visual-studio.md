@@ -1,9 +1,10 @@
-extends: post.liquid
-title: Cargo cult - the problem with copying existing code
-date: 19 Jul 2017 11:52:00 +0100
-path: 2017/cargo-cult-visual-studio
-tags: cargocult,visualstudio,msbuild
-route: blog
+permalink: "/2017/cargo-cult-visual-studio"
+title: "Cargo cult - the problem with copying existing code"
+published_date: "2017-07-19 11:52:00 +0100"
+layout: post.liquid
+data:
+  tags: "cargocult,visualstudio,msbuild"
+  route: blog
 ---
 A quick note to myself on how to identify build errors. This is also a timely 
 reminder that you should create code from scratch once in a while, rather than 

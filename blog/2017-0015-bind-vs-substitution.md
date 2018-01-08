@@ -1,9 +1,10 @@
-extends: post.liquid
+permalink: "/2017/bind-vs-substitution"
 title: Bind vs Substitution variables
-date: 1 Jul 2017 18:02:45 +0100
-path: 2017/bind-vs-substitution
-tags: oracle, plsql, variables, bind, substitution
-route: blog
+published_date: "2017-07-01 18:02:45 +0100"
+layout: post.liquid
+data:
+  tags: "oracle, plsql, variables, bind, substitution"
+  route: blog
 ---
 I always have difficulty remember the difference between these type of 
 variables. Although now, that I've started doing a lot of ORDS related work,

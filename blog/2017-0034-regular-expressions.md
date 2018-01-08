@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/message-queue-miscellany"
 title: Regular Expressions Miscellany
-date: 17 Aug 2017 08:42:25 +0100
-path: 2017/message-queue-miscellany
-tags: regularexpression,regex,oracle,notepad++
-route: blog
+published_date: "2017-08-17 08:42:25 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "regularexpression,regex,oracle,notepad++"
 ---
-
 ## Oracle related regular expressions
 
 ## regexp_count and regexp_replace functions

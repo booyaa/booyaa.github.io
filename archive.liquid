@@ -1,8 +1,8 @@
-extends: default.liquid
-
+permalink: /archive
 title: archive
-path: /archive
-route: archive
+layout: default.liquid
+data:
+  route: archive
 ---
 This is a quick work around until I've had a good think about a way to organise 
 the archive.
@@ -10,10 +10,10 @@ the archive.
 <h2>2017</h2>
 
 <ul>
-{% for post in posts %}
-{% assign year = post.path | truncate: 4, "" %}
+{% for post in collections.posts.pages %}
+{% assign year = post.permalink | truncate: 4, "" %}
 {% if year == "2017" %}
-  <li><a href="/{{ post.path }}">{{ post.title }}</a> - {{ post.content | strip_html | truncatewords: 25, '...' }}</li>
+  <li><a href="/{{ post.permalink }}">{{ post.title }}</a> - {{ post.content | strip_html | truncatewords: 25, '...' }}</li>
 {% endif %}
 {% endfor %}
 </ul>

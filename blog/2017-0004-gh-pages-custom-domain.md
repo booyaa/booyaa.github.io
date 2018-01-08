@@ -1,11 +1,11 @@
-extends: post.liquid
+permalink: "/2017/gh-pages-custom-domain"
 title: Using a custom domain with GitHub Pages
-date: 13 Jun 2017 08:02:54 +0100
-path: 2017/gh-pages-custom-domain
-tags: cobalt,github,dns
-route: blog
+published_date: "2017-06-13 08:02:54 +0100"
+layout: post.liquid
+data:
+  route: blog
+  tags: "cobalt,github,dns"
 ---
-
 It took far too long to work out how to do this on the GitHub help pages...
 
 Assumptions:
