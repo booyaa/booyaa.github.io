@@ -1,7 +1,8 @@
 sudo: false
-
+language: rust
 before_script:
-  - curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git cobalt-org/cobalt.rs --crate cobalt --force --target x86_64-unknown-linux-gnu
+  # - curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git cobalt-org/cobalt.rs --crate cobalt --force --target x86_64-unknown-linux-gnu
+  - cargo install --force --git https://github.com/cobalt-org/cobalt.rs.git
   - export PATH="$PATH:~/.cargo/bin"
 script:
   - cobalt -V && cobalt build
