@@ -4,7 +4,7 @@ data:
   comment: creates a document collection for lunr to index (site search)
 ---
 {% assign idx = 0 %}
-{% assign post_count = collections.posts | size %}
+{% assign post_count = collections.posts.pages | size %}
 [
 {% for post in collections.posts.pages %}
 {% assign idx = idx | plus: 1 %}
