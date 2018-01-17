@@ -1,8 +1,9 @@
 permalink: "/2017/irc-ssl"
 title: SSL on IRC
-published_date: "2017-07-27 19:07:00 +0100"
+published_date: "2017-06-11 18:29:09 +0100"
 layout: post.liquid
 data:
+  route: blog
   tags: "irc,ssl"
 ---
 references:

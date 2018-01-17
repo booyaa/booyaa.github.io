@@ -1,8 +1,9 @@
-permalink: /YYYY/pretty/name
+permalink: "/YYYY/cloudflare"
 title: Make this meaningful
-published_date: "2017-07-16 13:08:27 +0100"
+published_date: "2017-06-11 18:29:09 +0100"
 layout: post.liquid
 data:
+  route: blog
   tags: "abc, cde"
 ---
 last week (on the 9 Jul 2017 13:08:27 +0100)

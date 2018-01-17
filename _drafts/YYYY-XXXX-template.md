@@ -1,8 +1,9 @@
-permalink: /YYYY/pretty/name
+permalink: "/YYYY/pretty/template"
 title: Make this meaningful
-published_date: "2017-06-04 16:49:09 +0100"
+published_date: "2017-06-11 18:29:09 +0100"
 layout: post.liquid
 data:
+  route: blog
   tags: "abc, cde"
 ---
 don't forget that you can insert the datetime using `CMD-P > InsertFormattedDateString`

@@ -1,8 +1,8 @@
 permalink: "/2017/oracle-messaging-gateway-tips"
 title: Oracle Messaging Gateway Tips
-published_date: "2017-06-04 16:49:09 +0100"
 layout: post.liquid
 data:
+  route: blog
   tags: "oracle,omg,mq,aq,messaging,queue"
 ---
 ## Assumptions
