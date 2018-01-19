@@ -21,17 +21,19 @@ I'm particular of the "Show and Tell" because it's relaxed format allows people 
 
 ## str::replace("These are a few of my Favourite Things", "hing", "alk")
 
-I've loved all the talks that have been given, but ultimate there are some favourites:
+I've loved all the talks that have been given, but there are a few that are my favourites.
 
 - Jonathan Pallant (JPster) - [Embedded Rust Talk (video)](https://skillsmatter.com/skillscasts/9817-february-rust-meetup) - This was my first example of Rust running on embedded hardware and not via serial. This has so far been our only talk involving electronics!
-- Niko Matsakis - [Compiler Internals (video)](https://skillsmatter.com/skillscasts/10868-inside-the-rust-compiler) - Not our first remote talk, but certainly the exciting because it provided by a member of the core team. Trivia: this wasn't the first time Niko had given a talk to our group. Over a year a go he along with a sizable contingency of the core team descended upon our humble group and gave us a serious overload of Rust! You can see those videos here. 
+- Niko Matsakis - [Compiler Internals (video)](https://skillsmatter.com/skillscasts/10868-inside-the-rust-compiler) - Not our first remote talk, but certainly the exciting because it provided by a member of the core team. Trivia: this wasn't the first time Niko had given a talk to our group. Over a year a go he along with a sizable contingency of the core team descended upon our humble group and gave us a serious overload of Rust! You can see those videos [here](https://skillsmatter.com/meetups/8173-state-of-rust-2016-and-how-to-create-webservices-in-rust). 
+- Pete Hayes - [Intecture 2: Tokio Drift (video)](https://skillsmatter.com/skillscasts/11038-intecture-2-tokio-drift) - Pete gave a talk about Intecture in [2016 (video)](https://skillsmatter.com/skillscasts/8311-rust-london-meetup), he had just started out on his journey and it was nice to see his progress, which it turns out was a lot and included replacing a lot of zeromq with Tokio!
 
 # Lessons learnt
 
-## time keeping
+I'm still bad at time keeping, we've still been close to being kicked out at the venue because we've ran so late. So to address this I plan this I will nominate someone as a time keeper and give them time remaining card.
 
-## better remote speaker experience
+Our remote speaking isn't ideal. I'd love to use Mozilla's Vidya, but licenses to extend to meet ups. Also Google hangout's UI is so counter-intuitive (don't at me) that frequently new users end up not screen switching and you spend the first 5 minutes with a very personal face to face chat.
 
+I'm going to try Zoom, but if you have something you swear by that ideally allows 2 way video and screen sharing, drop me a note!
 
 # So what's in store for 2018?
 
