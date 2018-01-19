@@ -38,7 +38,7 @@ Our remote speaking isn't ideal. I'd love to use Mozilla's Vidya, but licenses t
 
 I'm going to try Zoom, but if you have something you swear by that ideally allows 2 way video and screen sharing, drop me a note!
 
-On the subject of remote speakers, if you're lucky to have excellent A/V support (2 way audio) this can be an equally good experience for your information hungry Rustaceans. If we hadn't made use of remote speakers, I'm certain we'd have three less meet ups for 2017. Fledging meet up groups should take note.
+On the subject of remote speakers, if you're lucky to have excellent A/V support (2 way audio) this can be an equally good experience for your information hungry Rustaceans. If we hadn't made use of remote speakers, I'm certain we'd have three less meet ups for 2017, turns out even the capital only has a finite amount of people who can and want to talk about Rust! Fledging meet up groups should take note.
 
 # So what's in store for the talks meetup in 2018?
 
@@ -48,14 +48,15 @@ I'm going to be relying on the kindest of friends to help me achieve this, and I
 
 My stretch goals will be:
 
-- Produce more home grown speakers i.e. from our attendee list
-- Run a RustBridge
-- Host a Rust conference in the UK
+- Produce more home grown speakers i.e. from our attendee list.
+- Try out the [Fishbowl](https://skillsmatter.com/skillscasts/8311-rust-london-meetup) (thanks Flo) and [Open Space](https://en.wikipedia.org/wiki/Open_Space_Technology) format meet ups.
+
 
 # Thanks
 
 Before I end this blog, I'd like to thank the following group of people who with out their help these meet ups wouldn't happen.
 
+- Christian my fellow organiser, who single handledly took on the Hack and Learn meet ups and has had equally great success.
 - Skillsmatter for hosting us and provide video recordings. I'd like to single out the A/V team in particular who were unfazed by any of our display connectivity issues and remote talk quirks.
 - Speakers for taking the time to talk about your passion project.
 - The attendees for being the last vital ingredient to make a meet up successful.
