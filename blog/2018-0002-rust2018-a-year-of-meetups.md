@@ -49,7 +49,7 @@ I'm going to be relying on the kindest of friends to help me achieve this, and I
 My stretch goals are:
 
 - Produce more home grown speakers i.e. from our attendee list.
-- Try out the [Fishbowl](https://skillsmatter.com/skillscasts/8311-rust-london-meetup) (thanks Flo) and [Open Space](https://en.wikipedia.org/wiki/Open_Space_Technology) format meet ups.
+- Try out the [Fishbowl](https://skillsmatter.com/skillscasts/8311-rust-london-meetup) (thanks Florian) and [Open Space](https://en.wikipedia.org/wiki/Open_Space_Technology) format meet ups.
 - Find a better way to solicit feedback about the events, speakers and suggestions.
 
 # Thanks
