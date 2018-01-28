@@ -1,9 +1,8 @@
 permalink: "/2018/rust2018-a-year-of-talks"
 title: Rust2018 - A year of talks
-published_date: "2018-01-17 07:42:54 +0000"
+published_date: "2018-01-28 19:49:54 +0000"
 layout: post.liquid
 categories: [ rust,talks,community,meetups ]
-is_draft: true
 data:
   route: blog
   tags: "rust,talks,community,meetups"
