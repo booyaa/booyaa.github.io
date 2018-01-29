@@ -85,6 +85,10 @@ Then why not enjoy our recorded talks from 2017!
 - November
   - Apoorv Kothari - [Ownership, the Core Principal of API Design (video)](https://skillsmatter.com/skillscasts/10897-ownership-the-core-principal-of-api-design)
 
-  # FIN
+# Comments or feedback?
+
+Here's the [URLO thread](https://users.rust-lang.org/t/rust2018-a-year-of-talks/15316) to do this.
+
+# FIN
 
   honest.
