@@ -72,3 +72,12 @@ proxy_servers:
     http: http://127.0.0.1:8888
     https: http://127.0.0.1:8888
 ```
+
+## vscode
+
+edit your user settings file and add
+
+```json
+  "http.proxy": "http://127.0.0.1:8888",
+  "http.proxyStrictSSL": false,
+```
