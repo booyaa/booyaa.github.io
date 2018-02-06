@@ -100,7 +100,7 @@ to pull
 Warning: this is destructive, if you've got local uncommitted changes do not 
 proceed!
 
-```
+```shell
 $ git pull origin master
 From github.com:booyaa/broken_repo
  * branch            master     -> FETCH_HEAD
@@ -109,4 +109,12 @@ $ git fetch # may be superflurous
 $ git reset --hard origin/master
 $ git branch --set-upstream-to=origin/master master
 Branch master set up to track remote branch master from origin.
+```
+
+## Updating a branch with new changes from master
+
+```shell
+git checkout out_of_date_branch
+git merge origin/master
+git push origin out_of_date_branch
 ```
