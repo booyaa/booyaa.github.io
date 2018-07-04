@@ -1,6 +1,8 @@
 permalink: "/YYYY/pretty/template"
 title: Make this meaningful
-published_date: "2017-06-11 18:29:09 +0100"
+is_draft: true
+categories:
+  - "abc, cde"
 layout: post.liquid
 data:
   route: blog
