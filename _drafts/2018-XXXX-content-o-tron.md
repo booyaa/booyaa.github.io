@@ -10,21 +10,47 @@ data:
   tags: "rust,community,blogging"
 ---
 
-## Intro
+## What is Content-o-Tron
 
-_What is content-o-tron_
+Content-o-Tron is project to help amplify the lesser heard voices in the Rust community. 
 
-## Background
+We are able to do this by providing editorial assistance and technical reviews of draft blog posts.
 
-_How did content-o-tron come to be_
+Once your blog post is ready to publish we will ensure it is deseminated through various channels such as ReadRust, MozHacks, social networks and of course the Rust Community's own blog on community.rs.
 
-Mozilla Open Leadership
+## Why do we need Content-o-Tron
 
-## Progress
+The short form of writing i.e. Twitter, Mastodon, Rust User Forums (URLO) are good, but lack the ability to express detail and are often hampered by the fact that those thoughts vanish from most peoples timelines in a matter of minutes.
 
-_What have we achieved so far. Global Sprint_
+Speaking from personal experience, it can be daunting to start a blog post. Yet it's often a great measure of our understanding of key concepts and ideas for topic we are studying.
+
+The things I've found that have held me back are:
+
+- Needing editorial assistance to catch typos, or words that I have missed out.
+- Not wanting to look like idiot in front of the community because I misunderstood how something worked.
+- Who wants to read or care about what I want to say.
+
+The last item on the list, is pretty much the sole purpose of Content-o-Tron. The Rust community loves hearing about your experiments, how you go abouts learning Rust or how your trial at work is going. In short we want to hear about what you're doing with Rust either directly writing code, contributing to the various Rust projects or how your local Rust meetup is going.
+
+## How did content-o-tron happen
+
+Last year the Rust Community team created new sub teams to concentrate on various roles the team play a part in: Events, RustBridge,  i18n and l10n; Surveys and Content.
+
+I lead the Content team who are responsible for writing in the Community blog.  We also curate and promote material like video and podcasts. We also provide assistance for people that want to write blog posts on Rust.
+
+Lacking the experience of leading a team, I decided to seek help and signed up for the Mozilla Open Leadership programme.
+
+## Our progress so far
+
+- Global Sprint
+- #RustReach
+
+## Where we want to be
 
 ## How you can help
 
-_Ways to contact the team_
+- Ways to contact the team
+- When we meet
 
+
+Our community isn't complete until we have your voice.
