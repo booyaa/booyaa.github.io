@@ -32,13 +32,17 @@ The things I've found that have held me back are:
 
 The last item on the list, is pretty much the sole purpose of Content-o-Tron. The Rust community loves hearing about your experiments, how you go abouts learning Rust or how your trial at work is going. In short we want to hear about what you're doing with Rust either directly writing code, contributing to the various Rust projects or how your local Rust meetup is going.
 
-## How did content-o-tron happen
+## How did Content-o-Tron happen
 
 Last year the Rust Community team created new sub teams to concentrate on various roles the team play a part in: Events, RustBridge,  i18n and l10n; Surveys and Content.
 
-I lead the Content team who are responsible for writing in the Community blog.  We also curate and promote material like video and podcasts. We also provide assistance for people that want to write blog posts on Rust.
+I lead the Content team, whose description in the Community Repo is 
 
-Lacking the experience of leading a team, I decided to seek help and signed up for the Mozilla Open Leadership programme.
+> Organize and write for the community blog and other publication outlets; organize and promote material like videos and podcasts; provide lectorate (copy editing) and assistance for people that want to write blog posts on rust.
+
+Lacking the experience of leading a team, I decided to seek help and signed up for the [Mozilla Open Leadership][link_mol] programme. I've written about my experience on the programme in the following blog post: [Mozilla Global Sprint][link_moz_global_sprint]. I highly recommend you join, if you want to help foster a healthy community around your project.
+
+During my time on this programme, it would help define the Content-o-Tron project.
 
 ## Our progress so far
 
@@ -54,3 +58,5 @@ Lacking the experience of leading a team, I decided to seek help and signed up f
 
 
 Our community isn't complete until we have your voice.
+
+[link_moz_global_sprint]: /2018/2018-0005-mozilla-global-sprint/
