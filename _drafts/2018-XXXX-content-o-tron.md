@@ -36,20 +36,21 @@ The last item on the list, is pretty much the sole purpose of Content-o-Tron. Th
 
 Last year the Rust Community team created new sub teams to concentrate on various roles the team play a part in: Events, RustBridge,  i18n and l10n; Surveys and Content.
 
-I lead the Content team, whose description in the Community Repo is 
+I lead the Content team, whose goal (from our description in the [team][link_rust_comm_team] project):
 
 > Organize and write for the community blog and other publication outlets; organize and promote material like videos and podcasts; provide lectorate (copy editing) and assistance for people that want to write blog posts on rust.
 
 Lacking the experience of leading a team, I decided to seek help and signed up for the [Mozilla Open Leadership][link_mol] programme. I've written about my experience on the programme in the following blog post: [Mozilla Global Sprint][link_moz_global_sprint]. I highly recommend you join, if you want to help foster a healthy community around your project.
 
-During my time on this programme, it would help define the Content-o-Tron project.
+During my time on this programme, one phrase in our team's goal would help me define the Content-o-Tron project: _provide lectorate (copy editing) and assistance for people that want to write blog posts on rust_
 
 ## Our progress so far
 
-- Global Sprint
-- #RustReach
+The culimination of the Mozilla Open Leadership programme is to show case your project during the Mozilla Global Sprint. This is a two day long hackathon where lots of wonderful volunteers offer to help you work on your project.
 
-## Where we want to be
+During the the sprint, we had a new mascot created and finished two guides. We've run two campaigns.
+
+## Where we want to be (our goal)
 
 ## How you can help
 
@@ -60,3 +61,4 @@ During my time on this programme, it would help define the Content-o-Tron projec
 Our community isn't complete until we have your voice.
 
 [link_moz_global_sprint]: /2018/2018-0005-mozilla-global-sprint/
+[link_rust_comm_team]: https://github.com/rust-community/team#-content
