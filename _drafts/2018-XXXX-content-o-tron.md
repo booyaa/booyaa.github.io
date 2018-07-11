@@ -12,7 +12,7 @@ data:
 
 ## What is Content-o-Tron
 
-Content-o-Tron is project to help amplify the lesser heard voices in the Rust community. 
+Content-o-Tron is project to help amplify the lesser heard voices in the Rust community.
 
 We are able to do this by providing editorial assistance and technical reviews of draft blog posts.
 
@@ -48,17 +48,20 @@ During my time on this programme, one phrase in our team's goal would help me de
 
 The culimination of the Mozilla Open Leadership programme is to show case your project during the Mozilla Global Sprint. This is a two day long hackathon where lots of wonderful volunteers offer to help you work on your project.
 
-During the the sprint, we had a new mascot created and finished two guides. We've run two campaigns.
+During the the sprint, we got a new mascot, finished two guides (writing an informative blog post and running a campaign). We also got a campaign curation tool (written in Rust natch) and a blog site template.
 
-## Where we want to be (our goal)
+We also did a soft launch for #RustReach related blog posts.
 
 ## How you can help
 
-- Ways to contact the team
-- When we meet
+One of our biggest challenges, is find more people to help spread the word about the project. We also need more technical reviewers to provide guidance to our new bloggers.
 
+There's a list items you can [help][link_cot_help_wanted] with in the project.
+
+We meet on alternating Tuesdays (see agenda). If you have any questions please ask then or raise an issue.
 
 Our community isn't complete until we have your voice.
 
 [link_moz_global_sprint]: /2018/2018-0005-mozilla-global-sprint/
 [link_rust_comm_team]: https://github.com/rust-community/team#-content
+[link_cot_help_wanted]: https://github.com/rust-community/content-o-tron/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
