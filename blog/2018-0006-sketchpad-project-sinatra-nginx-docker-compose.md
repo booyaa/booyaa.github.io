@@ -1,14 +1,14 @@
 permalink: "/2018/sketchpad-project-sinatra-nginx-docker-compose"
-title: A sketchpad project based on Sinatra, Nginx using docker-compose
+title: "A sketchpad project based on Sinatra, Nginx using docker-compose"
 categories:
   - "sinatra,nginx,docker-compose"
+published_date: "2018-07-22 18:00:01 +0000"
 layout: post.liquid
-is_draft: true
+is_draft: false
 data:
   route: blog
   tags: "sinatra,nginx,docker-compose"
 ---
-
 I recently came across a monolithic application at work that used various frameworks which in turn made extending existing routes very difficult to implement.
 
 The general consensus amongst my peers was to stick a proxy in front of the app. The only decision left, was to determine if we could do this using the existing reverse proxy ([Nginx][link_nginx]) or write a bespoke proxy (between Nginx and the existing monolith).
