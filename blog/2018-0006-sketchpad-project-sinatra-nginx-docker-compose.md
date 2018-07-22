@@ -89,6 +89,8 @@ The items you may find useful are:
 
 You can see the whole project on [GitHub][link_github].
 
+Shrewd, readers will notice (in the repo) that `parp` isn't the item in the URL that we wanted to change. The problem was actually that there are different versions of the data set. Some view this as a change to the API therefore requiring a version tag in the URL. Others do not which is why `version` was being passed as a parameter.
+
 [link_nginx]: https://www.nginx.com/
 [link_nginx_proxy_set]: http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_body
 [link_nginx_location]: http://nginx.org/en/docs/http/ngx_http_core_module.html#location
