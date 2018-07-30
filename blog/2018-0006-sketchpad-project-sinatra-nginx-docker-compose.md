@@ -4,7 +4,7 @@ categories:
   - "sinatra,nginx,docker-compose"
 published_date: "2018-07-22 18:00:01 +0000"
 layout: post.liquid
-is_draft: false
+is_draft: false 
 data:
   route: blog
   tags: "sinatra,nginx,docker-compose"
