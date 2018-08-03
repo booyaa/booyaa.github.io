@@ -17,17 +17,17 @@ I also credit this blog post for getting me into [OpenFaaS][link_openfaas] and F
 
 ## What are Functions
 
-Functions in the context of Functions as a Service or Serverless Functions, becomes the next level of abstraction after Platforms as a Service (PaaS). If you think of PaaS as a way to simplify the software release process: you make changes to code, you merge them into your master branch, PaaS handles packaging, delivery of the software as well as providing servers tailored to your application.
+Functions in the context of Functions as a Service, or Serverless Functions, becomes the next level of abstraction after Platforms as a Service (PaaS). If you think of PaaS as a way to simplify the software release process: you make changes to code, you merge them into your master branch, PaaS handles packaging, delivery of the software as well as providing servers tailored to your application.
 
-Functions take this abstraction further, but removing concerns around how your software interacts with it's environment. You no longer consider issues of RBAC, Presentation (webserver, stdio), you just write the minimum amount of code to get things done.
+Functions take this abstraction further, but removing concerns around how your software interacts with its environment. You no longer consider issues of RBAC, Presentation (webserver, stdio), you just write the minimum amount of code to get things done.
 
-The best summation of what FaaS and to an extent what Mircoservices are was coined by Ian Cooper. To paraphrase him: Your unit tests are your functions. You do not have concerns about things outside of the function's task.
+The best summation of what FaaS and to an extent what Microservices are was coined by Ian Cooper. To paraphrase him: Your unit tests are your functions. You do not have concerns about things outside of the function's task.
 
 ## What is OpenFaaS
 
 OpenFaaS is an open source implementation of Function as a Service (Serverless Functions, microservices) that you can self host vs commercial offerings by [AWS Lambda][link_lambda]), [Google Cloud Functions][link_google_cloud_functions], [Oracle Fn][link_oracle_fn], [IBM OpenWhisk][link_ibm_openwhisk] and [Microsoft Azure Functions][link_microsoft_azure_functions].
 
-You can either deploy existing functions or create new ones. If you create new ones, there a big list of officially supported languages. Alternative you could turn a [CLI into function][link_openfaas_cli].
+You can either deploy existing functions or create new ones. If you create new ones, there's a big list of officially supported languages. Alternative you could turn a [CLI into function][link_openfaas_cli].
 
 Once I'd given Python and Ruby a go as an introduction, I wanted to see how easy it would be to create a Rust template.
 
@@ -35,8 +35,8 @@ Once I'd given Python and Ruby a go as an introduction, I wanted to see how easy
 
 A template requires the following:
 
-- a script/program to act as a driver for the function, this code will not be seen or used by end users using your tempate
-- a script/program with a `handle` function, that will provide the boilerplate for your end users
+- a script/program to act as a driver for the function. This code will not be seen or used by end users using your tempate
+- a script/program with a `handle` function that will provide the boilerplate for your end users
 - a `Dockerfile` that will bundle and build the driver and function, as well as installing a watchdog process (more on this later).
 - a `template.yml` which at minimum should provide the programming language of the template and the code to start the handler.
 
@@ -47,9 +47,9 @@ To create a Rust template, I opted to create two crates (we'll discuss the funct
 - the `main` crate acts as the driver for the function
 - the `function` crate contains the library with the `handle` function
 
-I opted for crates and followed the usual style of keep the code in `src` sub-directory and `Cargo.toml` in the root to maintain convention.
+I opted for crates and followed the usual style of keeping the code in `src` sub-directory and `Cargo.toml` in the root to maintain convention.
 
-Important note about the `function` crate, OpenFaaS expects to find a folder called `function`, if you call it anything else it will not copy the boilerplate code when a new function is created using the template.
+Important note about the `function` crate. OpenFaaS expects to find a folder called `function`, if you call it anything else it will not copy the boilerplate code when a new function is created using the template.
 
 The `main` crate pulls in the `function` crate as a dependency using a relative path.
 
@@ -84,7 +84,7 @@ fn main() -> io::Result<()> {
 
 I copied this code from the standard library [documentation][link_rust_docs].
 
-The function parses the input and returns it's output to the driver.
+The function parses the input and returns its output to the driver.
 
 ```rust
 pub fn handle(req : String) -> String {
@@ -99,7 +99,7 @@ faas-cli template pull https://github.com/booyaa/openfaas-rust-template
 faas-cli new trustinrust --lange rust
 ```
 
-You want to edit `trustinrust.yml` and update the following values (other parts of the code have been omitted:
+You want to edit `trustinrust.yml` and update the following values (other parts of the code have been omitted):
 
 ```yml
 provider:
@@ -122,7 +122,7 @@ trustinrust
     └── lib.rs
 ```    
 
-`trustinrust` contains just the boiler plate code from the `function` crate.
+`trustinrust` contains just the boilerplate code from the `function` crate.
 
 We're going to amend `lib.rs` just to show we've made a change to the boilerplate.
 
@@ -141,7 +141,7 @@ lolwat:hi
 
 ## Further reading
 
-If you want to learn more you should look out for videos by the Kubernetes Legend Kelsey Hightower. I can highly recommend [Kubernetes For Pythonistas][link_kelsey]. Which features the now famous Tetris analogy for DevOps. Also see out Alex Ellis on the youtubes and his excellent collection of [Docker, Kubernetes and OpenFaaS][link_youtube_alex] videos.
+If you want to learn more you should look out for videos by the Kubernetes Legend Kelsey Hightower. I can highly recommend [Kubernetes For Pythonistas][link_kelsey], which features the now-famous Tetris analogy for DevOps. Also seek out Alex Ellis on the youtubes and his excellent collection of [Docker, Kubernetes and OpenFaaS][link_youtube_alex] videos.
 
 [link_kbe]: http://kubernetesbyexample.com/
 [link_helm]: https://helm.sh/
