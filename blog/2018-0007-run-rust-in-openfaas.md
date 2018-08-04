@@ -1,10 +1,10 @@
---
 permalink: "/2018/run-rust-in-openfaas"
-title: "How to run Rust in OpenFaaS"
+title: How to run Rust in OpenFaaS
 categories:
   - "openfaas,faas,functions,serverless,rust"
+published_date: "2018-08-04 15:04:47 +0000"
 layout: post.liquid
-is_draft: true
+is_draft: false
 data:
   route: blog
   tags: "openfaas,faas,functions,serverless,rust"
