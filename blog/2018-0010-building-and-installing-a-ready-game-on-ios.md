@@ -100,3 +100,8 @@ You may need to trust your personal certificate (they’re renewed every six day
 In iOS 11 this setting can be found in `Settings` > `General` > `Profile & Device Management` . Select the `DEVELOPER APP` profile and trust the certificate.
 
 ![Xcode trust certificate on device dialogue](/img/ready-004-trust.png)
+
+## References
+
+- [Space Chicken - Extra Credit: Exporting the Game to Desktop](https://unity3d.com/learn/tutorials/projects/space-chicken/extra-credit-exporting-game-desktop?playlist=51293)
+- [Unity - Building your Unity game to an iOS device for testing](https://unity3d.com/learn/tutorials/topics/mobile-touch/building-your-unity-game-ios-device-testing)
