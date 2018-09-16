@@ -24,8 +24,8 @@ There are three levels of competencies:
 2. Intermediate
 3. Advanced
 
-I recently passed the [TDD core skill level 1 (Giraffe)](https://learn.madetech.com/core-skills/tdd/#giraffe) and I've decided to blog my study to aid my learning. This will form the basisis of a blog post series called "Blogging my Homework".
+I recently passed the [TDD core skill level 1 (Giraffe)](https://learn.madetech.com/core-skills/tdd/#giraffe) and I've decided to blog my study to aid my learning. This will form the basis of a blog post series called "Blogging my Homework".
 
-All the learning material as well as the assessment criteria is publically available at [learn.madetech.com](https://learn.madetech.com/).
+All the learning material as well as the assessment criteria is publicly available at [learn.madetech.com](https://learn.madetech.com/).
 
-I'd love your feed back and tips, hopefully you can also learn a few things from me too!
+I'd love your feedback and tips, hopefully you can also learn a few things from me too!
