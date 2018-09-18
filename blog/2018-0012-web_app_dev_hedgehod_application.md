@@ -3,7 +3,7 @@ title: "Web App Development Core Skill: Hedgehog - Part One"
 categories:
   - "study,learning"
 layout: post.liquid
-published_date: "2018-09-15 19:38:00 +0000"
+published_date: "2018-09-18 08:59:00 +0000"
 is_draft: false
 data:
   tags: "study,learning"
