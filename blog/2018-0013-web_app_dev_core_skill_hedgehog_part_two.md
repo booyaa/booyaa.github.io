@@ -10,10 +10,6 @@ data:
   route: blog
 ---
 
-_This is part of my "Blogging my Homework" blog post series, the introductory post can be found [here](/2018/blogging-my-homework/)._
-
-Caveat emptor: any errors or misunderstanding around concepts will almost certainly be my own rather than my employee (Made Tech). This is after all my own study and mistakes do occur during learning.
-
 *This is part of my "Blogging my Homework" blog post series, the introductory post can be found [here](/2018/blogging-my-homework/).*
 
 Caveat emptor: any errors or misunderstanding around concepts will almost certainly be my own rather than my employee (Made Tech). This is after all my own study and mistakes do occur during learning.
