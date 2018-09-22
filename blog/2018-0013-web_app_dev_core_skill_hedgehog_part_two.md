@@ -14,6 +14,8 @@ data:
 
 Caveat emptor: any errors or misunderstanding around concepts will almost certainly be my own rather than my employee (Made Tech). This is after all my own study and mistakes do occur during learning.
 
+**Update 22nd of September:** I passed my Hedgehog assessment!
+
 Welcome back to part two of my study guide for Web Application Development! In the [previous](/2018/web_app_dev_core_skill_hedgehog_part_one/) post, we covered the practical side of the assessment, this time we cover the theoretical side.
 
 ## Understanding
