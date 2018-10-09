@@ -9,7 +9,7 @@ data:
   tags: "devops,dbops"
   route: blog
 ---
-I came across this today: `Mysql2::Error: Can't connect to MySQL server on 'some-db-server.example.com' (113)`
+I came across this error recently: `Mysql2::Error: Can't connect to MySQL server on 'some-db-server.example.com' (113)`
 
 A quick [search](https://duckduckgo.com/?q=mysql+error+113&t=ffab&ia=qa) on the Internet, resulted in various Q & A sites hinting at a connectivity/routing issue to/from the MySQL server. 
 
