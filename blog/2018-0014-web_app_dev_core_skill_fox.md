@@ -1,5 +1,5 @@
 permalink: "/2018/web_app_dev_core_skill_fox"
-title: "Web App Development Core Skill: Fox"
+title: "Craft as a Fox"
 categories:
   - "study,learning"
 layout: post.liquid

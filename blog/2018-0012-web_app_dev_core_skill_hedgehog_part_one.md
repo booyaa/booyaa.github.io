@@ -1,5 +1,5 @@
 permalink: "/2018/web_app_dev_core_skill_hedgehog_part_one"
-title: "Web App Development Core Skill: Hedgehog - Part One"
+title: "Being a Hedgehog - Part One"
 categories:
   - "study,learning"
 layout: post.liquid
