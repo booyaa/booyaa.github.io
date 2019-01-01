@@ -34,12 +34,12 @@ the archive.
 
 <ul>
 {% raw %}
-{% endfor %
-{% endif %}</li>
-{{ post.content | strip_html | truncatewords: 25, '...' }}</a> - {{ post.title }}">{{ post.permalink }}
-  <li><a href="/{% if year == "2017" %}
-{% assign year = post.permalink | truncate: 4, "" %}
 {% for post in collections.posts.pages %}
+{% assign year = post.permalink | truncate: 4, "" %}
+{% if year == "2017" %}
+  <li><a href="/{{ post.permalink }}">{{ post.title }}</a> - {{ post.content | strip_html | truncatewords: 25, '...' }}</li>
+{% endif %}
+{% endfor %}
 {% endraw %}
 </ul>
 ```
