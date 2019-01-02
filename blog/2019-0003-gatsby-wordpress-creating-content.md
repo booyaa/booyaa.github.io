@@ -4,7 +4,7 @@ title: "Gatsy and WordPress: Creating Content"
 categories:
   - "wordpress,gatsby"
 layout: post.liquid
-published_date: "2019-01-03 13:37:00 +0000"
+published_date: "2019-01-02 13:37:00 +0000"
 is_draft: false
 data:
   tags: "wordpress,gatsby"
