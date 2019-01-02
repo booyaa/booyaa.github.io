@@ -1,5 +1,5 @@
 ---
-permalink: "2019/gatsby-wordpress-creating-content"
+permalink: "/2019/gatsby-wordpress-creating-content"
 title: "Gatsy and WordPress: Creating Content"
 categories:
   - "wordpress,gatsby"

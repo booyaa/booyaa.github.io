@@ -1,3 +1,4 @@
+---
 permalink: "/2019/gatsby-wordpress-setup"
 title: "Gatsy and WordPress: Setup"
 categories:

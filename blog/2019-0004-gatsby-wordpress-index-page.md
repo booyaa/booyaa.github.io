@@ -1,4 +1,5 @@
-permalink: "2019/gatsby-wordpress-index-page"
+---
+permalink: "/2019/gatsby-wordpress-index-page"
 title: "Gatsy and WordPress: Creating an index page"
 categories:
   - "wordpress,gatsby"
