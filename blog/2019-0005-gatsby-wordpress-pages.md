@@ -70,8 +70,8 @@ export default ({ data }) => {
   return (
     <Layout>
       <div>
-        <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
-        <div dangerouslySetInnerHTML={{ __html: page.content }} />
+        <h1 dangerouslySetInnerHTML=&#123;&#123; __html: page.title &#124;&#124; />
+        <div dangerouslySetInnerHTML=&#123;&#123; __html: page.content &#124;&#124; />
       </div>
     </Layoqut>
   )
@@ -83,8 +83,7 @@ export const pageQuery = graphql`
       title
       content
     }
-  }
-`
+  }`
 ```
 
 Finally, let’s update our footer (which lives in the Layout component `src/components/layout.js`)

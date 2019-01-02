@@ -183,11 +183,11 @@ export default ({ data }) => {
   return (
     <Layout>
       <div>
-        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+        <h1 dangerouslySetInnerHTML=&#123;&#123; __html: post.title  &#124;&#124; />
         <h3>
           date: {post.date} tags: {extractTags(post)}{' '}
         </h3>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div dangerouslySetInnerHTML=&#123;&#123; __html: post.content  &#124;&#124; />
       </div>
     </Layout>
   )
