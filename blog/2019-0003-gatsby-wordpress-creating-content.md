@@ -1,6 +1,6 @@
 ---
 permalink: "/2019/gatsby-wordpress-creating-content"
-title: "Gatsy and WordPress: Creating Content"
+title: "Gatsby and WordPress: Creating Content"
 categories:
   - "wordpress,gatsby"
 layout: post.liquid

@@ -1,6 +1,6 @@
 ---
 permalink: "/2019/gatsby-wordpress-index-page"
-title: "Gatsy and WordPress: Creating an index page"
+title: "Gatsby and WordPress: Creating an index page"
 categories:
   - "wordpress,gatsby"
 layout: post.liquid

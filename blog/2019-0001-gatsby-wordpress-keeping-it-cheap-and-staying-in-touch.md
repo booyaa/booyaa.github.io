@@ -1,6 +1,6 @@
 ---
 permalink: "/2019/gatsby-wordpress-keeping-it-cheap-and-staying-in-touch"
-title: "Gatsy and WordPress: Keeping it cheap and staying in touch"
+title: "Gatsby and WordPress: Keeping it cheap and staying in touch"
 categories:
   - "wordpress,gatsby"
 layout: post.liquid

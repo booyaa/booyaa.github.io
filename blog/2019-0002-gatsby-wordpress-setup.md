@@ -1,6 +1,6 @@
 ---
 permalink: "/2019/gatsby-wordpress-setup"
-title: "Gatsy and WordPress: Setup"
+title: "Gatsby and WordPress: Setup"
 categories:
   - "wordpress,gatsby"
 layout: post.liquid

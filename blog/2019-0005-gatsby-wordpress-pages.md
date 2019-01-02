@@ -1,6 +1,6 @@
 ---
 permalink: "/2019/gatsby-wordpress-pages"
-title: "Gatsy and WordPress: Creating WordPress Page Types"
+title: "Gatsby and WordPress: Creating WordPress Page Types"
 categories:
   - "wordpress,gatsby"
 layout: post.liquid
