@@ -1,3 +1,4 @@
+---
 permalink: "/2017/bind-vs-substitution"
 title: Bind vs Substitution variables
 published_date: "2017-07-01 18:02:45 +0100"

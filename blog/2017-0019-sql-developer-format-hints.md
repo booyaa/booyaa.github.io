@@ -1,3 +1,4 @@
+---
 permalink: "/2017/sql-developer-format-hints"
 title: "SQL Developer's new format hints"
 published_date: "2017-07-01 18:40:24 +0100"

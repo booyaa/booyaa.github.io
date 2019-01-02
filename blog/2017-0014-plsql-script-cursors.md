@@ -1,3 +1,4 @@
+---
 permalink: "/2017/plsql-script-cursors"
 title: PL/SQL script to query a refcursor
 published_date: "2017-07-01 16:49:01 +0100"

@@ -1,3 +1,4 @@
+---
 permalink: "/2017/adding-an-archive"
 title: Adding an archive page to your Cobalt blog
 published_date: "2017-07-04 16:13:01 +0100"

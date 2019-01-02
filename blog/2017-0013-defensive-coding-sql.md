@@ -1,3 +1,4 @@
+---
 permalink: "/2017/defensive-coding-sql"
 title: Defensive coding in SQL
 published_date: "2017-07-01 16:33:04 +0100"

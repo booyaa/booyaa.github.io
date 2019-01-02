@@ -1,3 +1,4 @@
+---
 permalink: "/2017/cargo-cult-visual-studio"
 title: "Cargo cult - the problem with copying existing code"
 published_date: "2017-07-19 11:52:00 +0100"

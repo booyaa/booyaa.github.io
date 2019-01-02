@@ -1,3 +1,4 @@
+---
 permalink: "/2017/add-reading-time"
 title: Add reading time in Cobalt
 published_date: "2017-06-15 09:05:37 +0100"

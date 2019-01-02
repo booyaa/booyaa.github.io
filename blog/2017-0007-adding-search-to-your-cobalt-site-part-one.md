@@ -1,3 +1,4 @@
+---
 permalink: "/2017/adding-search-to-your-cobalt-site-part-one"
 title: "Adding search to your cobalt site - Part One"
 published_date: "2017-06-20 08:06:11 +0100"

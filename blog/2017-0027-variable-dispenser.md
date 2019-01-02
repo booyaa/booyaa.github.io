@@ -1,3 +1,4 @@
+---
 permalink: "/2017/variable-dispenser"
 title: SSIS Variable Dispenser Template
 published_date: "2017-07-17 16:00:00 +0100"

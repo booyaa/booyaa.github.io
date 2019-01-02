@@ -1,3 +1,4 @@
+---
 permalink: "/2017/gh-pages-custom-domain"
 title: Using a custom domain with GitHub Pages
 published_date: "2017-06-13 08:02:54 +0100"

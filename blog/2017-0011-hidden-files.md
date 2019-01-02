@@ -1,3 +1,4 @@
+---
 permalink: "/2017/hidden-files"
 title: See hidden files in Finder
 published_date: "2017-07-01 14:21:50 +0100"

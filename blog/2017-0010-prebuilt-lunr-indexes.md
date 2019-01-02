@@ -1,3 +1,4 @@
+---
 permalink: "/2017/prebuilt-lunr-indexes"
 title: "Using pre-built lunr indexes"
 published_date: "2017-06-22 19:21:00 +0100"

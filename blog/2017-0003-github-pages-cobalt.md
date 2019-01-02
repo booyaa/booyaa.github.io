@@ -1,3 +1,4 @@
+---
 permalink: "/2017/cobalt-github"
 title: Using Cobalt with GitHub pages
 published_date: "2017-06-11 18:29:09 +0100"

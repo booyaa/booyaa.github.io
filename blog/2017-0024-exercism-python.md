@@ -1,3 +1,4 @@
+---
 permalink: "/2017/exercism-python"
 title: Setting up exercism python track with Visual Studio Code
 published_date: "2017-07-04 17:08:41 +0100"

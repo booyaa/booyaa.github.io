@@ -1,3 +1,4 @@
+---
 permalink: "/2017/useful-commit-messages"
 title: Useful commit messages
 published_date: "2017-06-16 09:09:18 +0100"

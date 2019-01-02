@@ -1,3 +1,4 @@
+---
 permalink: "/2017/flattening-xml"
 title: Code generation scripts in PL/SQL
 published_date: "2017-05-10 16:49:09 +0100"

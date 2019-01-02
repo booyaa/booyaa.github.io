@@ -1,3 +1,4 @@
+---
 permalink: "/2017/cobalt-tags"
 title: Add support for tags to Cobalt
 published_date: "2017-07-09 10:07:03 +0100"

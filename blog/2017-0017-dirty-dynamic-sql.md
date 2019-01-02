@@ -1,3 +1,4 @@
+---
 permalink: "/2017/dirty-dynamic-sql"
 title: Dirty Dynamic SQL
 published_date: "2017-07-01 18:19:52 +0100"

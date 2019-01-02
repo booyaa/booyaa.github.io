@@ -1,3 +1,4 @@
+---
 permalink: "/2017/collapsible-sections"
 title: Collapsible Sections in HTML
 published_date: "2017-07-01 15:55:44 +0100"

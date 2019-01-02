@@ -1,3 +1,4 @@
+---
 permalink: "/2017/rust-vscode"
 title: Using Rust with Visual Studio Code
 published_date: "2017-08-08 07:39:42 +0100"

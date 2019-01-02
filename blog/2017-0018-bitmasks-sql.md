@@ -1,3 +1,4 @@
+---
 permalink: "/2017/bitmasks-sql"
 title: Bitmasks in SQL
 published_date: "2017-07-01 18:27:29 +0100"

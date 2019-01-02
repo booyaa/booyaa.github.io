@@ -1,3 +1,4 @@
+---
 permalink: "/2017/useful-git-commands"
 title: Useful git commmands
 published_date: "2017-06-22 18:51:43 +0100"
