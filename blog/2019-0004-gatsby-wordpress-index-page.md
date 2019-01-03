@@ -10,7 +10,7 @@ data:
   tags: "wordpress,gatsby"
   route: blog
 ---
-_This is the start of a blog post series about creating Gatsby site with content pulled in from a WordPress site._
+_Photo by Billy Huynh on [Unsplash](https://unsplash.com/photos/saS98jKhVjA)_
 
 ## Order order! Let’s create an index to list our posts
 
@@ -32,9 +32,9 @@ Let’s visit http://localhost::8000/___graphql to fire up the builtin GraphQL e
 }
 ```
 
-Things to note here how to sort the collection of posts. If you’re wondering what fields are available,  the explorer provides documentation for any plugins you have loaded so in the case of WordPress Post we can explore this clicking on the hover dialogue for `allWordpressPost` (Demo: nav to `wordpress__POSTEdge > wordpress__POST `)
+Things to note here how to sort the collection of posts. If you’re wondering what fields are available,  the explorer provides documentation for any plugins you have loaded so in the case of WordPress Post we can explore this clicking on the hover dialogue for `allWordpressPost`.
 
-Let’s update our index page (`src/pages/index.js`) to list our WordPress.
+Let’s update our index page (`src/pages/index.js`) to list our WordPress posts.
 
 First, we import `graphql` and we can remove our import of `Image` component.
 
@@ -91,4 +91,4 @@ If we visit `http://localhost:8000` we should see a different page to what we st
 
 ![Post Template 2](/img/gxw-index.png)
 
-If you got stuck, you can check out the following Git hash: `2249ea842a18e4da39c6e3abcf8eeabd78a17116`
+If you got stuck, you can check out the following Git hash: `[2249ea842a18e4da39c6e3abcf8eeabd78a17116](https://github.com/booyaa/wordsby/commit/2249ea842a18e4da39c6e3abcf8eeabd78a17116)`
