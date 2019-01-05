@@ -29,3 +29,14 @@ There's still so much we haven't covered:
 - Authentication to have content for signed up members of your site.
 
 Thank you for finishing this series! Please let me know if there are other topics you'd like me to cover around the Gatsby WordPress plugin.
+
+**The Gatsby x WordPress Blog Post series**
+
+- [Keeping it cheap and staying in touch](/2019/gatsby-wordpress-keeping-it-cheap-and-staying-in-touch)
+- [Setup](/2019/gatsby-wordpress-setup)
+- [Creating Content](/2019/gatsby-wordpress-creating-content)
+- [Creating an index page](/2019/gatsby-wordpress-index-page)
+- [Creating WordPress Page Types](/2019/gatsby-wordpress-pages)
+- [Netlify or Die!](/2019/gatsby-wordpress-netlify)
+- [Yarr! Cutlasses and Webhooks!](/2019/gatsby-wordpress-cutlasses-and-webhooks)
+- *Summary*

@@ -4,7 +4,7 @@ title: "Gatsby and WordPress: Setup"
 categories:
   - "wordpress,gatsby"
 layout: post.liquid
-published_date: "2019-01-01 13:37:00 +0000"
+published_date: "2019-01-01 13:37:01 +0000"
 is_draft: false
 data:
   tags: "wordpress,gatsby"
@@ -140,3 +140,14 @@ If you see the following:
 I’m currently investigating this, and I believe this could be to do with your email address containing `+` e.g. `joe+wordpress@example.com`
 
 If you got stuck, you can check out the following Git hash: [`3ee8aae5e0c8d6f45127963f776fd1c9358dd647`](https://github.com/booyaa/wordsby/commit/3ee8aae5e0c8d6f45127963f776fd1c9358dd647)
+
+**The Gatsby x WordPress Blog Post series**
+
+- [Keeping it cheap and staying in touch](/2019/gatsby-wordpress-keeping-it-cheap-and-staying-in-touch)
+- *Setup*
+- [Creating Content](/2019/gatsby-wordpress-creating-content)
+- [Creating an index page](/2019/gatsby-wordpress-index-page)
+- [Creating WordPress Page Types](/2019/gatsby-wordpress-pages)
+- [Netlify or Die!](/2019/gatsby-wordpress-netlify)
+- [Yarr! Cutlasses and Webhooks!](/2019/gatsby-wordpress-cutlasses-and-webhooks)
+- [Summary](/2019/gatsby-wordpress-summary)

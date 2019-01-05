@@ -76,3 +76,14 @@ This is pretty amazing, we turned out site into a compliant and highly performan
 At last count, there were [86](https://www.gatsbyjs.org/starters/?v=2) Gatsby starters created by the team and community. There’s bound to be a starter to fit your needs.
 
 If you got stuck, you can check out the following Git hash: [`b1a4cc77a3d5ff0b0ad364ed5eff57fce30da5cf`](https://github.com/booyaa/wordsby/commit/b1a4cc77a3d5ff0b0ad364ed5eff57fce30da5cf)
+
+**The Gatsby x WordPress Blog Post series**
+
+- [Keeping it cheap and staying in touch](/2019/gatsby-wordpress-keeping-it-cheap-and-staying-in-touch)
+- [Setup](/2019/gatsby-wordpress-setup)
+- [Creating Content](/2019/gatsby-wordpress-creating-content)
+- [Creating an index page](/2019/gatsby-wordpress-index-page)
+- [Creating WordPress Page Types](/2019/gatsby-wordpress-pages)
+- [Netlify or Die!](/2019/gatsby-wordpress-netlify)
+- *Yarr! Cutlasses and Webhooks!*
+- [Summary](/2019/gatsby-wordpress-summary)

@@ -32,3 +32,14 @@ Things you’ll need to follow along:
 We’ll also assume you understand Git basics, Node (and friends) and are comfortable with the command line. 
 
 If you get stuck you can always check out my reference site on GitHub. At the end of a section, I’ll stick in the commit hash that closely matches the changes we made.
+
+**The Gatsby x WordPress Blog Post series**
+
+- *Keeping it cheap and staying in touch*
+- [Setup](/2019/gatsby-wordpress-setup)
+- [Creating Content](/2019/gatsby-wordpress-creating-content)
+- [Creating an index page](/2019/gatsby-wordpress-index-page)
+- [Creating WordPress Page Types](/2019/gatsby-wordpress-pages)
+- [Netlify or Die!](/2019/gatsby-wordpress-netlify)
+- [Yarr! Cutlasses and Webhooks!](/2019/gatsby-wordpress-cutlasses-and-webhooks)
+- [Summary](/2019/gatsby-wordpress-summary)

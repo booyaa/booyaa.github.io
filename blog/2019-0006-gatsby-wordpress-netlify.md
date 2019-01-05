@@ -24,3 +24,14 @@ Remember those environmental variables we set up on `gatsby-config.js`? It’s t
 ![Environment Variables in Netlify](/img/gxw-netlify-2.png)
 
 Let’s the click deploy button to publish the site. If there were any errors, check out the logs in the Deploys section of your Netlify site.
+
+**The Gatsby x WordPress Blog Post series**
+
+- [Keeping it cheap and staying in touch](/2019/gatsby-wordpress-keeping-it-cheap-and-staying-in-touch)
+- [Setup](/2019/gatsby-wordpress-setup)
+- [Creating Content](/2019/gatsby-wordpress-creating-content)
+- [Creating an index page](/2019/gatsby-wordpress-index-page)
+- [Creating WordPress Page Types](/2019/gatsby-wordpress-pages)
+- *Netlify or Die!*
+- [Yarr! Cutlasses and Webhooks!](/2019/gatsby-wordpress-cutlasses-and-webhooks)
+- [Summary](/2019/gatsby-wordpress-summary)

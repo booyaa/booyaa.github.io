@@ -90,3 +90,14 @@ If we visit `http://localhost:8000` we should see a different page to what we st
 ![Post Template 2](/img/gxw-index.png)
 
 If you got stuck, you can check out the following Git hash: [`2249ea842a18e4da39c6e3abcf8eeabd78a17116`](https://github.com/booyaa/wordsby/commit/2249ea842a18e4da39c6e3abcf8eeabd78a17116)
+
+**The Gatsby x WordPress Blog Post series**
+
+- [Keeping it cheap and staying in touch](/2019/gatsby-wordpress-keeping-it-cheap-and-staying-in-touch)
+- [Setup](/2019/gatsby-wordpress-setup)
+- [Creating Content](/2019/gatsby-wordpress-creating-content)
+- *Creating an index page*
+- [Creating WordPress Page Types](/2019/gatsby-wordpress-pages)
+- [Netlify or Die!](/2019/gatsby-wordpress-netlify)
+- [Yarr! Cutlasses and Webhooks!](/2019/gatsby-wordpress-cutlasses-and-webhooks)
+- [Summary](/2019/gatsby-wordpress-summary)

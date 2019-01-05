@@ -243,3 +243,14 @@ It’s probably best we restart gatsby to see our changes.
 ![Post Template 2](/img/gxw-post-template-2.png)
 
 If you got stuck, you can check out the following Git hash: [`50156723a4b21f08baeece9a5f7cd3936e384ee8`](https://github.com/booyaa/wordsby/commit/50156723a4b21f08baeece9a5f7cd3936e384ee8)
+
+**The Gatsby x WordPress Blog Post series**
+
+- [Keeping it cheap and staying in touch](/2019/gatsby-wordpress-keeping-it-cheap-and-staying-in-touch)
+- [Setup](/2019/gatsby-wordpress-setup)
+- *Creating Content*
+- [Creating an index page](/2019/gatsby-wordpress-index-page)
+- [Creating WordPress Page Types](/2019/gatsby-wordpress-pages)
+- [Netlify or Die!](/2019/gatsby-wordpress-netlify)
+- [Yarr! Cutlasses and Webhooks!](/2019/gatsby-wordpress-cutlasses-and-webhooks)
+- [Summary](/2019/gatsby-wordpress-summary)
