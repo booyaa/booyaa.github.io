@@ -1,3 +1,4 @@
+---
 permalink: "/2018/when_is_a_mysql_error_not_a_mysql_error"
 title: "When is a MySQL error not a MySQL error"
 categories:

@@ -1,3 +1,4 @@
+---
 permalink: "/2018/version-management-ruby-python-node-rust"
 title: "Version Management for Ruby, Python, Node and Rust"
 categories:

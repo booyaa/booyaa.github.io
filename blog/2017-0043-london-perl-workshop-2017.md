@@ -1,3 +1,4 @@
+---
 permalink: "/2017/london-perl-workshop"
 title: London Perl Workshop 2017
 published_date: "2017-11-28 07:33:26 +0000"

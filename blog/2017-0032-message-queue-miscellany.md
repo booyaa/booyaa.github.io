@@ -1,3 +1,4 @@
+---
 permalink: "/2017/message-queue-miscellany"
 title: Message Queue Miscellany
 published_date: "2017-08-12 14:13:12 +0100"

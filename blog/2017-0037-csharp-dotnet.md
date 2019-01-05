@@ -1,3 +1,4 @@
+---
 permalink: "/2017/csharp-dotnet"
 title: C Sharp and .NET tips
 published_date: "2017-09-01 07:33:15 +0100"

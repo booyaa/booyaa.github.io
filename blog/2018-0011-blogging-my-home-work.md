@@ -1,3 +1,4 @@
+---
 permalink: "/2018/blogging-my-homework"
 title: "Blogging my Homework"
 categories:

@@ -1,3 +1,4 @@
+---
 permalink: /2018/flocking-shell
 title: Flocking shell
 published_date: "2018-01-10 07:49:00 +0000"

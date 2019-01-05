@@ -1,3 +1,4 @@
+---
 permalink: "/2018/2018-0005-mozilla-global-sprint"
 title: Mozilla Global Sprint
 categories:

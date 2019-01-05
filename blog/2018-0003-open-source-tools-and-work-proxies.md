@@ -1,3 +1,4 @@
+---
 permalink: "/2018/open-source-tools-and-work-proxies"
 title: Open source tools and work proxies
 categories:

@@ -1,3 +1,4 @@
+---
 permalink: "/2018/building-and-installing-a-ready-game-on-ios"
 title: "Building and installing a Ready game on iOS"
 categories:

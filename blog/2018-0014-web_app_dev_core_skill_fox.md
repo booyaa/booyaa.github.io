@@ -1,3 +1,4 @@
+---
 permalink: "/2018/web_app_dev_core_skill_fox"
 title: "Craft as a Fox"
 categories:

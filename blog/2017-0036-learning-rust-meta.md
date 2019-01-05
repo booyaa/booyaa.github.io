@@ -1,3 +1,4 @@
+---
 permalink: "/2017/learning-rust-meta"
 title: "A developer on-boarding guide for Rust"
 published_date: "2017-08-31 18:49:38 +0100"

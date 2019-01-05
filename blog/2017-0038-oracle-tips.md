@@ -1,3 +1,4 @@
+---
 permalink: "/2017/oracle-tips"
 title: Oracle tips
 published_date: "2017-09-28 17:12:37 +0100"

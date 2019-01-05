@@ -1,3 +1,4 @@
+---
 permalink: "/2018/run-rust-in-openfaas"
 title: How to run Rust in OpenFaaS
 categories:

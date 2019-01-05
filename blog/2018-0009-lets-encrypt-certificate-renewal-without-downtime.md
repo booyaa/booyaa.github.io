@@ -1,3 +1,4 @@
+---
 permalink: "/2018/lets-encrypt-certificate-renewal-without-downtime"
 title: "Let's Encrypt certificate renewal without downtime"
 categories:

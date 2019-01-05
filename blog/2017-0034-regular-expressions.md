@@ -1,3 +1,4 @@
+---
 permalink: "/2017/message-queue-miscellany"
 title: Regular Expressions Miscellany
 published_date: "2017-08-17 08:42:25 +0100"

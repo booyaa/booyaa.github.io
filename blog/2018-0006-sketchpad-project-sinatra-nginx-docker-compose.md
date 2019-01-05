@@ -1,3 +1,4 @@
+---
 permalink: "/2018/sketchpad-project-sinatra-nginx-docker-compose"
 title: "A sketchpad project based on Sinatra, Nginx using docker-compose"
 categories:
