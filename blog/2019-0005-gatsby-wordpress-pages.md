@@ -10,8 +10,6 @@ data:
   tags: "wordpress,gatsby"
   route: blog
 ---
-_This is the start of a blog post series about creating Gatsby site with content pulled in from a WordPress site._
-
 WordPress Pages are another [Post Type](https://codex.wordpress.org/Post_Types), they differ from Post Post(!) Types insofar that they aren’t time-related or be assigned categories and tags. Generally, they’re used for navigational items like About, Contact or Archive pages.
 
 We’re going to update our `gatsby-node.js` to also pull in WordPress Pages so we can add an About link in our footer.
@@ -104,4 +102,4 @@ Clicking on it takes us to our newly created WordPress Page!
 
 ![About Page](/img/gxw-about-page.png)
 
-If you got stuck, you can check out the following Git hash: `ce6cc022a881e813af31279ff857f908ecc599f4`
+If you got stuck, you can check out the following Git hash: [`ce6cc022a881e813af31279ff857f908ecc599f4`](https://github.com/booyaa/wordsby/commit/ce6cc022a881e813af31279ff857f908ecc599f4)

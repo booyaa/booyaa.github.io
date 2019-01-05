@@ -10,8 +10,6 @@ data:
   tags: "wordpress,gatsby"
   route: blog
 ---
-_Photo by Billy Huynh on [Unsplash](https://unsplash.com/photos/saS98jKhVjA)_
-
 We’re almost finished! All we need to do is get WordPress to tell Netlify when we’ve published any new posts. To do this, we’ll use webhooks.
 
 - Setup webhook in Netlify (`Build & Deploy > Continuous Deployment > Build hooks > Add build hook`)
@@ -77,4 +75,4 @@ This is pretty amazing, we turned out site into a compliant and highly performan
 
 At last count, there were [86](https://www.gatsbyjs.org/starters/?v=2) Gatsby starters created by the team and community. There’s bound to be a starter to fit your needs.
 
-If you got stuck, you can check out the following Git hash: `[b1a4cc77a3d5ff0b0ad364ed5eff57fce30da5cf](https://github.com/booyaa/wordsby/commit/b1a4cc77a3d5ff0b0ad364ed5eff57fce30da5cf)`
+If you got stuck, you can check out the following Git hash: [`b1a4cc77a3d5ff0b0ad364ed5eff57fce30da5cf`](https://github.com/booyaa/wordsby/commit/b1a4cc77a3d5ff0b0ad364ed5eff57fce30da5cf)

@@ -139,4 +139,4 @@ If you see the following:
 
 I’m currently investigating this, and I believe this could be to do with your email address containing `+` e.g. `joe+wordpress@example.com`
 
-If you got stuck, you can check out the following Git hash: `3ee8aae5e0c8d6f45127963f776fd1c9358dd647`
+If you got stuck, you can check out the following Git hash: [`3ee8aae5e0c8d6f45127963f776fd1c9358dd647`](https://github.com/booyaa/wordsby/commit/3ee8aae5e0c8d6f45127963f776fd1c9358dd647)

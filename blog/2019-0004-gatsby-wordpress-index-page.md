@@ -10,8 +10,6 @@ data:
   tags: "wordpress,gatsby"
   route: blog
 ---
-_Photo by Billy Huynh on [Unsplash](https://unsplash.com/photos/saS98jKhVjA)_
-
 ## Order order! Let’s create an index to list our posts
 
 Let’s visit http://localhost::8000/___graphql to fire up the builtin GraphQL explorer and paste the following query.
@@ -91,4 +89,4 @@ If we visit `http://localhost:8000` we should see a different page to what we st
 
 ![Post Template 2](/img/gxw-index.png)
 
-If you got stuck, you can check out the following Git hash: `[2249ea842a18e4da39c6e3abcf8eeabd78a17116](https://github.com/booyaa/wordsby/commit/2249ea842a18e4da39c6e3abcf8eeabd78a17116)`
+If you got stuck, you can check out the following Git hash: [`2249ea842a18e4da39c6e3abcf8eeabd78a17116`](https://github.com/booyaa/wordsby/commit/2249ea842a18e4da39c6e3abcf8eeabd78a17116)

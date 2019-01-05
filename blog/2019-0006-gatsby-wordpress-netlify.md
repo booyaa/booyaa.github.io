@@ -10,8 +10,6 @@ data:
   tags: "wordpress,gatsby"
   route: blog
 ---
-_Photo by Billy Huynh on [Unsplash](https://unsplash.com/photos/saS98jKhVjA)_
-
 We’re done with our new site, it’s time to setup Netlify.
 
 - Install `gatsby-cli` in your repo (netlify needs it to build your site): `npm install --save gatsby-cli`

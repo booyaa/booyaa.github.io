@@ -10,8 +10,6 @@ data:
   tags: "wordpress,gatsby"
   route: blog
 ---
-_This is the start of a blog post series about creating Gatsby site with content pulled in from a WordPress site._
-
 ## Pulling in content from WordPress
 
 Now that we’ve verified that the plugin can pull in data from our WordPress site, let’s start creating static content based on our posts and pages!
@@ -169,7 +167,7 @@ You should now see your WordPress blog posts alongside other pages that Gatsby k
 
 You may have gathered that our current post template is pretty basic, so clicking on any of our posts will just display the same contents. The important thing to observe is that we now have pages for our WordPress posts and the template is being used for each post.
 
-If you got stuck, you can check out the following Git hash: `13a036ae2a8dea2ea0f7a910c35c2fe4789f9a50`
+If you got stuck, you can check out the following Git hash: [`13a036ae2a8dea2ea0f7a910c35c2fe4789f9a50`](https://github.com/booyaa/wordsby/commit/13a036ae2a8dea2ea0f7a910c35c2fe4789f9a50)
 
 ## Turning that template into something useful
 
@@ -244,4 +242,4 @@ It’s probably best we restart gatsby to see our changes.
 
 ![Post Template 2](/img/gxw-post-template-2.png)
 
-If you got stuck, you can check out the following Git hash: `50156723a4b21f08baeece9a5f7cd3936e384ee8`
+If you got stuck, you can check out the following Git hash: [`50156723a4b21f08baeece9a5f7cd3936e384ee8`](https://github.com/booyaa/wordsby/commit/50156723a4b21f08baeece9a5f7cd3936e384ee8)
