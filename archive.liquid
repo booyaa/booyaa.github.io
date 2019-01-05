@@ -7,6 +7,18 @@ data:
 This is a quick work around until I've had a good think about a way to organise 
 the archive.
 
+<h2>2019</h2>
+
+<ul>
+{% for post in collections.posts.pages %}
+{% assign year = post.permalink | truncate: 4, "" %}
+{% if year == "2019" %}
+  <li><a href="/{{ post.permalink }}">{{ post.title }}</a> - {{ post.content | strip_html | truncatewords: 25, '...' }}</li>
+{% endif %}
+{% endfor %}
+</ul>
+
+
 <h2>2018</h2>
 
 <ul>
