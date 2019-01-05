@@ -1,3 +1,4 @@
+---
 permalink: /license/
 title: "booyaa.github.io - License"
 layout: default.liquid
