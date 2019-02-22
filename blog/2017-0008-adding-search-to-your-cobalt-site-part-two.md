@@ -27,16 +27,26 @@ The item of note here, is the path which Cobalt will use to create the lunr docu
 
 ```liquid
 {% raw %}
-]
 {% assign idx = 0 %}
-{% assign post_count = posts | size %}
-    }{% if idx < post_count %},{% endif %}
-        "content" : "{{ post.content | strip_html | strip_newlines 
-                                     | replace: "\", "\\" }}"
-        "href" : "{{ post.permalink }}",
-        "title" : "{{ post.title }}",
-    { 
+{% assign post_count = collections.posts.pages | size %}
 [
+{% for post in collections.posts.pages %}
+{% assign idx = idx | plus: 1 %}
+    { 
+        "title" : "{{ post.title }}",
+
+        {% assign tags_list = post.data.tags | replace: " ", "" | split: ","  %}
+        {% assign tags_size = tags_list | size | minus: 1 %}
+        {% assign idx2 = 0 %}
+        "tags": [
+        {% for tag in tags_list %}
+            "{{ tag }}"{% if idx2 < tags_size %},{% endif %}
+            {% assign idx2 = idx2 | plus: 1 %}
+        {% endfor %}
+        ],
+        "href" : "{{ post.permalink }}",
+        "content" : "{{ post.content | strip_html | strip_newlines | replace: "\", "\\" }}"
+    }{% if idx < post_count %},{% endif %}
 {% endfor %}
 {% endraw %}
 ```
