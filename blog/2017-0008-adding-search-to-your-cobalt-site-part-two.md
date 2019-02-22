@@ -48,6 +48,7 @@ The item of note here, is the path which Cobalt will use to create the lunr docu
         "content" : "{{ post.content | strip_html | strip_newlines | replace: "\", "\\" }}"
     }{% if idx < post_count %},{% endif %}
 {% endfor %}
+]
 {% endraw %}
 ```
 
