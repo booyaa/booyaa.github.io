@@ -25,8 +25,8 @@ The item of note here, is the path which Cobalt will use to create the lunr docu
 
 ### content
 
-```liquid
 {% raw %}
+```css.liquid
 {% assign idx = 0 %}
 {% assign post_count = collections.posts.pages | size %}
 [
@@ -49,8 +49,8 @@ The item of note here, is the path which Cobalt will use to create the lunr docu
     }{% if idx < post_count %},{% endif %}
 {% endfor %}
 ]
-{% endraw %}
 ```
+{% endraw %}
 
 The only real difference here between a blog index is that I'm tracking the last post using an index so I can omit a trailing comma.
 
