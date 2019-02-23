@@ -9,7 +9,7 @@ serve:
 	cobalt serve
 
 upgrade:
-	cargo install --force cobalt-bin --features="syntax-highlight"
+	curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --force --git cobalt-org/cobalt.rs --crate cobalt
 
 publish:
 	-git branch -D master
