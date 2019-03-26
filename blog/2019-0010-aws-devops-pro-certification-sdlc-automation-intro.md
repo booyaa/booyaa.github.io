@@ -52,7 +52,6 @@ If you have the time, by all means, read the User Guides, but they are usually a
 - [Code Build](https://aws.amazon.com/codebuild/faqs/)
 - [Code Deploy](https://aws.amazon.com/codedeploy/faqs/)
 - [Code Pipeline](https://aws.amazon.com/codepipeline/faqs/)
-- [X-Ray](https://aws.amazon.com/xray/faqs/)
 
 You're all expected to know the APIs
 
@@ -60,7 +59,6 @@ You're all expected to know the APIs
 - [Code Build](https://docs.aws.amazon.com/codebuild/latest/APIReference/Welcome.html)
 - [Code Deploy](https://docs.aws.amazon.com/codedeploy/latest/APIReference/index.html)
 - [Code Pipeline](https://docs.aws.amazon.com/codepipeline/latest/APIReference/index.html)
-- [X-Ray](https://docs.aws.amazon.com/xray/latest/api/Welcome.html)
 
 Before you panic, you'll start to spot a pattern with the API verbs.
 
@@ -72,5 +70,19 @@ And the CLI commands
 - [Code Pipeline](https://docs.aws.amazon.com/cli/latest/reference/codepipeline/index.html)
 
 As with the API, there are patterns to the commands.
+
+## CI, see what?
+
+If you're not familiar with SDLC automation, this involves the automation of the following:
+
+- build process that compiles the code, or optimises the content for a static site, docker image
+- running tests to verify the build was successful
+- deploying the new build to a target e.g. application servers, app store, web server, etc. This can also involve publishing the artefacts from the build process to GitHub Releases page of your repository.
+
+Usually, the trigger to initiate these steps is a commit or merge to the `master` branch of your code.
+
+The build and testing stages are often provided by a Continuous Integration service like Travis CI, Circle CI or Jenkins.
+
+The deployment stages are handled by you guessed it Continuous Delivery service like Octopus, Azure DevOps (release pipelines) and often services that provide CI will also handle deployment.
 
 Next, we're going to look at the Code Commit in greater detail.
