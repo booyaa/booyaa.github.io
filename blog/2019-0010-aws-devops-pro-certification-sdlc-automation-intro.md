@@ -11,7 +11,7 @@ data:
   route: blog
 ---
 
-This is the start of a blog post series about studying for the [AWS DevOps Professional](https://aws.amazon.com/certification/certified-devops-engineer-professional/) certification.
+_This is part of the blog post series: [AWS DevOps Pro Certification](/2019/aws-devops-pro-certification-intro/)_
 
 ## What does the exam guide say?
 
@@ -86,3 +86,8 @@ The build and testing stages are often provided by a Continuous Integration serv
 The deployment stages are handled by you guessed it Continuous Delivery service like Octopus, Azure DevOps (release pipelines) and often services that provide CI will also handle deployment.
 
 Next, we're going to look at the Code Commit in greater detail.
+
+**AWS DevOps Pro Certification Blog Post Series**
+
+- [Intro](/2019/aws-devops-pro-certification-intro/)
+- SLDC automation introduction
