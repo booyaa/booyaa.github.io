@@ -1,0 +1,76 @@
+---
+permalink: "/2019/aws-devops-pro-certification-sdlc-intro"
+title: "AWS DevOps Pro Certification Blog Post Series: SLDC automation introduction"
+categories:
+  - "aws,study,certification"
+layout: post.liquid
+published_date: "2019-03-25 13:37:00 +0000"
+is_draft: false
+data:
+  tags: "aws,study,certification"
+  route: blog
+---
+
+This is the start of a blog post series about studying for the [AWS DevOps Professional](https://aws.amazon.com/certification/certified-devops-engineer-professional/) certification.
+
+## What does the exam guide say?
+
+To pass this domain, you'll need to know the following:
+
+- Apply concepts required to automate a CI/CD pipeline
+- Determine source control strategies and how to implement them
+- Apply concepts required to automate and integrate testing
+- Apply the concepts required to build and manage artefacts securely
+- Determine deployment/delivery strategies (e.g., A/B, Blue/green, Canary, Red/black) and how to
+implement them using AWS Services
+
+## What whitepapers are relevant?
+
+According to the [AWS Whitepapers for DevOps](https://aws.amazon.com/whitepapers/#dev-ops) we should look at the following documents:
+
+- [Introduction to DevOps on AWS (20 pages)](https://d1.awsstatic.com/whitepapers/AWS_DevOps.pdf)
+- [Development and Test on AWS (17 pages)](https://d1.awsstatic.com/whitepapers/aws-development-test-environments.pdf)
+- [Practicing Continuous Integration and Continuous Delivery (32 pages)](https://d1.awsstatic.com/whitepapers/DevOps/practicing-continuous-integration-continuous-delivery-on-AWS.pdf)
+- [Blue/Green Deployments on AWS (35 pages)](https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf)
+- [Jenkins on AWS (48 pages)](https://d1.awsstatic.com/whitepapers/jenkins-on-aws.pdf)
+
+
+## What services and products covered in this domain?
+
+- [Code Commit](https://docs.aws.amazon.com/codecommit/index.html?id=docs_gateway#lang/en_us) - This service provides Source Control Management (SCM). This is where you store your source code and keep a track of the changes made (commits). Examples of similar services: GitHub, Bitbucket, GitLab, and Azure DevOps. You only have one choice of Version Control Service (VCS) and that is Git.
+- [Code Build](https://docs.aws.amazon.com/codebuild/index.html?id=docs_gateway#lang/en_us) - This service builds code and produces artefacts. This is often part of a Continuous Integration (CI) pipeline, so this is where tests can be run to ensure the code is stable. Examples of similar services: Travis CI, Circle CI, Azure DevOps and Jenkins.
+- [Code Deploy](https://docs.aws.amazon.com/codedeploy/index.html?id=docs_gateway#lang/en_us) -  This service automates the deployment of your applications or publishes files to a website. This is often part of a Continuous Deployment (CD) pipeline. Examples of similar services: Travis CI, Circle CI, Azure DevOps and Octopus.
+- [Code Pipeline](https://docs.aws.amazon.com/codepipeline/index.html?id=docs_gateway#lang/en_us) - This service provide a workflow, allow for more complex release step. This is often part of a Continuous Deployment (CD) pipeline. Examples of similar services: Circle CI, Azure DevOps and Jenkins. 
+
+Shrewd readers will have spotted that these are part of Developer Tools suite in the [AWS Documentation](https://docs.aws.amazon.com/index.html?nc2=h_ql_doc#lang/en_us) page. So why have I excluded CodeStar, X-Ray and Tools & SDKs? They're not critical to SDLC automation.
+
+## What about other types of documentation?
+
+If you have the time, by all means, read the User Guides, but they are usually a couple of hundred pages. Alternatively, get familiar with the services using the FAQs:
+
+- [Code Commit](https://aws.amazon.com/codecommit/faqs/)
+- [Code Build](https://aws.amazon.com/codebuild/faqs/)
+- [Code Deploy](https://aws.amazon.com/codedeploy/faqs/)
+- [Code Pipeline](https://aws.amazon.com/codepipeline/faqs/)
+- [X-Ray](https://aws.amazon.com/xray/faqs/)
+
+You're all expected to know the APIs
+
+- [Code Commit](https://docs.aws.amazon.com/codecommit/latest/APIReference/index.html)
+- [Code Build](https://docs.aws.amazon.com/codebuild/latest/APIReference/Welcome.html)
+- [Code Deploy](https://docs.aws.amazon.com/codedeploy/latest/APIReference/index.html)
+- [Code Pipeline](https://docs.aws.amazon.com/codepipeline/latest/APIReference/index.html)
+- [X-Ray](https://docs.aws.amazon.com/xray/latest/api/Welcome.html)
+
+Before you panic, you'll start to spot a pattern with the API verbs.
+
+And the CLI commands 
+
+- [Code Commit](https://docs.aws.amazon.com/cli/latest/reference/codecommit/index.html)
+- [Code Build](https://docs.aws.amazon.com/cli/latest/reference/codebuild/index.html)
+- [Code Deploy](https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html)
+- [Code Pipeline](https://docs.aws.amazon.com/cli/latest/reference/codepipeline/index.html)
+
+As with the API, there are patterns to the commands.
+
+Next, we're going to look at the Code Commit in greater detail.
