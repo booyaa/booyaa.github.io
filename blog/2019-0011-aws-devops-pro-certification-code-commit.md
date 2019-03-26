@@ -41,6 +41,8 @@ Whilst this might be okay for reverting back to the previous version of the code
 
 This is really an argument against version control systems (VCS) and file versioning. VCS was created to simplify change tracking in the source code.
 
+Pro-tip: bit rusty on S3? Yup Helen's got you covered again with [What's in the bucket?](https://dev.to/helenanders26/aws-series-whats-in-the-bucket-1k3)
+
 ## When?
 
 This is the start of SDLC automation. Everything else hinges on a source code repository. CI can't build and test code until it can pull the code from somewhere.
