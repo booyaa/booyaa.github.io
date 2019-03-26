@@ -82,3 +82,8 @@ My study plan is to:
 I'm tentatively giving myself a month to study, spending at minimum two hours a day. After which I'm going to retake the practice exam if I score at least 80% I'll consider booking the exam.
 
 So stay tuned.
+
+**AWS DevOps Pro Certification Blog Post Series**
+
+- Intro
+- [SLDC automation introduction](/2019/aws-devops-pro-certification-sdlc-intro/)
