@@ -154,6 +154,29 @@ The `client-request-token` switch is a token we randomly generated, it's used by
 
 The `targets` switch requires the repository name (hello-codecommit) and the branch you're raising a pull request for (feature/index-markup).
 
+## API and CLI features and verbs
+
+**Features**
+
+- Repository
+- Branch
+- File/Folder
+- Commit/Differences/Blob
+- PullRequest
+- Comments
+- Trigger
+
+**Verbs (CRUD) **
+
+- create
+- batch-get/get/list/describe
+- update/put
+- delete
+
+**Outliers**
+
+- test-repository-triggers
+- merge-pull-request-by-fast-forward
 
 **AWS DevOps Pro Certification Blog Post Series**
 
