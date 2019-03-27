@@ -185,3 +185,4 @@ Finally let's teardown `aws codecommit delete-repository --repository-name hello
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - [SLDC automation introduction](/2019/aws-devops-pro-certification-sdlc-intro/)
 - Code Commit
+- [Code Build](/2019/blog/aws-devops-pro-certification-code-build/)

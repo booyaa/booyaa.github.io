@@ -91,3 +91,5 @@ Next, we're going to look at the Code Commit in greater detail.
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - SLDC automation introduction
+- [Code Build](/2019/blog/aws-devops-pro-certification-code-build/)
+- [Code Commit](/2019/aws-devops-pro-certification-code-commit/)
