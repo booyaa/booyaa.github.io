@@ -154,6 +154,8 @@ The `client-request-token` switch is a token we randomly generated, it's used by
 
 The `targets` switch requires the repository name (hello-codecommit) and the branch you're raising a pull request for (feature/index-markup).
 
+Finally let's teardown `aws codecommit delete-repository --repository-name hello-codecommit-ui`, you'll get back the `repositoryId` if you were successful.
+
 ## API and CLI features and verbs
 
 **Features**
