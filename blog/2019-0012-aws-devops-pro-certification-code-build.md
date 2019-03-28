@@ -33,7 +33,13 @@ Asides the infrastructure required to host your applications and services, build
 
 ## When?
 
-After version control services, this is the next logical step in the SDLC automation puzzle.
+```
+SDLC automation
+~~~~~~~~~~~~~~~~
+
+CodeCommit -> [CodeBuild] -> ???
+```
+
 
 ## How?
 
@@ -54,7 +60,7 @@ aws s3api create-bucket \
 
 ### Setup CodeCommit
 
-We're going to create a brand new CodeCommit repository.
+Next let's create a new CodeCommit repository to store our code.
 
 ```bash
 aws codecommit create-repository \
@@ -64,9 +70,15 @@ aws codecommit create-repository \
 
 ### Pull in the source code
 
-To avoid adding more steps (which aren't relevant), I've created a simple Rust app that'll we'll use for this lab.
+To avoid adding more steps (which aren't relevant), I've created a simple [Rust](https://www.rust-lang.org/) app that'll we'll use for this lab.
 
-We'll clone the CodeCommit repo, download the simple app, unzip the zip and push the code back up to the CodeCommit repo.
+Now we're going to do the following:
+
+- clone the CodeCommit repo
+- download our sample app
+- unzip the sample app archive
+- do a bit of house keep to place the sample app at the right directory level, and remove the archive
+- push the code back up to the CodeCommit repo
 
 ```bash
 REPO_URL=$(aws codecommit get-repository --repository-name $REPO_NAME | jq -r .repositoryMetadata.cloneUrlSsh)
@@ -113,7 +125,7 @@ The points of interest for us, are the following sections or [phases](https://do
 
 ### Create a service role for CodeBuild
 
-First, we'll create a new service role (this is done for us if we create the project through UI), luckily the [User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/setting-up.html#setting-up-kms) has instructions on how to do this through the CLI.
+Next we'll create a new service role (this is done for us if we create the project through UI), luckily the [User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/setting-up.html#setting-up-kms) has instructions on how to do this through the CLI.
 
 Let's create the following files:
 
@@ -186,6 +198,8 @@ Let's create the following files:
 }
 ```
 
+Let's run the following commands to create the Service Role.
+
 ```bash
 aws iam create-role \
   --role-name CodeBuildServiceRole 
@@ -196,7 +210,11 @@ aws iam put-role-policy --role-name CodeBuildServiceRole \
   --policy-document file://put-role-policy.json
 ```
 
+Once we've created this Service Role, we can reference it for all for future CodeBuild projects.
+
 ### Create the CodeBuild project
+
+Finally we can create our CodeBuild project!
 
 ```bash
 REPO_NAME=hello-codebuild
@@ -211,9 +229,9 @@ aws codebuild create-project \
   --service-role $SERVICE_ROLE_ARN
 ```
 
-Key things to point out:
+Key parameters/switches to point out:
 
-- `sourceType` 
+- `source` 
   - We've opted for the CodeCommit `type`, but there are also options for BitBucket, CodePipeline, GitHub, S3 and finally No Source (when there's no source code). 
   - The other parameter we provided was the `location` of the Git repo URL. 
   - More details about the `sourceType` can be found in the [API](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSource.html).
