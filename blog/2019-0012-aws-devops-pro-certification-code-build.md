@@ -248,6 +248,16 @@ chmod +x
 docker run --rm -it -v $PWD:/root ubuntu bash -c /root/hello-codebuild
 ```
 
+### Clean up
+
+```bash
+aws codebuild delete-project --name hello-codebuild
+aws codecommit delete-repository --repository-name hello-codebuild
+aws s3api delete-bucket --bucket hello-codebuild
+```
+
+You could remove the Service Role, but it might be handy if you plan to do some more practice sessions with this lab.
+
 ## API and CLI features and verbs
 
 **Features**
