@@ -45,6 +45,13 @@ Pro-tip: bit rusty on S3? Yup Helen's got you covered again with [What's in the 
 
 ## When?
 
+```
+SDLC automation
+~~~~~~~~~~~~~~~~
+
+CodeCommit -> ???
+```
+
 This is the start of SDLC automation. Everything else hinges on a source code repository. CI can't build and test code until it can pull the code from somewhere.
 
 ## How?
