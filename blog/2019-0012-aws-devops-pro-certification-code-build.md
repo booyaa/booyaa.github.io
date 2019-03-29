@@ -40,7 +40,6 @@ SDLC automation
 CodeCommit -> [CodeBuild] -> ???
 ```
 
-
 ## How?
 
 This is loosely based around the [Getting Started]https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started.html) section of the User Guide.
@@ -306,3 +305,4 @@ You could remove the Service Role, but it might be handy if you plan to do some 
 - [SLDC automation introduction](/2019/aws-devops-pro-certification-sdlc-intro/)
 - [Code Commit](/2019/aws-devops-pro-certification-code-commit/)
 - Code Build
+- [Code Deployment](/2019/aws-devops-pro-certification-code-deploy/)
