@@ -76,7 +76,7 @@ I sat the practice exam and scored 40% :(
 My study plan is to:
 
 - create a series of blog posts
-- do lots of actual practice using the services covered in the exam
+- do lots of actual practice using the services covered in the exam. I'll be using aws cli, Amazon AMI, MacOS, bash and jq. Reminder: some of the unix commands on MacOS are the BSD variant rather than GNU, but I'll try to limit using variant specific switch where possible.
 - drill against a set of flashcards I'll be creating as part of the study plan
 
 I'm tentatively giving myself a month to study, spending at minimum two hours a day. After which I'm going to retake the practice exam if I score at least 80% I'll consider booking the exam.
