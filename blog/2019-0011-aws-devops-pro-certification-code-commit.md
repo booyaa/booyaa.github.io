@@ -27,9 +27,10 @@ The format of the blog posts is liable to change as I try refine my mental model
 
 Code Commit is:
 - a managed Version Control service
-- Git based
-- Files are encrypted at rest, can see KMS keys in...
-- Supports AWS Identity and Access Management (IAM). Pro-tip: if you need to brush up on IAM, see Helen Anderson's excellent guide: [Don't you know who IAM?](https://dev.to/helenanders26/aws-series-dont-you-know-who-iam-26b0)
+- Git based (using HTTPS or SSH for connections)
+- Files are encrypted at rest, keys can be found in can be found in IAM > Encryption Keys.
+  - AWS CLI:  `aws kms list-aliases | jq '.Aliases[] | select(.AliasArn | contains("codecommit"))'`
+- Security credentials for HTTPS and SSH connections are defined in IAM per user. Pro-tip: if you need to brush up on IAM, see Helen Anderson's excellent guide: [Don't you know who IAM?](https://dev.to/helenanders26/aws-series-dont-you-know-who-iam-26b0)
 
 ## Why?
 
