@@ -71,7 +71,7 @@ You're all expected to know the APIs
 - [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html)
 - [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html)
 - [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html)
-- [AWS Config]https://docs.aws.amazon.com/config/latest/APIReference/Welcome.html)
+- [AWS Config](https://docs.aws.amazon.com/config/latest/APIReference/Welcome.html)
 
 - [AWS Systems Manager](https://aws.amazon.com/systems-manager/faq/)
 - [AWS Managed Services](https://aws.amazon.com/managed-services/faqs/)
