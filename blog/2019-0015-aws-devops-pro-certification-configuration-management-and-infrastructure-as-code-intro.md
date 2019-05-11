@@ -67,24 +67,23 @@ You're all expected to know the APIs
 - [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html)
 - [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html)
 - [AWS Config](https://docs.aws.amazon.com/config/latest/APIReference/Welcome.html)
+- [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/APIReference/Welcome.html)
 
-- [AWS Systems Manager](https://aws.amazon.com/systems-manager/faq/)
-- [AWS Managed Services](https://aws.amazon.com/managed-services/faqs/)
+There's no API for AWS Managed Services because this a professional or technical services offering.
 
 Before you panic, you'll start to spot a pattern with the API verbs.
 
 And the CLI commands
 
 - [CloudFormation](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html)
-- OpsWorks has two commands [opswork](https://docs.aws.amazon.com/cli/latest/reference/opsworks/index.html) and [opswork-cm](https://docs.aws.amazon.com/cli/latest/reference/opsworks-cm/index.html
-)
+- OpsWorks has two commands [opswork](https://docs.aws.amazon.com/cli/latest/reference/opsworks/index.html) and [opswork-cm](https://docs.aws.amazon.com/cli/latest/reference/opsworks-cm/index.html)
 - [Elastic Beanstalk](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/index.html)
 - [AWS Lambda](https://docs.aws.amazon.com/cli/latest/reference/lambda/index.html)
 - [AWS ECS](https://docs.aws.amazon.com/cli/latest/reference/ecs/index.html)
 - [AWS Config](https://docs.aws.amazon.com/cli/latest/reference/configservice/index.html)
+- [AWS Systems Manager](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
 
-- [AWS Systems Manager](https://aws.amazon.com/systems-manager/faq/)
-- [AWS Managed Services](https://aws.amazon.com/managed-services/faqs/)
+There's no CLI for AWS Managed Services because there's no corresponding API.
 
 As with the API, there are patterns to the commands.
 
