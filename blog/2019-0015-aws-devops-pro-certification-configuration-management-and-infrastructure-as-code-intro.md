@@ -13,10 +13,6 @@ data:
 
 _This is part of the blog post series: [AWS DevOps Pro Certification](/2019/aws-devops-pro-certification-intro/)_
 
-
-https://aws.amazon.com/architecture/icons/
-https://duo.com/blog/introducing-cloudmapper-an-aws-visualization-tool
-
 ## What does the exam guide say?
 
 To pass this domain, you'll need to know the following:
@@ -47,9 +43,8 @@ Useful https://aws.amazon.com/devops/#infrastructureascode
 - [AWS Lambda](https://aws.amazon.com/lambda/) - A service to run microservices / Serverless functions ???
 - [AWS ECS](https://aws.amazon.com/ecs/) - Managed container services. IaC (codified)
 - [AWS Config](https://aws.amazon.com/config/) - Auditing services of your AWS services.
-- [AWS Systems Manager](https://aws.amazon.com/systems-manager/) - Allows you to manage your system environment using an agent, bit like chef and puppet. CM.
-https://www.youtube.com/watch?v=BmpxZsk9N48
-- [AWS Managed Services](https://aws.amazon.com/managed-services/) - Let's AWS managed your AWS!
+- [AWS Systems Manager](https://aws.amazon.com/systems-manager/) - Allows you to manage your system environment using an agent, a bit like chef and puppet. CM.
+- [AWS Managed Services](https://aws.amazon.com/managed-services/) - Let's AWS manage your AWS!
 
 ## What about other types of documentation?
 
