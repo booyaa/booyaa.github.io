@@ -87,21 +87,21 @@ There's no CLI for AWS Managed Services because there's no corresponding API.
 
 As with the API, there are patterns to the commands.
 
-## CI, see what?
+## Configu-what? And Infra as Who?
 
-If you're not familiar with SDLC automation, this involves the automation of the following:
+In the previous domain, we learnt that SDLC specifically the continuous delivery pipeline ensures that our code's integrity is being tested repeatedly and in a consistent manner.
 
-- build process that compiles the code, or optimises the content for a static site, docker image
-- running tests to verify the build was successful
-- deploying the new build to a target e.g. application servers, app store, web server, etc. This can also involve publishing the artefacts from the build process to GitHub Releases page of your repository.
+Now we'll see how we can achieve something similar to the underlying infrastructure that powers both our build and hosting of our applications.
 
-Usually, the trigger to initiate these steps is a commit or merge to the `master` branch of your code.
+Configuration Management is a systematic way of handling changes to servers in such as a way that it maintains integrity over time. The key thing to remember is that often we talking about maintaining lots of servers i.e. more than one. To do this manually introduces risks that steps will be missed and inconsistencies in your environments will occur.
 
-The build and testing stages are often provided by a Continuous Integration service like Travis CI, Circle CI or Jenkins.
+By automating this process for server builds and maintenance we reduce this risk. Whilst you could do this yourself through a series of shell scripts and ssh, it's better to use a dedicated tool, some popular choices are Puppet, Chef, and, Salt Stack and Ansible.
 
-The deployment stages are handled by you guessed it Continuous Delivery service like Octopus, Azure DevOps (release pipelines) and often services that provide CI will also handle deployment.
+If Configuration Management ensures that our servers are patched to the correct version of operating system and contain the correct software to operate, then Infrastructure as Code ensures that provisioning of *drum roll* Infrastructure is done as reproducible steps. Tools you can expect to find in this space are Terraform, Azure Resource Manager and of course CloudFormation.
 
-Next, we're going to look at the Code Commit in greater detail.
+Both configuration management and infrastructure as code are often expressed as templates or a programming language. This makes both ideal candidates for using version control systems like Git to track changes.
+
+Our next blog post will be about CloudFormation
 
 **AWS DevOps Pro Certification Blog Post Series**
 
