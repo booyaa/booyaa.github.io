@@ -106,7 +106,4 @@ Our next blog post will be about CloudFormation
 **AWS DevOps Pro Certification Blog Post Series**
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
-- SLDC automation introduction
-- [Code Commit](/2019/aws-devops-pro-certification-code-commit/)
-- [Code Build](/2019/blog/aws-devops-pro-certification-code-build/)
-- [Code Deployment](/2019/aws-devops-pro-certification-code-deploy/)
+- [SDLC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
