@@ -4,7 +4,7 @@ title: "AWS DevOps Pro Certification Blog Post Series: Configuration Management 
 categories:
   - "aws,study,certification"
 layout: post.liquid
-published_date: "2019-04-15 13:37:00 +0000"
+published_date: "2019-05-11 13:37:00 +0000"
 is_draft: false
 data:
   tags: "aws,study,certification"
@@ -107,3 +107,4 @@ Our next blog post will be about CloudFormation
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - [SDLC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+- Configuration Management and Infrastructure as Code.
