@@ -43,7 +43,12 @@ TBC
 
 ## When?
 
-TBC
+- Deploy infra rather than doing it manually
+- Repeatedly pattern environment - wordpress blog and database for running your web hosting business
+- To run an Automated testing for CI/CD. Create the environment from scratch.
+- Define an environment to any region in AWS cloud without reconfiguration. Keeping things generic
+- Can managed template using version control system i.e. Git (this is an attribute of IaC)
+- Templates should be designed in mind for 1, 100 or 1000 applicatios in one or more regions. Overhead. But then again so are unit tess rights?
 
 ## How?
 
