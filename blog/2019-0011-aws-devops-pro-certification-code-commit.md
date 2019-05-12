@@ -191,7 +191,13 @@ Finally let's teardown `aws codecommit delete-repository --repository-name hello
 **AWS DevOps Pro Certification Blog Post Series**
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
-- [SLDC automation introduction](/2019/aws-devops-pro-certification-sdlc-intro/)
-- Code Commit
-- [Code Build](/2019/blog/aws-devops-pro-certification-code-build/)
-- [Code Deployment](/2019/aws-devops-pro-certification-code-deploy/)
+- [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+  - Code Commit
+  - [Code Build](/2019/blog/aws-devops-pro-certification-code-build/)
+  - [Code Deploy](/2019/aws-devops-pro-certification-code-deploy/)
+  - [Code Pipeline](/2019/aws-devops-pro-certification-code-pipeline)
+- Domain 2: Configuration Management and Infrastructure as Code
+- Domain 3: Monitoring and Logging
+- Domain 4: Policies and Standards Automation
+- Domain 5: Incident and Event Response
+- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery

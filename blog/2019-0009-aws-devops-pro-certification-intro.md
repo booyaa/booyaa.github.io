@@ -47,7 +47,7 @@ Whilst we wait for the shock subside, let's cover the areas you'll be tested on.
 There are six domains of study, this is the high-level view and we'll go into greater detail in the following posts as part of the series.
 
 | Domain | Subject                                                   | % of exam |
-|--------|-----------------------------------------------------------|-----------|
+| ------ | --------------------------------------------------------- | --------- |
 | 1      | Software Delivery Lifecycle (SDLC) Automation             | 22        |
 | 2      | Configuration Management and Infrastructure as Code       | 19        |
 | 3      | Monitoring and Logging                                    | 15        |
@@ -59,7 +59,7 @@ There are six domains of study, this is the high-level view and we'll go into gr
 
 Luckily there's a variety of resources to help you study.
 
-Your first port of call should be the [exam guide](https://d1.awsstatic.com/training-and-certification/docs-devops-pro/AWS%20Certified%20DevOps%20Engineer%20Professional_Exam%20Guide_v1.5_FINAL%20(2).pdf) aka the blueprint. This guide will give you a list of whitepapers to ready. A detailed breakdown of the topics you're expected to know for each domain (see the table from the previous section).
+Your first port of call should be the [exam guide](<https://d1.awsstatic.com/training-and-certification/docs-devops-pro/AWS%20Certified%20DevOps%20Engineer%20Professional_Exam%20Guide_v1.5_FINAL%20(2).pdf>) aka the blueprint. This guide will give you a list of whitepapers to ready. A detailed breakdown of the topics you're expected to know for each domain (see the table from the previous section).
 
 You've already seen the [sample exam questions](https://d1.awsstatic.com/training-and-certification/docs-devops-pro/AWS%20Certified%20DevOps%20Engineer%20-%20Professional_Sample%20Questions.pdf).
 
@@ -86,4 +86,9 @@ So stay tuned.
 **AWS DevOps Pro Certification Blog Post Series**
 
 - Intro
-- [SLDC automation introduction](/2019/aws-devops-pro-certification-sdlc-intro/)
+- Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+- Domain 2: Configuration Management and Infrastructure as Code
+- Domain 3: Monitoring and Logging
+- Domain 4: Policies and Standards Automation
+- Domain 5: Incident and Event Response
+- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery

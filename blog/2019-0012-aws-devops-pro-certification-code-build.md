@@ -298,11 +298,16 @@ You could remove the Service Role, but it might be handy if you plan to do some 
 - invalidate-project-cache
 - stop/start build
 
-
 **AWS DevOps Pro Certification Blog Post Series**
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
-- [SLDC automation introduction](/2019/aws-devops-pro-certification-sdlc-intro/)
-- [Code Commit](/2019/aws-devops-pro-certification-code-commit/)
-- Code Build
-- [Code Deployment](/2019/aws-devops-pro-certification-code-deploy/)
+- Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+  - [Code Commit](/2019/aws-devops-pro-certification-code-commit/)
+  - Code Build
+  - [Code Deploy](/2019/aws-devops-pro-certification-code-deploy/)
+  - [Code Pipeline](/2019/aws-devops-pro-certification-code-pipeline)
+- Domain 2: Configuration Management and Infrastructure as Code
+- Domain 3: Monitoring and Logging
+- Domain 4: Policies and Standards Automation
+- Domain 5: Incident and Event Response
+- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
