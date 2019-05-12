@@ -27,7 +27,15 @@ The format of the blog posts is liable to change as I try refine my mental model
 
 CloudFormation is:
 
-- TBC
+- Stack - ???
+- Template
+ - Parameters
+ - Mapping - Hashes (array of key/value pairs)
+ - Resources
+ - Output - Results from the template
+- Stack Policy - IAM style policy statement which governs what can be changed and who can change it
+
+- Intrinsic functions
 
 ## Why?
 
