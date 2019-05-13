@@ -78,18 +78,52 @@ aws cloudformation create-stack \
 
 **Features**
 
-- TBC
+- Stacks [Drift/Events/Policy/Resource(s)Drift(s)]
+  - Template
+  - Imports/Exports
+- Change sets
+- Stack sets
+  - Instance(s)
+  - Set
+  - SetOperation
+    - SetOperationResults
 
 **Verbs (CRUD) **
 
-- create
-- batch-get/get/list/describe
-- update/put
-- delete
+- Stacks
+  - Create
+  - List/Describe (stacks)
+  - Set/Update/Put
+  - Delete
+
+- Change sets
+  - Create
+  - List/Describe
+  - Set/Update/Put
+  - Delete
+
+- Stack sets
+  - Create
+  - List/Describe
+  - Set/Update/Put
+  - Delete
 
 **Outliers**
 
-- TBC
+- Stacks
+  - CancelUpdateStack
+  - ContinueUpdateRollback
+  - DescribeStackDriftDetectionStatus
+  - EstimateTemplateCost
+  - GetTemplateSummary
+  - UpdateTerminationProtection
+  - ValidateTemplate
+
+- Change sets
+  - ExecuteChangeSet
+
+- Stack sets
+  - StopStackSetOperation
 
 **AWS DevOps Pro Certification Blog Post Series**
 
