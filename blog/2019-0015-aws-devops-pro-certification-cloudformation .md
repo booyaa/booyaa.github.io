@@ -52,7 +52,27 @@ TBC
 
 ## How?
 
-TBC
+Here's an example CloudFormation template
+
+`hello-bucket.yaml`
+
+```yaml
+Resources:
+  HelloBucket:
+    Type: AWS::S3::Bucket
+```
+
+`HelloBucket` is our resource, and the type we've gone for is an S3 bucket.
+
+```bash
+aws cloudformation create-stack \
+  --stack-name hellostack \
+  --template-body \
+  file:///path/to/hello-bucket.yaml 
+{
+    "StackId": "arn:aws:cloudformation:eu-west-3:12345:stack/hellostack/4a3b0220-7552-11e9-acf0-0a230f532f04"
+}  
+```
 
 ## API and CLI features and verbs
 
