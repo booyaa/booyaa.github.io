@@ -34,6 +34,12 @@ CloudFormation is:
   - `Resources` - The resources we'll use CloudFormation to provision
   - `Output` - Results from the template, usually fed into another template as `Parameters`.
 - Stack Policy - IAM style policy statement which governs what can be changed and who can change it
+- Intrinsic functions - enables programmability by providing helper functions.
+
+### Intrinsic functions
+
+N.B. Whilst we're only using YAML as our templating language, we will be using the full function name invocation rather than the short form i.e. `!FunctionName valueToEncode`. This is because it's close enough to it's JSON equivalent and should make it easier for you to convert the templates (used in this post) if you prefer JSON.
+
 
 - Intrinsic functions - enables programmability by providing helper functions.
 
