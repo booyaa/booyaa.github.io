@@ -54,7 +54,9 @@ This allows you to define your infrastructure as code, rather than manual steps 
 
 Here's a very basic example of CloudFormation, we'll use it to create an S3 bucket.
 
-The CloudFormation template: `hello-bucket.yaml`
+The CloudFormation template: `hello-bucket.yaml`.
+
+N.B. To keep things terse, I've decided to only use YAML as the template format. CloudFormation can use JSON (in fact this was the original format, so you will still find a lot of examples in this format).
 
 ```yaml
 Resources:
