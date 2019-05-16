@@ -50,6 +50,27 @@ Fn::Base64: valueToEncode
 
 You can use any intrinsic function within `Fn::Base64` provided it returns a string.
 
+#### Fn::Cidr
+
+Returns an array of [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) address block.
+
+Declaration:
+
+```yaml
+Fn::Cidr:
+  - ipBlock
+  - count
+  - cidrBits
+```
+
+Parameters:
+
+- ipBlock - CIDR address block to be split into smaller blocks
+- count - number of CIDRs to generate between 1 and 256 items
+- cidrBit - The number of [subnet bits](http://subnet-calculator.org/cidr.php) for a CIDR.
+
+You can use `Fn::Select` and `Ref` inside the `Fn::Cidr`.
+
 
 - Intrinsic functions - enables programmability by providing helper functions.
 
