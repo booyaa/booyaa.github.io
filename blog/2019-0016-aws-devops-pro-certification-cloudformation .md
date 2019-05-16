@@ -71,8 +71,19 @@ Parameters:
 
 You can use `Fn::Select` and `Ref` inside the `Fn::Cidr`.
 
+#### Fn::FindInMap
 
-- Intrinsic functions - enables programmability by providing helper functions.
+Returns the value that is assigned to the `SecondLevelKey`
+
+```yaml
+Fn::FindInMap: [ MapName, TopLevelKey, SecondLevelKey ]
+```
+
+- MapName - The logical name of the mapping as defined in the Mappings section of the template
+- TopLevelKey - The key name that returns a list of key-value pairs
+- SecondLevelKey -  The key name (originating from the list of key-value pairs returned by the TopLevelKey whose value we which to return.
+
+You can use `Fn::FindInMap` and `Ref` inside the `Fn::FindInMap`. Also you can't nest instances of `Fn::FindInMap` with in another `Fn::FindInMap` if using the short form of the function i.e. `!FindInMap`
 
 ## Why?
 
