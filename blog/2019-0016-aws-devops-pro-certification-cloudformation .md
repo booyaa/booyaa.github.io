@@ -40,6 +40,16 @@ CloudFormation is:
 
 N.B. Whilst we're only using YAML as our templating language, we will be using the full function name invocation rather than the short form i.e. `!FunctionName valueToEncode`. This is because it's close enough to it's JSON equivalent and should make it easier for you to convert the templates (used in this post) if you prefer JSON.
 
+#### Fn::Base64
+
+Encodes a string into Base64, a common use is to pass a value to the `UserData` of an Amazon EC2 instance safely.
+
+```yaml
+Fn::Base64: valueToEncode
+```
+
+You can use any intrinsic function within `Fn::Base64` provided it returns a string.
+
 
 - Intrinsic functions - enables programmability by providing helper functions.
 
