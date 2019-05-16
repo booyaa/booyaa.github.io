@@ -39,7 +39,7 @@ CloudFormation is:
 
 ## Why?
 
-TBC
+This allows you to define your infrastructure as code, rather than manual steps carried out via various UIs (Console and CLI)
 
 ## When?
 
@@ -52,9 +52,9 @@ TBC
 
 ## How?
 
-Here's an example CloudFormation template
+Here's a very basic example of CloudFormation, we'll use it to create an S3 bucket.
 
-`hello-bucket.yaml`
+The CloudFormation template: `hello-bucket.yaml`
 
 ```yaml
 Resources:
@@ -62,7 +62,9 @@ Resources:
     Type: AWS::S3::Bucket
 ```
 
-`HelloBucket` is our resource, and the type we've gone for is an S3 bucket.
+`HelloBucket` is the logical name of our `resource`, and the type we've gone for is an S3 bucket.
+
+Let's use the CLI to create the stack based on this template.
 
 ```bash
 aws cloudformation create-stack \
@@ -91,7 +93,11 @@ aws cloudformation describe-stacks
         }
     ]
 }
+```
 
+Let's check on the status of stack creation.
+
+```bash
  aws cloudformation describe-stack-resources --stack-name hellostack
 {
     "StackResources": [
@@ -109,13 +115,27 @@ aws cloudformation describe-stacks
         }
     ]
 }
+```
 
+Useful fields:
+
+- `StackName` - this is the logic name of Stack (which we defined when using the `create-stack` sub command in the CLI)
+- `PhysicalResourceId` - this is the bucket name, note the default naming convention: `<Stack Name>-<Logical Name of Resource in the Template>-<Random Hex String>`
+- `ResourceStatus` - This tells us if the resource creation was successful.
+
+We can verify the name of the bucket by using the `s3api` command:
+
+```bash
 aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))'
 {
   "Name": "hellostack-hellobucket-1ux8azkoq7t0t",
   "CreationDate": "2019-05-13T07:39:55.000Z"
 }
+```
 
+Finally let's tear down, and verify the bucket has been deleted.
+
+```bash
 aws cloudformation delete-stack --stack-name hellostack
 # no output
 
