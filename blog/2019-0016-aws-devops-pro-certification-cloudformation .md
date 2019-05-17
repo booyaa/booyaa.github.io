@@ -85,6 +85,46 @@ Fn::FindInMap: [ MapName, TopLevelKey, SecondLevelKey ]
 
 You can use `Fn::FindInMap` and `Ref` inside the `Fn::FindInMap`. Also you can't nest instances of `Fn::FindInMap` with in another `Fn::FindInMap` if using the short form of the function i.e. `!FindInMap`
 
+#### Fn::GetAtt
+
+Returns the value from a Resource attribute in the template
+
+```yaml
+Fn::GetAtt: [ logicalNameOfResource, attributeName]
+```
+
+You cannot use functions for the `logicalNameOfResource` parameter, you can use the `Ref` function for the `attributeName` parameter.
+
+#### Fn:GetAZs
+
+Returns a list of availability zones for a given region.
+
+```yaml
+Fn::GetAZs: region
+```
+
+- region - You can use a string to specify the region i.e. `us-east-1`, alternatively you can use the `AWS::Region`  pseudo parameter which will use the region where the stack is being created. Providing an empty string is the will also use this pseudo parameter.
+
+You can use the `Ref` function in the `Fn::GetAzs` function.
+
+#### Fn::ImportValue
+
+Returns the value from an output exported by another stack. Typically used to create cross-stack references (FIXME: to be defined).
+
+```yaml
+Fn::ImportValue: sharedValueToImport
+```
+
+The following functions can be used in `Fn::ImportValue` function, the values of these functions can't depend on a resource (FIX: Explain)
+
+- `Fn::Base64`
+- `Fn::FindInMap`
+- `Fn::If`
+- `Fn::Join`
+- `Fn::Select`
+- `Fn::Sub`
+- `Ref`
+
 ## Why?
 
 This allows you to define your infrastructure as code, rather than manual steps carried out via various UIs (Console and CLI)
