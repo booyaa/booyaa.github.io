@@ -146,6 +146,7 @@ The following functions can be used in `Fn::ImportValue` function, the values of
 ##### Fn:If
 
 ##### Fn:Not
+
 ### Resource Attributes
 
 - [CreationPolicy][docs_creationpolicy], requires a signal to be sent by the resource or a timeout occurs
@@ -352,3 +353,7 @@ aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))
 - Domain 4: Policies and Standards Automation
 - Domain 5: Incident and Event Response
 - Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+
+[docs_creationpolicy]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
+[docs_wait_conditions]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html
+[link_iso8601_durations]: https://en.wikipedia.org/wiki/ISO_8601#Durations
