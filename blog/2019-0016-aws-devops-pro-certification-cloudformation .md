@@ -146,6 +146,34 @@ The following functions can be used in `Fn::ImportValue` function, the values of
 ##### Fn:If
 
 ##### Fn:Not
+### Resource Attributes
+
+- [CreationPolicy][docs_creationpolicy], requires a signal to be sent by the resource or a timeout occurs
+
+```yaml
+CreationPolicy:
+  ResourceSignal:
+    Count: '3' # 3 instances have been created, so 3 signals are generated
+    Timeout: PT15M # [ISO8601 durations format][link_iso8601_durations]: `PT#H#M#S` where `#` is the number of hours, minutes and seconds. Give the instances as long as possible, if the timeout is too short you will trigger rollbacks. `PT15M` is a timeout of 15 minutes
+```
+
+To send a signal you would add to the uesr data of each instance:
+
+```bash
+#!/bin/bash -xe
+yum update -y aws-cfn-bootstrap
+/opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource AutoScalingGroup --region ${AWS::Region}
+```
+Only works on Autoscaling groups and EC2 instances
+
+- DeletionPolicy
+- DependsOn - has no guarentees that the process will have completed successfully
+- Metadata
+- UpdatePolicy
+- UpdateReplacePolicy
+
+Know when to use the [Wait condition][docs_wait_conditions]
+### Pseudo Parameters
 ## Why?
 
 This allows you to define your infrastructure as code, rather than manual steps carried out via various UIs (Console and CLI)
