@@ -173,7 +173,9 @@ Only works on Autoscaling groups and EC2 instances
 - UpdateReplacePolicy
 
 Know when to use the [Wait condition][docs_wait_conditions]
+
 ### Pseudo Parameters
+
 ## Why?
 
 This allows you to define your infrastructure as code, rather than manual steps carried out via various UIs (Console and CLI)
