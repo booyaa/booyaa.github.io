@@ -125,6 +125,27 @@ The following functions can be used in `Fn::ImportValue` function, the values of
 - `Fn::Sub`
 - `Ref`
 
+#### Fn::Join
+
+#### Fn::Select
+
+#### Fn::Split
+
+#### Fn::Sub
+
+#### Fn::Transform
+
+#### Ref
+
+#### Conditional Functions
+
+##### Fn:And
+
+##### Fn:Equals
+
+##### Fn:If
+
+##### Fn:Not
 ## Why?
 
 This allows you to define your infrastructure as code, rather than manual steps carried out via various UIs (Console and CLI)
