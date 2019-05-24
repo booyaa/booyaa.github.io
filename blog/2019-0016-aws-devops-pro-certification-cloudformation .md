@@ -165,17 +165,41 @@ To send a signal you would add to the uesr data of each instance:
 yum update -y aws-cfn-bootstrap
 /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource AutoScalingGroup --region ${AWS::Region}
 ```
-Only works on Autoscaling groups and EC2 instances
 
-- DeletionPolicy
+Only works on Autoscaling groups and EC2 instances.
+
+Common uses scenario: spin up servers, wait until servres are up to attach auto scaling group.
+
+- DeletionPolicy - define what happens to a resource when the stack is deleted. Possible values are:
+  - Delete - default
+  - Retain
+  - Snapshot - only available to EBS, RDS and RedShift. Storage costs for storing the snapshot.
 - DependsOn - has no guarentees that the process will have completed successfully
 - Metadata
 - UpdatePolicy
 - UpdateReplacePolicy
 
-Know when to use the [Wait condition][docs_wait_conditions]
+Know when to use the [Wait condition][docs_wait_conditions] over a CreationPolicy.
 
 ### Pseudo Parameters
+
+### Nested stacks
+
+- A stack contains resources: S3 bucket, EC2 instances and other AWS services
+- A stack can also contain another stack as a resource.
+- Allow a complex infrastructure to be split up into managable templates.
+- Stack Limits: 200/60/60 resources/outputs/parameters can be overcomed using nest stacks
+- Allow resources
+
+## Stack updates
+
+Stack Policy is JSON only.
+
+- general rule is to allow everything, but deny specific resources
+- The absence of stack policy means all updates are permitted
+- once applied it can't be deleted
+- once applied all objects are protected and Update:* is denied
+- FIXME: Resource impacts (didn't undersand this) 1:44
 
 ## Why?
 
