@@ -28,13 +28,15 @@ The format of the blog posts is liable to change as I try refine my mental model
 CloudFormation is:
 
 - Stack - an instantiation of a template
-- Template
+- Template consist of
   - `Parameters` - User configuration options
   - `Mapping` - Hashes (array of key/value pairs), allows you to apply logic i.e. choose the correct AMI based on region.
   - `Resources` - The resources we'll use CloudFormation to provision
   - `Output` - Results from the template, usually fed into another template as `Parameters`.
 - Stack Policy - IAM style policy statement which governs what can be changed and who can change it
-- Intrinsic functions - enables programmability by providing helper functions.
+- Programmability
+  - Intrinsic functions - helper functions.
+  - Custom Resources
 
 ### Intrinsic functions
 
