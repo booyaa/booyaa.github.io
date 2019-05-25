@@ -118,6 +118,16 @@ Stack Policy is JSON only.
 - once applied all objects are protected and Update:* is denied
 - FIXME: Resource impacts (didn't undersand this) 1:44
 
+### Custom Resources (JSON only)
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrough-custom-resources-lambda-lookup-amiids.html
+
+In a nutshell: Custom provisioning logic for resources that might not be available in cfn. Also the list of resources avalable in cfn is massive: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+
+AWS examples are using Lambda to perform an AMI lookup for a given region and CPU type. Before custom resources, you would to keep a list of mapping created templates that would need to be updated as and when the AMIs changed.
+
+The other is using SNS to trigger other resources and storing the responses as output.
+
 ## Why?
 
 This allows you to define your infrastructure as code, rather than manual steps carried out via various UIs (Console and CLI)
