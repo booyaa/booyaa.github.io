@@ -40,29 +40,25 @@ CloudFormation is:
 
 ### Intrinsic functions
 
+| Function        | Usecases                                      |
+|-----------------|-----------------------------------------------|
+| Fn::Base64      | UserData of EC2 instances                     |
+| Fn::Cidr        | [CIDR][wiki_cidr] address blocks / Networking |
 | Fn::FindInMap   | Lookups of values i.e. AMIs by region         |
-
-#### Fn::Join
-
-#### Fn::Select
-
-#### Fn::Split
-
-#### Fn::Sub
-
-#### Fn::Transform
-
-#### Ref
-
-#### Conditional Functions
-
-##### Fn:And
-
-##### Fn:Equals
-
-##### Fn:If
-
-##### Fn:Not
+| Fn::GetAtt      | Cross referencing templates (including self)  |
+| Fn::GetAZs      | Networking / Subnets                          |
+| Fn::ImportValue | Cross referencing templates (including self)  |
+| Fn::Join        | Merges an array into a string                 |
+| Fn::Select      | Picking a value from an array                 |
+| Fn::Split       | Turns a string into an array                  |
+| Fn::Sub         | Substituting one value for another            |
+| Fn::Transform   | Calling CloudFormation Macros                 |
+| Ref             | Cross referencing templates (including self)  |
+| Fn::And         | Conditional operation                         |
+| Fn::Or          | Conditional operation                         |
+| Fn::Equals      | Conditional function                          |
+| Fn::If          | Conditional function                          |
+| Fn::Not         | Conditional function                          |
 
 ### Resource Attributes
 
@@ -108,7 +104,7 @@ Know when to use the [Wait condition][docs_wait_conditions] over a CreationPolic
 - Stack Limits: 200/60/60 resources/outputs/parameters can be overcomed using nest stacks
 - Allow resources
 
-## Stack updates
+### Stack updates
 
 Stack Policy is JSON only.
 
@@ -308,3 +304,4 @@ aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))
 [docs_creationpolicy]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
 [docs_wait_conditions]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html
 [link_iso8601_durations]: https://en.wikipedia.org/wiki/ISO_8601#Durations
+[wiki_cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
