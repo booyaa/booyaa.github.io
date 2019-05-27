@@ -21,24 +21,33 @@ I'm very lucky to be able to use my employer's AWS account. You should ask your 
 
 ## Velocius quam asparagi conquantur
 
-The format of the blog posts is liable to change as I try refine my mental model of each domain, so be sure to revisit the blog posts on a regular basis.
+The format of the blog posts is liable to change as I try to refine my mental model of each domain, so be sure to revisit the blog posts on a regular basis.
 
 ## What?
 
-CloudFormation is:
+CloudFormation is a templating language that can be expressed as JSON or YAML. This is one tool that falls under the Infrastructure as Code (IaC) category for this domain.
+
+The core concepts you need to be aware of are:
 
 - Stack - an instantiation of a template
-- Template consist of
+- A template consist of the following core elements
   - `Parameters` - User configuration options
   - `Mapping` - Hashes (array of key/value pairs), allows you to apply logic i.e. choose the correct AMI based on region.
-  - `Resources` - The resources we'll use CloudFormation to provision
+  - `Resources` - The [resources][docs_supported_resources] we'll use CloudFormation to provision. At the time of writing there 89 services that are directly accessible through CloudFormation, later we'll see how to use services that aren't via Custom Resources.
   - `Output` - Results from the template, usually fed into another template as `Parameters`.
-- Stack Policy - IAM style policy statement which governs what can be changed and who can change it
+  - Other elements to be aware of
+    - Format Version - identifies the capabilities of the template
+    - Description - self-explanatory
+    - Metadata - provides information about the template
+    - Conditions - commonly used to define if a resource is created i.e. create this resource if the environment type is production
+    - Transform - allows you to execute macros that are either template snippets (`AWS::Include`) or serverless (aka Lambda - `AWS:Serverless`).
+- Stack Policies - IAM style policy statement which governs what can be changed and who can change it
 - Programmability
   - Intrinsic functions - helper functions.
   - Custom Resources
+  - `Transform` section in a template
 
-### Intrinsic functions
+### Intrinsic functions (helpers)
 
 | Function        | Usecases                                      |
 |-----------------|-----------------------------------------------|
@@ -67,62 +76,64 @@ CloudFormation is:
 ```yaml
 CreationPolicy:
   ResourceSignal:
-    Count: '3' # 3 instances have been created, so 3 signals are generated
-    Timeout: PT15M # [ISO8601 durations format][link_iso8601_durations]: `PT#H#M#S` where `#` is the number of hours, minutes and seconds. Give the instances as long as possible, if the timeout is too short you will trigger rollbacks. `PT15M` is a timeout of 15 minutes
+    Count: '3' # 3 instances have been created, so 3 signals will need to be generated before fulfilling the CreationPolicy requirements
+    Timeout: PT15M
 ```
 
-To send a signal you would add to the uesr data of each instance:
+`Timeout` value is [ISO8601 durations format][wiki_iso8601_durations]: `PT#H#M#S` where `#` is the number of hours, minutes and seconds. Give the instances as long as possible, if the timeout is too short you will trigger rollbacks. `PT15M` is a timeout of 15 minutes
 
-```bash
-#!/bin/bash -xe
-yum update -y aws-cfn-bootstrap
-/opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource AutoScalingGroup --region ${AWS::Region}
-```
-
-Only works on Autoscaling groups and EC2 instances.
-
-Common uses scenario: spin up servers, wait until servres are up to attach auto scaling group.
+To send a signal, you need to install help script called [`cfn-signal`][docs_cfn_signals] on the resources (usually done in the User Data area of EC2 instances).
 
 - DeletionPolicy - define what happens to a resource when the stack is deleted. Possible values are:
   - Delete - default
   - Retain
   - Snapshot - only available to EBS, RDS and RedShift. Storage costs for storing the snapshot.
-- DependsOn - has no guarentees that the process will have completed successfully
-- Metadata
-- UpdatePolicy
-- UpdateReplacePolicy
+- DependsOn - has no guarantees that the process will have completed successfully
+- UpdatePolicy - defines what happens to resource when the stack is updated.
+- UpdateReplacePolicy - use this retain / backup a physical instance of a resource it is replaced during a stack update.
 
 Know when to use the [Wait condition][docs_wait_conditions] over a CreationPolicy.
 
 ### Pseudo Parameters
 
+Are predefined parameters that return a valued on the current context i.e. current account or region in use.
+
+| Parameter             | Returns                                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------|
+| AWS::AccountId        | The account ID                                                                                      |
+| AWS::NotificationARNs | A list of notification ARNs for a stack                                                             |
+| AWS::NoValue          | Removes the corresponding resource when specified using `Fn::If`                                    |
+| AWS::Partition        | The partition a resource is in, only relevant to specialist regions like China and US Government |
+| AWS::Region           | The current region                                                                                  |
+| AWS::StackId          | The ID of the stack currently created                                                               |
+| AWS::StackName        | The Name of the stack currently created                                                             |
+| AWS::URLSuffix        | The suffix for a domain typically amazonaws.com, but may vary for specialized regions               |
+
 ### Nested stacks
 
 - A stack contains resources: S3 bucket, EC2 instances and other AWS services
 - A stack can also contain another stack as a resource.
-- Allow a complex infrastructure to be split up into managable templates.
-- Stack Limits: 200/60/60 resources/outputs/parameters can be overcomed using nest stacks
-- Allow resources
+- Allow a complex infrastructure to be split up into manageable templates.
+- Allows you to get around Stack limits (200/60/60 resources/outputs/parameters)
 
 ### Stack updates
 
 Stack Policy is JSON only.
 
-- general rule is to allow everything, but deny specific resources
+- The general rule is to allow everything, but deny specific resources
 - The absence of stack policy means all updates are permitted
-- once applied it can't be deleted
-- once applied all objects are protected and Update:* is denied
-- FIXME: Resource impacts (didn't undersand this) 1:44
+- Once applied it can't be deleted
+- Once applied all objects are protected by default and updates are denied
 
-### Custom Resources (JSON only)
+### Custom Resources
 
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrough-custom-resources-lambda-lookup-amiids.html
+Custom Resources are a way to provision and track resources that are not supported directly through CloudFormation.
 
-In a nutshell: Custom provisioning logic for resources that might not be available in cfn. Also the list of resources avalable in cfn is massive: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+The request/response mechanism is either an SNS topic or Lambda backed [ARN][aws_arn].
 
-AWS examples are using Lambda to perform an AMI lookup for a given region and CPU type. Before custom resources, you would to keep a list of mapping created templates that would need to be updated as and when the AMIs changed.
+AWS has a [walk through][docs_custom_resource] that demonstrates how to create a custom resource to perform an AMI lookup (using Lambda) to provide the correct AMI for a given region (in this case the region where we create the stack) and CPU type.
 
-The other is using SNS to trigger other resources and storing the responses as output.
+Before custom resources, you would've had to keep a static list of AMIs in the Mappings section of a template.
 
 ## Why?
 
@@ -130,12 +141,11 @@ This allows you to define your infrastructure as code, rather than manual steps 
 
 ## When?
 
-- Deploy infra rather than doing it manually
-- Repeatedly pattern environment - wordpress blog and database for running your web hosting business
-- To run an Automated testing for CI/CD. Create the environment from scratch.
-- Define an environment to any region in AWS cloud without reconfiguration. Keeping things generic
-- Can managed template using version control system i.e. Git (this is an attribute of IaC)
-- Templates should be designed in mind for 1, 100 or 1000 applicatios in one or more regions. Overhead. But then again so are unit tess rights?
+- Deploying infrastructure in a systematic and repeatable fashion rather than doing it manually.
+- Repeat pattern environment i.e. You host WordPress business and you have a template that deploys a web server and database to each new customer.
+- If you are using an automated CI/CD environment, but want to expand to a Blue/Green (Red/Black) and create a mirror of your environment to allow for zero downtime.
+- Create an environment in any region of the AWS cloud without manual reconfiguration i.e. AMI selection or subnet allocation.
+- You want to track change to your environment, by using CloudFormation templates these can be stored in a version control system i.e. Git
 
 ## How?
 
@@ -303,5 +313,9 @@ aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))
 
 [docs_creationpolicy]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
 [docs_wait_conditions]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html
-[link_iso8601_durations]: https://en.wikipedia.org/wiki/ISO_8601#Durations
+[docs_cfn_signals]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-signal.html
+[docs_supported_resources]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+[doc_custom_resource]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrough-custom-resources-lambda-lookup-amiids.html
 [wiki_cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+[aws_arn]: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
+[wiki_iso8601_durations]: https://en.wikipedia.org/wiki/ISO_8601#Durations
