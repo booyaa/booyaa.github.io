@@ -4,8 +4,8 @@ title: "AWS DevOps Pro Certification Blog Post Series: CloudFormation"
 categories:
   - "aws,study,certification"
 layout: post.liquid
-published_date: "2019-05-12 13:37:00 +0000"
-is_draft: true
+published_date: "2019-05-27 13:37:00 +0000"
+is_draft: false
 data:
   tags: "aws,study,certification,cloudformation"
   route: blog
