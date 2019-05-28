@@ -107,6 +107,14 @@ Our next blog post will be about CloudFormation
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+  - [CloudFormation](/2019/aws-devops-pro-certification-cloudformation)
+  - Elastic Beanstalk
+  - OpsWorks
+  - AWS Lambda
+  - AWS ECS
+  - AWS Config
+  - AWS Systems Manager
+  - AWS Managed Services
 - Domain 2: Configuration Management and Infrastructure as Code
 - Domain 3: Monitoring and Logging
 - Domain 4: Policies and Standards Automation

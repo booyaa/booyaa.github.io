@@ -95,7 +95,7 @@ Next, we're going to look at the Code Commit in greater detail.
   - [Code Build](/2019/blog/aws-devops-pro-certification-code-build/)
   - [Code Deploy](/2019/aws-devops-pro-certification-code-deploy/)
   - [Code Pipeline](/2019/aws-devops-pro-certification-code-pipeline)
-- Domain 2: Configuration Management and Infrastructure as Code
+- Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)
 - Domain 3: Monitoring and Logging
 - Domain 4: Policies and Standards Automation
 - Domain 5: Incident and Event Response
