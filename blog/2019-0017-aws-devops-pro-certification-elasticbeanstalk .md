@@ -27,9 +27,9 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 Elastic Beanstalk is
 
-- a PaaS
+- a Platfom as a Service (just like Heroku, Netlify)
 - powered by CloudFormation behind the scene
-- Elastic Beanstalk Extensions are...
+- (Elastic Beanstalk) Extensions are the equivalent of User Data field for EC2 instances, in that you can add some tasks that need to run during the provisioning of servers i.e. enable automatic updates on windows.
 
 Additional resources:
 
@@ -47,13 +47,52 @@ Recall the level of complexity around CloudFormation, this isn't for everyone.
 
 ## When?
 
-- Time poor or not willing to learn a more complex, but ultimately highly configurable Orchestration tool.
+- Time poor or not willing to learn a more complex, but ultimately highly configurable Orchestration tool like CloudFormation.
 - Don't have an operations or sysadmin handy
+- Want to 
 
 ## How?
 
-- Demo of basic docker image and non-docker image
+- Demo of non-docker (prebuilt image) and docker image
+
+```bash
+
+# https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html
+# download the go demo at the time of writing was this: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/samples/go-v1.zip
+
+aws elasticbeanstalk create-application \
+  --application-name hello-elasticbeanstalk
+aws elasticbeanstalk describe-events \
+  --application-name hello-elasticbeanstalk  
+
+aws elasticbeanstalk list-available-solution-stacks --query SolutionStacks
+
+aws elasticbeanstalk create-environment \
+  --application-name hello-elasticbeanstalk \
+  --environment-name hello-elasticbeanstalk-env \
+  --cname-prefix hello-elasticbeanstalk \
+  --version-label v1 \
+  --solution-stack-name "64bit Amazon Linux 2018.03 v2.11.1 running Go 1.12.4"  
+
+# upload solution to s3
+
+aws elasticbeanstalk create-application-version \
+  --application-name hello-elasticbeanstalk \
+  --version-label v1 \
+  --source-bundle S3Bucket="my-bucket",S3Key="sample.war" --auto-create-application
+
+aws elasticbeanstalk delete-application \
+  --application-name hello-elasticbeanstalk \
+  --terminate-env-by-force
+
+aws elasticbeanstalk delete-application \
+  --application-name hello-elasticbeanstalk
+
+```
+
 - Elastic Beanstalk Extension
+- Talk about eb cli and why we won't be using it
+
 
 ## API and CLI features and verbs
 
