@@ -49,44 +49,184 @@ Recall the level of complexity around CloudFormation, this isn't for everyone.
 
 - Time poor or not willing to learn a more complex, but ultimately highly configurable Orchestration tool like CloudFormation.
 - Don't have an operations or sysadmin handy
-- Want to 
+- Want to...
 
 ## How?
 
 - Demo of non-docker (prebuilt image) and docker image
 
 ```bash
+aws s3 cp path/to/downloaded/go-v1.zip s3://your-bucket/
 
-# https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html
-# download the go demo at the time of writing was this: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/samples/go-v1.zip
-
-aws elasticbeanstalk create-application \
-  --application-name hello-elasticbeanstalk
-aws elasticbeanstalk describe-events \
-  --application-name hello-elasticbeanstalk  
-
-aws elasticbeanstalk list-available-solution-stacks --query SolutionStacks
-
-aws elasticbeanstalk create-environment \
-  --application-name hello-elasticbeanstalk \
-  --environment-name hello-elasticbeanstalk-env \
-  --cname-prefix hello-elasticbeanstalk \
-  --version-label v1 \
-  --solution-stack-name "64bit Amazon Linux 2018.03 v2.11.1 running Go 1.12.4"  
-
-# upload solution to s3
+aws elasticbeanstalk create-application --application-name hello-eb
+{
+    "Application": {
+        "ApplicationArn": "arn:aws:elasticbeanstalk:eu-west-3:xxx:application/hello-eb",
+        "ApplicationName": "hello-eb",
+        "DateCreated": "2019-05-29T16:03:18.885Z",
+        "DateUpdated": "2019-05-29T16:03:18.885Z",
+        "ConfigurationTemplates": [],
+        "ResourceLifecycleConfig": {
+            "VersionLifecycleConfig": {
+                "MaxCountRule": {
+                    "Enabled": false,
+                    "MaxCount": 200,
+                    "DeleteSourceFromS3": false
+                },
+                "MaxAgeRule": {
+                    "Enabled": false,
+                    "MaxAgeInDays": 180,
+                    "DeleteSourceFromS3": false
+                }
+            }
+        }
+    }
+}
 
 aws elasticbeanstalk create-application-version \
-  --application-name hello-elasticbeanstalk \
+  --application-name hello-eb \
   --version-label v1 \
-  --source-bundle S3Bucket="my-bucket",S3Key="sample.war" --auto-create-application
+  --source-bundle S3Bucket="msdevopsstudy",S3Key="go-v1.zip"
+{
+    "ApplicationVersion": {
+        "ApplicationVersionArn": "arn:aws:elasticbeanstalk:eu-west-3:x:applicationversion/hello-eb/v1",
+        "ApplicationName": "hello-eb",
+        "VersionLabel": "v1",
+        "SourceBundle": {
+            "S3Bucket": "xxx",
+            "S3Key": "go-v1.zip"
+        },
+        "DateCreated": "2019-05-29T16:07:20.796Z",
+        "DateUpdated": "2019-05-29T16:07:20.796Z",
+        "Status": "UNPROCESSED"
+    }
+}
 
-aws elasticbeanstalk delete-application \
-  --application-name hello-elasticbeanstalk \
-  --terminate-env-by-force
+aws elasticbeanstalk describe-application-versions --application-name hello-eb --version-label v1
+{
+    "ApplicationVersions": [
+        {
+            "ApplicationVersionArn": "arn:aws:elasticbeanstalk:eu-west-3:x:applicationversion/hello-eb/v1",
+            "ApplicationName": "hello-eb",
+            "VersionLabel": "v1",
+            "SourceBundle": {
+                "S3Bucket": "msdevopsstudy",
+                "S3Key": "go-v1.zip"
+            },
+            "DateCreated": "2019-05-29T16:07:20.796Z",
+            "DateUpdated": "2019-05-29T16:07:20.796Z",
+            "Status": "UNPROCESSED"
+        }
+    ]
+}
 
-aws elasticbeanstalk delete-application \
-  --application-name hello-elasticbeanstalk
+aws elasticbeanstalk create-configuration-template \
+  --application-name hello-eb \
+  --template-name v1 \
+  --solution-stack-name "64bit Amazon Linux 2018.03 v2.11.1 running Go 1.12.4"  
+{
+    "SolutionStackName": "64bit Amazon Linux 2018.03 v2.11.1 running Go 1.12.4",
+    "PlatformArn": "arn:aws:elasticbeanstalk:eu-west-3::platform/Go 1 running on 64bit Amazon Linux/2.11.1",
+    "ApplicationName": "hello-eb",
+    "TemplateName": "v1",
+    "DateCreated": "2019-05-29T16:09:58Z",
+    "DateUpdated": "2019-05-29T16:09:58Z"
+}
+
+cat options.txt
+[
+    {
+        "Namespace": "aws:autoscaling:launchconfiguration",
+        "OptionName": "IamInstanceProfile",
+        "Value": "aws-elasticbeanstalk-ec2-role"
+    }
+]
+
+aws elasticbeanstalk create-environment \
+  --cname-prefix hello-eb \
+  --application-name hello-eb \
+  --template-name v1 --version-label v1 \
+  --environment-name hello-eb-env \
+  --option-settings file://options.txt
+{
+    "EnvironmentName": "hello-eb-env",
+    "EnvironmentId": "e-g8pwbwxc5j",
+    "ApplicationName": "hello-eb",
+    "VersionLabel": "v1",
+    "SolutionStackName": "64bit Amazon Linux 2018.03 v2.11.1 running Go 1.12.4",
+    "PlatformArn": "arn:aws:elasticbeanstalk:eu-west-3::platform/Go 1 running on 64bit Amazon Linux/2.11.1",
+    "CNAME": "hello-eb.eu-west-3.elasticbeanstalk.com",
+    "DateCreated": "2019-05-29T16:11:32.355Z",
+    "DateUpdated": "2019-05-29T16:11:32.355Z",
+    "Status": "Launching",
+    "Health": "Grey",
+    "Tier": {
+        "Name": "WebServer",
+        "Type": "Standard",
+        "Version": "1.0"
+    },
+    "EnvironmentArn": "arn:aws:elasticbeanstalk:eu-west-3:xxx:environment/hello-eb/hello-eb-env"
+}
+
+aws elasticbeanstalk describe-environments --environment-names hello-eb-env
+{
+    "Environments": [
+        {
+            "EnvironmentName": "hello-eb-env",
+            "EnvironmentId": "e-g8pwbwxc5j",
+            "ApplicationName": "hello-eb",
+            "VersionLabel": "v1",
+            "SolutionStackName": "64bit Amazon Linux 2018.03 v2.11.1 running Go 1.12.4",
+            "PlatformArn": "arn:aws:elasticbeanstalk:eu-west-3::platform/Go 1 running on 64bit Amazon Linux/2.11.1",
+            "EndpointURL": "awseb-e-g-AWSEBLoa-1S8LUETQTXR9H-746312279.eu-west-3.elb.amazonaws.com",
+            "CNAME": "hello-eb.eu-west-3.elasticbeanstalk.com",
+            "DateCreated": "2019-05-29T16:11:32.324Z",
+            "DateUpdated": "2019-05-29T16:14:11.172Z",
+            "Status": "Ready",
+            "AbortableOperationInProgress": false,
+            "Health": "Green",
+            "Tier": {
+                "Name": "WebServer",
+                "Type": "Standard",
+                "Version": "1.0"
+            },
+            "EnvironmentLinks": [],
+            "EnvironmentArn": "arn:aws:elasticbeanstalk:eu-west-3:559789578064:environment/hello-eb/hello-eb-env"
+        }
+    ]
+}
+
+# Once the status is Ready and health is Green, you can open the fully qualified domain name in `CNAME`
+
+curl -sv http://hello-eb.eu-west-3.elasticbeanstalk.com/ | head
+*   Trying 35.181.22.116...
+* TCP_NODELAY set
+* Connected to hello-eb.eu-west-3.elasticbeanstalk.com (35.181.22.116) port 80 (#0)
+> GET / HTTP/1.1
+> Host: hello-eb.eu-west-3.elasticbeanstalk.com
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Accept-Ranges: bytes
+< Content-Type: text/html; charset=utf-8
+< Date: Wed, 29 May 2019 16:15:33 GMT
+< Last-Modified: Thu, 17 Sep 2015 17:53:06 GMT
+< Server: nginx/1.14.1
+< Content-Length: 3049
+< Connection: keep-alive
+<
+{ [1208 bytes data]
+* Connection #0 to host hello-eb.eu-west-3.elasticbeanstalk.com left intact
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <!--
+    Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
+
+        http://aws.Amazon/apache2.0/
 
 ```
 
