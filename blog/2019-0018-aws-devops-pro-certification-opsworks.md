@@ -30,14 +30,25 @@ OpsWorks is
 - provides three managed services
   - AWS OpsWorks for Chef Automate
   - AWS OpsWorks for Puppet Enterprise
-  - AWS OpsWorks Stacks which uses Chef Solo.
-- OpsWorks and Chef are declarative state machines, that is you say what you want and they decide how to implement this.
-  - Example: install and configure a web server is done different for various operating systems and distros. In chef you would declare that you want a web server and chef would find the appropriate receipe to install a webserver for the operating system that the Chef agent is running on.
+  - AWS OpsWorks Stacks which uses Chef Solo
+  
+In this post we'll primarily focussing on AWS OpsWorks Stacks, but know that the others are managed services that can be utilised instead of running yourself (compare to self hosting a postgresql database server and using RDS).
 
-Jargon
+OpsWorks Stack...
 
-- Recipes
-- cookbooks
+- is a declarative state engine (as is Chef Automate and Solo). By this mean you define what you want to happen i.e. have a web server running, OpsWorks/Chef will then determine how to do it on the operating system that the Chef agent is installed on. Recall that package managers and configuration files live in different places in Operating Systems, even in distributions of Operating Systems (CentOS, Debian et al).
+- FIXME: Rewrite this bit - A cookbook is the fundamental unit of configuration and policy distribution. A cookbook defines a scenario and contains everything that is required to support that scenario:
+  - Recipes that specify the resources to use and the order in which they are to be applied
+  - Attribute values
+  - File distributions
+  - Templates
+  - Extensions to Chef, such as custom resources and libraries
+- also unique compared to other Chef managed services in that it uses the concept of "Layers"
+- autoscaling and scheduled scaling enabled
+- provdes you with a choice of Chef 11 or 12 stacks. The different between the two version is that Chef 11 has built in cookbooks, where as Chef 12 allows you to use your own or community cookbooks.
+- has a concept of Layers (think of these as different layers of functionality i.e. web server, database server)
+  - these layers can be OpsWorks, ECS or RDS based
+
 
 Additional resources:
 
@@ -65,6 +76,8 @@ CloudFormation is a tool that is very specific to AWS, where as your Chef recipe
 - What a certain degree of control, but not the complexity of CloudFormation.
 
 ## How?
+
+
 
 ## API and CLI features and verbs
 
