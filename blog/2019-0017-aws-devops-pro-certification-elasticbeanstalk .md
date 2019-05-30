@@ -4,7 +4,7 @@ title: "AWS DevOps Pro Certification Blog Post Series: Elastic Beanstalk"
 categories:
   - "aws,study,certification,elasticbeanstalk"
 layout: post.liquid
-published_date: "2019-05-28 13:37:00 +0000"
+published_date: "2019-05-30 13:37:00 +0000"
 is_draft: false
 data:
   tags: "aws,study,certification,elasticbeanstalk"
@@ -25,11 +25,12 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 ## What?
 
-Elastic Beanstalk is
+Elastic Beanstalk...
 
-- a Platfom as a Service (just like Heroku, Netlify)
-- powered by CloudFormation behind the scene
+- is a Platform as a Service (just like Heroku, Netlify), you deploy your code and it provisions the servers you need to get your app running.
+- is powered by CloudFormation behind the scene.
 - (Elastic Beanstalk) Extensions are the equivalent of User Data field for EC2 instances, in that you can add some tasks that need to run during the provisioning of servers i.e. enable automatic updates on windows.
+- comes with a cli (eb), this is primarily aimed at developer giving them a similar PaaS experience to other providers like Heroku i.e. link your version control system (Git, etc) and Elastic Beanstalk will do the rest. This means the developers don't need to go to the AWS console.
 
 Additional resources:
 
@@ -48,16 +49,20 @@ Recall the level of complexity around CloudFormation, this isn't for everyone.
 ## When?
 
 - Time poor or not willing to learn a more complex, but ultimately highly configurable Orchestration tool like CloudFormation.
-- Don't have an operations or sysadmin handy
+- Don't have a sysadmin handy
 - Want to...
 
 ## How?
 
-- Demo of non-docker (prebuilt image) and docker image
+We're going to work through one of the [example apps][docs_apps] provided by AWS, download the Go example (`go-v1.zip`).
+
+You'll need an S3 bucket to store the solution.
 
 ```bash
+# copy the zip file to your bucket
 aws s3 cp path/to/downloaded/go-v1.zip s3://your-bucket/
 
+# create the application
 aws elasticbeanstalk create-application --application-name hello-eb
 {
     "Application": {
@@ -83,17 +88,18 @@ aws elasticbeanstalk create-application --application-name hello-eb
     }
 }
 
+# create the application version
 aws elasticbeanstalk create-application-version \
   --application-name hello-eb \
   --version-label v1 \
-  --source-bundle S3Bucket="msdevopsstudy",S3Key="go-v1.zip"
+  --source-bundle S3Bucket="your_bucket",S3Key="go-v1.zip"
 {
     "ApplicationVersion": {
         "ApplicationVersionArn": "arn:aws:elasticbeanstalk:eu-west-3:x:applicationversion/hello-eb/v1",
         "ApplicationName": "hello-eb",
         "VersionLabel": "v1",
         "SourceBundle": {
-            "S3Bucket": "xxx",
+            "S3Bucket": "your_bucket",
             "S3Key": "go-v1.zip"
         },
         "DateCreated": "2019-05-29T16:07:20.796Z",
@@ -102,7 +108,9 @@ aws elasticbeanstalk create-application-version \
     }
 }
 
-aws elasticbeanstalk describe-application-versions --application-name hello-eb --version-label v1
+# examine the newly created application version
+aws elasticbeanstalk describe-application-versions \
+    --application-name hello-eb --version-label v1
 {
     "ApplicationVersions": [
         {
@@ -120,6 +128,7 @@ aws elasticbeanstalk describe-application-versions --application-name hello-eb -
     ]
 }
 
+# create a configuration template, this tells Elastic Beanstalk which specialises image to use
 aws elasticbeanstalk create-configuration-template \
   --application-name hello-eb \
   --template-name v1 \
@@ -133,6 +142,15 @@ aws elasticbeanstalk create-configuration-template \
     "DateUpdated": "2019-05-29T16:09:58Z"
 }
 
+# to get a list of the prebuilt platforms you can use
+aws elasticbeanstalk list-available-solution-stacks | jq -r '.SolutionStacks[]'
+64bit Amazon Linux 2018.03 v2.8.3 running Python 3.6
+64bit Amazon Linux 2018.03 v2.8.3 running Python 3.4
+64bit Amazon Linux 2018.03 v2.8.3 running Python
+64bit Amazon Linux 2018.03 v2.8.3 running Python 2.7
+*snip*
+
+# create the environment, well need to tell Elastic Beanstalk what IAM role to use to create ec2 instances
 cat options.txt
 [
     {
@@ -142,6 +160,7 @@ cat options.txt
     }
 ]
 
+# create the environment
 aws elasticbeanstalk create-environment \
   --cname-prefix hello-eb \
   --application-name hello-eb \
@@ -168,6 +187,7 @@ aws elasticbeanstalk create-environment \
     "EnvironmentArn": "arn:aws:elasticbeanstalk:eu-west-3:xxx:environment/hello-eb/hello-eb-env"
 }
 
+# examine the status of the new environment
 aws elasticbeanstalk describe-environments --environment-names hello-eb-env
 {
     "Environments": [
@@ -191,7 +211,7 @@ aws elasticbeanstalk describe-environments --environment-names hello-eb-env
                 "Version": "1.0"
             },
             "EnvironmentLinks": [],
-            "EnvironmentArn": "arn:aws:elasticbeanstalk:eu-west-3:559789578064:environment/hello-eb/hello-eb-env"
+            "EnvironmentArn": "arn:aws:elasticbeanstalk:eu-west-3:xxx:environment/hello-eb/hello-eb-env"
         }
     ]
 }
@@ -199,15 +219,8 @@ aws elasticbeanstalk describe-environments --environment-names hello-eb-env
 # Once the status is Ready and health is Green, you can open the fully qualified domain name in `CNAME`
 
 curl -sv http://hello-eb.eu-west-3.elasticbeanstalk.com/ | head
-*   Trying 35.181.22.116...
-* TCP_NODELAY set
-* Connected to hello-eb.eu-west-3.elasticbeanstalk.com (35.181.22.116) port 80 (#0)
-> GET / HTTP/1.1
-> Host: hello-eb.eu-west-3.elasticbeanstalk.com
-> User-Agent: curl/7.54.0
-> Accept: */*
->
-< HTTP/1.1 200 OK
+*snip*
+*< HTTP/1.1 200 OK
 < Accept-Ranges: bytes
 < Content-Type: text/html; charset=utf-8
 < Date: Wed, 29 May 2019 16:15:33 GMT
@@ -229,10 +242,6 @@ curl -sv http://hello-eb.eu-west-3.elasticbeanstalk.com/ | head
         http://aws.Amazon/apache2.0/
 
 ```
-
-- Elastic Beanstalk Extension
-- Talk about eb cli and why we won't be using it
-
 
 ## API and CLI features and verbs
 
@@ -280,7 +289,7 @@ curl -sv http://hello-eb.eu-west-3.elasticbeanstalk.com/ | head
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
 - Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)
-  - CloudFormation
+  - [CloudFormation](/2019/aws-devops-pro-certification-cloudformation)
   - Elastic Beanstalk
   - OpsWorks
   - AWS Lambda
@@ -293,11 +302,6 @@ curl -sv http://hello-eb.eu-west-3.elasticbeanstalk.com/ | head
 - Domain 5: Incident and Event Response
 - Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
 
-[docs_creationpolicy]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
-[devto_elasticbeanstalk]: https://dev.to/search?q=elasticbeanstalk
+## Links
 
-[wiki_cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-
-[aws_arn]: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
-
-[wiki_iso8601_durations]: https://en.wikipedia.org/wiki/ISO_8601#Durations
+[docs_apps]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html
