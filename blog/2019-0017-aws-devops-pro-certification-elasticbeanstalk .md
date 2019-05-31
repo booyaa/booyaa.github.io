@@ -298,7 +298,5 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
 - Domain 5: Incident and Event Response
 - Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
 
-## Links
-
 [docs_apps]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html
 [docs_cli]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-awscli.html
