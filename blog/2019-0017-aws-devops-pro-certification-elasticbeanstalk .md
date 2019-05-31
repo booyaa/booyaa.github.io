@@ -279,6 +279,9 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
 
 - Stack sets
   - StopStackSetOperation
+  
+[docs_apps]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html
+[docs_cli]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-awscli.html
 
 **AWS DevOps Pro Certification Blog Post Series**
 
@@ -297,6 +300,3 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
 - Domain 4: Policies and Standards Automation
 - Domain 5: Incident and Event Response
 - Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
-
-[docs_apps]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html
-[docs_cli]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-awscli.html
