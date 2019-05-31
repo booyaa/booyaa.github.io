@@ -4,7 +4,7 @@ title: "AWS DevOps Pro Certification Blog Post Series: OpsWorks"
 categories:
   - "aws,study,certification,opsworks"
 layout: post.liquid
-published_date: "2019-05-29 13:37:00 +0000"
+published_date: "2019-05-31 13:37:00 +0000"
 is_draft: false
 data:
   tags: "aws,study,certification,opsworks"
