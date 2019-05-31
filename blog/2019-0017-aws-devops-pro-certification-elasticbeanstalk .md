@@ -30,7 +30,7 @@ Elastic Beanstalk...
 - is a Platform as a Service (just like Heroku, Netlify), you deploy your code and it provisions the servers you need to get your app running.
 - is powered by CloudFormation behind the scene.
 - (Elastic Beanstalk) Extensions are the equivalent of User Data field for EC2 instances, in that you can add some tasks that need to run during the provisioning of servers i.e. enable automatic updates on windows.
-- comes with a cli (eb), this is primarily aimed at developer giving them a similar PaaS experience to other providers like Heroku i.e. link your version control system (Git, etc) and Elastic Beanstalk will do the rest. This means the developers don't need to go to the AWS console.
+- comes with a cli (eb), this is primarily aimed at developer giving them a similar PaaS experience to other providers like Heroku i.e. link your version control system (Git, etc) and Elastic Beanstalk will do the rest. There's a lot of simplification in the eb cli versus the aws cli e.g. `eb create my-env` (which creates an environment) would require three aws cli Elastic Beanstalk commands: `check-dns-availability`, `create-application-version` and `create-environment`.
 
 Additional resources:
 
@@ -50,20 +50,23 @@ Recall the level of complexity around CloudFormation, this isn't for everyone.
 
 - Time poor or not willing to learn a more complex, but ultimately highly configurable Orchestration tool like CloudFormation.
 - Don't have a sysadmin handy
-- Want to...
+- Want to release your application quickly and not worry about the details around the infrastructure.
 
 ## How?
 
-We're going to work through one of the [example apps][docs_apps] provided by AWS, download the Go example (`go-v1.zip`).
+We're going to work through one of the [example apps][docs_apps] provided by AWS, download the Go example (`go-v1.zip`). The environment setup commands were cribbed from [user guide][docs_cli] too.
 
-You'll need an S3 bucket to store the solution.
+Important: You'll need an S3 bucket to store the solution.
 
 ```bash
+export APP_NAME=hello-eb
+export APP_BUCKET=your-bucket
+
 # copy the zip file to your bucket
-aws s3 cp path/to/downloaded/go-v1.zip s3://your-bucket/
+aws s3 cp path/to/downloaded/go-v1.zip s3://$APP_BUCKET/
 
 # create the application
-aws elasticbeanstalk create-application --application-name hello-eb
+aws elasticbeanstalk create-application --application-name $APP_NAME
 {
     "Application": {
         "ApplicationArn": "arn:aws:elasticbeanstalk:eu-west-3:xxx:application/hello-eb",
@@ -90,9 +93,9 @@ aws elasticbeanstalk create-application --application-name hello-eb
 
 # create the application version
 aws elasticbeanstalk create-application-version \
-  --application-name hello-eb \
+  --application-name $APP_NAME \
   --version-label v1 \
-  --source-bundle S3Bucket="your_bucket",S3Key="go-v1.zip"
+  --source-bundle S3Bucket="$APP_BUCKET",S3Key="go-v1.zip"
 {
     "ApplicationVersion": {
         "ApplicationVersionArn": "arn:aws:elasticbeanstalk:eu-west-3:x:applicationversion/hello-eb/v1",
@@ -108,29 +111,10 @@ aws elasticbeanstalk create-application-version \
     }
 }
 
-# examine the newly created application version
-aws elasticbeanstalk describe-application-versions \
-    --application-name hello-eb --version-label v1
-{
-    "ApplicationVersions": [
-        {
-            "ApplicationVersionArn": "arn:aws:elasticbeanstalk:eu-west-3:x:applicationversion/hello-eb/v1",
-            "ApplicationName": "hello-eb",
-            "VersionLabel": "v1",
-            "SourceBundle": {
-                "S3Bucket": "msdevopsstudy",
-                "S3Key": "go-v1.zip"
-            },
-            "DateCreated": "2019-05-29T16:07:20.796Z",
-            "DateUpdated": "2019-05-29T16:07:20.796Z",
-            "Status": "UNPROCESSED"
-        }
-    ]
-}
-
-# create a configuration template, this tells Elastic Beanstalk which specialises image to use
+# create a configuration template, this tells Elastic Beanstalk which
+# specialised server image to use
 aws elasticbeanstalk create-configuration-template \
-  --application-name hello-eb \
+  --application-name $APP_NAME \
   --template-name v1 \
   --solution-stack-name "64bit Amazon Linux 2018.03 v2.11.1 running Go 1.12.4"  
 {
@@ -162,10 +146,10 @@ cat options.txt
 
 # create the environment
 aws elasticbeanstalk create-environment \
-  --cname-prefix hello-eb \
-  --application-name hello-eb \
+  --cname-prefix $APP_NAME \
+  --application-name $APP_NAME \
   --template-name v1 --version-label v1 \
-  --environment-name hello-eb-env \
+  --environment-name $APP_NAME-env \
   --option-settings file://options.txt
 {
     "EnvironmentName": "hello-eb-env",
@@ -188,7 +172,7 @@ aws elasticbeanstalk create-environment \
 }
 
 # examine the status of the new environment
-aws elasticbeanstalk describe-environments --environment-names hello-eb-env
+aws elasticbeanstalk describe-environments --environment-names $APP_NAME-env
 {
     "Environments": [
         {
@@ -218,7 +202,7 @@ aws elasticbeanstalk describe-environments --environment-names hello-eb-env
 
 # Once the status is Ready and health is Green, you can open the fully qualified domain name in `CNAME`
 
-curl -sv http://hello-eb.eu-west-3.elasticbeanstalk.com/ | head
+curl -sv http://$APP_NAME.eu-west-3.elasticbeanstalk.com/ | head
 *snip*
 *< HTTP/1.1 200 OK
 < Accept-Ranges: bytes
@@ -241,7 +225,19 @@ curl -sv http://hello-eb.eu-west-3.elasticbeanstalk.com/ | head
 
         http://aws.Amazon/apache2.0/
 
+# Let's tear down
+
+aws elasticbeanstalk terminate-environment \
+    --environment-name $APP_NAME-env
+
+aws elasticbeanstalk delete-configuration-template \
+    --application-name $APP_NAME --template-name v1
+
+aws elasticbeanstalk delete-application \
+    --application-name $APP_NAME
 ```
+
+N.B. I've noticed there's some delay in deleting the application. You may need to check on the AWS console to confirm all the resources have been deleted.
 
 ## API and CLI features and verbs
 
@@ -305,3 +301,4 @@ curl -sv http://hello-eb.eu-west-3.elasticbeanstalk.com/ | head
 ## Links
 
 [docs_apps]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html
+[docs_cli]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-awscli.html
