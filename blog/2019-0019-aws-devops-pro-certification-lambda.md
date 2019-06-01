@@ -38,7 +38,6 @@ Additional resources:
 - [AWS Lambda API][docs_api]
 - [AWS Lambda CLI][docs_cli]
 
-
 ## Why?
 
 Here's some ideas that a DevOps / Infra team might use cases for AWS Lambda. None of this is new or ground breaking innovations. The only difference is that when trying to implenent these in AWS Lambda we no longer need to factor new servers, billing is per second and Lambda was built to talk with other AWS services in mind.
@@ -64,13 +63,119 @@ Source: [Why DevOps Engineers Love AWS (espagon)][link_devops_loves_aws_lambda]
 
 We're going to use a simple example where the DevOps engineer wants to log all files being uploaded for a given S3 bucket.
 
-- Create role
-- Create code
-- Zip it
-- Create function with role
-- Test
-- Tear down
+Pre-requisites:
 
+- Create a Lambda execution role to grant lambda access to services and resources. This can be done through the console using this [guide][docs_ug_execution_role]. Copy the ARN you'll need it when we upload the function.
+- An S3 bucket
+
+Copy the following snippet and call it `index.js`
+
+```javascript
+exports.handler = async (event) => {
+    var srcBucket = event.Records[0].s3.bucket.name;
+    var srcKey = decodeURIComponent(event.Records[0].s3.object.key);
+
+    console.log("bucket:", srcBucket, " file: ", srcKey);
+};
+```
+
+Copy the following snippet and call it `payload-test.json`
+
+```json
+{
+  "Records":[  
+    {  
+      "eventVersion":"2.0",
+      "eventSource":"aws:s3",
+      "awsRegion":"us-west-2",
+      "eventTime":"1970-01-01T00:00:00.000Z",
+      "eventName":"ObjectCreated:Put",
+      "userIdentity":{  
+        "principalId":"AIDAJDPLRKLG7UEXAMPLE"
+      },
+      "requestParameters":{  
+        "sourceIPAddress":"127.0.0.1"
+      },
+      "responseElements":{  
+        "x-amz-request-id":"C3D13FE58DE4C810",
+        "x-amz-id-2":"FMyUVURIY8/IgAtTv8xRjskZQpcIZ9KG4V5Wp6S7S/JRWeUWerMUE5JgHvANOjpD"
+      },
+      "s3":{  
+        "s3SchemaVersion":"1.0",
+        "configurationId":"testConfigRule",
+        "bucket":{  
+          "name":"sourcebucket",
+          "ownerIdentity":{  
+            "principalId":"A3NL1KOZZKExample"
+          },
+          "arn":"arn:aws:s3:::sourcebucket"
+        },
+        "object":{  
+          "key":"HappyFace.jpg",
+          "size":1024,
+          "eTag":"d41d8cd98f00b204e9800998ecf8427e",
+          "versionId":"096fKKXTRTtl3on89fVO.nfljtsv6qko"
+        }
+      }
+    }
+  ]
+}
+```
+
+The remainder of the session can be done via the command line:
+
+```bash
+export LAMBDA_NAME=s3-blab
+export LAMBDA_ARN=arn:aws:iam::xxx:role/service-role/lambdaexec
+export LAMBDA_S3_BUCKET=anybucket
+export LAMBDA_S3_ARN=arn:aws:s3:::$LAMBDA_S3_BUCKET
+export LAMBDA_S3_ACCOUNT=$(aws sts get-caller-identity | jq -r ".Account")
+
+# Zip it
+zip function.zip index.js
+
+# Create function with role
+aws lambda create-function --function-name $LAMBDA_NAME \
+  --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x \
+  --role $LAMBDA_ARN
+
+# Test function
+aws lambda invoke --function-name $LAMBDA_NAME \
+  --invocation-type Event \
+  --payload file://payload-test.json outfile
+
+# Setup S3 notifications
+aws lambda add-permission --function-name $LAMBDA_NAME --principal s3.amazonaws.com \
+--statement-id $LAMBDA_NAME$RANDOM --action "lambda:InvokeFunction" \
+--source-arn $LAMBDA_S3_ARN \
+--source-account $LAMBDA_S3_ACCOUNT
+{
+    "Statement": "{\"Sid\":\"s3-blab16178\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"s3.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:eu-west-3:xxx:function:s3-blab\",\"Condition\":{\"StringEquals\":{\"AWS:SourceAccount\":\"xxx\"},\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:s3:::xxx\"}}}"
+}
+
+export LAMBDA_ARN=$(aws lambda get-function --function-name $LAMBDA_NAME  | jq -r .Configuration.FunctionArn)
+export LAMBDA_GUID=$(python -c 'import uuid; print str(uuid.uuid4())')
+cat << EOF > notification.json
+{
+    "CloudFunctionConfiguration": {
+        "Id": "$LAMBDA_GUID",
+        "Events": [
+            "s3:ObjectCreated:*"
+        ],
+        "CloudFunction": "$LAMBDA_ARN"
+    }
+}
+EOF
+
+aws s3api put-bucket-notification \
+  --bucket $LAMBDA_S3_BUCKET \
+  --notification-configuration file://notification.json
+
+# Test integration (doesn't work at the moment)
+
+# Tear down
+
+```
 
 ## API and CLI features and verbs
 
@@ -115,6 +220,7 @@ We're going to use a simple example where the DevOps engineer wants to log all f
 
 [aws_free_tier]: https://aws.amazon.com/free/
 [docs_ug]: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html?sc_ichannel=ha&sc_icampaign=pa_lamdbaresourcestop&sc_icontent=devguide&sc_detail=1
+[docs_ug_execution_role]: https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html
 [docs_faq]: https://aws.amazon.com/lambda/faqs/
 [docs_api]: https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html
 [docs_cli]: https://docs.aws.amazon.com/cli/latest/reference/lambda/index.html
