@@ -77,7 +77,8 @@ We're going to use a simple example where the DevOps engineer wants to log all f
 
 Copy the following snippet and call it `index.js`
 
-```javascriptexports.handler = async (event) => {
+```javascript
+exports.handler = async (event) => {
     var srcBucket = event.Records[0].s3.bucket.name;
     var srcKey = decodeURIComponent(event.Records[0].s3.object.key);
 
