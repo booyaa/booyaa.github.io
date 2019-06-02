@@ -40,43 +40,50 @@ Additional resources:
 
 ## Why?
 
-Here's some ideas that a DevOps / Infra team might use cases for AWS Lambda. None of this is new or ground breaking innovations. The only difference is that when trying to implenent these in AWS Lambda we no longer need to factor new servers, billing is per second and Lambda was built to talk with other AWS services in mind.
+Here are some ideas that a DevOps / Infra team might use cases for AWS Lambda. None of this is new or groundbreaking innovations. The only difference is that when trying to implement these in AWS Lambda we no longer need to factor new servers, billing is per second and Lambda was built to talk with other AWS services in mind.
 
-- Automate backups / cycle through EBS snapshots
+- Automate backups/cycle through EBS snapshots
 - Generating reports - use it to audit resources on AWS (if you don't want to shell out on AWS Config)
-- Perform S3 ops i.e. moving code build artefacts to location on a given S3 bucket
+- Perform S3 ops i.e. moving code build artefacts to a location on a given S3 bucket
 - Batch log processing - extract, transform and load (ETL) from various resources and consolidate into a central data warehouse
-- Scheduled Tasks - perform any of the above use cases at a given scheduled, just like cron jobs
-- ChatOps - running Slack chat bots to manage and report against your infrastructure
+- Scheduled Tasks - perform any of the above use cases at a given schedule, just like cron jobs
+- ChatOps - running Slack chatbots to manage and report against your infrastructure
 
-Source: [Why DevOps Engineers Love AWS (espagon)][link_devops_loves_aws_lambda]
+Use cases inspired by the epagon blog post: [Why DevOps Engineers Love AWS][link_devops_loves_aws_lambda]
 
 ## When?
 
 - You need to perform a DevOps task, but don't want to go through the trouble of provisioning an application server to host it.
-- You're trying to break up a monolithic management server that's responsible for scheduling and running devops tasks.
+- You're trying to break up a monolithic management server that's responsible for scheduling and running DevOps tasks.
 
 ## How?
 
-- https://docs.aws.amazon.com/lambda/latest/dg/with-userapp.html
-- https://aws.amazon.com/blogs/compute/kotlin-and-groovy-jvm-languages-with-aws-lambda/
+We're going to use a simple example where the DevOps engineer wants to log all files being uploaded for a given S3 bucket. A lot of the hard work around this tutorial was done via Sunil Dalal's blog post,  "[Using Lambda as S3 events processor][link_sunil_dalal]". Thanks, Sunil for sharing!
 
-We're going to use a simple example where the DevOps engineer wants to log all files being uploaded for a given S3 bucket.
+### Pre-requisites
 
-Pre-requisites:
+- Create a Lambda execution role to grant lambda access to services and resources. This can be done through the console using this [guide][docs_ug_execution_role]. Copy the ARN you'll need it when we upload the function. The role should have the following permissions applied:
+  - allow the role to create CloudWatch log entries.
+  - allow the role S3 read-only access
+- You've got an S3 bucket (might be a good idea to create one just for this walkthrough)
+- Have the following tools installed:
+  - [jq][link_jq] for wrangling JSON data out of AWS CLI
+  - [awslogs][link_awslogs] if you want to view CloudWatch log entries in the terminal)
+- The AWS CLI default profile has been configured
+  - to output JSON
+  - has a fixed region
 
-- Create a Lambda execution role to grant lambda access to services and resources. This can be done through the console using this [guide][docs_ug_execution_role]. Copy the ARN you'll need it when we upload the function.
-- An S3 bucket
+### Create files
 
 Copy the following snippet and call it `index.js`
 
-```javascript
-exports.handler = async (event) => {
+```javascriptexports.handler = async (event) => {
     var srcBucket = event.Records[0].s3.bucket.name;
     var srcKey = decodeURIComponent(event.Records[0].s3.object.key);
 
     console.log("bucket:", srcBucket, " file: ", srcKey);
 };
+
 ```
 
 Copy the following snippet and call it `payload-test.json`
@@ -125,56 +132,84 @@ Copy the following snippet and call it `payload-test.json`
 The remainder of the session can be done via the command line:
 
 ```bash
-export LAMBDA_NAME=s3-blab
-export LAMBDA_ARN=arn:aws:iam::xxx:role/service-role/lambdaexec
-export LAMBDA_S3_BUCKET=anybucket
+export LAMBDA_NAME=your-lambda-function-name
+export LAMBDA_ROLE=your-lambda-execution-role
+export AWS_ACCOUNT_ID=$(aws sts get-caller-identity | jq -r ".Account")
+export LAMBDA_ROLE_ARN=arn:aws:iam::$AWS_ACCOUNT_ID:role/$LAMBDA_ROLE
+export LAMBDA_S3_BUCKET=your-s3-bucket
 export LAMBDA_S3_ARN=arn:aws:s3:::$LAMBDA_S3_BUCKET
-export LAMBDA_S3_ACCOUNT=$(aws sts get-caller-identity | jq -r ".Account")
 
-# Zip it
+# package the lambda function
 zip function.zip index.js
 
-# Create function with role
+# create function
 aws lambda create-function --function-name $LAMBDA_NAME \
-  --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x \
-  --role $LAMBDA_ARN
+  --zip-file fileb://function.zip \
+  --handler index.handler \
+  --runtime nodejs10.x \
+  --role $LAMBDA_ROLE_ARN
 
-# Test function
-aws lambda invoke --function-name $LAMBDA_NAME \
-  --invocation-type Event \
-  --payload file://payload-test.json outfile
 
-# Setup S3 notifications
-aws lambda add-permission --function-name $LAMBDA_NAME --principal s3.amazonaws.com \
---statement-id $LAMBDA_NAME$RANDOM --action "lambda:InvokeFunction" \
---source-arn $LAMBDA_S3_ARN \
---source-account $LAMBDA_S3_ACCOUNT
-{
-    "Statement": "{\"Sid\":\"s3-blab16178\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"s3.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:eu-west-3:xxx:function:s3-blab\",\"Condition\":{\"StringEquals\":{\"AWS:SourceAccount\":\"xxx\"},\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:s3:::xxx\"}}}"
-}
+# setup S3 notifications, first we'll allow the s3 bucket to invoke the lambda
+aws lambda add-permission \
+  --function-name $LAMBDA_NAME \
+  --principal s3.amazonaws.com \
+  --statement-id $LAMBDA_NAME$RANDOM \
+  --action "lambda:InvokeFunction" \
+  --source-arn $LAMBDA_S3_ARN \
+  --source-account $AWS_ACCOUNT_ID
 
 export LAMBDA_ARN=$(aws lambda get-function --function-name $LAMBDA_NAME  | jq -r .Configuration.FunctionArn)
-export LAMBDA_GUID=$(python -c 'import uuid; print str(uuid.uuid4())')
+
 cat << EOF > notification.json
 {
-    "CloudFunctionConfiguration": {
-        "Id": "$LAMBDA_GUID",
-        "Events": [
-            "s3:ObjectCreated:*"
-        ],
-        "CloudFunction": "$LAMBDA_ARN"
-    }
+    "LambdaFunctionConfigurations": [
+      {
+        "Id": "1234567890",
+        "LambdaFunctionArn": "$LAMBDA_ARN",
+        "Events": [ "s3:ObjectCreated:*" ]
+      }
+    ]
 }
 EOF
 
-aws s3api put-bucket-notification \
+# next create the notification event in the bucket
+# DANGER: this will overwrite any existing event notifications in your bucket
+# DO NOT RUN THIS on a bucket that is important to you or work!
+aws s3api put-bucket-notification-configuration \
   --bucket $LAMBDA_S3_BUCKET \
   --notification-configuration file://notification.json
 
-# Test integration (doesn't work at the moment)
+# test the integration to see if the message formatting is correct. 
+# this should look identical to the actual CloudWatch entry.
+# n.b. base64 appears to use the same switch to decode for both BSD and GNU 
+# variants
+aws lambda invoke \
+  --invocation-type RequestResponse \
+  --function-name $LAMBDA_NAME \
+  --log-type Tail \
+  --payload file://payload-test.json outputfile.txt \
+  | jq -r .LogResult | base64 --decode
 
-# Tear down
 
+# Finally let's test it properly
+touch hello.txt
+aws s3 cp hello.txt s3://$LAMBDA_S3_BUCKET/
+
+# If you didn't install awslogs, you can still use AWS Console to view logs in 
+# Cloud Watch.
+awslogs get /aws/lambda/s3-blab --start='5 min'
+
+# Teardown
+
+aws lambda delete-function --function-name $LAMBDA_NAME
+
+aws s3api put-bucket-notification-configuration \
+  --bucket $LAMBDA_S3_BUCKET \
+  --notification-configuration 'LambdaFunctionConfigurations=[]'
+
+# you may wish to clear down the S3 bucket of your test files and the log group 
+# that was created in CloudWatch.
 ```
 
 ## API and CLI features and verbs
@@ -225,7 +260,9 @@ aws s3api put-bucket-notification \
 [docs_api]: https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html
 [docs_cli]: https://docs.aws.amazon.com/cli/latest/reference/lambda/index.html
 [link_devops_loves_aws_lambda]: https://epsagon.com/blog/why-devops-engineers-love-aws-lambda/
-
+[link_jq]: https://stedolan.github.io/jq/
+[link_awslogs]: https://github.com/jorgebastida/awslogs
+[link_sunil_dalal]: https://www.polyglotdeveloper.com/lambda/2017-07-05-Using-Lambda-as-S3-events-processor/
 
 **AWS DevOps Pro Certification Blog Post Series**
 
