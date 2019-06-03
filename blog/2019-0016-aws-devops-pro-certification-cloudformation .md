@@ -297,11 +297,11 @@ aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
-- Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)
+- Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/)
   - CloudFormation
-  - Elastic Beanstalk
-  - OpsWorks
-  - AWS Lambda
+  - [Elastic Beanstalk](/2019/aws-devops-pro-certification-elasticbeanstalk/)
+  - [OpsWorks](/2019/aws-devops-pro-certification-opsworks/)
+  - [AWS Lambda](/2019/aws-devops-pro-certification-lambda/)
   - AWS ECS
   - AWS Config
   - AWS Systems Manager

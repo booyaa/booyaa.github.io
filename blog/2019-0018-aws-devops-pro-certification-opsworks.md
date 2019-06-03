@@ -233,11 +233,11 @@ To tear down:
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
-- Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)
-  - [CloudFormation](/2019/aws-devops-pro-certification-cloudformation)
-  - [Elastic Beanstalk](/2019/aws-devops-pro-certification-elastic-beanstalk)
+- Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/)
+  - [CloudFormation](/2019/aws-devops-pro-certification-cloudformation/)
+  - [Elastic Beanstalk](/2019/aws-devops-pro-certification-elastic-beanstalk/)
   - OpsWorks
-  - AWS Lambda
+  - [AWS Lambda](/2019/aws-devops-pro-certification-lambda/)
   - AWS ECS
   - AWS Config
   - AWS Systems Manager
