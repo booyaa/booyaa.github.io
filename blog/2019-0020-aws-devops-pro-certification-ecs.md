@@ -27,11 +27,14 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 AWS ECS ...
 
-- is Amazon's Docker managed service. Naturally you also get a container registry service in the form of Elastic Container Registry (ECR).
-- comes in two varieties: EC2 or Fargate.
-  - EC2 based clusters as the name imples.. the original would create an EC2 instance to host your containers. Fargate adopts the serverless abstraction and treats each container as a standalone task.
-- 
-- 
+- is Amazon's Docker managed service. Naturally you also get a container registry service in the form of [Elastic Container Registry][aws_ecr] (ECR).
+- comes in two varieties (launch types): EC2 or Fargate.
+  - EC2 based clusters as the name imples uses EC2 instances as Docker hosts for containers.
+    - You just pay for the resources spun up i.e. EC2 instances and/or EBS volumes.
+  - Fargate abstracts away EC2 instances (much like serverless functions).
+    - You pay for the vCPU and memory resources the container uses. This is charged at per second (with a minimum charge of a minute.
+    - Fargate is only available to few [regions][docs_ug_fargate] (13 at the time of writing this)
+- is not a Kubernetes managed services, this is a separate offering called [Elastic Container Service for Kubernetes Service][aws_eks] (EKS)
 
 Additional resources:
 
@@ -40,41 +43,78 @@ Additional resources:
 - [AWS ECS API][docs_api]
 - [AWS ECS CLI][docs_cli]
 
-
 ## Why?
 
-...
+- As with all managed services, you want to focus on the functionality rather than the upkeep of a service.
+- With Docker becoming the lingua franca of the Cloud you can utilise 3rd party images and build solutions in a build block manner. Granted, Amazon has used the modularized concept for many years (OpsWorks and Elastic Beanstalk) before Docker became mainstream.
 
 ## When?
 
-- 1
-- 2
+- Microservices and batch jobs are good workloads for a cluster.
+- You want to migrate away from Docker managed through on-premises infrastructure or EC2 instances that are not ECS managed.
 
 ## How?
 
-...
+We're going to create an EC2 based ECS cluster, whilst Fargate is definitely the future for most workloads it's still only being rolled out to a limited amount of regions.
+
+We're going to use the AWS CLI instead of the [ECS CLI][docs_ug_ecs_cli], this is to re-enforce learning of the API. For actual day to day use, Amazon recommend the ECS CLI.
 
 ## API and CLI features and verbs
 
 **Features**
 
-- x
-- y
-- z
+- Clusters
+- Services
+- Task Sets
 
 **Verbs (CRUD)**
 
 - create
-- get/list
-- update (function-[code/configuration])
+- describe/list (cluster/services)
+- update (service/task-set)
 - delete
 
 **Outliers**
 
-- xxx
+- delete-account-setting
+- delete-attributes
+- deploy
+- deregister-container-instance
+- deregister-task-definition
+- describe-container-instances
+- describe-task-definition
+- describe-tasks
+- discover-poll-endpoint
+- list-account-settings
+- list-attributes
+- list-container-instances
+- list-tags-for-resource
+- list-task-definition-families
+- list-task-definitions
+- list-tasks
+- put-account-setting
+- put-account-setting-default
+- put-attributes
+- register-container-instance
+- register-task-definition
+- run-task
+- start-task
+- stop-task
+- submit-container-state-change
+- submit-task-state-change
+- tag-resource
+- untag-resource
+- update-container-agent
+- update-container-instances-state
+- update-service-primary-task-set
+- wait
 
 [aws_free_tier]: https://aws.amazon.com/free/
+[aws_ecr]: https://aws.amazon.com/ecr/
+[aws_eks]: https://aws.amazon.com/eks/
 [docs_ug]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
+[docs_ug_fargate]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html
+[docs_ug_ecs_cli]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html
 [docs_faq]: https://aws.amazon.com/ecs/faqs/
 [docs_api]: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html
 [docs_cli]: https://docs.aws.amazon.com/cli/latest/reference/ecs/index.html
