@@ -108,9 +108,9 @@ Our next blog post will be about CloudFormation
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
   - [CloudFormation](/2019/aws-devops-pro-certification-cloudformation)
-  - Elastic Beanstalk
-  - OpsWorks
-  - AWS Lambda
+  - [Elastic Beanstalk](/2019/aws-devops-pro-certification-elastic-beanstalk)
+  - [OpsWorks](/2019/aws-devops-pro-certification-opsworks)
+  - [AWS Lambda](/2019/aws-devops-pro-certification-lambda/)
   - AWS ECS
   - AWS Config
   - AWS Systems Manager
