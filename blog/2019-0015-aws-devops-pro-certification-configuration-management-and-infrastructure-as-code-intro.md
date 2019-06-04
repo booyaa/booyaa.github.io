@@ -40,10 +40,9 @@ Useful https://aws.amazon.com/devops/#infrastructureascode
 - [CloudFormation](https://aws.amazon.com/cloudformation/) - This is a templating language that allows you to codify your infrastructure. This is the "Infrastructure as Code" part of this domain.
 - [OpsWorks](https://aws.amazon.com/opsworks/) - This service provides managed versions of Chef and Puppet. These are both industry standard configuration management systems.
 - [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) - is AWS' Platform as a Service (PaaS) offering.
-- [AWS Lambda](https://aws.amazon.com/lambda/) - A service to run microservices / Serverless functions ???
+- [AWS Lambda](https://aws.amazon.com/lambda/) - A service to run microservices / Serverless functions / Buzzword bingo
 - [AWS ECS](https://aws.amazon.com/ecs/) - Managed container services. IaC (codified)
 - [AWS Config](https://aws.amazon.com/config/) - Auditing services of your AWS services.
-- [AWS Systems Manager](https://aws.amazon.com/systems-manager/) - Allows you to manage your system environment using an agent, a bit like chef and puppet. CM.
 - [AWS Managed Services](https://aws.amazon.com/managed-services/) - Let's AWS manage your AWS!
 
 ## What about other types of documentation?
@@ -56,7 +55,6 @@ If you have the time, by all means, read the User Guides, but they are usually a
 - [AWS Lambda](https://aws.amazon.com/lambda/faqs/)
 - [AWS ECS](https://aws.amazon.com/ecs/faqs/)
 - [AWS Config](https://aws.amazon.com/config/faq/)
-- [AWS Systems Manager](https://aws.amazon.com/systems-manager/faq/)
 - [AWS Managed Services](https://aws.amazon.com/managed-services/faqs/)
 
 You're all expected to know the APIs
@@ -66,8 +64,6 @@ You're all expected to know the APIs
 - [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html)
 - [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html)
 - [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html)
-- [AWS Config](https://docs.aws.amazon.com/config/latest/APIReference/Welcome.html)
-- [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/APIReference/Welcome.html)
 
 There's no API for AWS Managed Services because this a professional or technical services offering.
 
@@ -80,8 +76,6 @@ And the CLI commands
 - [Elastic Beanstalk](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/index.html)
 - [AWS Lambda](https://docs.aws.amazon.com/cli/latest/reference/lambda/index.html)
 - [AWS ECS](https://docs.aws.amazon.com/cli/latest/reference/ecs/index.html)
-- [AWS Config](https://docs.aws.amazon.com/cli/latest/reference/configservice/index.html)
-- [AWS Systems Manager](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
 
 There's no CLI for AWS Managed Services because there's no corresponding API.
 
@@ -111,10 +105,9 @@ Our next blog post will be about CloudFormation
   - [Elastic Beanstalk](/2019/aws-devops-pro-certification-elastic-beanstalk)
   - [OpsWorks](/2019/aws-devops-pro-certification-opsworks)
   - [AWS Lambda](/2019/aws-devops-pro-certification-lambda/)
-  - AWS ECS
-  - AWS Config
-  - AWS Systems Manager
-  - AWS Managed Services
+  - [AWS ECS](/2019/aws-devops-pro-certification-ecs/)
+  - [AWS Config](/2019/aws-devops-pro-certification-config-managed-services/)
+  - [AWS Managed Services](/2019/aws-devops-pro-certification-config-managed-services/)
 - Domain 2: Configuration Management and Infrastructure as Code
 - Domain 3: Monitoring and Logging
 - Domain 4: Policies and Standards Automation
