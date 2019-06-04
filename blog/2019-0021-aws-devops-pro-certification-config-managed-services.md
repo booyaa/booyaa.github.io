@@ -1,6 +1,6 @@
 ---
 permalink: "/2019/aws-devops-pro-certification-config-managed-services"
-title: "AWS DevOps Pro Certification Blog Post Series: AWS ECS"
+title: "AWS DevOps Pro Certification Blog Post Series: AWS Config and Managed Services"
 categories:
   - "aws,study,certification"
 layout: post.liquid
