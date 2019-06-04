@@ -4,7 +4,7 @@ title: "AWS DevOps Pro Certification Blog Post Series: AWS ECS"
 categories:
   - "aws,study,certification,ecs"
 layout: post.liquid
-published_date: "2019-06-03 13:37:00 +0000"
+published_date: "2019-06-04 13:37:00 +0000"
 is_draft: false
 data:
   tags: "aws,study,certification,ecs"
@@ -27,14 +27,16 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 AWS ECS ...
 
-- is Amazon's Docker managed service. Naturally you also get a container registry service in the form of [Elastic Container Registry][aws_ecr] (ECR).
+- is Amazon's Docker managed service. Naturally, you also get a container registry service in the form of [Elastic Container Registry][aws_ecr] (ECR).
 - comes in two varieties (launch types): EC2 or Fargate.
-  - EC2 based clusters as the name imples uses EC2 instances as Docker hosts for containers.
-    - You just pay for the resources spun up i.e. EC2 instances and/or EBS volumes.
+  - EC2 based clusters as the name implies uses EC2 instances as Docker hosts for containers.
+    - You pay for the resources spun up i.e. EC2 instances and/or EBS volumes.
+    - You're also responsible for the upkeep of the EC2 instances (patching, monitoring and making secure).
   - Fargate abstracts away EC2 instances (much like serverless functions).
-    - You pay for the vCPU and memory resources the container uses. This is charged at per second (with a minimum charge of a minute.
+    - You pay for the vCPU (virtual CPU) and memory resources the container uses. This is charged at per second rate (with a minimum charge of a minute).
     - Fargate is only available to few [regions][docs_ug_fargate] (13 at the time of writing this)
-- is not a Kubernetes managed services, this is a separate offering called [Elastic Container Service for Kubernetes Service][aws_eks] (EKS)
+    - There's no EC2 instances to maintain, just your tasks.
+- is not a Kubernetes managed services, this is a separate offering with the catchy name of [Elastic Container Service for Kubernetes Service][aws_eks] (EKS)
 
 Additional resources:
 
@@ -46,7 +48,7 @@ Additional resources:
 ## Why?
 
 - As with all managed services, you want to focus on the functionality rather than the upkeep of a service.
-- With Docker becoming the lingua franca of the Cloud you can utilise 3rd party images and build solutions in a build block manner. Granted, Amazon has used the modularized concept for many years (OpsWorks and Elastic Beanstalk) before Docker became mainstream.
+- With Docker becoming the lingua franca of the Cloud you can utilise 3rd party images and build solutions in a build block manner. Granted, Amazon has been using this modularized concept for many years (OpsWorks and Elastic Beanstalk) before Docker became mainstream.
 
 ## When?
 
@@ -55,9 +57,92 @@ Additional resources:
 
 ## How?
 
-We're going to create an EC2 based ECS cluster, whilst Fargate is definitely the future for most workloads it's still only being rolled out to a limited amount of regions.
+For this section, we're going to use Fargate rather than an EC2 based ECS cluster. 
 
-We're going to use the AWS CLI instead of the [ECS CLI][docs_ug_ecs_cli], this is to re-enforce learning of the API. For actual day to day use, Amazon recommend the ECS CLI.
+This is mostly to reduce the additional complexity of provisioning the EC2 instances that will join the ECS cluster. This guide is loosely based around the [Fargte][docs_ug_fargate_tutorial] tutorial in the Developer Guide. I've just removed the part about setting up a service and ran a task with public IP we could visit to test.
+
+That said, for day to day work you may find yourself still using EC2 based cluster until Fargate is available across all regions. You may also still find yourself using EC2 based clusters from a cost-saving perspective. If anyone has a calculator they've created when it makes more sense to go with the Fargate launch-type over EC2, please share in the comments or @ me on Twitter!
+
+### Pre-requisites
+
+- A VPC with at least one subnet that has inbound and outbound access to the internet.
+- A suitable security group as per the previous point
+
+```bash
+export ECS_CLUSTER_NAME=your-cluster-name
+export ECS_SECURITY_GROUP=your-security-group
+export ECS_SUBNETS=yoursubnet
+
+# create a cluster
+aws ecs create-cluster --cluster-name $ECS_CLUSTER_NAME
+
+# register a task
+
+cat <<EOF > fargate-task.json
+{
+  "family": "sample-fargate",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "fargate-app",
+      "image": "httpd:2.4",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "entryPoint": ["sh", "-c"],
+      "command": [
+        "/bin/sh -c \"echo '<html> <head> <title>Hello dev.to-ers</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Hello, world!</h1> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\""
+      ]
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512"
+}
+EOF
+
+aws ecs register-task-definition \
+  --cli-input-json file://fargate-task.json
+
+# create a task, assign it to our network and enable the public IP
+
+aws ecs run-task \
+  --cluster $ECS_CLUSTER_NAME \
+  --task-definition sample-fargate:2 \
+  --count 1 \
+  --launch-type "FARGATE" \
+  --network-configuration "awsvpcConfiguration={subnets=[$ECS_SUBNETS],securityGroups=[$ECS_SECURITY_GROUP],assignPublicIp="ENABLED"}"
+
+
+# list tasks
+
+aws ecs list-tasks --cluster $ECS_CLUSTER_NAME
+
+# describe the task
+
+export ECS_TASK_ID=$(aws ecs list-tasks --cluster $ECS_CLUSTER_NAME --query "taskArns" --output text)
+aws ecs describe-tasks --cluster $ECS_CLUSTER_NAME --tasks $ECS_TASK_ID
+
+# get the public IP of the task (well, the one bound to the ENI)
+
+export ECS_TASK_NETWORK_ID=$(aws ecs describe-tasks --cluster $ECS_CLUSTER_NAME --tasks $ECS_TASK_ID --query 'tasks[*].attachments[*].details[?name==`networkInterfaceId`].value' --output text)
+
+export ECS_TASK_PUBLIC_IP=$(aws ec2 describe-network-interfaces --network-interface-ids $ECS_TASK_NETWORK_ID --query "NetworkInterfaces[*].PrivateIpAddresses[*].Association.PublicIp" --output text)
+
+# test
+
+curl $ECS_TASK_PUBLIC_IP
+
+# tear down
+
+aws ecs stop-task --task $ECS_TASK_ID --cluster $ECS_CLUSTER_NAME
+aws ecs delete-cluster --cluster $ECS_CLUSTER_NAME
+```
 
 ## API and CLI features and verbs
 
@@ -115,6 +200,7 @@ We're going to use the AWS CLI instead of the [ECS CLI][docs_ug_ecs_cli], this i
 [docs_ug]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
 [docs_ug_fargate]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html
 [docs_ug_ecs_cli]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html
+[docs_ug_fargate_tutorial]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html
 [docs_faq]: https://aws.amazon.com/ecs/faqs/
 [docs_api]: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html
 [docs_cli]: https://docs.aws.amazon.com/cli/latest/reference/ecs/index.html
