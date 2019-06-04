@@ -25,7 +25,17 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 ## What?
 
-...
+CloudWatch is
+
+- Alarms
+- Events - a change in your AWS environment
+  - Targets - something that will process the events (SNS topic, Lambda)
+  - Rules - matches incoming events and routes them to the target
+- Metrics
+  - AWS resources
+  - Custom resources
+- Dashboard
+- Insights?
 
 Additional resources:
 
@@ -51,7 +61,7 @@ Additional resources:
 
 ## How?
 
-...
+- How to capture custom metrics
 
 ## API and CLI features and verbs
 
