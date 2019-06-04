@@ -4,7 +4,7 @@ title: "AWS DevOps Pro Certification Blog Post Series: AWS Config and Managed Se
 categories:
   - "aws,study,certification"
 layout: post.liquid
-published_date: "2019-06-04 13:37:00 +0000"
+published_date: "2019-06-04 13:37:01 +0000"
 is_draft: false
 data:
   tags: "aws,study,certification"
