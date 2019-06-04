@@ -288,14 +288,13 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
 - Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/)
-  - [CloudFormation](/2019/aws-devops-pro-certification-cloudformation/)
+  - [CloudFormation](/2019/aws-devops-pro-certification-cloudformation)
   - Elastic Beanstalk
-  - [OpsWorks](/2019/aws-devops-pro-certification-opsworks/)
+  - [OpsWorks](/2019/aws-devops-pro-certification-opsworks)
   - [AWS Lambda](/2019/aws-devops-pro-certification-lambda/)
-- AWS ECS
-  - AWS Config
-  - AWS Systems Manager
-  - AWS Managed Services
+  - [AWS ECS](/2019/aws-devops-pro-certification-ecs/)
+  - [AWS Config](/2019/aws-devops-pro-certification-config-managed-services/)
+  - [AWS Managed Services](/2019/aws-devops-pro-certification-config-managed-services/)
 - Domain 3: Monitoring and Logging
 - Domain 4: Policies and Standards Automation
 - Domain 5: Incident and Event Response
