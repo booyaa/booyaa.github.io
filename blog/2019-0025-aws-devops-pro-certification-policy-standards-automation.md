@@ -4,7 +4,7 @@ title: "AWS DevOps Pro Certification Blog Post Series: Policy and Standards Auto
 categories:
   - "aws,study,certification"
 layout: post.liquid
-published_date: "2019-06-04 14:19:02 +0000"
+published_date: "2019-06-05 14:19:02 +0000"
 is_draft: false
 data:
   tags: "aws,study,certification"
