@@ -1,4 +1,3 @@
-
 ---
 permalink: "/2019/aws-devops-pro-certification-DOMAIN"
 title: "AWS DevOps Pro Certification Blog Post Series: DOMAIN"
