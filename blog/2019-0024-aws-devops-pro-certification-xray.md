@@ -4,7 +4,7 @@ title: "AWS DevOps Pro Certification Blog Post Series: AWS X-Ray"
 categories:
   - "aws,study,certification,xray"
 layout: post.liquid
-published_date: "2019-06-05 10:04:00 +0000"
+published_date: "2019-06-05 13:16:00 +0000"
 is_draft: false
 data:
   tags: "aws,study,certification,xray"
