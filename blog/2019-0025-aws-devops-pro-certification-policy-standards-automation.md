@@ -4,8 +4,8 @@ title: "AWS DevOps Pro Certification Blog Post Series: Policy and Standards Auto
 categories:
   - "aws,study,certification"
 layout: post.liquid
-published_date: "2019-06-04 14:37:02 +0000"
-is_draft: true
+published_date: "2019-06-04 14:19:02 +0000"
+is_draft: false
 data:
   tags: "aws,study,certification"
   route: blog
@@ -53,9 +53,11 @@ And the CLI commands
 
 As with the API, there are patterns to the commands.
 
-## Policy and Standards Automation
+## 10 per cent
 
-???
+As the name of the domain implies this is an area of DevOps that focuses around automation of policies and standards.
+
+I'm probably going to give this a light once over since it's got the smallest per cent of scoring. it's worth being at least familiar with the services as this might be the make or break domain if you're only just making the passing grade in the exam.
 
 **AWS DevOps Pro Certification Blog Post Series**
 
