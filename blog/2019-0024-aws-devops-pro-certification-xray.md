@@ -1,5 +1,5 @@
 ---
-permalink: "/2019/aws-devops-pro-certification-xray
+permalink: "/2019/aws-devops-pro-certification-xray"
 title: "AWS DevOps Pro Certification Blog Post Series: AWS X-Ray"
 categories:
   - "aws,study,certification,xray"
