@@ -96,7 +96,7 @@ Remember there's specific [APIs][docs_api] for Java, .Net (and Core), Ruby, Node
 [docs_guide_integrated_services]: https://docs.aws.amazon.com/xray/latest/devguide/xray-usage.html#xray-usage-services
 [docs_api]: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
 [docs_cli]: https://docs.aws.amazon.com/cli/latest/reference/xray/index.html
-[xray_getting_started]: https://eu-west-2.console.aws.amazon.com/xray/home?region=eu-west-2#/getting-started.
+[xray_getting_started]: https://eu-west-2.console.aws.amazon.com/xray/home?region=eu-west-2#/getting-started.html
 
 **AWS DevOps Pro Certification Blog Post Series**
 
