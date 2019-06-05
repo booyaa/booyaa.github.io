@@ -57,7 +57,7 @@ As with the API, there are patterns to the commands.
 
 As the name of the domain implies this is an area of DevOps that focuses around automation of policies and standards.
 
-I'm probably going to give this a light once over since it's got the smallest per cent of scoring. it's worth being at least familiar with the services as this might be the make or break domain if you're only just making the passing grade in the exam.
+I'm probably going to give this a light once over since it's got the smallest per cent of scoring. It's still worth being at least familiar with the services as this might be the make or break domain if you're only just making the passing grade in the exam.
 
 **AWS DevOps Pro Certification Blog Post Series**
 
