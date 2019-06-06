@@ -110,20 +110,24 @@ I'll be covering all the products in this domain within this post since it's a r
   - Instance compromise - malware, outbound denial of service activity, unusually high volumes of traffic, activity from a known bad IP, data exfiltration via DNS
   - Account compromise - attempt to disable AWS CloudTrail logging, unusual instance or infrastructure launches (think: GPU instance types for cryptocurrency mining), resources being spun up in regions outside of normal use, activity from a knwon bad IP.
   - Data retention for a GuardDuty-generated finding is 90 days.
-**Amazon Inspector** is ...
-**Amazon Kinesis** is a suite of products:
-- **Kinesis Video Streams** is ...
-- **Kinesis Data Streams** is ...
-- **Kinesis Data Firehose** is ...
-- **Kinesis Data Analytics** is ...
+- **Amazon Inspector** is another automated security assessment service just like GuarDuty, but instead of identify issues with your account or network activity it primarily focusses on your EC2 instances. It has a bult-in rules (created and maintained by AWS seurity researchers) to check for access to your instnaces from the internet, remote root login being enabled, or vulnerable software versions installed.
+- **Amazon Kinesis** is a suite of products:
+  - **Kinesis Video Streams** is ...
+  - **Kinesis Data Streams** is ...
+  - **Kinesis Data Firehose** is ...
+  - **Kinesis Data Analytics** is ...
 
 ## Why?
 
 - **Amazon GuardDuty** provides a comprehensive threat detection service, whilst it does offer reporting through a dashboard, the response workflow does require more work i.e. you're expected to write the tooling (AWS Lambda) around the events (CloudWatch). This is probably why Amazon are touting [partners][guardduty_partners] who can help implement these workflows.
 
+- **Amazon Inspector** as with GuardDuty, you get an all around security assessment tool for your EC2 instances.
+
 ## When?
 
 **Amazon GuardDuty** should be used when you don't want the overhead of managing your own threat detection and response system. To do this yourself you would need to use tools like [Snort][link_snort] or [Tripwire][link_tripwire] and maintain subscriptions to 3rd party threat intellgience sources like [Proofpoint][link_proofpoint] and [CrowdStrike][link_crowdstrike].
+
+**Amazon Inspector** is a complimentary tool to Amazon GuardDuty, so the chances are if you're using it (Amazon GuardDuty), you should be using Amazon Inspector.
 
 ## How?
 
@@ -139,6 +143,28 @@ I'll be covering all the products in this domain within this post since it's a r
 - Accounts - to manage Master (admin) and Member (users) Accounts within the service
 - What's New - features annuncement (you can also subscribe via [SNS topic][guardduty_guide_sns])
 - Free trial - how much time you have left
+
+**Amazon Inspector** provides a [90 day free trial][inspector_pricing] for the first 250 instance assessements. The key things to be aware of are:
+  - Agents - can analyse your EC2 instances without the use of it's [agent][inspector_guide_agents], but you will be only limited to [Network Reachability][inspector_guide_net_reach] rules.
+  - Assessment target is a collection of EC2 instances group together using AWS tags.
+  - Assessment template
+  - Finding
+  - Rule packages there are two categories: Network and Host assessments. 
+    - Important: you can only run the Network assessment rule if you don't have the agent installed.
+    - Rules within these categories are
+      - Network assessment
+        - Network Reachability
+      - Host assessment
+        - Common Vulnerability and Exposures
+        - Centre for Internet Security (CIS) Benchmarks
+        - Security Best Practices for Amazon Inspector
+        - RUntime Behaviour Analysis
+  - Telemetry is data (hahaviour, configration, etc) collected by Amazon Inspector from the EC2 instance when an assessment is run.
+
+[inspector_pricing]: https://aws.amazon.com/inspector/pricing/
+[inspector_guide_agents]: https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents.html
+[inspector_guide_net_reach]: https://docs.aws.amazon.com/inspector/latest/userguide/inspector_network-reachability.html
+
 
 
 <!-- What whitepapers are relevant? -->
