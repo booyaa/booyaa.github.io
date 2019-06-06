@@ -97,7 +97,7 @@ Both configuration management and infrastructure as code are often expressed as 
 
 Our next blog post will be about CloudFormation
 
-**AWS DevOps Pro Certification Blog Post Series**
+### AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
@@ -108,8 +108,8 @@ Our next blog post will be about CloudFormation
   - [AWS ECS](/2019/aws-devops-pro-certification-ecs/)
   - [AWS Config](/2019/aws-devops-pro-certification-config-managed-services/)
   - [AWS Managed Services](/2019/aws-devops-pro-certification-config-managed-services/)
-- Domain 2: Configuration Management and Infrastructure as Code
-- Domain 3: Monitoring and Logging
-- Domain 4: Policies and Standards Automation
+- Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/)
+- Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)
+- Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
 - Domain 5: Incident and Event Response
 - Domain 6: High Availability, Fault Tolerance, and Disaster Recovery

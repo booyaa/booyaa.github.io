@@ -34,7 +34,6 @@ According to the [AWS Whitepapers for DevOps](https://aws.amazon.com/whitepapers
 - [Blue/Green Deployments on AWS (35 pages)](https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf)
 - [Jenkins on AWS (48 pages)](https://d1.awsstatic.com/whitepapers/jenkins-on-aws.pdf)
 
-
 ## What services and products covered in this domain?
 
 - [Code Commit](https://docs.aws.amazon.com/codecommit/index.html?id=docs_gateway#lang/en_us) - This service provides Source Control Management (SCM). This is where you store your source code and keep a track of the changes made (commits). Examples of similar services: GitHub, Bitbucket, GitLab, and Azure DevOps. You only have one choice of Version Control Service (VCS) and that is Git.
@@ -62,7 +61,7 @@ You're all expected to know the APIs
 
 Before you panic, you'll start to spot a pattern with the API verbs.
 
-And the CLI commands 
+And the CLI commands
 
 - [Code Commit](https://docs.aws.amazon.com/cli/latest/reference/codecommit/index.html)
 - [Code Build](https://docs.aws.amazon.com/cli/latest/reference/codebuild/index.html)
@@ -87,7 +86,7 @@ The deployment stages are handled by you guessed it Continuous Delivery service 
 
 Next, we're going to look at the Code Commit in greater detail.
 
-**AWS DevOps Pro Certification Blog Post Series**
+### AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: SLDC automation
@@ -96,7 +95,7 @@ Next, we're going to look at the Code Commit in greater detail.
   - [Code Deploy](/2019/aws-devops-pro-certification-code-deploy/)
   - [Code Pipeline](/2019/aws-devops-pro-certification-code-pipeline)
 - Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)
-- Domain 3: Monitoring and Logging
-- Domain 4: Policies and Standards Automation
+- Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)
+- Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
 - Domain 5: Incident and Event Response
 - Domain 6: High Availability, Fault Tolerance, and Disaster Recovery

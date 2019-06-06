@@ -191,7 +191,7 @@ If there are no specific instructions, it's assumed the service is available thr
 [certman_guide]: https://aws.amazon.com/certificate-manager/getting-started/
 [certman_faq]: https://aws.amazon.com/certificate-manager/faqs/
 
-**AWS DevOps Pro Certification Blog Post Series**
+### AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
