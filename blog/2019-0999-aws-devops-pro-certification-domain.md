@@ -27,7 +27,12 @@ According to the [AWS Whitepapers for DevOps](https://aws.amazon.com/whitepapers
 
 ## What services and products covered in this domain?
 
-- ???
+[_page]:
+[_pricing]:
+[_faq]:
+[_guide]:
+[_cli]:
+[_api]:
 
 Source: [AWS DevOps - Monitoring and Logging page](https://aws.amazon.com/devops/#monitoring)
 
