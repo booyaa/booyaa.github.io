@@ -4,8 +4,8 @@ title: "AWS DevOps Pro Certification Blog Post Series: High Availability, Fault 
 categories:
   - "aws,study,certification"
 layout: post.liquid
-published_date: "2019-06-07 13:37:02 +0000"
-is_draft: true
+published_date: "2019-06-08 10:32:02 +0000"
+is_draft: false
 data:
   tags: "aws,study,certification"
   route: blog
@@ -27,22 +27,20 @@ This domain is **16%** of the overall mark for the exam.
 
 ## What whitepapers are relevant?
 
-According to the [AWS Whitepapers for DevOps](https://aws.amazon.com/whitepapers/#dev-ops) we should look at the following documents:
+According to the [AWS Whitepapers](https://aws.amazon.com/whitepapers) page we should look at the following documents:
 
-- ???
+- [Backup and Recovery Approaches Using AWS (June 2016)][wp_backup_and_recovery]
+- [Building Fault-Tolerant Applications on AWS (October 2011)][wp_build_ft_apps_on_aws]
 
 ## What services and products covered in this domain?
 
-- [AWS Single Sign-On][sso_page] is Amazon's managed SSO service allow your users to sign into AWS and other connected services using your existing Microsoft Active Directory (AD).
+- [AWS Single Sign-On][sso_page] is Amazon's managed SSO service allow your users to sign in to AWS and other connected services using your existing Microsoft Active Directory (AD).
 - [Amazon CloudFront][cloudfront_page] is a managed Content Delivery Network (CDN) service.
-  - Autoscaling and Lifecycle Hooks???
+- Autoscaling resources - Amazon has two offerings [Amazon Autoscaling][autoscaling_page] and [Amazon EC2 Auto Scaling][asg_page]
 - Databases
   - [Amazon RDS][rds_page] is a managed relational database service with a large choice of engines: Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database and SQL Server.
-    - [Amazon Aurora][aurora_page] is part of the RDS offering, but is unique in that it provides compatibility with MySQL and PostgreSQL engines whilst outperforming them considerably (5x for MySQL and 3x for PostgreSQL).
+    - [Amazon Aurora][aurora_page] is part of the RDS offering but is unique in that it provides compatibility with MySQL and PostgreSQL engines whilst outperforming them considerably (5x for MySQL and 3x for PostgreSQL).
   - [Amazon DynamoDB][dynamodb_page] is a managed NoSQL (non-relational) database service that can be used for storing key-value pairs or document based records.
-    - Amazon DynamoDB Keys and Streams
-
-Source: [AWS DevOps - Monitoring and Logging page](https://aws.amazon.com/devops/#monitoring)
 
 ## What about other types of documentation?
 
@@ -66,7 +64,6 @@ Alternatively, get familiar with the services using the FAQs:
 
 You're all expected to know the APIs
 
-- Amazon Single-Sign On
 - [Amazon CloudFront][cloudfront_api]
 - Databases
   - [Amazon RDS][rds_api]
@@ -77,7 +74,6 @@ Before you panic, you'll start to spot a pattern with the API verbs.
 
 And the CLI commands
 
-- [Amazon Single-Sign On][sso_cli]
 - [Amazon CloudFront][cloudfront_cli]
 - Databases
   - [Amazon RDS][rds_cli]
@@ -92,11 +88,17 @@ Let's the basics out of the way and discuss the core concepts around this domain
 
 I'm going to use an excellent example provided by Patrick Benson in his blog post: [The Difference Between Fault Tolerance, High Availability, & Disaster Recovery][link_pbenson]
 
-If you think of Fault Tolerant an airplane with multiple engines. Most airplanes can operating with the loss of one or more engines.
+An airplane has multiple engines and can operate with the loss of one or more engines. The design of the airplane has been made it resilient to falling out of the sky because of engine failure. This design is **fault tolerant**.
 
-High availability would be a spare tire in car. If you get a flat, you can replace it in-situ. If anyone can think of a better analogy that involves a airplane instead, let me know!
+In terms of infrastructure, this is likely to be a managed service like RDS, where under the hood the database engine has multiple disks and CPUs to cope with catastrophic failure.
 
-Finally Disaster Recovery is like the ejector seat in Fighter aircraft (Jet fighter).
+Whereas spare tire in car, isn't fault tolerant i.e. you have to stop change the tire, but having the spare tire in the first place makes the car still **highly available**. In terms of infrastructure is any type of technology like an autoscaling group.
+
+It's very common for a solution to implement a system that is fault tolerant (resilience) and highly available (scalable).
+
+Finally, ejector seats in Fighter aircraft are **disaster recovery** (DR) measure. The goal is to preserve the pilot, or in our case, the service after all other measures have failed (Fault Tolerance and HA).
+
+Often in terms of infrastructure, this might be a standby infrastructure or database replica in a different AWS region and using Route 53 to point to the stand by infrastructure. Whilst it's still common for DR strategies to be manual, for this domain we'll be expected to provide an automated solution.
 
 <!-- product meta links -->
 
@@ -110,12 +112,22 @@ Finally Disaster Recovery is like the ejector seat in Fighter aircraft (Jet figh
 [cloudfront_guide]: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/index.html
 [cloudfront_cli]: https://docs.aws.amazon.com/cli/latest/reference/cloudfront/index.html
 [cloudfront_api]: https://docs.aws.amazon.com/cloudfront/latest/APIReference/Welcome.html
-
 [cloudfront_wp1]: https://d0.awsstatic.com/whitepapers/Security/Secure_content_delivery_with_CloudFront_whitepaper.pdf
 [cloudfront_wp2]: https://d1.awsstatic.com/whitepapers/wordpress-best-practices-on-aws.pdf?trk=gs_card
 [cloudfront_wp3]: https://d0.awsstatic.com/whitepapers/deploying-wordpress-with-aws-elastic-beanstalk.pdf
 [cloudfront_usecases]: https://aws.amazon.com/cloudfront/case-studies/?nc=sn&loc=7
 
+[autoscaling_page]: https://aws.amazon.com/autoscaling/
+[autoscaling_faq]: https://aws.amazon.com/autoscaling/faqs/
+[autoscaling_guide]: https://docs.aws.amazon.com/autoscaling/plans/userguide/
+[autoscaling_api]: https://docs.aws.amazon.com/autoscaling/plans/APIReference/
+[autoscaling_cli]: https://docs.aws.amazon.com/cli/latest/reference/autoscaling-plans/index.html
+
+[asg_page]: https://aws.amazon.com/ec2/autoscaling/
+[asg_faq]: https://aws.amazon.com/ec2/autoscaling/faqs/
+[asg_guide]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/index.html
+[asg_api]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/index.html
+[asg_cli]: https://docs.aws.amazon.com/cli/latest/reference/autoscaling/index.html
 [rds_page]: https://aws.amazon.com/rds/
 [rds_pricing]: https://aws.amazon.com/rds/pricing/
 [rds_faq]: https://aws.amazon.com/rds/faqs/
@@ -135,6 +147,11 @@ Finally Disaster Recovery is like the ejector seat in Fighter aircraft (Jet figh
 [dynamodb_cli1]: https://docs.aws.amazon.com/cli/latest/reference/dynamodb/index.html
 [dynamodb_cli2]: https://docs.aws.amazon.com/cli/latest/reference/dynamodbstreams/index.html
 [dynamodb_api]: http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/
+
+<!-- white papers -->
+
+[wp_backup_and_recovery]: https://d1.awsstatic.com/whitepapers/Storage/Backup_and_Recovery_Approaches_Using_AWS.pdf
+[wp_build_ft_apps_on_aws]: https://d1.awsstatic.com/whitepapers/aws-building-fault-tolerant-applications.pdf
 
 <!-- domain intro -->
 
