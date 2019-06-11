@@ -37,6 +37,7 @@ According to the [AWS Whitepapers](https://aws.amazon.com/whitepapers) page we s
 - [AWS Single Sign-On][sso_page] is Amazon's managed SSO service allow your users to sign in to AWS and other connected services using your existing Microsoft Active Directory (AD).
 - [Amazon CloudFront][cloudfront_page] is a managed Content Delivery Network (CDN) service.
 - Autoscaling resources - Amazon has two offerings [Amazon Autoscaling][autoscaling_page] and [Amazon EC2 Auto Scaling][asg_page]
+- [Amzon Route 53][route53_page] is a managed Domain Name Service (DNS).
 - Databases
   - [Amazon RDS][rds_page] is a managed relational database service with a large choice of engines: Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database and SQL Server.
     - [Amazon Aurora][aurora_page] is part of the RDS offering but is unique in that it provides compatibility with MySQL and PostgreSQL engines whilst outperforming them considerably (5x for MySQL and 3x for PostgreSQL).
@@ -48,6 +49,8 @@ If you have the time, by all means, read the User Guides, but they are usually a
 
 - Amazon Single-Sign On
 - [Amazon CloudFront][cloudfront_guide]
+- [Amazon Autoscaling][autoscaling_guide] and [Amazon EC2 Autoscaling][asg_guide]
+- [Amazon Route53][route53_guide]
 - Databases
   - [Amazon RDS][rds_guide]
     - [Amazon Aurora][aurora_guide]
@@ -57,6 +60,8 @@ Alternatively, get familiar with the services using the FAQs:
 
 - [Amazon Single-Sign On][sso_faq]
 - [Amazon CloudFront][cloudfront_faq]
+- [Amazon Autoscaling][autoscaling_faq] and [Amazon EC2 Autoscaling][asg_faq]
+- [Amazon Route53][route53_faq]
 - Databases
   - [Amazon RDS][rds_faq]
     - [Amazon Aurora][aurora_faq]
@@ -65,6 +70,8 @@ Alternatively, get familiar with the services using the FAQs:
 You're all expected to know the APIs
 
 - [Amazon CloudFront][cloudfront_api]
+- [Amazon Autoscaling][autoscaling_api] and [Amazon EC2 Autoscaling][asg_api]
+- [Amazon Route53][route53_api]
 - Databases
   - [Amazon RDS][rds_api]
     - Amazon Aurora uses the same API as [RDS][rds_api]
@@ -75,6 +82,8 @@ Before you panic, you'll start to spot a pattern with the API verbs.
 And the CLI commands
 
 - [Amazon CloudFront][cloudfront_cli]
+- [Amazon Autoscaling][autoscaling_cli] and [Amazon EC2 Autoscaling][asg_cli]
+- Amazon Route53 has three subcommands: [DNS and Healthchecking][route53_cli1], [Service Discovery][route53_cli2] and [Domain Registration][route53_cli3]
 - Databases
   - [Amazon RDS][rds_cli]
     - Amazon Aurora uses the same CLI as [RDS][rds_cli]
@@ -122,12 +131,20 @@ Often in terms of infrastructure, this might be a standby infrastructure or data
 [autoscaling_guide]: https://docs.aws.amazon.com/autoscaling/plans/userguide/
 [autoscaling_api]: https://docs.aws.amazon.com/autoscaling/plans/APIReference/
 [autoscaling_cli]: https://docs.aws.amazon.com/cli/latest/reference/autoscaling-plans/index.html
-
 [asg_page]: https://aws.amazon.com/ec2/autoscaling/
 [asg_faq]: https://aws.amazon.com/ec2/autoscaling/faqs/
 [asg_guide]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/index.html
 [asg_api]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/index.html
 [asg_cli]: https://docs.aws.amazon.com/cli/latest/reference/autoscaling/index.html
+
+[route53_page]: https://aws.amazon.com/route53/
+[route53_guide]: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/index.html
+[route53_faq]: https://aws.amazon.com/route53/faqs/
+[route53_api]: https://docs.aws.amazon.com/Route53/latest/APIReference/index.html
+[route53_cli1]: https://docs.aws.amazon.com/cli/latest/reference/route53/index.html
+[route53_cli2]: https://docs.aws.amazon.com/cli/latest/reference/servicediscovery/index.html
+[route53_cli3]: https://docs.aws.amazon.com/cli/latest/reference/route53domains/index.html
+
 [rds_page]: https://aws.amazon.com/rds/
 [rds_pricing]: https://aws.amazon.com/rds/pricing/
 [rds_faq]: https://aws.amazon.com/rds/faqs/
