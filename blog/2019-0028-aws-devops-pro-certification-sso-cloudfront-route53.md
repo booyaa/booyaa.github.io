@@ -25,11 +25,14 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 ## What?
 
-???...
+**Amazon Single Sign-On** is...
 
-- 1
-- 2
-- 3
+**Amazon CloudFront** is ...
+
+**Autoscaling** as we saw in the Domain intro comes in two varieties ...
+
+**Amazon Route53** is ...
+
 
 Additional resources:
 
@@ -85,8 +88,6 @@ Additional resources:
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
 - Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/)
 - Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging/)
-  - CloudWatch
-  - AWS X-Ray
 - Domain 4: Policies and Standards Automation
 - Domain 5: Incident and Event Response
 - Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
