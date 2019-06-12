@@ -39,7 +39,7 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 **Amazon CloudFront** distributes your content geographically rather than storing in a single location or S3 bucket. By careful design (falling back graceful should the backend be unavailable) ensures your website is highly available.
 
-**Amazon Route 53** provides the following routing policies whose attributes are suitable for this domain:
+**Amazon Route 53** provides the following [routing policies][route53_routing_policies] whose attributes are suitable for this domain:
 
 - Failover routing - used for active-passive failover, a good use case for automated disaster recovery.
 - Geolocation routing - used to route traffic based on the location of users, a good use case for highly available
@@ -64,12 +64,11 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 I've found the following article in the AWS blog very helpful in terms of an application that I was already familiar with, butalso knew the difficulty in optimising for response time: [How to accelerate your WordPress site with Amazon CloudFront][aws_wp_on_cloudfront]
 
-
 ## API and CLI features and verbs
 
 ### Amazon Single Sign-On
 
-has no API/CLI.
+This service has no API/CLI.
 
 ### Amazon CloudFront
 
@@ -104,7 +103,7 @@ has no API/CLI.
 
 ### Amazon Route 53
 
-I've opted for the main API/CLI for Route 53 intead of Domains and Resolvers as I've been using this more on a day to day basis.
+I've opted for the main API/CLI for [Route 53][route53_cli1] intead of [Domains][route53_cli2] and [Resolvers][route53_cli3] as I've been using this more on a day to day basis.
 
 #### Features
 
@@ -138,6 +137,7 @@ I've opted for the main API/CLI for Route 53 intead of Domains and Resolvers as 
 
 [aws_free_tier]: https://aws.amazon.com/free/
 [route53_sla]: https://aws.amazon.com/route53/sla/
+[route53_routing_policies]: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html
 [aws_wp_on_cloudfront]: https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-accelerate-your-wordpress-site-with-amazon-cloudfront/
 [wiki_dns]: https://en.wikipedia.org/wiki/Dns
 
