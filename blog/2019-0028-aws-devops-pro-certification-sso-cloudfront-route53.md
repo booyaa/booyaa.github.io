@@ -29,9 +29,11 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 **Amazon CloudFront** is a managed Content Delivery Network (CDN) service, you may have heard of CloudFront's competitors like CloudFlare, Akamai and Fastly. CDN speed up your website performance by strategically placing mirrors of popular content (static files, API or streaming audio/video) at locations nearer to user accessing your website. These mirrors are referred to as Edge locations popular content for the region (not specific to client) is cached here. In more densely populated areas there are also Regional Caches that hold content for longer than Edge locations.
 
+**Amazon Route53** is a managed [Domain Name Service][wiki_dns] (DNS). At it's very basic level of functionality DNS servers allow you to connect to servers using friendly domain names i.e. dev.to rather than IP addresses like 151.101.123.4, 151.101.12.34, 151.101.1.234. It's designed to work with other Amazon Web Services that is you can point DNS records directly to Elastic Load Balancer, S3 and EC2 instances.
+
+
 **Autoscaling** as we saw in the Domain intro comes in two varieties ...
 
-**Amazon Route53** is ...
 
 Additional resources:
 
@@ -47,11 +49,22 @@ Additional resources:
 
 **Amazon CloudFront** distributes your content geographically rather than storing in a single location or S3 bucket. By careful design (falling back graceful should the backend be unavailable) ensures your website is highly available.
 
+**Amazon Route 53** provides the following routing policies whose attributes are suitable for this domain:
+
+- Failover routing - used for active-passive failover, a good use case for automated disaster recovery.
+- Geolocation routing - used to route traffic based on the location of users, a good use case for highly available
+- Geoproximity routing - similar to Geolocation routing, but also allows you to route to a secondary location. This also makes a good use case for fault tolerance.
+- Latency-based routing - used to route users to the resources with the best (least) latency
+- Multivalue answer routing - this is similar to round robin, in that you can randomly pick a route from up to eight healthy resources
+- Weighted routing - routes traffic to different resources using a percentage split (useful for A/B testing or load balancing). Weights are between 0 to 255.
+
 ## When?
 
 **Amazon Single Sign-On** should ideally be implemented as soon as possible, but it's still possible to retrofit into an existing environment. Doing this soon rather than later, could mean you're not having to re-organise the team who are responsible for user and access management if the head count reduces because of efficiency saving through the implementation of SSO.
 
 **Amazon CloudFront** should be implemented once you have some metrics (via Amazon X-Ray or something similar) to indicate you have customers in regions that are experiencing poor response times because of their proximity in relaton to the region where your load balancers, EC2 instances or S3 buckets are hosted.
+
+**Amzzon Route 53**'s routing policy provide a lot of desirable features that are relevant for this domain. This combined with the fact that Amazon also offer an [SLA] of 100% availability and the ability to create and modify DNS record programmatically mean use of Route 53 is a bit of a no-brainer.
 
 ## How?
 
@@ -59,9 +72,8 @@ Additional resources:
 
 ****Amazon CloudFront** to setup you define a distribution that determines the content origins (S3 bucket or HTTP server), access, security (TLS/SSL/HTTPS), session/object tracking, geo restrictions and logging. The provisioning of CloudFront can take awhile as the content is being distributed to edge locations.
 
-I've found the following article in the AWS blog very helpful in terms of an application that I was already familiar with, butalso knew the difficulty in optimising for response time: [How to accelerate your WordPress site with Amazon CloudFront][link_aws_wp_on_cloudfront]
+I've found the following article in the AWS blog very helpful in terms of an application that I was already familiar with, butalso knew the difficulty in optimising for response time: [How to accelerate your WordPress site with Amazon CloudFront][aws_wp_on_cloudfront]
 
-[link_aws_wp_on_cloudfront]: https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-accelerate-your-wordpress-site-with-amazon-cloudfront/
 
 ## API and CLI features and verbs
 
@@ -71,7 +83,7 @@ has no API/CLI.
 
 ### Amazon CloudFront
 
-**Features**
+#### Features
 
 - (Streaming) Distributions (this is probably the most important one to be aware of) with or without tags
 - Field Level Encryption (Config/Profile)
@@ -79,14 +91,14 @@ has no API/CLI.
 - (CloudFront) Origin Access Identity
 - Public key
 
-**Verbs (CRUD)**
+#### Verbs (CRUD)
 
 - create (distrbution/streaming-with-tags)
 - get/list
 - update (except invalidation)
 - delete (except invalidation)
 
-**Outliers**
+#### Outliers
 
 - get-field-level-encryption-profile-config
 - get-distribution-config
@@ -100,12 +112,44 @@ has no API/CLI.
 - untag-resource
 - wait
 
+### Amazon Route 53
+
+I've opted for the main API/CLI for Route 53 intead of Domains and Resolvers as I've been using this more on a day to day basis.
+
+#### Features
+
+- Health Check
+- Hosted Zone
+- Resusable Delegation Set
+- Traffic Policy (Instance/Version)
+- Create Query Logging Config
+
+#### Verbs (CRUD)
+
+- create
+- get/list
+- update
+- delete
+
+#### Outliers
+
+- CreateVPCAssociationAuthorization
+- AssociateVPCWithHostedZone
+- DeleteVPCAssociationAuthorization
+- ChangeResourceRecordSets
+- ChangeTagsForResource
+- DisassociateVPCFromHostedZone
+- GetAccountLimit
+- GetChange
+- GetCheckerIpRanges
+- GetGeoLocation
+- ListGeoLocations
+- TestDNSAnswer
+
 [aws_free_tier]: https://aws.amazon.com/free/
-[aws_product_page]: https://aws.amazon.com/cloudwatch/
-[docs_faq]: https://aws.amazon.com/cloudwatch/faqs/
-[docs_ug]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/index.html
-[docs_api]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/index.html
-[docs_cli]: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/index.html
+[route53_sla]: https://aws.amazon.com/route53/sla/
+[aws_wp_on_cloudfront]: https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-accelerate-your-wordpress-site-with-amazon-cloudfront/
+[wiki_dns]: https://en.wikipedia.org/wiki/Dns
 
 **AWS DevOps Pro Certification Blog Post Series**
 
