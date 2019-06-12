@@ -25,9 +25,9 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 ## What?
 
-**Amazon Single Sign-On** is...
+**Amazon Single Sign-On** is a managed single sign-on (SSO) service that you can use to simplify access to applications and 3rd party services. If SSO is not a term you're familiar with, if you've ever signed up for a service using your Google, Facebook or Twitter account (instead of using your email address and password specific to that site) then you've used SSO.
 
-**Amazon CloudFront** is ...
+**Amazon CloudFront** is a managed Content Delivery Network (CDN) service, you may have heard of CloudFront's competitors like CloudFlare, Akamai and Fastly.
 
 **Autoscaling** as we saw in the Domain intro comes in two varieties ...
 
@@ -44,17 +44,20 @@ Additional resources:
 
 ## Why?
 
-???
+**Amazon Single Sign-On** or generically any signle sign-on (SSO) service is better than managing the administrative overhead of keeping separate logins for each application / service, you reduce the impact on day to day operations should disaster strike (think the number of helpdesk tickets will be raised for DR systems that rarely get use). You'll also get the undying love of your users because it means less logins into track, which in turn means they will be less likely to keep a scrape paper lying around their desk with the various logins and passwords written down.
 
 ## When?
 
-???
+**Amazon Single Sign-On** should ideally be implemented as soon as possible, but it's still possible to retrofit into an existing environment. Doing this soon rather than later, could mean you're not having to re-organise the team who are responsible for user and access management if the head count reduces because of efficiency saving through the implementation of SSO.
 
 ## How?
 
-???
+**Amazon Single Sign-On** requires an AWS Organization to exist and then you can enable single sign-on via the AWS Console. The specifics for setting up the service with the AWS Account or Cloud Applications (3rd party services) can be found in the [guide][sso_guide].
+
 
 ## API and CLI features and verbs
+
+**Amazon Single Sign-On**  has no API/CLI.
 
 **Features**
 
