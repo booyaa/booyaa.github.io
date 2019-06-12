@@ -185,7 +185,7 @@ Often in terms of infrastructure, this might be a standby infrastructure or data
 - Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
   - [Amazon Single-Sign On](/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/)
   - [Amazon CloudFront](/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/)
-  - [Amazon Auto Scaling and Amazon EC2 Auto Scaling](/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/)
+  - [Auto Scaling](/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/)
   - [Amazon Route53](/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/)
   - Databases
     - Amazon RDS
