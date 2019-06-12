@@ -27,12 +27,11 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 **Amazon Single Sign-On** is a managed single sign-on (SSO) service that you can use to simplify access to applications and 3rd party services. If SSO is not a term you're familiar with, if you've ever signed up for a service using your Google, Facebook or Twitter account (instead of using your email address and password specific to that site) then you've used SSO.
 
-**Amazon CloudFront** is a managed Content Delivery Network (CDN) service, you may have heard of CloudFront's competitors like CloudFlare, Akamai and Fastly.
+**Amazon CloudFront** is a managed Content Delivery Network (CDN) service, you may have heard of CloudFront's competitors like CloudFlare, Akamai and Fastly. CDN speed up your website performance by strategically placing mirrors of popular content (static files, API or streaming audio/video) at locations nearer to user accessing your website. These mirrors are referred to as Edge locations popular content for the region (not specific to client) is cached here. In more densely populated areas there are also Regional Caches that hold content for longer than Edge locations.
 
 **Autoscaling** as we saw in the Domain intro comes in two varieties ...
 
 **Amazon Route53** is ...
-
 
 Additional resources:
 
@@ -46,37 +45,56 @@ Additional resources:
 
 **Amazon Single Sign-On** or generically any signle sign-on (SSO) service is better than managing the administrative overhead of keeping separate logins for each application / service, you reduce the impact on day to day operations should disaster strike (think the number of helpdesk tickets will be raised for DR systems that rarely get use). You'll also get the undying love of your users because it means less logins into track, which in turn means they will be less likely to keep a scrape paper lying around their desk with the various logins and passwords written down.
 
+**Amazon CloudFront** distributes your content geographically rather than storing in a single location or S3 bucket. By careful design (falling back graceful should the backend be unavailable) ensures your website is highly available.
+
 ## When?
 
 **Amazon Single Sign-On** should ideally be implemented as soon as possible, but it's still possible to retrofit into an existing environment. Doing this soon rather than later, could mean you're not having to re-organise the team who are responsible for user and access management if the head count reduces because of efficiency saving through the implementation of SSO.
+
+**Amazon CloudFront** should be implemented once you have some metrics (via Amazon X-Ray or something similar) to indicate you have customers in regions that are experiencing poor response times because of their proximity in relaton to the region where your load balancers, EC2 instances or S3 buckets are hosted.
 
 ## How?
 
 **Amazon Single Sign-On** requires an AWS Organization to exist and then you can enable single sign-on via the AWS Console. The specifics for setting up the service with the AWS Account or Cloud Applications (3rd party services) can be found in the [guide][sso_guide].
 
+****Amazon CloudFront** to setup you define a distribution that determines the content origin (S3 bucket or HTTP server), access, security (TLS/SSL/HTTPS), session/object tracking, geo restrictions and logging. The provisioning of CloudFront can take awhile as the content is being distributed to edge locations.
 
 ## API and CLI features and verbs
 
-**Amazon Single Sign-On**  has no API/CLI.
+### Amazon Single Sign-On
+
+has no API/CLI.
+
+### Amazon CloudFront
 
 **Features**
 
-- 1
-- 2
-- 3
+- (Streaming) Distributions (this is probably the most important one to be aware of) with or without tags
+- Field Level Encryption (Config/Profile)
+- Invalidation (cache)
+- (CloudFront) Origin Access Identity
+- Public key
 
 **Verbs (CRUD)**
 
-- create
-- describe/get/list
-- update/put
-- delete
+- create (distrbution/streaming-with-tags)
+- get/list
+- update (except invalidation)
+- delete (except invalidation)
 
 **Outliers**
 
-- 1
-- 2
-- 3
+- get-field-level-encryption-profile-config
+- get-distribution-config
+- get-public-key-config
+- get-cloud-front-origin-access-identity-config
+- get-streaming-distribution-config
+- list-distributions-by-web-acl-id
+- list-tags-for-resource
+- sign
+- tag-resource
+- untag-resource
+- wait
 
 [aws_free_tier]: https://aws.amazon.com/free/
 [aws_product_page]: https://aws.amazon.com/cloudwatch/
