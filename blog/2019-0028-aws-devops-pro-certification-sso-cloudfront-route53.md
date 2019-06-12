@@ -31,17 +31,7 @@ The format of the blog posts is liable to change as I try to refine my mental mo
 
 **Amazon Route53** is a managed [Domain Name Service][wiki_dns] (DNS). At it's very basic level of functionality DNS servers allow you to connect to servers using friendly domain names i.e. dev.to rather than IP addresses like 151.101.123.4, 151.101.12.34, 151.101.1.234. It's designed to work with other Amazon Web Services that is you can point DNS records directly to Elastic Load Balancer, S3 and EC2 instances.
 
-
 **Autoscaling** as we saw in the Domain intro comes in two varieties ...
-
-
-Additional resources:
-
-- [? Product Page][aws_product_page]
-- [? FAQ][docs_faq]
-- [? User Guide][docs_ug]
-- [? API][docs_api]
-- [? CLI][docs_cli]
 
 ## Why?
 
