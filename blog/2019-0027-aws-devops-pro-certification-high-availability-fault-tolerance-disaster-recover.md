@@ -47,7 +47,7 @@ According to the [AWS Whitepapers](https://aws.amazon.com/whitepapers) page we s
 
 If you have the time, by all means, read the User Guides, but they are usually a couple of hundred pages.
 
-- Amazon Single-Sign On
+- [Amazon Single-Sign On][sso_guide]
 - [Amazon CloudFront][cloudfront_guide]
 - [Amazon Autoscaling][autoscaling_guide] and [Amazon EC2 Autoscaling][asg_guide]
 - [Amazon Route53][route53_guide]
