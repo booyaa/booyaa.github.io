@@ -55,9 +55,13 @@ Additional resources:
 
 ## How?
 
-**Amazon Single Sign-On** requires an AWS Organization to exist and then you can enable single sign-on via the AWS Console. The specifics for setting up the service with the AWS Account or Cloud Applications (3rd party services) can be found in the [guide][sso_guide].
+**Amazon Single Sign-On** requires an AWS Organization to exist and then you can enable single sign-on via the AWS Console. The specifics for setting up the service with the AWS Account or Cloud Applications (3rd party services) can be found in the [guide][sso_guide]. There is an option to link to your existing Microsoft Active Directory, but if you don't need this option then the service will use it's own directory.
 
-****Amazon CloudFront** to setup you define a distribution that determines the content origin (S3 bucket or HTTP server), access, security (TLS/SSL/HTTPS), session/object tracking, geo restrictions and logging. The provisioning of CloudFront can take awhile as the content is being distributed to edge locations.
+****Amazon CloudFront** to setup you define a distribution that determines the content origins (S3 bucket or HTTP server), access, security (TLS/SSL/HTTPS), session/object tracking, geo restrictions and logging. The provisioning of CloudFront can take awhile as the content is being distributed to edge locations.
+
+I've found the following article in the AWS blog very helpful in terms of an application that I was already familiar with, butalso knew the difficulty in optimising for response time: [How to accelerate your WordPress site with Amazon CloudFront][link_aws_wp_on_cloudfront]
+
+[link_aws_wp_on_cloudfront]: https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-accelerate-your-wordpress-site-with-amazon-cloudfront/
 
 ## API and CLI features and verbs
 
