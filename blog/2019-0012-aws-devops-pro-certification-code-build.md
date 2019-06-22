@@ -277,21 +277,21 @@ You could remove the Service Role, but it might be handy if you plan to do some 
 
 ## API and CLI features and verbs
 
-**Features**
+### Features
 
 - Project(s)
 - Build(s)
 - Webhook
 - Source Credentials
 
-**Verbs (CRUD)**
+### Verbs (CRUD)
 
 - create
 - batch-get/get/list/describe
 - update/put
 - delete
 
-**Outliers**
+### Outliers
 
 - list-curated-environment-images
 - import-source-credentials

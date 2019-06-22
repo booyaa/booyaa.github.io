@@ -116,7 +116,7 @@ To tear down:
 
 ### Stacks
 
-**Features**
+#### Features
 
 - App
 - Instance
@@ -124,14 +124,14 @@ To tear down:
 - Stack
 - User Profile
 
-**Verbs (CRUD) **
+#### Verbs (CRUD)
 
 - create
 - describe
 - update
 - delete
 
-**Outliers**
+#### Outliers
 
 - assign-instance
 - assign-volume
@@ -193,7 +193,7 @@ To tear down:
 
 ### Configuration Management
 
-**Features**
+#### Features
 
 - Server
 - Engine
@@ -201,14 +201,14 @@ To tear down:
 - Events
 - Account attributes
 
-**Verbs (CRUD) **
+#### Verbs (CRUD)
 
 - create (backup/server)
 - describe (backups/servers/account-attribute/events)
 - update (server/server-engine-attributes)
 - delete (backup/server)
 
-**Outliers**
+#### Outliers
 
 - associate-node
 - describe-node-association-status
@@ -229,7 +229,7 @@ To tear down:
 [docs_cli_stacks]: https://docs.aws.amazon.com/cli/latest/reference/opsworks/index.html
 [docs_cli_cm]: https://docs.aws.amazon.com/cli/latest/reference/opsworks-cm/index.html
 
-**AWS DevOps Pro Certification Blog Post Series**
+### AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
@@ -241,7 +241,7 @@ To tear down:
   - [AWS ECS](/2019/aws-devops-pro-certification-ecs/)
   - [AWS Config](/2019/aws-devops-pro-certification-config-managed-services/)
   - [AWS Managed Services](/2019/aws-devops-pro-certification-config-managed-services/)
-- Domain 3: Monitoring and Logging
-- Domain 4: Policies and Standards Automation
-- Domain 5: Incident and Event Response
-- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+- Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)
+- Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
+- Domain 5: [Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/)
+- Domain 6: [High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)

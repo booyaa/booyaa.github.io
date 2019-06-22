@@ -241,7 +241,7 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
 
 ## API and CLI features and verbs
 
-**Features**
+### Features
 
 - Application(s)
   - Version
@@ -251,7 +251,7 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
 - Platform Version
 - Storage
 
-**Verbs (CRUD) **
+### Verbs (CRUD)
 
 - Applications
   - Create (Application [Version])
@@ -263,7 +263,7 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
 - Platform Version
 - Storage
 
-**Outliers**
+### Outliers
 
 - Stacks
   - CancelUpdateStack
@@ -283,7 +283,7 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
 [docs_apps]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html
 [docs_cli]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-create-awscli.html
 
-**AWS DevOps Pro Certification Blog Post Series**
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
@@ -295,7 +295,7 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
   - [AWS ECS](/2019/aws-devops-pro-certification-ecs/)
   - [AWS Config](/2019/aws-devops-pro-certification-config-managed-services/)
   - [AWS Managed Services](/2019/aws-devops-pro-certification-config-managed-services/)
-- Domain 3: Monitoring and Logging
-- Domain 4: Policies and Standards Automation
-- Domain 5: Incident and Event Response
-- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+- Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)
+- Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
+- Domain 5: [Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/)
+- Domain 6: [High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)

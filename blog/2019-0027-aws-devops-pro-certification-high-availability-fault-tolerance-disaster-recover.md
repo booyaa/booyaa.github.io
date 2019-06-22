@@ -174,7 +174,7 @@ Often in terms of infrastructure, this might be a standby infrastructure or data
 
 [link_pbenson]: http://www.pbenson.net/2014/02/the-difference-between-fault-tolerance-high-availability-disaster-recovery/
 
-### AWS DevOps Pro Certification Blog Post Series
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)

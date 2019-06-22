@@ -250,7 +250,6 @@ Some of the use cases for **Amazon Kinesis** are:
 [inspector_guide_agents]: https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents.html
 [inspector_guide_net_reach]: https://docs.aws.amazon.com/inspector/latest/userguide/inspector_network-reachability.html
 
-
 ## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
@@ -266,4 +265,4 @@ Some of the use cases for **Amazon Kinesis** are:
     - Kinesis Data Streams
     - Kinesis Data Firehose
     - Kinesis Data Analytics
-- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+- Domain 6: [High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)

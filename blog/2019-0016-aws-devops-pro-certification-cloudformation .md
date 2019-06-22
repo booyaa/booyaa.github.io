@@ -244,7 +244,7 @@ aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))
 
 ## API and CLI features and verbs
 
-**Features**
+### Features
 
 - Stacks [Drift/Events/Policy/Resource(s)Drift(s)]
   - Template
@@ -256,7 +256,7 @@ aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))
   - SetOperation
     - SetOperationResults
 
-**Verbs (CRUD) **
+### Verbs (CRUD)
 
 - Stacks
   - Create
@@ -276,7 +276,7 @@ aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))
   - Set/Update/Put
   - Delete
 
-**Outliers**
+### Outliers
 
 - Stacks
   - CancelUpdateStack
@@ -293,7 +293,16 @@ aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))
 - Stack sets
   - StopStackSetOperation
 
-**AWS DevOps Pro Certification Blog Post Series**
+[docs_creationpolicy]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
+[docs_wait_conditions]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html
+[docs_cfn_signals]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-signal.html
+[docs_supported_resources]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+[doc_custom_resource]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrough-custom-resources-lambda-lookup-amiids.html
+[wiki_cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+[aws_arn]: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
+[wiki_iso8601_durations]: https://en.wikipedia.org/wiki/ISO_8601#Durations
+
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
@@ -305,16 +314,7 @@ aws s3api list-buckets | jq '.Buckets[] | select(.Name | contains("hellostack"))
   - [AWS ECS](/2019/aws-devops-pro-certification-ecs/)
   - [AWS Config](/2019/aws-devops-pro-certification-config-managed-services/)
   - [AWS Managed Services](/2019/aws-devops-pro-certification-config-managed-services/)
-- Domain 3: Monitoring and Logging
-- Domain 4: Policies and Standards Automation
-- Domain 5: Incident and Event Response
-- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
-
-[docs_creationpolicy]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
-[docs_wait_conditions]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html
-[docs_cfn_signals]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-signal.html
-[docs_supported_resources]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
-[doc_custom_resource]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrough-custom-resources-lambda-lookup-amiids.html
-[wiki_cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[aws_arn]: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
-[wiki_iso8601_durations]: https://en.wikipedia.org/wiki/ISO_8601#Durations
+- Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)
+- Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
+- Domain 5: [Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/)
+- Domain 6: [High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)

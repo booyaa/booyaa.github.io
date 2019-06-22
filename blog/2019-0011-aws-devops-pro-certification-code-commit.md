@@ -166,7 +166,7 @@ Finally let's teardown `aws codecommit delete-repository --repository-name hello
 
 ## API and CLI features and verbs
 
-**Features**
+### Features
 
 - Repository
 - Branch
@@ -176,19 +176,19 @@ Finally let's teardown `aws codecommit delete-repository --repository-name hello
 - Comments
 - Trigger
 
-**Verbs (CRUD) **
+### Verbs (CRUD)
 
 - create
 - batch-get/get/list/describe
 - update/put
 - delete
 
-**Outliers**
+### Outliers
 
 - test-repository-triggers
 - merge-pull-request-by-fast-forward
 
-**AWS DevOps Pro Certification Blog Post Series**
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
@@ -196,8 +196,9 @@ Finally let's teardown `aws codecommit delete-repository --repository-name hello
   - [Code Build](/2019/blog/aws-devops-pro-certification-code-build/)
   - [Code Deploy](/2019/aws-devops-pro-certification-code-deploy/)
   - [Code Pipeline](/2019/aws-devops-pro-certification-code-pipeline)
-- Domain 2: Configuration Management and Infrastructure as Code
-- Domain 3: Monitoring and Logging
-- Domain 4: Policies and Standards Automation
-- Domain 5: Incident and Event Response
-- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+- Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)
+- Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)
+- Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
+- Domain 5: [Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/)
+- Domain 6: [High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)
+

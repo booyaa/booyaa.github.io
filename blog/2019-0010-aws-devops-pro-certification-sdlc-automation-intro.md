@@ -86,7 +86,7 @@ The deployment stages are handled by you guessed it Continuous Delivery service 
 
 Next, we're going to look at the Code Commit in greater detail.
 
-### AWS DevOps Pro Certification Blog Post Series
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: SLDC automation
@@ -97,5 +97,5 @@ Next, we're going to look at the Code Commit in greater detail.
 - Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)
 - Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)
 - Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
-- Domain 5: Incident and Event Response
-- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+- Domain 5: [Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/)
+- Domain 6: [High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)

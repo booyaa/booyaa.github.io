@@ -138,8 +138,7 @@ I'd hazard the guess the one API/CLI call you need to be familiar with is `put-m
 [docs_cli]: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/index.html
 [docs_cli_put_metric_data]: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-data.html
 
-
-**AWS DevOps Pro Certification Blog Post Series**
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
@@ -147,6 +146,6 @@ I'd hazard the guess the one API/CLI call you need to be familiar with is `put-m
 - Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging/)
   - CloudWatch
   - [AWS X-Ray](/2019/aws-devops-pro-certification-xray/)
-- Domain 4: Policies and Standards Automation
-- Domain 5: Incident and Event Response
-- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+- Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
+- Domain 5: [Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/)
+- Domain 6: [High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)

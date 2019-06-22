@@ -204,7 +204,7 @@ The [API][asg_api] has a lot of features, but the API actions I've focussed on h
 
 [wiki_dns]: https://en.wikipedia.org/wiki/Dns
 
-**AWS DevOps Pro Certification Blog Post Series**
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
@@ -217,7 +217,7 @@ The [API][asg_api] has a lot of features, but the API actions I've focussed on h
   - Amazon CloudFront
   - Auto Scaling
   - Amazon Route53
-  - Databases
-    - Amazon RDS
-    - Amazon Aurora
-    - Amazon DynamoDB
+  - [Databases](/2019/aws-devops-pro-certification-databases/)
+    - [Amazon RDS](/2019/aws-devops-pro-certification-databases/)
+    - [Amazon Aurora](/2019/aws-devops-pro-certification-databases/)
+    - [Amazon DynamoDB](/2019/aws-devops-pro-certification-databases/)

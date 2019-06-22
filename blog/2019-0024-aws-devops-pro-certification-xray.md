@@ -98,7 +98,7 @@ Remember there's specific [APIs][docs_api] for Java, .Net (and Core), Ruby, Node
 [docs_cli]: https://docs.aws.amazon.com/cli/latest/reference/xray/index.html
 [xray_getting_started]: https://eu-west-2.console.aws.amazon.com/xray/home?region=eu-west-2#/getting-started.html
 
-**AWS DevOps Pro Certification Blog Post Series**
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
@@ -106,6 +106,6 @@ Remember there's specific [APIs][docs_api] for Java, .Net (and Core), Ruby, Node
 - Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging/)
   - [CloudWatch](/2019/aws-devops-pro-certification-cloudwatch/)
   - AWS X-Ray
-- Domain 4: Policies and Standards Automation
-- Domain 5: Incident and Event Response
-- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+- Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
+- Domain 5: [Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/)
+- Domain 6: [High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)

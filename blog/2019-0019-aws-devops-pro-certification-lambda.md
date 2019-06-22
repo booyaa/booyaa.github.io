@@ -215,20 +215,20 @@ aws s3api put-bucket-notification-configuration \
 
 ## API and CLI features and verbs
 
-**Features**
+### Features
 
 - Alias
 - Event Source Mapping
 - Function
 
-**Verbs (CRUD)**
+### Verbs (CRUD)
 
 - create
 - get/list
 - update (function-[code/configuration])
 - delete
 
-**Outliers**
+### Outliers
 
 - add-layer-version-permission
 - add-permission
@@ -265,7 +265,7 @@ aws s3api put-bucket-notification-configuration \
 [link_awslogs]: https://github.com/jorgebastida/awslogs
 [link_sunil_dalal]: https://www.polyglotdeveloper.com/lambda/2017-07-05-Using-Lambda-as-S3-events-processor/
 
-**AWS DevOps Pro Certification Blog Post Series**
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
@@ -277,7 +277,7 @@ aws s3api put-bucket-notification-configuration \
   - [AWS ECS](/2019/aws-devops-pro-certification-ecs/)
   - [AWS Config](/2019/aws-devops-pro-certification-config-managed-services/)
   - [AWS Managed Services](/2019/aws-devops-pro-certification-config-managed-services/)
-- Domain 3: Monitoring and Logging
-- Domain 4: Policies and Standards Automation
-- Domain 5: Incident and Event Response
-- Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+- Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)
+- Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
+- Domain 5: [Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/)
+- Domain 6: [High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)

@@ -292,7 +292,7 @@ Not my best work will see if I can optimise this list.
 [dynamodb_choosing_the_right_partition_key]: https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/
 [link_concepts_dynamodb]: https://www.dynamodbguide.com/key-concepts/
 
-**AWS DevOps Pro Certification Blog Post Series**
+## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
 - Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
