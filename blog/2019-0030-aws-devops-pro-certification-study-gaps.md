@@ -58,6 +58,7 @@ I've had a go at the [sample exam][aws_sample_exam] under exam condititions (whi
 
 <!-- links -->
 
+[aws_free_tier]: https://aws.amazon.com/free/
 [aws_sample_exam]: https://d1.awsstatic.com/training-and-certification/docs-devops-pro/AWS%20Certified%20DevOps%20Engineer%20-%20Professional_Sample%20Questions.pdf
 [devopswp]: https://aws.amazon.com/whitepapers/
 [devopswp_bluegreen]: https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf
