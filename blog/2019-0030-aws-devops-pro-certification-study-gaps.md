@@ -50,16 +50,39 @@ I've had a go at the [sample exam][aws_sample_exam] under exam condititions (whi
     - Cognito Sync Trigger
     - DynamoDB ([High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/))
     - Kinesis ([Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/))
-    - S3
-    - SNS
-    - SQS
+    - Also doesn't hurt to know the following services are supported: S3,SNS and SQS
 - AWS Systems Manager - EC2 patch groups and Patch Manager's baselines ([Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/))
 - AWS Service Catalogue - how to offer products that provide different tiers (web, web + db) or stacks (.NET or Ruby) ([Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/))
+- CloudWatch events for the [services][cw_service_events] covered in the exam
+  - SDLC Automation
+    - CodeCommit
+    - CodeBuild
+    - CodeDeploy
+    - CodePipeline
+  - Configuration Management and Infrastrcuture as Code
+    - AWS Config
+    - AWS OpsWorks
+    - AWS (Lambda) Step Functions
+    - AWS ECS
+  - Monitoring and Logging
+    - CloudWatch (scheduled events)
+  - Policies and Standards Automation
+    - Amazon Macie
+    - AWS Systems Manager
+      - Configuration Compliance
+      - Maintenance Windows
+      - Parameter Store
+    - Trusted Advisor
+  - Incident and Event Reporting
+    - Amazon GuardDuty
+  - Fault Tolerance, High Availability and Disaster Recovery
+    - Amazon EC2 Auto Scaling
 
 <!-- links -->
 
 [aws_free_tier]: https://aws.amazon.com/free/
 [aws_sample_exam]: https://d1.awsstatic.com/training-and-certification/docs-devops-pro/AWS%20Certified%20DevOps%20Engineer%20-%20Professional_Sample%20Questions.pdf
+[cw_service_events]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html
 [devopswp]: https://aws.amazon.com/whitepapers/
 [devopswp_bluegreen]: https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf
 [iam_services]: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html
