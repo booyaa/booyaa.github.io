@@ -83,6 +83,23 @@ I've had a go at the [sample exam][aws_sample_exam] under exam condititions (whi
     - Amazon GuardDuty
   - Fault Tolerance, High Availability and Disaster Recovery
     - Amazon EC2 Auto Scaling
+- CloudWatch Event Rule [Targets][cw_event_rule_targets]
+  - SDLC Automation
+    - Code Build
+    - Code Pipeline
+  - Configuration Management and Infrastructure as Code
+    - Lambda (and Step) function
+  - Incident and Events Reporting
+    - Kinesis
+      - Data Streams
+      - Data Firehose
+    - Amazon Inspector
+  - Policies and Standards Automation
+    - Systems Manager
+      - Run Command
+      - Automation
+  - Nice to knows: SNS and SQS
+
 ### Fault Tolerance, High Availability and Disaster Recovery
 
 - RDS
@@ -99,6 +116,7 @@ I've had a go at the [sample exam][aws_sample_exam] under exam condititions (whi
 [aws_free_tier]: https://aws.amazon.com/free/
 [aws_sample_exam]: https://d1.awsstatic.com/training-and-certification/docs-devops-pro/AWS%20Certified%20DevOps%20Engineer%20-%20Professional_Sample%20Questions.pdf
 [cw_service_events]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html
+[cw_event_rule_targets]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html
 [devopswp]: https://aws.amazon.com/whitepapers/
 [devopswp_bluegreen]: https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf
 [iam_services]: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html
