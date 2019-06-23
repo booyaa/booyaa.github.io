@@ -29,15 +29,20 @@ This section will change a lot as I find new gaps whilst sitting in mock exams.
 
 I've had a go at the [sample exam][aws_sample_exam] under exam condititions (which before AWS made the exams adaptive would leave you with about 2 mins per question). Here's some items where I need to fill in gaps:
 
+### General
+
 - Knowing which services are able to use [Resource Based Policies][iam_services]:
   - Lambda ([Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)).
   - ECR (via ECS - [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)).
   - CloudWatch Logs ([Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)).
   - AWS Secrets Manager ([Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)).
+
+### SDLC Automation
+
 - Need to read the [blue/green][devopswp_bluegreen] whitepaper ([SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)). Pssst if you have the time you should read all the [DevOps][devopswp] related whitepapers!
-- RDS
-  - snapshots and their use in a DR situation. ([High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)).
-  - Understanding Recovery Time Objective (RTO) and Recovery Point Objective (RPO) with DR in mind. ([High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)).
+
+### Configuration Management and Infrastructure as Code
+
 - Lambda
   - Deploying new versions
   - What triggers are available
@@ -51,8 +56,9 @@ I've had a go at the [sample exam][aws_sample_exam] under exam condititions (whi
     - DynamoDB ([High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/))
     - Kinesis ([Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/))
     - Also doesn't hurt to know the following services are supported: S3,SNS and SQS
-- AWS Systems Manager - EC2 patch groups and Patch Manager's baselines ([Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/))
-- AWS Service Catalogue - how to offer products that provide different tiers (web, web + db) or stacks (.NET or Ruby) ([Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/))
+
+### Monitoring and Logging
+
 - CloudWatch events for the [services][cw_service_events] covered in the exam
   - SDLC Automation
     - CodeCommit
@@ -77,6 +83,16 @@ I've had a go at the [sample exam][aws_sample_exam] under exam condititions (whi
     - Amazon GuardDuty
   - Fault Tolerance, High Availability and Disaster Recovery
     - Amazon EC2 Auto Scaling
+### Fault Tolerance, High Availability and Disaster Recovery
+
+- RDS
+  - snapshots and their use in a DR situation. ([High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)).
+  - Understanding Recovery Time Objective (RTO) and Recovery Point Objective (RPO) with DR in mind. ([High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/)).
+
+### Policies and Standards Automation
+
+- AWS Systems Manager - EC2 patch groups and Patch Manager's baselines ([Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/))
+- AWS Service Catalogue - how to offer products that provide different tiers (web, web + db) or stacks (.NET or Ruby) ([Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/))
 
 <!-- links -->
 
