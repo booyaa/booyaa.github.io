@@ -41,6 +41,37 @@ I've had a go at the [sample exam][aws_sample_exam] under exam condititions (whi
 
 - Need to read the [blue/green][devopswp_bluegreen] whitepaper ([SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)). Pssst if you have the time you should read all the [DevOps][devopswp] related whitepapers!
 
+#### Blue/Green Techniques using CloudFormation or manually provisioned i.e. through AWS Console
+
+This is based on the [Blue/Green][devopswp_bluegreen] whitepaper.
+
+- Update DNS Routing with Amazon Route 53 
+  - Setup
+    - Route 53 DNS
+    - Blue/Green Environments 
+      - Elastic Load Balancer (ELB)
+      - Autoscaling group behind xthe ELB
+      - Both environments are point to the same database instance (Amazon RDS Multi-AZ)
+  - Sub patterns
+    - **Classic DNS pattern** - Flip alias (live) record from blue to green
+    - **Classic DNS-weighted distribution** - Use split to send traffic to different environments
+- Swap the Auto Scaling Group Behind Elastic Load Balancer
+  - Setup
+    - Route 53 DNS
+    - ELB pointing to
+    - Blue and Green Auto Scaling Groups
+    - Both ASGs point to the same database  instance (Amazon RDS Multi-AZ)
+- Update Auto Scaling Group Launch Configurations 
+  - Setup
+    - Route 53 DNS
+    - ELB point to
+    - Auto Scaling Group containing
+      - Blue Launch Config (LC)
+      - Green Launch Config (LC)
+    - LCs  are point to Amazon DynamoDB, Amazon RDS Multi-AZ or Amazon ElastiCache
+
+There’s patterns for OpsWorks and Elastic Beanstalk, will add if I have time.
+
 ### Configuration Management and Infrastructure as Code
 
 - Lambda
