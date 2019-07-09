@@ -85,6 +85,10 @@ Skipping questions is okay and you will find there's still time to revisit these
 
 Don't panic if you find you're skipping lots of questions either, it's probably your nerves.
 
+## Until next time
+
+I will, of course, let you know when I sit and pass the next exam (see what I did there). I'm aiming for mid-July so expect to hear from me soon!
+
 <!-- links -->
 
 [aws_free_tier]: https://aws.amazon.com/free/
