@@ -85,6 +85,13 @@ Skipping questions is okay and you will find there's still time to revisit these
 
 Don't panic if you find you're skipping lots of questions either, it's probably your nerves.
 
+## Alternative study aids
+
+Whilst studying for this exam, I've used the following to help absorb the study material:
+
+- My AWS DevOps Pro [Tinycards][tinycards] deck is a flashcard app by Duolingo. It's a bit rough and ready, but it's helped me retain some of the facts and figures that pop up.
+- I've also been listening to [Last week in AWS][last_week_in_aws] which is a podcast by Corey Quinn that covers the ever-changing AWS landscape.
+
 ## Until next time
 
 I will, of course, let you know when I sit and pass the next exam (see what I did there). I'm aiming for mid-July so expect to hear from me soon!
@@ -94,6 +101,8 @@ I will, of course, let you know when I sit and pass the next exam (see what I di
 [aws_free_tier]: https://aws.amazon.com/free/
 [aws_sample_exam]: https://d1.awsstatic.com/training-and-certification/docs-devops-pro/AWS%20Certified%20DevOps%20Engineer%20-%20Professional_Sample%20Questions.pdf
 [devopswp]: https://aws.amazon.com/whitepapers/
+[tinycards]: https://tiny.cards/decks/MYHnT1YG/aws-devops-pro-2019
+[last_week_in_aws]: https://www.lastweekinaws.com/
 
 ## AWS DevOps Pro Certification Blog Post Series
 
