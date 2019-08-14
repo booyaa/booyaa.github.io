@@ -100,7 +100,7 @@ Our next blog post will be about CloudFormation
 ## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
-- Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+- Domain 1: [SDLC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
   - [CloudFormation](/2019/aws-devops-pro-certification-cloudformation)
   - [Elastic Beanstalk](/2019/aws-devops-pro-certification-elastic-beanstalk)
   - [OpsWorks](/2019/aws-devops-pro-certification-opsworks)

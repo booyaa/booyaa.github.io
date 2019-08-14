@@ -386,7 +386,7 @@ aws deploy delete-application \
 **AWS DevOps Pro Certification Blog Post Series**
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
-- Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+- Domain 1: [SDLC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
   - [Code Commit](/2019/aws-devops-pro-certification-code-commit/)
   - [Code Build](/2019/aws-devops-pro-certification-code-build/)
   - Code Deploy

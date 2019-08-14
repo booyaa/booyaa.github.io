@@ -141,7 +141,7 @@ I'd hazard the guess the one API/CLI call you need to be familiar with is `put-m
 ## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
-- Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+- Domain 1: [SDLC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
 - Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/)
 - Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging/)
   - CloudWatch

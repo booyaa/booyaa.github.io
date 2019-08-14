@@ -1,6 +1,6 @@
 ---
 permalink: "/2019/aws-devops-pro-certification-sdlc-intro"
-title: "AWS DevOps Pro Certification Blog Post Series: SLDC automation introduction"
+title: "AWS DevOps Pro Certification Blog Post Series: SDLC automation introduction"
 categories:
   - "aws,study,certification"
 layout: post.liquid
@@ -89,7 +89,7 @@ Next, we're going to look at the Code Commit in greater detail.
 ## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
-- Domain 1: SLDC automation
+- Domain 1: SDLC automation
   - [Code Commit](/2019/aws-devops-pro-certification-code-commit/)
   - [Code Build](/2019/blog/aws-devops-pro-certification-code-build/)
   - [Code Deploy](/2019/aws-devops-pro-certification-code-deploy/)

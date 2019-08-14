@@ -286,7 +286,7 @@ N.B. I've noticed there's some delay in deleting the application. You may need t
 ## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
-- Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+- Domain 1: [SDLC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
 - Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/)
   - [CloudFormation](/2019/aws-devops-pro-certification-cloudformation)
   - Elastic Beanstalk

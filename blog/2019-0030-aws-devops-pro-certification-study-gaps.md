@@ -39,7 +39,7 @@ I've had a go at the [sample exam][aws_sample_exam] under exam condititions (whi
 
 ### SDLC Automation
 
-- Need to read the [blue/green][devopswp_bluegreen] whitepaper ([SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)). Pssst if you have the time you should read all the [DevOps][devopswp] related whitepapers!
+- Need to read the [blue/green][devopswp_bluegreen] whitepaper ([SDLC automation](/2019/aws-devops-pro-certification-sdlc-intro/)). Pssst if you have the time you should read all the [DevOps][devopswp] related whitepapers!
 
 #### Blue/Green Techniques using CloudFormation or manually provisioned i.e. through AWS Console
 
@@ -82,7 +82,7 @@ There’s patterns for OpsWorks and Elastic Beanstalk, will add if I have time.
     - Application Load Balancer
     - CloudWatch Events ([Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging))
     - CloudWatch Logs ([Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging))
-    - CodeCommit ([SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/))
+    - CodeCommit ([SDLC automation](/2019/aws-devops-pro-certification-sdlc-intro/))
     - Cognito Sync Trigger
     - DynamoDB ([High Availability, Fault Tolerance, and Disaster Recovery](/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/))
     - Kinesis ([Incident and Event Response](/2019/aws-devops-pro-certification-incident-and-event-response/))
@@ -155,7 +155,7 @@ There’s patterns for OpsWorks and Elastic Beanstalk, will add if I have time.
 ## AWS DevOps Pro Certification Blog Post Series
 
 - [Intro](/2019/aws-devops-pro-certification-intro/)
-- Domain 1: [SLDC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
+- Domain 1: [SDLC automation](/2019/aws-devops-pro-certification-sdlc-intro/)
 - Domain 2: [Configuration Management and Infrastructure as Code](/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro)
 - Domain 3: [Monitoring and Logging](/2019/aws-devops-pro-certification-monitoring-and-logging)
 - Domain 4: [Policies and Standards Automation](/2019/aws-devops-pro-certification-policy-standards-automation/)
