@@ -77,6 +77,7 @@ az postgres server delete \
 DESTROY_REPLICA
   }
 }
+```
 
 Finally, we handle when what to do when the replica is destroyed.
 
