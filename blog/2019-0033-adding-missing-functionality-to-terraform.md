@@ -37,7 +37,7 @@ resource "null_resource" "postgresql-read-replica" {
   }
 ```
 
-The `null_resource` is also provisioner is used as a container for the `local_exec` calls. The `triggers` block allows the resource to be replaced, i.e. destroyed and recreated when the resource group, the PostgreSQL primary or replica server names changes.
+The [`null_resource`][tf_null] is also provisioner is used as a container for the `local_exec` calls. The `triggers` block allows the resource to be replaced, i.e. destroyed and recreated when the resource group, the PostgreSQL primary or replica server names changes.
 
 You can already see that [modules][tf_modules] are just ordinary bits of Terraform code.
 
@@ -113,6 +113,7 @@ resource "azurerm_postgresql_firewall_rule" "demo-replica" {
 [tf_datasources]: https://www.terraform.io/docs/configuration/data-sources.html
 [tf_local_exec]: https://www.terraform.io/docs/provisioners/local-exec.html
 [tf_modules]: https://www.terraform.io/docs/modules/index.html
+[tf_null]: https://www.terraform.io/docs/providers/null/resource.html
 [tf_registry]: https://registry.terraform.io/modules/booyaa/postgresql-read-replica/azurerm/0.2.0
 [gh_issue]: https://github.com/booyaa/terraform-azurerm-postgresql-read-replica
 [gh_repo]: https://github.com/booyaa/terraform-azurerm-postgresql-read-replica
