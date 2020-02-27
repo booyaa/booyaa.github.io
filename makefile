@@ -3,7 +3,7 @@
 build:
 	cobalt clean --silent
 	cobalt build --silent
-	cat build/js/lunr_docs.json | jq | node _lunr/build-index.js - > js/lunr_prebuilt.json
+	cat build/js/lunr_docs.json | node _lunr/build-index.js - > js/lunr_prebuilt.json
 	
 serve:
 	cobalt serve
