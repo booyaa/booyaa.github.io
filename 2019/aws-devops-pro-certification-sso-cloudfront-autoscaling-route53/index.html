@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>AWS DevOps Pro Certification Blog Post Series: Amazon Single Signon, CloudFront, Autoscaling and Route53</title>
+<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
+<link rel="stylesheet" href="//writ.cmcenroe.me/1.0.2/writ.min.css">
+<link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+<link rel="alternate" href="/rss.xml" type="application/rss+xml" title="RSS" />
+<meta name="author" content="Mark Sta Ana">
+<meta name="description" content="Personal website of Mark Sta Ana, aged 7 3/4."/>
+<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" /> 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-101141559-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+<body data-route=blog>
+  <nav class="menu">
+  <a class="menu-item " href="/about/">booyaa</a>
+  <a class="menu-item current" href="/">blog</a>
+  <a class="menu-item " href="/talks">talks</a>
+  <a class="menu-item" href="/search/">search</a>
+  <a class="menu-item" href="/archive/">archive</a>
+  <a class="menu-item icon" href="http://github.com/booyaa"><i class="fa fa-github"></i></a>
+  <a class="menu-item icon" href="http://twitter.com/booyaa"><i class="fa fa-twitter"></i></a>
+  <a class="menu-item icon" href="/rss.xml"><i class="fa fa-rss"></i></a>
+  <hr>
+</nav>
+
+  <main>
+    <article>
+      <h1>AWS DevOps Pro Certification Blog Post Series: Amazon Single Signon, CloudFront, Autoscaling and Route53</h1>
+       
+      
+      
+      								
+          
+    	 
+
+			<time pubdate="pubdate">Jun 12, 2019 - Reading time: 7 minutes.</time><br />
+      
+      <p><em>This is part of the blog post series: <a href="/2019/aws-devops-pro-certification-intro/">AWS DevOps Pro Certification</a></em></p>
+<h2>Caveat emptor</h2>
+<p>Using AWS costs money, some of these services may not be part of the AWS <a href="https://aws.amazon.com/free/">Free Tier</a>. You can keep costs down by tearing down anything you've created whilst learning, but it's still possible to run up a hefty bill so pay attention to the instances you setup!</p>
+<p>I'm very lucky to be able to use my employer's AWS account. You should ask your place of work if a similar arrangement can be made as part of your study.</p>
+<h2>Velocius quam asparagi conquantur</h2>
+<p>The format of the blog posts is liable to change as I try to refine my mental model of each domain, so be sure to revisit the blog posts on a regular basis.</p>
+<h2>What?</h2>
+<p><strong>Amazon Single Sign-On</strong> is a managed single sign-on (SSO) service that you can use to simplify access to applications and 3rd party services. If SSO is not a term you're familiar with, if you've ever signed up for a service using your Google, Facebook or Twitter account (instead of using your email address and password specific to that site) then you've used SSO.</p>
+<p><strong>Amazon CloudFront</strong> is a managed Content Delivery Network (CDN) service, you may have heard of CloudFront's competitors like CloudFlare, Akamai and Fastly. CDN speed up your website performance by strategically placing mirrors of popular content (static files, API or streaming audio/video) at locations nearer to the user accessing your website. These mirrors are referred to as Edge locations popular content for the region (not specific to client) is cached here. In more densely populated areas there are also Regional Caches that hold content for longer than Edge locations.</p>
+<p><strong>Amazon Route53</strong> is a managed <a href="https://en.wikipedia.org/wiki/Dns">Domain Name Service</a> (DNS). At its very basic level of functionality DNS servers allow you to connect to servers using friendly domain names i.e. dev.to rather than IP addresses like 151.101.123.4, 151.101.12.34, 151.101.1.234. It's designed to work with other Amazon Web Services that is you can point DNS records directly to Elastic Load Balancer, S3 and EC2 instances.</p>
+<p><strong>Autoscaling</strong> as we saw in the Domain intro comes in two varieties: <a href="https://aws.amazon.com/autoscaling/">AWS Auto Scaling</a> and <a href="https://aws.amazon.com/ec2/autoscaling/">Amazon EC2 Auto Scaling</a>. The general rule of thumb for use if you want to just autoscale EC2 instances then use EC2 Auto Scaling service, otherwise, AWS Auto Scaling is a better use case for when you want to scale multiple resources (not just EC2) i.e. DynamoDB tables and indexes, ECS tasks.</p>
+<p>An important thing to note that to use AWS Auto Scaling, your resource must be created using CloudFormation or Elastic Beanstalk.</p>
+<p>For the rest of this post, we'll only be referring to Amazon EC2 Auto Scaling.</p>
+<h2>Why?</h2>
+<p><strong>Amazon Single Sign-On</strong> or generically any single sign-on (SSO) service is better than managing the administrative overhead of keeping separate logins for each application / service, you reduce the impact on day to day operations should disaster strike (think the number of helpdesk tickets will be raised for DR systems that rarely get used). You'll also get the undying love of your users because it means fewer logins to track, which in turn means they will be less likely to keep a scrap paper lying around their desk with the various logins and passwords written down.</p>
+<p><strong>Amazon CloudFront</strong> distributes your content geographically rather than storing in a single location or S3 bucket. By careful design (falling back graceful should the backend be unavailable) ensures your website is highly available.</p>
+<p><strong>Amazon Route 53</strong> provides the following <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">routing policies</a> whose attributes are suitable for this domain:</p>
+<ul>
+<li>Failover routing - used for active-passive failover, a good use case for automated disaster recovery.</li>
+<li>Geolocation routing - used to route traffic based on the location of users, a good use case for highly available</li>
+<li>Geoproximity routing - similar to Geolocation routing, but also allows you to route to a secondary location. This also makes a good use case for fault tolerance.</li>
+<li>Latency-based routing - used to route users to the resources with the best (least) latency</li>
+<li>Multivalue answer routing - this is similar to round robin, in that you can randomly pick a route from up to eight healthy resources</li>
+<li>Weighted routing - routes traffic to different resources using a percentage split (useful for A/B testing or load balancing). Weights are between 0 to 255.</li>
+</ul>
+<p><strong>Amazon EC2 Auto Scaling</strong> allows you to launch or terminate a number of EC2 instances by defining conditions when scaling out (increase) or scaling in (decreasing) the number of instances. The condition might be metrics like CPU or Memory utilisation, or health checks. This combined with an elastic load balancer provides a system that can be highly available and fault tolerant.</p>
+<p>Terminology to be aware of:</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Auto Scaling Group</a> (ASG) - this is a group of EC2 instances associated with one or more scale in/out conditions.
+<ul>
+<li>Minimum size - that the ASG never goes below</li>
+<li>Maximum Size - that the ASG never goes above</li>
+<li>Desired capacity - that the ASG will already try to maintain (unless the condition requires further scaling-in).</li>
+<li>Scaling capacity is between desired capacity and Maximum Size</li>
+</ul>
+</li>
+</ul>
+<h2>When?</h2>
+<p><strong>Amazon Single Sign-On</strong> should ideally be implemented as soon as possible, but it's still possible to retrofit into an existing environment. Doing this soon rather than later could mean you're not having to re-organise the team who are responsible for user and access management if the headcount reduces because of efficiency savings through the implementation of SSO.</p>
+<p><strong>Amazon CloudFront</strong> should be implemented once you have some metrics (via Amazon X-Ray or something similar) to indicate you have customers in regions that are experiencing poor response times because of their proximity in relation to the region where your load balancers, EC2 instances or S3 buckets are hosted.</p>
+<p><strong>Amazon Route 53</strong>'s routing policy provides a lot of desirable features that are relevant for this domain. This combined with the fact that Amazon also offers an [SLA] of 100% availability and the ability to create and modify DNS record programmatically mean the use of Route 53 is a bit of a no-brainer.</p>
+<p><strong>Amazon EC2 Auto Scaling</strong> has the concept of <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">lifecycle hooks</a>. These allow you to perform custom actions by pausing the instances as the ASG launches (<code>EC2_INSTANCE_LAUNCHING</code>) or terminates  (<code>EC2_INSTANCE_TERMINATING</code>) them. Whilst the instance is paused, it is in a wait state until you complete the action by issuing the <code>complete-lifecycle-action</code> action in the CLI/API or the timeout period ends (one hour by default). You can extend the timeout period by either:</p>
+<ul>
+<li>set a longer heartbeat timeout period using the <code>put-lifecycle-hook</code> action (CLI/API) when you create the lifecycle hook</li>
+<li>restart the timeout period using <code>record-lifecycle-action-heartbeat</code> action (CLI/API)</li>
+</ul>
+<p>The maximum time you can place an instance in a wait state is 48 hours or 100 times the heartbeat timeout (whichever is smaller).</p>
+<h2>How?</h2>
+<p><strong>Amazon Single Sign-On</strong> requires an AWS Organization to exist and then you can enable single sign-on via the AWS Console. The specifics for setting up the service with the AWS Account or Cloud Applications (3rd party services) can be found in the [guide][sso_guide]. There is an option to link to your existing Microsoft Active Directory, but if you don't need this option then the service will use its own directory.</p>
+<p><strong>Amazon CloudFront</strong> to setup you define a distribution that determines the content origins (S3 bucket or HTTP server), access, security (TLS/SSL/HTTPS), session/object tracking, geo restrictions and logging. The provisioning of CloudFront can take a while as the content is being distributed to edge locations.</p>
+<p>I've found the following article in the AWS blog very helpful in terms of an application that I was already familiar with, but also knew the difficulty in optimising for response time: <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-accelerate-your-wordpress-site-with-amazon-cloudfront/">How to accelerate your WordPress site with Amazon CloudFront</a></p>
+<p><strong>Amazon EC2 Auto Scaling</strong> terminology:</p>
+<ul>
+<li>Auto-scaling group - this is a collection of EC2 instances that will be scaled in or out depending on conditions defined
+<ul>
+<li>There's a minimum size</li>
+<li>Desired capacity</li>
+<li>Max capacity</li>
+</ul>
+</li>
+<li>Autoscaling lifecycle
+<ul>
+<li>starts when an ASG launches an instance</li>
+<li>ends, when you terminate an instance or ASG, takes an instance out of service and terminates it</li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Cooldowns</a> prevents the ASG from launching or terminating more instances before the previous scaling activity event has taken effect. The default period is 300 seconds (5 minutes)</li>
+</ul>
+<h2>API and CLI features and verbs</h2>
+<h3>Amazon Single Sign-On</h3>
+<p>This service has no API/CLI.</p>
+<h3>Amazon CloudFront</h3>
+<h4>Features</h4>
+<ul>
+<li>(Streaming) Distributions (this is probably the most important one to be aware of) with or without tags</li>
+<li>Field Level Encryption (Config/Profile)</li>
+<li>Invalidation (cache)</li>
+<li>(CloudFront) Origin Access Identity</li>
+<li>Public key</li>
+</ul>
+<h4>Verbs (CRUD)</h4>
+<ul>
+<li>create (distrbution/streaming-with-tags)</li>
+<li>get/list</li>
+<li>update (except invalidation)</li>
+<li>delete (except invalidation)</li>
+</ul>
+<h4>Outliers</h4>
+<ul>
+<li>get-field-level-encryption-profile-config</li>
+<li>get-distribution-config</li>
+<li>get-public-key-config</li>
+<li>get-cloud-front-origin-access-identity-config</li>
+<li>get-streaming-distribution-config</li>
+<li>list-distributions-by-web-acl-id</li>
+<li>list-tags-for-resource</li>
+<li>sign</li>
+<li>tag-resource</li>
+<li>untag-resource</li>
+<li>wait</li>
+</ul>
+<h3>Amazon Route 53</h3>
+<p>I've opted for the main API/CLI for <a href="https://docs.aws.amazon.com/cli/latest/reference/route53/index.html">Route 53</a> instead of <a href="https://docs.aws.amazon.com/cli/latest/reference/servicediscovery/index.html">Domains</a> and <a href="https://docs.aws.amazon.com/cli/latest/reference/route53domains/index.html">Resolvers</a> as I've been using this more on a day to day basis.</p>
+<h4>Features</h4>
+<ul>
+<li>Health Check</li>
+<li>Hosted Zone</li>
+<li>Reusable Delegation Set</li>
+<li>Traffic Policy (Instance/Version)</li>
+<li>Create Query Logging Config</li>
+</ul>
+<h4>Verbs (CRUD)</h4>
+<ul>
+<li>create</li>
+<li>get/list</li>
+<li>update</li>
+<li>delete</li>
+</ul>
+<h4>Outliers</h4>
+<ul>
+<li>CreateVPCAssociationAuthorization</li>
+<li>AssociateVPCWithHostedZone</li>
+<li>DeleteVPCAssociationAuthorization</li>
+<li>ChangeResourceRecordSets</li>
+<li>ChangeTagsForResource</li>
+<li>DisassociateVPCFromHostedZone</li>
+<li>GetAccountLimit</li>
+<li>GetChange</li>
+<li>GetCheckerIpRanges</li>
+<li>GetGeoLocation</li>
+<li>ListGeoLocations</li>
+<li>TestDNSAnswer</li>
+</ul>
+<h3>EC2 Auto Scaling</h3>
+<h4>Features</h4>
+<p>The <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/index.html">API</a> has a lot of features, but the API actions I've focussed on have been around the Lifecycle Hooks.</p>
+<h4>Verbs (CRUD)</h4>
+<ul>
+<li>describe (types)</li>
+<li>put</li>
+<li>delete</li>
+</ul>
+<h4>Outliers</h4>
+<ul>
+<li>CompleteLifecycleAction</li>
+<li>RecordLifecycleActionHeartbeat</li>
+</ul>
+<h2>AWS DevOps Pro Certification Blog Post Series</h2>
+<ul>
+<li><a href="/2019/aws-devops-pro-certification-intro/">Intro</a></li>
+<li>Domain 1: <a href="/2019/aws-devops-pro-certification-sdlc-intro/">SDLC automation</a></li>
+<li>Domain 2: <a href="/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/">Configuration Management and Infrastructure as Code</a></li>
+<li>Domain 3: <a href="/2019/aws-devops-pro-certification-monitoring-and-logging/">Monitoring and Logging</a></li>
+<li>Domain 4: <a href="/2019/aws-devops-pro-certification-policy-standards-automation/">Policies and Standards Automation</a></li>
+<li>Domain 5: <a href="/2019/aws-devops-pro-certification-incident-and-event-response/">Incident and Event Response</a></li>
+<li>Domain 6: <a href="/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/">High Availability, Fault Tolerance, and Disaster Recovery</a>
+<ul>
+<li>Amazon Single-Sign On</li>
+<li>Amazon CloudFront</li>
+<li>Auto Scaling</li>
+<li>Amazon Route53</li>
+<li><a href="/2019/aws-devops-pro-certification-databases/">Databases</a>
+<ul>
+<li><a href="/2019/aws-devops-pro-certification-databases/">Amazon RDS</a></li>
+<li><a href="/2019/aws-devops-pro-certification-databases/">Amazon Aurora</a></li>
+<li><a href="/2019/aws-devops-pro-certification-databases/">Amazon DynamoDB</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </article>
+    <br /><br />
+    <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </main>
+  <footer>
+  <hr>
+  <p>
+    <a href="/license/">CC BY-SA 4.0 / MIT</a>
+    -
+    <a href="https://github.com/cobalt-org/cobalt.rs">Built with Cobalt</a>
+  </p>
+  <br>
+</footer>
+
+</body>
+</html>

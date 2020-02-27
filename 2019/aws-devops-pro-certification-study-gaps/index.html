@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>AWS DevOps Pro Certification Blog Post Series: Study Gaps</title>
+<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
+<link rel="stylesheet" href="//writ.cmcenroe.me/1.0.2/writ.min.css">
+<link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+<link rel="alternate" href="/rss.xml" type="application/rss+xml" title="RSS" />
+<meta name="author" content="Mark Sta Ana">
+<meta name="description" content="Personal website of Mark Sta Ana, aged 7 3/4."/>
+<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" /> 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-101141559-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+<body data-route=blog>
+  <nav class="menu">
+  <a class="menu-item " href="/about/">booyaa</a>
+  <a class="menu-item current" href="/">blog</a>
+  <a class="menu-item " href="/talks">talks</a>
+  <a class="menu-item" href="/search/">search</a>
+  <a class="menu-item" href="/archive/">archive</a>
+  <a class="menu-item icon" href="http://github.com/booyaa"><i class="fa fa-github"></i></a>
+  <a class="menu-item icon" href="http://twitter.com/booyaa"><i class="fa fa-twitter"></i></a>
+  <a class="menu-item icon" href="/rss.xml"><i class="fa fa-rss"></i></a>
+  <hr>
+</nav>
+
+  <main>
+    <article>
+      <h1>AWS DevOps Pro Certification Blog Post Series: Study Gaps</h1>
+       
+      
+      
+      								
+          
+    	 
+
+			<time pubdate="pubdate">Jun 22, 2019 - Reading time: 3 minutes.</time><br />
+      
+      <p><em>This is part of the blog post series: <a href="/2019/aws-devops-pro-certification-intro/">AWS DevOps Pro Certification</a></em></p>
+<h2>Caveat emptor</h2>
+<p>Using AWS costs money, some of these services may not be part of the AWS <a href="https://aws.amazon.com/free/">Free Tier</a>. You can keep costs down by tearing down anything you've created whilst learning, but it's still possible to run up a hefty bill so pay attention to the instances you setup!</p>
+<p>I'm very lucky to be able to use my employer's AWS account. You should ask your place of work if a similar arrangement can be made as part of your study.</p>
+<h2>Velocius quam asparagi conquantur</h2>
+<p>The format of the blog posts is liable to change as I try to refine my mental model of each domain, so be sure to revisit the blog posts on a regular basis.</p>
+<h2>Study Gaps</h2>
+<p>This section will change a lot as I find new gaps whilst sitting in mock exams.</p>
+<p>I've had a go at the <a href="https://d1.awsstatic.com/training-and-certification/docs-devops-pro/AWS%20Certified%20DevOps%20Engineer%20-%20Professional_Sample%20Questions.pdf">sample exam</a> under exam condititions (which before AWS made the exams adaptive would leave you with about 2 mins per question). Here's some items where I need to fill in gaps:</p>
+<h3>General</h3>
+<ul>
+<li>Knowing which services are able to use <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Resource Based Policies</a>:
+<ul>
+<li>Lambda (<a href="/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro">Configuration Management and Infrastructure as Code</a>).</li>
+<li>ECR (via ECS - <a href="/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro">Configuration Management and Infrastructure as Code</a>).</li>
+<li>CloudWatch Logs (<a href="/2019/aws-devops-pro-certification-monitoring-and-logging">Monitoring and Logging</a>).</li>
+<li>AWS Secrets Manager (<a href="/2019/aws-devops-pro-certification-policy-standards-automation/">Policies and Standards Automation</a>).</li>
+</ul>
+</li>
+</ul>
+<h3>SDLC Automation</h3>
+<ul>
+<li>Need to read the <a href="https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf">blue/green</a> whitepaper (<a href="/2019/aws-devops-pro-certification-sdlc-intro/">SDLC automation</a>). Pssst if you have the time you should read all the <a href="https://aws.amazon.com/whitepapers/">DevOps</a> related whitepapers!</li>
+</ul>
+<h4>Blue/Green Techniques using CloudFormation or manually provisioned i.e. through AWS Console</h4>
+<p>This is based on the <a href="https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf">Blue/Green</a> whitepaper.</p>
+<ul>
+<li>Update DNS Routing with Amazon Route 53 
+<ul>
+<li>Setup
+<ul>
+<li>Route 53 DNS</li>
+<li>Blue/Green Environments 
+<ul>
+<li>Elastic Load Balancer (ELB)</li>
+<li>Autoscaling group behind xthe ELB</li>
+<li>Both environments are point to the same database instance (Amazon RDS Multi-AZ)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Sub patterns
+<ul>
+<li><strong>Classic DNS pattern</strong> - Flip alias (live) record from blue to green</li>
+<li><strong>Classic DNS-weighted distribution</strong> - Use split to send traffic to different environments</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Swap the Auto Scaling Group Behind Elastic Load Balancer
+<ul>
+<li>Setup
+<ul>
+<li>Route 53 DNS</li>
+<li>ELB pointing to</li>
+<li>Blue and Green Auto Scaling Groups</li>
+<li>Both ASGs point to the same database  instance (Amazon RDS Multi-AZ)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Update Auto Scaling Group Launch Configurations 
+<ul>
+<li>Setup
+<ul>
+<li>Route 53 DNS</li>
+<li>ELB point to</li>
+<li>Auto Scaling Group containing
+<ul>
+<li>Blue Launch Config (LC)</li>
+<li>Green Launch Config (LC)</li>
+</ul>
+</li>
+<li>LCs  are point to Amazon DynamoDB, Amazon RDS Multi-AZ or Amazon ElastiCache</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>There’s patterns for OpsWorks and Elastic Beanstalk, will add if I have time.</p>
+<h3>Configuration Management and Infrastructure as Code</h3>
+<ul>
+<li>Lambda
+<ul>
+<li>Deploying new versions</li>
+<li>What triggers are available
+<ul>
+<li>API Gateway</li>
+<li>AWS IoT</li>
+<li>Application Load Balancer</li>
+<li>CloudWatch Events (<a href="/2019/aws-devops-pro-certification-monitoring-and-logging">Monitoring and Logging</a>)</li>
+<li>CloudWatch Logs (<a href="/2019/aws-devops-pro-certification-monitoring-and-logging">Monitoring and Logging</a>)</li>
+<li>CodeCommit (<a href="/2019/aws-devops-pro-certification-sdlc-intro/">SDLC automation</a>)</li>
+<li>Cognito Sync Trigger</li>
+<li>DynamoDB (<a href="/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/">High Availability, Fault Tolerance, and Disaster Recovery</a>)</li>
+<li>Kinesis (<a href="/2019/aws-devops-pro-certification-incident-and-event-response/">Incident and Event Response</a>)</li>
+<li>Also doesn't hurt to know the following services are supported: S3,SNS and SQS</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Monitoring and Logging</h3>
+<ul>
+<li>CloudWatch events for the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html">services</a> covered in the exam
+<ul>
+<li>SDLC Automation
+<ul>
+<li>CodeCommit</li>
+<li>CodeBuild</li>
+<li>CodeDeploy</li>
+<li>CodePipeline</li>
+</ul>
+</li>
+<li>Configuration Management and Infrastrcuture as Code
+<ul>
+<li>AWS Config</li>
+<li>AWS OpsWorks</li>
+<li>AWS (Lambda) Step Functions</li>
+<li>AWS ECS</li>
+</ul>
+</li>
+<li>Monitoring and Logging
+<ul>
+<li>CloudWatch (scheduled events)</li>
+</ul>
+</li>
+<li>Policies and Standards Automation
+<ul>
+<li>Amazon Macie</li>
+<li>AWS Systems Manager
+<ul>
+<li>Configuration Compliance</li>
+<li>Maintenance Windows</li>
+<li>Parameter Store</li>
+</ul>
+</li>
+<li>Trusted Advisor</li>
+</ul>
+</li>
+<li>Incident and Event Reporting
+<ul>
+<li>Amazon GuardDuty</li>
+</ul>
+</li>
+<li>Fault Tolerance, High Availability and Disaster Recovery
+<ul>
+<li>Amazon EC2 Auto Scaling</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CloudWatch Event Rule <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html">Targets</a>
+<ul>
+<li>SDLC Automation
+<ul>
+<li>Code Build</li>
+<li>Code Pipeline</li>
+</ul>
+</li>
+<li>Configuration Management and Infrastructure as Code
+<ul>
+<li>Lambda (and Step) function</li>
+</ul>
+</li>
+<li>Incident and Events Reporting
+<ul>
+<li>Kinesis
+<ul>
+<li>Data Streams</li>
+<li>Data Firehose</li>
+</ul>
+</li>
+<li>Amazon Inspector</li>
+</ul>
+</li>
+<li>Policies and Standards Automation
+<ul>
+<li>Systems Manager
+<ul>
+<li>Run Command</li>
+<li>Automation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Nice to knows: SNS and SQS</li>
+</ul>
+</li>
+</ul>
+<h3>Fault Tolerance, High Availability and Disaster Recovery</h3>
+<ul>
+<li>RDS
+<ul>
+<li>snapshots and their use in a DR situation. (<a href="/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/">High Availability, Fault Tolerance, and Disaster Recovery</a>).</li>
+<li>Understanding Recovery Time Objective (RTO) and Recovery Point Objective (RPO) with DR in mind. (<a href="/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/">High Availability, Fault Tolerance, and Disaster Recovery</a>).</li>
+</ul>
+</li>
+</ul>
+<h3>Policies and Standards Automation</h3>
+<ul>
+<li>AWS Systems Manager - EC2 patch groups and Patch Manager's baselines (<a href="/2019/aws-devops-pro-certification-policy-standards-automation/">Policies and Standards Automation</a>)</li>
+<li>AWS Service Catalogue - how to offer products that provide different tiers (web, web + db) or stacks (.NET or Ruby) (<a href="/2019/aws-devops-pro-certification-policy-standards-automation/">Policies and Standards Automation</a>)</li>
+</ul>
+<!-- links -->
+<h2>AWS DevOps Pro Certification Blog Post Series</h2>
+<ul>
+<li><a href="/2019/aws-devops-pro-certification-intro/">Intro</a></li>
+<li>Domain 1: <a href="/2019/aws-devops-pro-certification-sdlc-intro/">SDLC automation</a></li>
+<li>Domain 2: <a href="/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro">Configuration Management and Infrastructure as Code</a></li>
+<li>Domain 3: <a href="/2019/aws-devops-pro-certification-monitoring-and-logging">Monitoring and Logging</a></li>
+<li>Domain 4: <a href="/2019/aws-devops-pro-certification-policy-standards-automation/">Policies and Standards Automation</a></li>
+<li>Domain 5: <a href="/2019/aws-devops-pro-certification-incident-and-event-response/">Incident and Event Response</a></li>
+<li>Domain 6: <a href="/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/">High Availability, Fault Tolerance, and Disaster Recovery</a></li>
+</ul>
+
+    </article>
+    <br /><br />
+    <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </main>
+  <footer>
+  <hr>
+  <p>
+    <a href="/license/">CC BY-SA 4.0 / MIT</a>
+    -
+    <a href="https://github.com/cobalt-org/cobalt.rs">Built with Cobalt</a>
+  </p>
+  <br>
+</footer>
+
+</body>
+</html>

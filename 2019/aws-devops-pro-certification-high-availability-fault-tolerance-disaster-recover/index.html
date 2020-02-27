@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>AWS DevOps Pro Certification Blog Post Series: High Availability, Fault Tolerance and Disaster Recovery</title>
+<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
+<link rel="stylesheet" href="//writ.cmcenroe.me/1.0.2/writ.min.css">
+<link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+<link rel="alternate" href="/rss.xml" type="application/rss+xml" title="RSS" />
+<meta name="author" content="Mark Sta Ana">
+<meta name="description" content="Personal website of Mark Sta Ana, aged 7 3/4."/>
+<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" /> 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-101141559-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+<body data-route=blog>
+  <nav class="menu">
+  <a class="menu-item " href="/about/">booyaa</a>
+  <a class="menu-item current" href="/">blog</a>
+  <a class="menu-item " href="/talks">talks</a>
+  <a class="menu-item" href="/search/">search</a>
+  <a class="menu-item" href="/archive/">archive</a>
+  <a class="menu-item icon" href="http://github.com/booyaa"><i class="fa fa-github"></i></a>
+  <a class="menu-item icon" href="http://twitter.com/booyaa"><i class="fa fa-twitter"></i></a>
+  <a class="menu-item icon" href="/rss.xml"><i class="fa fa-rss"></i></a>
+  <hr>
+</nav>
+
+  <main>
+    <article>
+      <h1>AWS DevOps Pro Certification Blog Post Series: High Availability, Fault Tolerance and Disaster Recovery</h1>
+       
+      
+      
+      								
+          
+    	 
+
+			<time pubdate="pubdate">Jun 08, 2019 - Reading time: 3 minutes.</time><br />
+      
+      <p><em>This is part of the blog post series: <a href="/2019/aws-devops-pro-certification-intro/">AWS DevOps Pro Certification</a></em></p>
+<h2>What does the exam guide say?</h2>
+<p>To pass this domain, you'll need to know the following:</p>
+<ul>
+<li>Determine appropriate use of multi-AZ versus multi-region architectures</li>
+<li>Determine how to implement high availability, scalability, and fault tolerance</li>
+<li>Determine the right services based on business needs (e.g., RTO/RPO, cost)</li>
+<li>Determine how to design and automate disaster recovery strategies</li>
+<li>Evaluate a deployment for points of failure</li>
+</ul>
+<p>This domain is <strong>16%</strong> of the overall mark for the exam.</p>
+<h2>What whitepapers are relevant?</h2>
+<p>According to the <a href="https://aws.amazon.com/whitepapers">AWS Whitepapers</a> page we should look at the following documents:</p>
+<ul>
+<li><a href="https://d1.awsstatic.com/whitepapers/Storage/Backup_and_Recovery_Approaches_Using_AWS.pdf">Backup and Recovery Approaches Using AWS (June 2016)</a></li>
+<li><a href="https://d1.awsstatic.com/whitepapers/aws-building-fault-tolerant-applications.pdf">Building Fault-Tolerant Applications on AWS (October 2011)</a></li>
+</ul>
+<h2>What services and products covered in this domain?</h2>
+<ul>
+<li><a href="https://aws.amazon.com/single-sign-on/">AWS Single Sign-On</a> is Amazon's managed SSO service allow your users to sign in to AWS and other connected services using your existing Microsoft Active Directory (AD).</li>
+<li><a href="https://aws.amazon.com/cloudfront/">Amazon CloudFront</a> is a managed Content Delivery Network (CDN) service.</li>
+<li>Autoscaling resources - Amazon has two offerings <a href="https://aws.amazon.com/autoscaling/">Amazon Autoscaling</a> and <a href="https://aws.amazon.com/ec2/autoscaling/">Amazon EC2 Auto Scaling</a></li>
+<li><a href="https://aws.amazon.com/route53/">Amzon Route 53</a> is a managed Domain Name Service (DNS).</li>
+<li>Databases
+<ul>
+<li><a href="https://aws.amazon.com/rds/">Amazon RDS</a> is a managed relational database service with a large choice of engines: Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database and SQL Server.
+<ul>
+<li><a href="https://aws.amazon.com/rds/aurora/">Amazon Aurora</a> is part of the RDS offering but is unique in that it provides compatibility with MySQL and PostgreSQL engines whilst outperforming them considerably (5x for MySQL and 3x for PostgreSQL).</li>
+</ul>
+</li>
+<li><a href="https://aws.amazon.com/dynamodb/">Amazon DynamoDB</a> is a managed NoSQL (non-relational) database service that can be used for storing key-value pairs or document based records.</li>
+</ul>
+</li>
+</ul>
+<h2>What about other types of documentation?</h2>
+<p>If you have the time, by all means, read the User Guides, but they are usually a couple of hundred pages.</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">Amazon Single-Sign On</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/index.html">Amazon CloudFront</a></li>
+<li><a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/">Amazon Autoscaling</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/index.html">Amazon EC2 Autoscaling</a></li>
+<li><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/index.html">Amazon Route53</a></li>
+<li>Databases
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/index.html">Amazon RDS</a>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/index.html">Amazon Aurora</a></li>
+</ul>
+</li>
+<li><a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/">Amazon DynamoDB</a></li>
+</ul>
+</li>
+</ul>
+<p>Alternatively, get familiar with the services using the FAQs:</p>
+<ul>
+<li><a href="https://aws.amazon.com/single-sign-on/faqs/">Amazon Single-Sign On</a></li>
+<li><a href="https://aws.amazon.com/cloudfront/faqs/?nc=sn&amp;loc=6">Amazon CloudFront</a></li>
+<li><a href="https://aws.amazon.com/autoscaling/faqs/">Amazon Autoscaling</a> and <a href="https://aws.amazon.com/ec2/autoscaling/faqs/">Amazon EC2 Autoscaling</a></li>
+<li><a href="https://aws.amazon.com/route53/faqs/">Amazon Route53</a></li>
+<li>Databases
+<ul>
+<li><a href="https://aws.amazon.com/rds/faqs/">Amazon RDS</a>
+<ul>
+<li><a href="https://aws.amazon.com/rds/aurora/faqs/">Amazon Aurora</a></li>
+</ul>
+</li>
+<li><a href="https://aws.amazon.com/dynamodb/faqs/">Amazon DynamoDB</a></li>
+</ul>
+</li>
+</ul>
+<p>You're all expected to know the APIs</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/Welcome.html">Amazon CloudFront</a></li>
+<li><a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/">Amazon Autoscaling</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/index.html">Amazon EC2 Autoscaling</a></li>
+<li><a href="https://docs.aws.amazon.com/Route53/latest/APIReference/index.html">Amazon Route53</a></li>
+<li>Databases
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/index.html">Amazon RDS</a>
+<ul>
+<li>Amazon Aurora uses the same API as <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/index.html">RDS</a></li>
+</ul>
+</li>
+<li><a href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/">Amazon DynamoDB</a></li>
+</ul>
+</li>
+</ul>
+<p>Before you panic, you'll start to spot a pattern with the API verbs.</p>
+<p>And the CLI commands</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/cli/latest/reference/cloudfront/index.html">Amazon CloudFront</a></li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/reference/autoscaling-plans/index.html">Amazon Autoscaling</a> and <a href="https://docs.aws.amazon.com/cli/latest/reference/autoscaling/index.html">Amazon EC2 Autoscaling</a></li>
+<li>Amazon Route53 has three subcommands: <a href="https://docs.aws.amazon.com/cli/latest/reference/route53/index.html">DNS and Healthchecking</a>, <a href="https://docs.aws.amazon.com/cli/latest/reference/servicediscovery/index.html">Service Discovery</a> and <a href="https://docs.aws.amazon.com/cli/latest/reference/route53domains/index.html">Domain Registration</a></li>
+<li>Databases
+<ul>
+<li><a href="https://docs.aws.amazon.com/cli/latest/reference/rds/index.html">Amazon RDS</a>
+<ul>
+<li>Amazon Aurora uses the same CLI as <a href="https://docs.aws.amazon.com/cli/latest/reference/rds/index.html">RDS</a></li>
+</ul>
+</li>
+<li>Amazon DynamoDB has two sub commands: <a href="https://docs.aws.amazon.com/cli/latest/reference/dynamodb/index.html">dynamodb</a> and <a href="https://docs.aws.amazon.com/cli/latest/reference/dynamodbstreams/index.html">dynamodbstreams</a></li>
+</ul>
+</li>
+</ul>
+<p>As with the API, there are patterns to the commands.</p>
+<h2>High Availability, Fault Tolerance and Disaster Recovery, oh my!</h2>
+<p>Let's the basics out of the way and discuss the core concepts around this domain.</p>
+<p>I'm going to use an excellent example provided by Patrick Benson in his blog post: <a href="http://www.pbenson.net/2014/02/the-difference-between-fault-tolerance-high-availability-disaster-recovery/">The Difference Between Fault Tolerance, High Availability, &amp; Disaster Recovery</a></p>
+<p>An airplane has multiple engines and can operate with the loss of one or more engines. The design of the airplane has been made it resilient to falling out of the sky because of engine failure. This design is <strong>fault tolerant</strong>.</p>
+<p>In terms of infrastructure, this is likely to be a managed service like RDS, where under the hood the database engine has multiple disks and CPUs to cope with catastrophic failure.</p>
+<p>Whereas spare tire in car, isn't fault tolerant i.e. you have to stop change the tire, but having the spare tire in the first place makes the car still <strong>highly available</strong>. In terms of infrastructure is any type of technology like an autoscaling group.</p>
+<p>It's very common for a solution to implement a system that is fault tolerant (resilience) and highly available (scalable).</p>
+<p>Finally, ejector seats in Fighter aircraft are <strong>disaster recovery</strong> (DR) measure. The goal is to preserve the pilot, or in our case, the service after all other measures have failed (Fault Tolerance and HA).</p>
+<p>Often in terms of infrastructure, this might be a standby infrastructure or database replica in a different AWS region and using Route 53 to point to the stand by infrastructure. Whilst it's still common for DR strategies to be manual, for this domain we'll be expected to provide an automated solution.</p>
+<!-- product meta links -->
+<!-- white papers -->
+<!-- domain intro -->
+<h2>AWS DevOps Pro Certification Blog Post Series</h2>
+<ul>
+<li><a href="/2019/aws-devops-pro-certification-intro/">Intro</a></li>
+<li>Domain 1: <a href="/2019/aws-devops-pro-certification-sdlc-intro/">SDLC automation</a></li>
+<li>Domain 2: <a href="/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/">Configuration Management and Infrastructure as Code</a></li>
+<li>Domain 3: <a href="/2019/aws-devops-pro-certification-monitoring-and-logging">Monitoring and Logging</a></li>
+<li>Domain 4: <a href="/2019/aws-devops-pro-certification-policy-standards-automation/">Policies and Standards Automation</a></li>
+<li>Domain 5: <a href="/2019/aws-devops-pro-certification-incident-and-event-response/">Incident and Event Response</a></li>
+<li>Domain 6: High Availability, Fault Tolerance, and Disaster Recovery
+<ul>
+<li><a href="/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/">Amazon Single-Sign On</a></li>
+<li><a href="/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/">Amazon CloudFront</a></li>
+<li><a href="/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/">Auto Scaling</a></li>
+<li><a href="/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/">Amazon Route53</a></li>
+<li>Databases
+<ul>
+<li>Amazon RDS</li>
+<li>Amazon Aurora</li>
+<li>Amazon DynamoDB</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </article>
+    <br /><br />
+    <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </main>
+  <footer>
+  <hr>
+  <p>
+    <a href="/license/">CC BY-SA 4.0 / MIT</a>
+    -
+    <a href="https://github.com/cobalt-org/cobalt.rs">Built with Cobalt</a>
+  </p>
+  <br>
+</footer>
+
+</body>
+</html>

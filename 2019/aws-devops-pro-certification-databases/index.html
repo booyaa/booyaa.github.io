@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>AWS DevOps Pro Certification Blog Post Series: Databases</title>
+<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
+<link rel="stylesheet" href="//writ.cmcenroe.me/1.0.2/writ.min.css">
+<link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+<link rel="alternate" href="/rss.xml" type="application/rss+xml" title="RSS" />
+<meta name="author" content="Mark Sta Ana">
+<meta name="description" content="Personal website of Mark Sta Ana, aged 7 3/4."/>
+<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" /> 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-101141559-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+<body data-route=blog>
+  <nav class="menu">
+  <a class="menu-item " href="/about/">booyaa</a>
+  <a class="menu-item current" href="/">blog</a>
+  <a class="menu-item " href="/talks">talks</a>
+  <a class="menu-item" href="/search/">search</a>
+  <a class="menu-item" href="/archive/">archive</a>
+  <a class="menu-item icon" href="http://github.com/booyaa"><i class="fa fa-github"></i></a>
+  <a class="menu-item icon" href="http://twitter.com/booyaa"><i class="fa fa-twitter"></i></a>
+  <a class="menu-item icon" href="/rss.xml"><i class="fa fa-rss"></i></a>
+  <hr>
+</nav>
+
+  <main>
+    <article>
+      <h1>AWS DevOps Pro Certification Blog Post Series: Databases</h1>
+       
+      
+      
+      								
+          
+    	 
+
+			<time pubdate="pubdate">Jun 14, 2019 - Reading time: 6 minutes.</time><br />
+      
+      <p><em>This is part of the blog post series: <a href="/2019/aws-devops-pro-certification-intro/">AWS DevOps Pro Certification</a></em></p>
+<h2>Caveat emptor</h2>
+<p>Using AWS costs money, some of these services may not be part of the AWS <a href="https://aws.amazon.com/free/">Free Tier</a>. You can keep costs down by tearing down anything you've created whilst learning, but it's still possible to run up a hefty bill so pay attention to the instances you setup!</p>
+<p>I'm very lucky to be able to use my employer's AWS account. You should ask your place of work if a similar arrangement can be made as part of your study.</p>
+<h2>Velocius quam asparagi conquantur</h2>
+<p>The format of the blog posts is liable to change as I try to refine my mental model of each domain, so be sure to revisit the blog posts on a regular basis.</p>
+<h2>What?</h2>
+<p><strong>Amazon RDS</strong> is a managed service for Relational Database engines Service (RDS). AWS supports the following engines:</p>
+<ul>
+<li>MySQL is an open source database engine</li>
+<li>MariaDB is a fork of MySQL when the former was acquired by Oracle (through the <a href="https://en.wikipedia.org/wiki/MySQL">acquisition</a> of Sun Systems)</li>
+<li>PostgreSQL is an open source database engine</li>
+<li>Oracle is a commercial engine by Oracle</li>
+<li>SQL Server is a commercial engine by Microsoft</li>
+<li>Amazon Aurora is a MySQL / Postgres compatible relational database engine</li>
+</ul>
+<p><strong>Amazon DynamoDB</strong> is a proprietary NoSQL database service offered by Amazon.</p>
+<h2>Why?</h2>
+<p>Managed services for database engines like all managed service remove key concerns:</p>
+<ul>
+<li>provisioning/scaling/termination of servers that host the database engines</li>
+<li>maintenance of servers (patching)</li>
+<li>backups and restores</li>
+</ul>
+<p>These concerns often affect the ability to provide a database server that is fault-tolerant, highly available and has a contingency for disaster recovery.</p>
+<p>N.B. there's a caveat around storage scaling that it won't be applicable to SQL Server instances. The details can be found in the <a href="https://aws.amazon.com/rds/sqlserver/faqs/">SQL Server FAQs: Why can’t I scale my storage?</a>.</p>
+<p>To understand the difference between Amazon RDS and Amazon DynamoDB, I've provided the following examples:</p>
+<p>Relational database engines (sometimes referred to as RDBMS) are tabular in natural, you can think of it visually as a spreadsheet with fields as the column headers and the rows being a single record of data. The term &quot;relational&quot; comes from the ability to link tables through a foreign key, an example of this might be a list of <code>developer</code>s and their favourite <code>food</code>s. The link would be a column in the <code>developers</code> table called <code>food_id</code>, which would reference the column called <code>id</code> in the <code>food</code> table.</p>
+<p><code>developer</code>(s) table</p>
+<table><thead><tr><th>id</th><th>name</th><th>food_id</th></tr></thead><tbody>
+<tr><td>1</td><td>alice</td><td>1</td></tr>
+<tr><td>2</td><td>bob</td><td>1</td></tr>
+<tr><td>3</td><td>carol</td><td>2</td></tr>
+</tbody></table>
+<p><code>food</code>(s) table</p>
+<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody>
+<tr><td>1</td><td>banana</td></tr>
+<tr><td>2</td><td>nuts</td></tr>
+</tbody></table>
+<p>If you were to delete nuts (id: <code>2</code>) from the <code>food</code> table you would trigger an error warning there were dependencies in the <code>developer</code> table.</p>
+<p>The key takeaway from this example is to remember Relational Databases store records tabularly in rows.</p>
+<p>NoSQL database engines are a bit of a catch-all, but in essence, if you don't store your data tabularly you're probably a NoSQL database engine. Amazon DynamoDB is a Key/Value pair and Document store. Key/Value store allows you to store data like a Hash (associative array/dictionary), you provide a <code>key</code> and the value is returned, you may have used one without knowing as they're often referred to as cache servers i.e. Redis. Document stores allow you to data in a structured way common formats are XML and JSON, often these are the database engines most people associate with NoSQL i.e. CouchDB and MongoDB.</p>
+<h2>When?</h2>
+<p>Amazon Aurora provides a compatible engine that is 3x faster than PostgreSQL and 5x faster than MySQL. In terms of cost-effectiveness, you need to compare the other RDS engines as a multi-AZ deployment and memory optimised instances.</p>
+<p>Things that set it apart from the other RDS offerings in terms of this domain are:</p>
+<ul>
+<li>Aurora can failover over to 1 of (up to) 15 read replicas with low impact to the primary instance.
+<ul>
+<li>You can use MySQL replicas instead of Aurora native, but you're limited to 5 replicas and there's a high impact to the primary instance.</li>
+<li>The order which replicas are promoted to primary can be customised.</li>
+</ul>
+</li>
+<li>Data is stored in 10GB chunks with 6 copies replicated across three availability zone.
+<ul>
+<li>Aurora will continue to handle:
+<ul>
+<li>write capability with the loss of 2 copies of data</li>
+<li>read capability with the loss of 3 copies of data</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The data blocks and disks are scanned for errors and repaired automatically</li>
+</ul>
+<p>Amazon RDS can be part of your disaster recovery strategy by keeping replicas of your production Oracle or SQL Server database servers.</p>
+<p>Amazon DynamoDB requires a lot more consideration to make use of its features that make it relevant to this domain. Choosing the wrong scheme for partition keys can see your database starved of I/O.</p>
+<p>Things to consider:</p>
+<ul>
+<li>You pay for the number of I/O you use (rather than instance size) the size of units is in kilobytes and vary depending on the type of I/O operation:
+<ul>
+<li>Read Capacity Unit (RCU) are measured in 4KB blocks, so an 8KB block of data would consume 2 RCUs</li>
+<li>Write Capacity Unit (WCU) are measured in 1KB blocks, so a 5KB block of data would consume 5 WCUs</li>
+<li>Data in tables are stored as 10GB partitions that can handle 3K RCU and 1K WCU
+<ul>
+<li>As you expand the table into more 10GB partitions, the RCU and WCU are distributed across the partitions i.e. if you 2 partitions then you have a max of 1.5K RCUs and 0.5K WCUs across the 2 partitions.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Terminology
+<ul>
+<li>Table (highest level unit for Dynamo DB)</li>
+<li>Item (a record)</li>
+<li>Attributes (columns or fields of a record)</li>
+<li>Primary Keys can consist of
+<ul>
+<li>just a Partition Key (which is often referred to as a Primary Index and is used to query the table)</li>
+<li>the partition key and sort key this is known as a composite primary key</li>
+</ul>
+</li>
+<li>Secondary Indexes (allows you to query on a different attribute)
+<ul>
+<li>Local - requires the same partition key, but the sort key can be different</li>
+<li>Global - can have a different attribute for the partition and sort keys</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Strategies for write-heavy use cases it's recommended you add a randomly generated number from a predetermined range. e.g. if Partition Key is a composite attribute based on invoice number (1234), then you would suffice the randomly generated number (1) to the end, so the composite key would be: <code>1234</code>-<code>1</code>.</li>
+</ul>
+<p>Further reading:</p>
+<ul>
+<li><a href="http://serverlessarchitecture.com/2016/03/22/aws-dynamodb-cheat-sheet/">AWS DynamoDB Cheat Sheet</a></li>
+<li><a href="https://read.korzh.cloud/aws-dynamodb-partitions-and-key-design-56688bee8502">AWS DynamoDB Partitions and Key Design</a></li>
+<li><a href="https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/">AWS DynamoDB: Choosing the right partition key</a></li>
+<li><a href="https://www.dynamodbguide.com/key-concepts/">Key concepts of DynamoDB</a></li>
+</ul>
+<h2>How?</h2>
+<p>Amazon Aurora requires you to choose your engine compatibility i.e. MySQL or PostgreSQL after which you define:</p>
+<ul>
+<li>Create DB Cluster Parameter Group (parameters to be applied to all instance in a DB cluster)</li>
+<li>Create DB Cluster (the group of instances associated with a DB cluster)</li>
+<li>Create the Database Instance (adds a new instance to a DB cluster)</li>
+</ul>
+<p>The AWS CLI features a cli <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-dynamodb.html">walkthrough</a> of how to provision a table, store an item, perform a query. It should be noted that as a rule of thumb you would probably use the [AWS SDK][aws_sdk] to store and retrieve data from DynamoDB.</p>
+<h2>API and CLI features and verbs</h2>
+<h3>Amazon RDS</h3>
+<h4>Features</h4>
+<ul>
+<li>DB (Cluster) Parameter Group</li>
+<li>Db Cluster</li>
+<li>DB Instance</li>
+<li>DB (Cluster) Snapshot</li>
+</ul>
+<h4>Verbs (CRUD)</h4>
+<ul>
+<li>create/copy</li>
+<li>describe</li>
+<li>modify</li>
+<li>delete</li>
+</ul>
+<h4>Outliers</h4>
+<p>Not my best work will see if I can optimise this list.</p>
+<ul>
+<li>add-option-to-option-group</li>
+<li>add-role-to-db-cluster</li>
+<li>add-role-to-db-instance</li>
+<li>add-source-identifier-to-subscription</li>
+<li>add-tags-to-resource</li>
+<li>apply-pending-maintenance-action</li>
+<li>authorize-db-security-group-ingress</li>
+<li>backtrack-db-cluster</li>
+<li>copy-option-group</li>
+<li>create-db-cluster-endpoint</li>
+<li>create-db-instance-read-replica</li>
+<li>create-db-security-group</li>
+<li>create-db-subnet-group</li>
+<li>create-event-subscription</li>
+<li>create-global-cluster</li>
+<li>create-option-group</li>
+<li>delete-db-cluster-endpoint</li>
+<li>delete-db-instance-automated-backup</li>
+<li>delete-db-parameter-group</li>
+<li>delete-db-security-group</li>
+<li>delete-db-snapshot</li>
+<li>delete-db-subnet-group</li>
+<li>delete-event-subscription</li>
+<li>delete-global-cluster</li>
+<li>delete-option-group</li>
+<li>describe-account-attributes</li>
+<li>describe-certificates</li>
+<li>describe-db-cluster-backtracks</li>
+<li>describe-db-cluster-endpoints</li>
+<li>describe-db-cluster-parameters</li>
+<li>describe-db-cluster-snapshot-attributes</li>
+<li>describe-db-engine-versions</li>
+<li>describe-db-instance-automated-backups</li>
+<li>describe-db-log-files</li>
+<li>describe-db-parameter-groups</li>
+<li>describe-db-parameters</li>
+<li>describe-db-security-groups</li>
+<li>describe-db-snapshot-attributes</li>
+<li>describe-db-subnet-groups</li>
+<li>describe-engine-default-cluster-parameters</li>
+<li>describe-engine-default-parameters</li>
+<li>describe-event-categories</li>
+<li>describe-event-subscriptions</li>
+<li>describe-events</li>
+<li>describe-global-clusters</li>
+<li>describe-option-group-options</li>
+<li>describe-option-groups</li>
+<li>describe-orderable-db-instance-options</li>
+<li>describe-pending-maintenance-actions</li>
+<li>describe-reserved-db-instances</li>
+<li>describe-reserved-db-instances-offerings</li>
+<li>describe-source-regions</li>
+<li>describe-valid-db-instance-modifications</li>
+<li>download-db-log-file-portion</li>
+<li>failover-db-cluster</li>
+<li>generate-db-auth-token</li>
+<li>list-tags-for-resource</li>
+<li>modify-current-db-cluster-capacity</li>
+<li>modify-db-cluster-endpoint</li>
+<li>modify-db-cluster-snapshot-attribute</li>
+<li>modify-db-snapshot-attribute</li>
+<li>modify-db-subnet-group</li>
+<li>modify-event-subscription</li>
+<li>modify-global-cluster</li>
+<li>promote-read-replica</li>
+<li>promote-read-replica-db-cluster</li>
+<li>purchase-reserved-db-instances-offering</li>
+<li>reboot-db-instance</li>
+<li>remove-from-global-cluster</li>
+<li>remove-option-from-option-group</li>
+<li>remove-role-from-db-cluster</li>
+<li>remove-role-from-db-instance</li>
+<li>remove-source-identifier-from-subscription</li>
+<li>remove-tags-from-resource</li>
+<li>reset-db-cluster-parameter-group</li>
+<li>reset-db-parameter-group</li>
+<li>restore-db-cluster-from-s3</li>
+<li>restore-db-cluster-from-snapshot</li>
+<li>restore-db-cluster-to-point-in-time</li>
+<li>restore-db-instance-from-db-snapshot</li>
+<li>restore-db-instance-from-s3</li>
+<li>restore-db-instance-to-point-in-time</li>
+<li>revoke-db-security-group-ingress</li>
+<li>start-activity-stream</li>
+<li>start-db-cluster</li>
+<li>start-db-instance</li>
+<li>stop-activity-stream</li>
+<li>stop-db-cluster</li>
+<li>stop-db-instance</li>
+<li>wait</li>
+</ul>
+<h3>Amazon DynamoDB</h3>
+<h4>Features</h4>
+<ul>
+<li>Item</li>
+<li>Backup</li>
+<li>(Global) Table</li>
+</ul>
+<h4>Verbs (CRUD)</h4>
+<ul>
+<li>create (global table, table and backup)</li>
+<li>describe/list (global table, table and backup), get-item, batch-get-item</li>
+<li>update (global table, table and backup), put-item, batch-put-item</li>
+<li>delete</li>
+</ul>
+<h4>Outliers</h4>
+<ul>
+<li>describe-continuous-backups</li>
+<li>describe-endpoints</li>
+<li>describe-global-table-settings</li>
+<li>describe-limits</li>
+<li>describe-time-to-live</li>
+<li>list-tags-of-resource</li>
+<li>query</li>
+<li>restore-table-from-backup</li>
+<li>restore-table-to-point-in-time</li>
+<li>scan</li>
+<li>tag-resource</li>
+<li>transact-get-items</li>
+<li>transact-write-items</li>
+<li>untag-resource</li>
+<li>update-continuous-backups</li>
+<li>update-global-table-settings</li>
+<li>update-time-to-live</li>
+<li>wait</li>
+</ul>
+<!-- Links -->
+<h2>AWS DevOps Pro Certification Blog Post Series</h2>
+<ul>
+<li><a href="/2019/aws-devops-pro-certification-intro/">Intro</a></li>
+<li>Domain 1: <a href="/2019/aws-devops-pro-certification-sdlc-intro/">SDLC automation</a></li>
+<li>Domain 2: <a href="/2019/aws-devops-pro-certification-configuration-management-and-infrastructure-as-code-intro/">Configuration Management and Infrastructure as Code</a></li>
+<li>Domain 3: <a href="/2019/aws-devops-pro-certification-monitoring-and-logging/">Monitoring and Logging</a></li>
+<li>Domain 4: <a href="/2019/aws-devops-pro-certification-policy-standards-automation/">Policies and Standards Automation</a></li>
+<li>Domain 5: <a href="/2019/aws-devops-pro-certification-incident-and-event-response/">Incident and Event Response</a></li>
+<li>Domain 6: <a href="/2019/aws-devops-pro-certification-high-availability-fault-tolerance-disaster-recover/">High Availability, Fault Tolerance, and Disaster Recovery</a>
+<ul>
+<li><a href="/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/">Amazon Single-Sign On</a></li>
+<li><a href="/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/">Amazon CloudFront</a></li>
+<li><a href="/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/">Auto Scaling</a></li>
+<li><a href="/2019/aws-devops-pro-certification-sso-cloudfront-autoscaling-route53/">Amazon Route53</a></li>
+<li>Databases
+<ul>
+<li>Amazon RDS</li>
+<li>Amazon Aurora</li>
+<li>Amazon DynamoDB</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </article>
+    <br /><br />
+    <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </main>
+  <footer>
+  <hr>
+  <p>
+    <a href="/license/">CC BY-SA 4.0 / MIT</a>
+    -
+    <a href="https://github.com/cobalt-org/cobalt.rs">Built with Cobalt</a>
+  </p>
+  <br>
+</footer>
+
+</body>
+</html>
